@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridCol should match the snapshot 1`] = `
+.c0 {
+  background-color: transparent;
+  grid-column-end: span 12;
+}
+
+@media (min-width:320px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:375px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:425px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:768px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:1024px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:1440px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:2560px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+@media (min-width:2560px) {
+  .c0 {
+    grid-column-end: span;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

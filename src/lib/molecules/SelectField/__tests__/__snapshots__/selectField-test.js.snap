@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectField should match the snapshot 1`] = `
+<styled.div
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  width="100%"
+>
+  <Input
+    handleChange={[Function]}
+    handleFocus={[Function]}
+    placeholder=""
+    value=""
+  />
+  <Select
+    onClick={[Function]}
+    options={Array []}
+    selected=""
+    visible={false}
+    width="100%"
+  />
+  <Styled(FaCaretDown) />
+</styled.div>
+`;
+
+exports[`SelectField should match the snapshot with options 1`] = `
+<styled.div
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+  width="100%"
+>
+  <Input
+    handleChange={[Function]}
+    handleFocus={[Function]}
+    placeholder=""
+    value=""
+  />
+  <Select
+    onClick={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "Label",
+          "value": "Value",
+        },
+      ]
+    }
+    selected="Value"
+    visible={false}
+    width="100%"
+  />
+  <Styled(FaCaretDown) />
+</styled.div>
+`;

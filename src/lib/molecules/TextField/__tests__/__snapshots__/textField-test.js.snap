@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextField should match the snapshot 1`] = `
+<styled.div>
+  <styled.label>
+    <Input
+      type="text"
+    />
+    <Label
+      label=""
+    />
+    <styled.span
+      background="#0247fe"
+    />
+  </styled.label>
+  <FieldLabel
+    label=""
+  />
+</styled.div>
+`;

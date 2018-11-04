@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Checkbox should match the snapshot 1`] = `
+<styled.div>
+  <Paper
+    background="#ffffff"
+    padding="10px"
+    width="100%"
+  />
+</styled.div>
+`;

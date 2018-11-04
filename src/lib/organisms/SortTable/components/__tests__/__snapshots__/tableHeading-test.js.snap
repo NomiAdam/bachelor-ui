@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableHeading should match the snapshot 1`] = `
+<thead>
+  <styled.tr
+    effect={true}
+  />
+</thead>
+`;
+
+exports[`TableHeading should match the snapshot 2`] = `
+<thead>
+  <styled.tr
+    effect={true}
+  />
+</thead>
+`;
+
+exports[`TableHeading should match the snapshot when editable 1`] = `
+<thead>
+  <styled.tr
+    effect={true}
+  >
+    <TableHeadingCell
+      beingSorted={false}
+      editable={true}
+      label=""
+    />
+  </styled.tr>
+</thead>
+`;

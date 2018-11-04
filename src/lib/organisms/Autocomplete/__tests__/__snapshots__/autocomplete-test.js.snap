@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Autocomplete should match the snapshot 1`] = `
+<styled.div
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+>
+  <Input
+    handleChange={[Function]}
+    handleFocus={[Function]}
+    placeholder=""
+    value=""
+  />
+  <Select
+    handleKeyPress={[Function]}
+    onClick={[Function]}
+    selected=""
+    suggestions={Array []}
+    visible={false}
+  />
+</styled.div>
+`;
+
+exports[`Autocomplete should match the snapshot with suggestions 1`] = `
+<styled.div
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+>
+  <Input
+    handleChange={[Function]}
+    handleFocus={[Function]}
+    placeholder=""
+    value=""
+  />
+  <Select
+    handleKeyPress={[Function]}
+    onClick={[Function]}
+    selected="Value"
+    suggestions={
+      Array [
+        Object {
+          "label": "Label",
+          "value": "Value",
+        },
+      ]
+    }
+    visible={false}
+  />
+</styled.div>
+`;

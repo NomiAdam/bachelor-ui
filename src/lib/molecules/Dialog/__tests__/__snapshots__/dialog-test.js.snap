@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog should match the snapshot 1`] = `
+<Overlay
+  backColor="#ffffff"
+  background="rgba(0, 0, 0, 0.2)"
+  displayHeading={false}
+  handleClose={[Function]}
+  isOpen={false}
+  verticalPosition="center"
+>
+  <DialogWindow
+    renderActionChildren={[Function]}
+  />
+</Overlay>
+`;
+
+exports[`Dialog should match the snapshot when open 1`] = `
+<Overlay
+  backColor="#ffffff"
+  background="rgba(0, 0, 0, 0.2)"
+  displayHeading={false}
+  handleClose={[Function]}
+  isOpen={true}
+  verticalPosition="center"
+>
+  <DialogWindow
+    renderActionChildren={[Function]}
+  />
+</Overlay>
+`;
+
+exports[`Dialog should match the snapshot with children 1`] = `
+<Overlay
+  backColor="#ffffff"
+  background="rgba(0, 0, 0, 0.2)"
+  displayHeading={false}
+  handleClose={[Function]}
+  isOpen={true}
+  verticalPosition="center"
+>
+  <DialogWindow
+    renderActionChildren={[Function]}
+  >
+    <h1>
+      Mock
+    </h1>
+  </DialogWindow>
+</Overlay>
+`;

@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AutocompleteSelect should match the snapshot 1`] = `
+<styled.div
+  isEmpty={true}
+/>
+`;
+
+exports[`AutocompleteSelect should match the snapshot with suggestions 1`] = `
+<styled.div
+  isEmpty={false}
+  visible={true}
+>
+  <Option
+    key="Value"
+    onClick={[MockFunction]}
+    selected={false}
+    value="Value"
+  />
+</styled.div>
+`;

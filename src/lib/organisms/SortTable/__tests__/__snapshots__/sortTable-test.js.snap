@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SortTable should match the snapshot 1`] = `
+<div>
+  <Paper
+    background="#ffffff"
+    overflow="auto"
+    padding="10px"
+  >
+    <Table
+      rowSpacing={false}
+    >
+      <TableHeading
+        columnData={Array []}
+        editable={false}
+        headingData={Array []}
+        onRequestSort={[Function]}
+        order="asc"
+      />
+      <TableBody
+        columnData={Array []}
+        editable={false}
+        handleDelete={[Function]}
+        handleEdit={[Function]}
+        order="asc"
+        page={1}
+        redirect={false}
+        rowsPerPage={10}
+      />
+    </Table>
+  </Paper>
+  <TablePagination
+    currentPage={1}
+    handleChangePage={[Function]}
+    handleChangeRowsPerPage={[Function]}
+    page={1}
+    rowsPerPage={10}
+    totalRows={0}
+  />
+</div>
+`;
+
+exports[`SortTable should match the snapshot when editable 1`] = `
+<div>
+  <Paper
+    background="#ffffff"
+    overflow="auto"
+    padding="10px"
+  >
+    <Table
+      rowSpacing={false}
+    >
+      <TableHeading
+        columnData={Array []}
+        editable={true}
+        headingData={Array []}
+        onRequestSort={[Function]}
+        order="asc"
+      />
+      <TableBody
+        columnData={Array []}
+        editable={true}
+        handleDelete={[Function]}
+        handleEdit={[Function]}
+        order="asc"
+        page={1}
+        redirect={false}
+        rowsPerPage={10}
+      />
+    </Table>
+  </Paper>
+  <TablePagination
+    currentPage={1}
+    handleChangePage={[Function]}
+    handleChangeRowsPerPage={[Function]}
+    page={1}
+    rowsPerPage={10}
+    totalRows={0}
+  />
+</div>
+`;

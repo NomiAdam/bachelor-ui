@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TablePagination should match the snapshot 1`] = `
+<styled.div>
+  <styled.div
+    gridGap="10px"
+    padding="10px"
+  >
+    <styled.div
+      center={true}
+      colMD={4}
+      colXS={6}
+    >
+      <styled.span>
+        Rows per page:
+      </styled.span>
+    </styled.div>
+    <styled.div
+      center={true}
+      colMD={2}
+      colXS={6}
+    >
+      <SelectField
+        options={
+          Array [
+            Object {
+              "label": 10,
+              "value": 10,
+            },
+            Object {
+              "label": 25,
+              "value": 25,
+            },
+            Object {
+              "label": 50,
+              "value": 50,
+            },
+          ]
+        }
+        placeholder=""
+        value=""
+        width="80px"
+      />
+    </styled.div>
+    <styled.div
+      center={true}
+      colMD={2}
+      colXS={12}
+    >
+      <styled.span>
+         of 
+        NaN
+      </styled.span>
+    </styled.div>
+    <styled.div
+      center={true}
+      colMD={4}
+      colXS={12}
+    >
+      <Styled(FaAngleDoubleLeft)
+        disabled={false}
+        onClick={[Function]}
+      />
+      <Styled(FaAngleLeft)
+        disabled={false}
+        onClick={[Function]}
+      />
+      <Styled(FaAngleRight)
+        disabled={false}
+        onClick={[Function]}
+      />
+      <Styled(FaAngleDoubleRight)
+        disabled={false}
+        onClick={[Function]}
+      />
+    </styled.div>
+  </styled.div>
+</styled.div>
+`;

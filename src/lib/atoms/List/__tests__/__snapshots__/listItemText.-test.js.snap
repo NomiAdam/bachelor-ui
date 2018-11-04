@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItemText should match the snapshot 1`] = `
+<styled.div
+  align="left"
+>
+  <styled.span />
+</styled.div>
+`;

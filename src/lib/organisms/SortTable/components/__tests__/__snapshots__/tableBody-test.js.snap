@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TableBody should match the snapshot 1`] = `<tbody />`;
+
+exports[`TableBody should match the snapshot when editable 1`] = `<tbody />`;

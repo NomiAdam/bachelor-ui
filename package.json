@@ -1,0 +1,89 @@
+{
+  "name": "bachelor-ui",
+  "version": "1.0.8",
+  "description": "Experimental component library using styled components",
+  "author": "NomiAdam",
+  "license": "MIT",
+  "repository": "https://github.com/NomiAdam/bachelor-ui",
+  "main": "build/lib/index.js",
+  "engines": {
+    "node": ">=8",
+    "npm": ">=5"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build": "./node_modules/.bin/webpack --mode=development",
+    "storybook": "start-storybook -p 9001 -c .storybook"
+  },
+  "dependencies": {
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/react": "^3.4.10",
+    "ramda": "^0.25.0",
+    "ramda-extension": "^0.6.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-icons": "^2.2.7",
+    "styled-components": "^4.0.3"
+  },
+  "peerDependencies": {
+    "ramda": "^0.25.0",
+    "ramda-extension": "^0.6.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-icons": "^2.2.7",
+    "styled-components": "^4.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.0-beta",
+    "babel-plugin-styled-components": "^1.8.0",
+    "babel-preset-react-app": "^6.1.0",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.9.1",
+    "jest": "^23.6.0",
+    "jest-styled-components": "^6.2.2",
+    "parcel-bundler": "^1.10.3",
+    "webpack": "^4.24.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "./jestConfig.js"
+    ],
+    "transformIgnorePatterns": [
+      "!node_modules/"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx}"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest"
+    }
+  },
+  "files": [
+    "dist"
+  ]
+}

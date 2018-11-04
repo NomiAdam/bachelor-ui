@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BounceOut should match the snapshot 1`] = `
+<styled.div
+  className="sc-bwzfXH gILiLG"
+  delay="0s"
+  direction="normal"
+  display="block"
+  duration="1s"
+  fillMode="both"
+  iterationCount="1"
+  playState="running"
+  timingFunction="ease"
+/>
+`;

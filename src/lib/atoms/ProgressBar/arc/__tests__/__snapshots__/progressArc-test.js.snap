@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProgressArc should match the snapshot 1`] = `
+<styled.div
+  height="100%"
+  width="100%"
+>
+  <styled.svg
+    viewBox="5 0 100 100"
+  >
+    <Styled(styled.path)
+      d="M30,90 A40,40 0 1,1 80,90"
+    />
+    <Styled(styled.path)
+      color="#0247fe"
+      d="M30,90 A40,40 0 1,1 80,90"
+      value={0}
+    />
+  </styled.svg>
+  <styled.p
+    labelColor="#000000"
+  />
+</styled.div>
+`;

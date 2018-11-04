@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogWindow should match the snapshot 1`] = `
+<Styled(Paper)>
+  <styled.div
+    gridGap="0"
+    padding="0"
+  >
+    <styled.div
+      colXS={12}
+    />
+    <styled.div
+      colXS={12}
+    >
+      <DialogContent />
+    </styled.div>
+    <styled.div
+      colXS={12}
+    >
+      <DialogActions>
+        <h1>
+          Mock
+        </h1>
+      </DialogActions>
+    </styled.div>
+  </styled.div>
+</Styled(Paper)>
+`;
+
+exports[`DialogWindow should match the snapshot with children 1`] = `
+<Styled(Paper)>
+  <styled.div
+    gridGap="0"
+    padding="0"
+  >
+    <styled.div
+      colXS={12}
+    />
+    <styled.div
+      colXS={12}
+    >
+      <DialogContent>
+        <h1>
+          Mock
+        </h1>
+      </DialogContent>
+    </styled.div>
+    <styled.div
+      colXS={12}
+    >
+      <DialogActions>
+        <h1>
+          Mock
+        </h1>
+      </DialogActions>
+    </styled.div>
+  </styled.div>
+</Styled(Paper)>
+`;

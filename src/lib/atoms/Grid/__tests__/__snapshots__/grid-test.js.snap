@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Grid should match the snapshot 1`] = `
+.c0 {
+  width: 100%;
+  padding: 10px;
+  display: grid;
+  grid-gap: 10px;
+  background-color: transparent;
+  grid-template-columns: repeat(12,1fr);
+  -webkit-box-pack: space-evenly;
+  -webkit-justify-content: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+}
+
+<div
+  className="c0"
+/>
+`;

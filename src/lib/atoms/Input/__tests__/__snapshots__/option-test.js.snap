@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Option should match the snapshot 1`] = `
+<option
+  className="sc-bdVaJa gMFflD"
+/>
+`;

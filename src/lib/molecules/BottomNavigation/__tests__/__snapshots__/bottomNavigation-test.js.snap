@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BottomNavigation should match the snapshot 1`] = `
+<styled.ul
+  background="#0099ff"
+>
+  <Border
+    active=""
+    color="#9a0794"
+    items={Array []}
+    percentage="0"
+  />
+</styled.ul>
+`;
+
+exports[`BottomNavigation should match the snapshot with items 1`] = `
+<styled.ul
+  background="#0099ff"
+>
+  <Border
+    active="mock"
+    color="#9a0794"
+    items={
+      Array [
+        Object {
+          "icon": null,
+          "id": "mock",
+          "label": "mock",
+        },
+        Object {
+          "icon": null,
+          "id": "mock",
+          "label": "mock",
+        },
+      ]
+    }
+    percentage="0"
+  />
+  <BottomNavigationItem
+    handleClick={[Function]}
+    icon={null}
+    key="mock"
+    label="mock"
+  />
+  <BottomNavigationItem
+    handleClick={[Function]}
+    icon={null}
+    key="mock"
+    label="mock"
+  />
+</styled.ul>
+`;

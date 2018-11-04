@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridCol should match the snapshot 1`] = `
+<styled.div>
+  <TextField
+    borderBackground="#0247fe"
+  />
+</styled.div>
+`;

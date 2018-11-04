@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabBar should match the snapshot 1`] = `
+<styled.div
+  align="flex-start"
+>
+  <Border
+    color="#9a0794"
+    items={Array []}
+    percentage="0"
+  />
+</styled.div>
+`;
+
+exports[`TabBar should match the snapshot with mockTabCells 1`] = `
+<styled.div
+  align="flex-start"
+>
+  <TabCell
+    active={false}
+    handleClick={[MockFunction]}
+    key="one"
+    label="one"
+  />
+  <TabCell
+    active={false}
+    handleClick={[MockFunction]}
+    key="two"
+    label="two"
+  />
+  <Border
+    color="#9a0794"
+    items={
+      Array [
+        "one",
+        "two",
+      ]
+    }
+    percentage="0"
+  />
+</styled.div>
+`;

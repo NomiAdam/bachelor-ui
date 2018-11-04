@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckTable should match the snapshot 1`] = `
+<Paper
+  background="#ffffff"
+  overflow="auto"
+  padding="10px"
+>
+  <Table
+    rowSpacing={true}
+  >
+    <ReservationTableHead
+      dayHours={Array []}
+    />
+    <ReservationTableBody
+      dayHours={Array []}
+      handleChange={[Function]}
+      isCheckbox={true}
+      rowRange={0}
+      selected={Object {}}
+    />
+  </Table>
+</Paper>
+`;
+
+exports[`CheckTable should match the snapshot with data 1`] = `
+<Paper
+  background="#ffffff"
+  overflow="auto"
+  padding="10px"
+>
+  <Table
+    rowSpacing={true}
+  >
+    <ReservationTableHead
+      dayHours={
+        Array [
+          "06:00",
+          "06:30",
+          "07:00",
+          "07:30",
+          "08:00",
+          "08:30",
+        ]
+      }
+    />
+    <ReservationTableBody
+      dayHours={Array []}
+      handleChange={[Function]}
+      isCheckbox={true}
+      rowRange={6}
+      selected={
+        Object {
+          "kurt1": Object {
+            "label": "Kurt 1",
+            "value": Array [],
+          },
+          "kurt2": Object {
+            "label": "Kurt 2",
+            "value": Array [],
+          },
+        }
+      }
+    />
+  </Table>
+</Paper>
+`;
