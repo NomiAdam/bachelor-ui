@@ -9,7 +9,6 @@ import './atoms/Heading';
 import './atoms/List/List';
 import './atoms/List/ListItem';
 import './atoms/List/ListItemText';
-import './atoms/Loader;
 import './atoms/Media';
 import './atoms/Overlay/Overlay';
 import './atoms/Overlay/OverlayHeading';
@@ -32,7 +31,7 @@ import './molecules/SearchField';
 import './molecules/SelectField';
 import './molecules/Stepper';
 import './molecules/Tab';
-import './molecules/TextField'
+import './molecules/TextField';
 
 import './organisms/ActionList';
 import './organisms/Autocomplete';
