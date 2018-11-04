@@ -1,5 +1,5 @@
-import './atoms/Button/Button';
-import './atoms/Button/RoundButton';
+import Button from './atoms/Button/Button';
+import RoundButton from './atoms/Button/RoundButton';
 import './atoms/Grid/Grid';
 import './atoms/Grid/GridCol';
 import './atoms/Grid/GridTile';
@@ -43,3 +43,5 @@ import './organisms/TreeTable';
 import './transition/Bounce';
 import './transition/Fade';
 import './transition/Slide';
+
+export { Button, RoundButton };
