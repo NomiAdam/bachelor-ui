@@ -1,6 +1,6 @@
 # bachelor-ui
 
-> Experimental component library using styled components
+> Experimental component library using styled components, note that this is highly experimental and should not be used in production, yet
 
 [![NPM](https://img.shields.io/npm/v/bachelor-ui.svg)](https://www.npmjs.com/package/bachelor-ui) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
