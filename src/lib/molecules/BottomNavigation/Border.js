@@ -1,35 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { findIndex, length, propEq, __, divide, multiply, compose } from 'ramda';
+import {
+    findIndex, length, propEq, __, divide, multiply, compose,
+} from 'ramda';
 import { basicTheme } from '../../constants/theme';
 
 const StyledBorder = styled.div`
   position: absolute;
   height: 2px;
-  width: ${({percentage}) => percentage}%;
-  background-color: ${({ color }) => color};
+  width: ${ ({ percentage }) => percentage }%;
+  background-color: ${ ({ color }) => color };
   top: 0;
-  left: ${({leftPosition}) => leftPosition}%;
+  left: ${ ({ leftPosition }) => leftPosition }%;
   transition: 1s all ease;
 `;
 
 const multiplyByHundred = multiply(100);
 const divideHundred = divide(100);
-const findActiveIndex = (active) => findIndex(propEq('id', active));
+const findActiveIndex = active => findIndex(propEq('id', active));
 
 const Border = ({ items, active, color }) => {
     const lengthOfItems = length(items);
     const percentageOfBorder = compose(
         multiplyByHundred,
         divide(__, lengthOfItems),
-        findActiveIndex(active)
+        findActiveIndex(active),
     );
     return (
         <StyledBorder
-            leftPosition={percentageOfBorder(items)}
-            percentage={divideHundred(lengthOfItems)}
-            color={color}
+            leftPosition={ percentageOfBorder(items) }
+            percentage={ divideHundred(lengthOfItems) }
+            color={ color }
         />
     );
 };
@@ -51,6 +53,7 @@ Border.propTypes = {
 
 Border.defaultProps = {
     items: [],
+    // eslint-disable-next-line react/default-props-match-prop-types
     percentage: '0',
     color: basicTheme.purple,
 };

@@ -1,14 +1,15 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   display: flex;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  justify-content: ${({ justifyContent }) => justifyContent};
-  align-items: ${({ alignItems }) => alignItems};
-  flex-direction: ${({ flexDirection }) => flexDirection};
+  width: ${ ({ width }) => width };
+  height: ${ ({ height }) => height };
+  justify-content: ${ ({ justifyContent }) => justifyContent };
+  align-items: ${ ({ alignItems }) => alignItems };
+  flex-direction: ${ ({ flexDirection }) => flexDirection };
 `;
 
 StyledContainer.propTypes = {

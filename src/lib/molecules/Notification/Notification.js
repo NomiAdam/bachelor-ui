@@ -1,8 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled, {keyframes} from 'styled-components';
-import {Grid, GridCol} from '../../atoms/Grid/index';
-import {FaClose, FaCheckCircle, FaExclamationCircle, FaExclamationTriangle, FaInfoCircle} from 'react-icons/lib/fa'
+import styled, { keyframes } from 'styled-components';
+import {
+    FaClose, FaCheckCircle, FaExclamationCircle, FaExclamationTriangle, FaInfoCircle,
+} from 'react-icons/lib/fa';
+import { Grid, GridCol } from '../../atoms/Grid/index';
 import { basicTheme, lightTheme } from '../../constants/theme';
 
 const width = 400;
@@ -20,13 +22,13 @@ const hideNotification = keyframes`
        transform:translateX(0px); 
     } 
     to {
-       transform:translateX(${width}px);  
+       transform:translateX(${ width }px);  
     }
 `;
 
 const displayNotification = keyframes`
     from {
-       transform:translateX(${width}px); 
+       transform:translateX(${ width }px); 
     } 
     to {
        transform:translateX(0px);  
@@ -41,20 +43,20 @@ const StyledWrapper = styled.div`
     align-items: center;
     position: fixed;
     overflow: hidden;
-    visibility: ${({isOpen}) => isOpen ? 'visible' : 'hidden'};
+    visibility: ${ ({ isOpen }) => (isOpen ? 'visible' : 'hidden') };
     transition: visibility .5s ease;
     top: 0;
     right: 0;
     max-width: 100%;
-    height: ${height}px;
-    background-color: ${props => variantColor[props.variant]};
-    animation: ${({isOpen}) => isOpen ? `${displayNotification} .5s linear;` : `${hideNotification} .5s linear;`};
+    height: ${ height }px;
+    background-color: ${ props => variantColor[ props.variant ] };
+    animation: ${ ({ isOpen }) => (isOpen ? `${ displayNotification } .5s linear;` : `${ hideNotification } .5s linear;`) };
     z-index: 999;	
     margin: 15px;
 `;
 
 const StyledIcon = styled(FaClose)`
-    color: ${lightTheme.white};
+    color: ${ lightTheme.white };
     font-size: 1em;
 `;
 
@@ -68,9 +70,9 @@ const StyledClose = styled(StyledIcon)`
 `;
 
 const StyledTextWrapper = styled.div`
-    width: ${width - 100}px;
+    width: ${ width - 100 }px;
     font-size: 1em;
-    color: ${lightTheme.white};
+    color: ${ lightTheme.white };
 `;
 
 const variantIcon = {
@@ -81,37 +83,38 @@ const variantIcon = {
 };
 
 class Notification extends Component {
-
     componentDidUpdate() {
-        const {onClose, open} = this.props;
+        const { onClose, open } = this.props;
         if (open) {
-            setTimeout(onClose, 5000)
+            setTimeout(onClose, 5000);
         }
-    };
+    }
 
     render() {
-        const {open, onClose, variant, message} = this.props;
-        const Icon = variantIcon[variant];
+        const {
+            open, onClose, variant, message,
+        } = this.props;
+        const Icon = variantIcon[ variant ];
         return (
-            <StyledWrapper isOpen={open} variant={variant}>
+            <StyledWrapper isOpen={ open } variant={ variant }>
                 <Grid>
-                    <GridCol colXS={1}>
-                        <Icon/>
+                    <GridCol colXS={ 1 }>
+                        <Icon />
                     </GridCol>
-                    <GridCol colXS={10}>
+                    <GridCol colXS={ 10 }>
                         <StyledTextWrapper>
-                        <span>
-                            {message}
-                        </span>
+                            <span>
+                                {message}
+                            </span>
                         </StyledTextWrapper>
                     </GridCol>
-                    <GridCol colXS={1}>
-                        <StyledClose onClick={onClose}/>
+                    <GridCol colXS={ 1 }>
+                        <StyledClose onClick={ onClose } />
                     </GridCol>
                 </Grid>
             </StyledWrapper>
         );
-    };
+    }
 }
 
 Notification.propTypes = {
@@ -137,5 +140,7 @@ Notification.defaultProps = {
     variant: 'info',
 };
 
-export {StyledWrapper, StyledAlert, StyledCheck, StyledClose, StyledInfo, StyledWarning}
+export {
+    StyledWrapper, StyledAlert, StyledCheck, StyledClose, StyledInfo, StyledWarning,
+};
 export default Notification;

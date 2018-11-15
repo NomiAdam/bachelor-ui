@@ -1,30 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should match the snapshot 1`] = `
-<styled.label>
-  <styled.input
-    type="checkbox"
-  />
-  <styled.span />
-</styled.label>
+<Grid__StyledGridWrapper
+  gridGap="10px"
+  padding="10px"
+>
+  <GridCol__StyledGridCol
+    colXS={6}
+  >
+    <Heading
+      component="h4"
+    />
+  </GridCol__StyledGridCol>
+  <GridCol__StyledGridCol
+    center={true}
+    colXS={6}
+  >
+    <Checkbox__StyledContainer>
+      <Checkbox__StyledInput
+        type="checkbox"
+      />
+      <Checkbox__StyledSpan />
+    </Checkbox__StyledContainer>
+  </GridCol__StyledGridCol>
+</Grid__StyledGridWrapper>
 `;
 
 exports[`Checkbox should match the snapshot when checked 1`] = `
-<styled.label>
-  <styled.input
-    checked={true}
-    type="checkbox"
-  />
-  <styled.span />
-</styled.label>
+<Grid__StyledGridWrapper
+  gridGap="10px"
+  padding="10px"
+>
+  <GridCol__StyledGridCol
+    colXS={6}
+  >
+    <Heading
+      component="h4"
+    />
+  </GridCol__StyledGridCol>
+  <GridCol__StyledGridCol
+    center={true}
+    colXS={6}
+  >
+    <Checkbox__StyledContainer>
+      <Checkbox__StyledInput
+        checked={true}
+        type="checkbox"
+      />
+      <Checkbox__StyledSpan />
+    </Checkbox__StyledContainer>
+  </GridCol__StyledGridCol>
+</Grid__StyledGridWrapper>
 `;
 
 exports[`Checkbox should match the snapshot with label 1`] = `
-<styled.label>
-  Mock
-  <styled.input
-    type="checkbox"
-  />
-  <styled.span />
-</styled.label>
+<Grid__StyledGridWrapper
+  gridGap="10px"
+  padding="10px"
+>
+  <GridCol__StyledGridCol
+    colXS={6}
+  >
+    <Heading
+      component="h4"
+      label="Mock"
+    />
+  </GridCol__StyledGridCol>
+  <GridCol__StyledGridCol
+    center={true}
+    colXS={6}
+  >
+    <Checkbox__StyledContainer>
+      <Checkbox__StyledInput
+        type="checkbox"
+      />
+      <Checkbox__StyledSpan />
+    </Checkbox__StyledContainer>
+  </GridCol__StyledGridCol>
+</Grid__StyledGridWrapper>
 `;

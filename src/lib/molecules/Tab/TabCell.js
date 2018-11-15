@@ -9,7 +9,7 @@ const StyledTabButton = styled.button`
     border-color: transparent;
     font-size: .95em;
     text-transform: uppercase;
-    color: ${({ active }) => active ? lightTheme.whiteBlue : lightTheme.white};
+    color: ${ ({ active }) => (active ? lightTheme.whiteBlue : lightTheme.white) };
     outline: none;
     cursor: pointer;
     width: 100%;
@@ -18,7 +18,7 @@ const StyledTabButton = styled.button`
     overflow: hidden;
     &:after {
 	    content: "";
-        background: ${lightTheme.whiteBlue};
+        background: ${ lightTheme.whiteBlue };
         display: block;
         position: absolute;
         padding-top: 350%;
@@ -39,8 +39,8 @@ const StyledTabButton = styled.button`
 	}
 `;
 
-const TabCell = ({handleClick, label, active}) => (
-    <StyledTabButton onClick={handleClick(label)} active={active} >{label}</StyledTabButton>
+const TabCell = ({ handleClick, label, active }) => (
+    <StyledTabButton onClick={ handleClick(label) } active={ active }>{label}</StyledTabButton>
 );
 
 TabCell.propTypes = {
@@ -63,4 +63,4 @@ TabCell.defaultProps = {
 };
 
 export { StyledTabButton };
-export default TabCell
+export default TabCell;

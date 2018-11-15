@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {SimpleTableRow} from '../../../atoms/Table/index';
+import { SimpleTableRow } from '../../../atoms/Table/index';
 
-const ReservationTableHead = ({dayHours}) => (
+const ReservationTableHead = ({ dayHours }) => (
     <thead>
-        <SimpleTableRow simpleTableRowData={dayHours} labeled label={'Sportoviště'}/>
+        <SimpleTableRow simpleTableRowData={ dayHours } labeled label="Sportoviště" />
     </thead>
 );
 

@@ -1,26 +1,27 @@
+/* eslint-disable no-shadow */
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Grid, GridCol} from '../../../atoms/Grid/index';
 import styled from 'styled-components';
-import {map, length} from 'ramda';
-import {lightTheme, basicTheme} from '../../../constants/theme'
+import { map, length } from 'ramda';
+import { Grid, GridCol } from '../../../atoms/Grid/index';
+import { lightTheme, basicTheme } from '../../../constants/theme';
 
 const StyledTreeHeading = styled(GridCol)`
-  border-bottom: 1px solid ${lightTheme.lightGrey};
-  color: ${basicTheme.grey};
+  border-bottom: 1px solid ${ lightTheme.lightGrey };
+  color: ${ basicTheme.grey };
 `;
 
-const renderTableHeadingCell = (length) => ({label, id}) => (
-    <GridCol key={id} colXS={Math.floor(10 / length)}>
+const renderTableHeadingCell = length => ({ label, id }) => (
+    <GridCol key={ id } colXS={ Math.floor(10 / length) }>
         {label}
     </GridCol>
 );
-const renderTableHeading = (length) => map(renderTableHeadingCell(length));
+const renderTableHeading = length => map(renderTableHeadingCell(length));
 
-const TreeHeading = ({headingData}) => (
-    <StyledTreeHeading colXS={12}>
-        <Grid padding={'20px'} gridGap={'0'}>
-            <GridCol colXS={2}></GridCol>
+const TreeHeading = ({ headingData }) => (
+    <StyledTreeHeading colXS={ 12 }>
+        <Grid padding="20px" gridGap="0">
+            <GridCol colXS={ 2 } />
             {renderTableHeading(length(headingData))(headingData)}
         </Grid>
     </StyledTreeHeading>

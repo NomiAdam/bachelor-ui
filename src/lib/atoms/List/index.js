@@ -3,8 +3,8 @@ import ListItem from './ListItem';
 import ListItemText from './ListItemText';
 
 export {
-	ListItem,
-	ListItemText
+    ListItem,
+    ListItemText,
 };
 
 export default List;

@@ -1,11 +1,12 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Grid, GridCol} from '../../../atoms/Grid/index';
-import {pick, values, compose, length, divide} from 'ramda';
-import {mapIndexed} from 'ramda-extension';
-import {IoIosArrowDown} from 'react-icons/lib/io';
-import {equalsZero} from 'ramda-extension';
+import {
+    pick, values, compose, length, divide,
+} from 'ramda';
+import { mapIndexed, equalsZero } from 'ramda-extension';
+import { IoIosArrowDown } from 'react-icons/lib/io';
+import { Grid, GridCol } from '../../../atoms/Grid/index';
 import { basicTheme, darkTheme } from '../../../constants/theme';
 
 const StyledIconGridCol = styled(GridCol)`
@@ -15,15 +16,15 @@ const StyledIconGridCol = styled(GridCol)`
 `;
 
 const StyledParagraph = styled.p`
-  color: ${({ hasFlag }) => hasFlag ? basicTheme.grey : darkTheme.black };
-  ${({isFirst, depth}) => isFirst ? `margin-left: ${depth * 10}px` : 'margin-left: 0'};
+  color: ${ ({ hasFlag }) => (hasFlag ? basicTheme.grey : darkTheme.black) };
+  ${ ({ isFirst, depth }) => (isFirst ? `margin-left: ${ depth * 10 }px` : 'margin-left: 0') };
 `;
 
 const StyledOpenIcon = styled(IoIosArrowDown)`
   transition: all .5s ease;
   font-size: 1.5rem;
-  ${({ depth }) => `margin-left: ${depth * 10}px`};
-  transform: ${({ isOpen }) => isOpen ? 'rotate(0deg)' : 'rotate(180deg)'};
+  ${ ({ depth }) => `margin-left: ${ depth * 10 }px` };
+  transform: ${ ({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(180deg)') };
   &:hover {
 	    cursor: pointer;
   }
@@ -32,20 +33,22 @@ const StyledOpenIcon = styled(IoIosArrowDown)`
 const getGridSize = compose(Math.floor, divide(10), length);
 
 class TreeLeaf extends PureComponent {
-
     renderLeafData = () => {
-        const {leafData, depth, displayProps, hasFlag} = this.props;
+        const {
+            leafData, depth, displayProps, hasFlag,
+        } = this.props;
         const renderParagraph = (value, index) => (
-            <GridCol key={index} colXS={getGridSize(displayProps)}>
+            <GridCol key={ index } colXS={ getGridSize(displayProps) }>
                 <StyledParagraph
-                    isFirst={equalsZero(index)}
-                    hasFlag={hasFlag}
-                    depth={depth}>
+                    isFirst={ equalsZero(index) }
+                    hasFlag={ hasFlag }
+                    depth={ depth }
+                >
                     {value}
                 </StyledParagraph>
             </GridCol>
         );
-        return compose(values, mapIndexed(renderParagraph), pick(displayProps))(leafData)
+        return compose(values, mapIndexed(renderParagraph), pick(displayProps))(leafData);
     };
 
     handleIconClick = (e) => {
@@ -66,16 +69,18 @@ class TreeLeaf extends PureComponent {
         return (
             <Grid
                 onClick={ this.handleRedirectClick }
-                depth={depth}
+                depth={ depth }
             >
-                <StyledIconGridCol colXS={2} onClick={e => e.stopPropagation()}>
-                    {hasChildren && <StyledOpenIcon depth={depth} isOpen={isOpen} onClick={this.handleIconClick}/>}
+                <StyledIconGridCol colXS={ 2 } onClick={ e => e.stopPropagation() }>
+                    {
+                        hasChildren
+                      && <StyledOpenIcon depth={ depth } isOpen={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
                 {
                     this.renderLeafData()
                 }
             </Grid>
-        )
+        );
     }
 }
 

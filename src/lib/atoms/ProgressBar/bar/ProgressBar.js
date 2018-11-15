@@ -16,12 +16,12 @@ const StyledProgress = styled.progress`
   min-height: 50px;
   width: 100%;
   &::-webkit-progress-value {
-    animation: ${progressAnimation} 2s;
+    animation: ${ progressAnimation } 2s;
     width: 0px;
-    background: ${({background}) => background};
+    background: ${ ({ background }) => background };
   }
   &::-moz-progress-bar {
-    background: ${({background}) => background};
+    background: ${ ({ background }) => background };
   }
 `;
 
@@ -33,7 +33,7 @@ const StyledContainer = styled.div`
 `;
 
 const StyledLabel = styled.h3`
-  color: ${lightTheme.white};
+  color: ${ lightTheme.white };
   left: 1em;
   line-height: .75;
   position: absolute;
@@ -41,14 +41,12 @@ const StyledLabel = styled.h3`
   top: 5px;
 `;
 
-const ProgressBar = ({ label, value, background }) => {
-    return (
-        <StyledContainer>
-            <StyledLabel>{label}</StyledLabel>
-            <StyledProgress max="100" value={value} background={background} />
-        </StyledContainer>
-    );
-};
+const ProgressBar = ({ label, value, background }) => (
+    <StyledContainer>
+        <StyledLabel>{label}</StyledLabel>
+        <StyledProgress max="100" value={ value } background={ background } />
+    </StyledContainer>
+);
 
 ProgressBar.propTypes = {
     /**

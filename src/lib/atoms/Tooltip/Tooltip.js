@@ -6,8 +6,8 @@ import { basicTheme, lightTheme } from '../../constants/theme';
 const StyledTooltipText = styled.span`
   visibility: hidden;
   width: 120px;
-  background-color: ${basicTheme.blue};
-  color: ${lightTheme.white};
+  background-color: ${ basicTheme.blue };
+  color: ${ lightTheme.white };
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
@@ -24,7 +24,7 @@ const StyledTooltipText = styled.span`
     left: 50%;
     margin-left: -5px;
     border: 5px solid transparent;
-    border-top-color: ${basicTheme.blue};
+    border-top-color: ${ basicTheme.blue };
   }
 `;
 
@@ -32,7 +32,7 @@ const StyledTooltip = styled.div`
   position: relative;
   display: inline-block;
   &:hover {
-    ${StyledTooltipText} {
+    ${ StyledTooltipText } {
       visibility: visible;
     }
   }

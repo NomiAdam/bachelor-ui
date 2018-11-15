@@ -1,4 +1,5 @@
-import React, {PureComponent} from 'react';
+/* eslint-disable react/no-did-update-set-state */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Backdrop from './Backdrop';
@@ -24,7 +25,7 @@ class ResponsiveDrawer extends PureComponent {
     componentDidUpdate() {
         const { left } = this.props;
         this.setState({ isOpen: left === 100 });
-    };
+    }
 
     handleClick = (left) => {
         const { handleClick } = this.props;
@@ -33,17 +34,19 @@ class ResponsiveDrawer extends PureComponent {
 
     handleBurgerClick = () => {
         const { isOpen } = this.state;
-        this.handleClick(isOpen ? 0 : 100)
+        this.handleClick(isOpen ? 0 : 100);
     };
 
     handleBackDrop = () => {
         const { left } = this.props;
         const { isOpen } = this.state;
-        this.handleClick(isOpen ? 0 : left)
+        this.handleClick(isOpen ? 0 : left);
     };
 
     render() {
-        const { children, navigation, logo, mobileVersion, primary, left } = this.props;
+        const {
+            children, navigation, logo, mobileVersion, primary, left,
+        } = this.props;
         const { isOpen } = this.state;
         return (
             <StyledResponsiveDrawerWrapper>
@@ -55,12 +58,11 @@ class ResponsiveDrawer extends PureComponent {
                 >
                     { navigation }
                 </Toolbar>
-                <SideDrawer isOpen={isOpen} primary={primary} left={left}>
+                <SideDrawer isOpen={ isOpen } primary={ primary } left={ left }>
                     {navigation}
                 </SideDrawer>
                 {isOpen && <Backdrop handleClick={ this.handleBackDrop } />}
-                <StyledContentWrapper
-                >
+                <StyledContentWrapper>
                     {children}
                 </StyledContentWrapper>
             </StyledResponsiveDrawerWrapper>

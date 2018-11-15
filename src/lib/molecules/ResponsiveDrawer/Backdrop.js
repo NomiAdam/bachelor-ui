@@ -17,12 +17,12 @@ const StyledBackdrop = styled.div`
     height: 100%;
     top: 0;
     left: 0;
-    animation: ${background} .5s ease forwards;
+    animation: ${ background } .5s ease forwards;
     z-index: 100;
 `;
 
 const Backdrop = ({ handleClick }) => (
-    <StyledBackdrop onClick={handleClick} />
+    <StyledBackdrop onClick={ handleClick } />
 );
 
 Backdrop.propTypes = {

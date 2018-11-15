@@ -16,19 +16,19 @@ const StyledSpan = styled.span`
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: ${({ checked }) => checked ? lightTheme.lightBlue : lightTheme.whiteBlue};
+  background-color: ${ ({ checked }) => (checked ? lightTheme.lightBlue : lightTheme.whiteBlue) };
   border-radius: 50%;
   transition: .25s all ease;
   &:after {
     content: "";
     position: absolute;
-    display: ${({ checked }) => checked ? 'block' : 'none'};
+    display: ${ ({ checked }) => (checked ? 'block' : 'none') };
 	top: 9px;
 	left: 9px;
 	width: 8px;
 	height: 8px;
 	border-radius: 50%;
-	background: ${lightTheme.white};
+	background: ${ lightTheme.white };
   }
 `;
 
@@ -39,8 +39,8 @@ const StyledContainer = styled.label`
   font-size: 22px;
   user-select: none;
   &:hover {
-    ${StyledSpan} {
-      background-color: ${lightTheme.whiteBlue};
+    ${ StyledSpan } {
+      background-color: ${ lightTheme.whiteBlue };
     }
   }
 `;
@@ -50,15 +50,15 @@ const StyledLabel = styled.span`
   padding: 0; 
 `;
 
-const RadioButton = ({label, checked, handleChange, handleClick}) => {
-    return (
-        <StyledContainer>
-            <StyledLabel>{label}</StyledLabel>
-            <StyledInput type="radio" checked={checked} onChange={handleChange} onClick={handleClick} />
-            <StyledSpan checked={checked} />
-        </StyledContainer>
-    );
-};
+const RadioButton = ({
+    label, checked, handleChange, handleClick,
+}) => (
+    <StyledContainer>
+        <StyledLabel>{label}</StyledLabel>
+        <StyledInput type="radio" checked={ checked } onChange={ handleChange } onClick={ handleClick } />
+        <StyledSpan checked={ checked } />
+    </StyledContainer>
+);
 
 RadioButton.propTypes = {
     /**

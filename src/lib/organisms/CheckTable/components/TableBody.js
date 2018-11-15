@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import {
+    range, mapObjIndexed, values, o,
+} from 'ramda';
 import TableRow from './TableRow';
-import {range, mapObjIndexed, values, o} from 'ramda';
 
 class ReservationTableBody extends PureComponent {
     state = {
@@ -10,39 +12,41 @@ class ReservationTableBody extends PureComponent {
 
     componentDidUpdate(prevProps) {
         const { selected } = this.props;
-        if( selected !== prevProps.selected ) {
+        if ( selected !== prevProps.selected ) {
             this.handleTableBodyMap();
         }
     }
 
     handleTableBodyMap = () => {
-        const {rowRange, handleChange, selected, isCheckbox} = this.props;
+        const {
+            rowRange, handleChange, selected, isCheckbox,
+        } = this.props;
 
         const cellRange = range(0, rowRange);
 
-        const mapTableRow = ({value, label, disabled}, key) => (
+        const mapTableRow = ({ value, label, disabled }, key) => (
             <TableRow
-                key={key}
-                label={label}
-                dayHours={cellRange}
-                selected={value}
-                disabled={disabled}
-                handleChange={handleChange(key)}
-                isCheckbox={isCheckbox}
+                key={ key }
+                label={ label }
+                dayHours={ cellRange }
+                selected={ value }
+                disabled={ disabled }
+                handleChange={ handleChange(key) }
+                isCheckbox={ isCheckbox }
             />
         );
 
         const mapRow = mapObjIndexed(mapTableRow);
         const mappedTableRows = o(values, mapRow);
 
-        this.setState({ bodyData: mappedTableRows(selected) })
+        this.setState({ bodyData: mappedTableRows(selected) });
     };
 
     render() {
         const { bodyData } = this.state;
         return (
             <tbody>
-            {bodyData}
+                {bodyData}
             </tbody>
         );
     }

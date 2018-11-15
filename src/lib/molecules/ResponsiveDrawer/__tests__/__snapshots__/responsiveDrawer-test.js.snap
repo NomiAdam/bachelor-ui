@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ResponsiveDrawer should match the snapshot 1`] = `
-<styled.div>
+<ResponsiveDrawer__StyledResponsiveDrawerWrapper>
   <Toolbar
     handleClick={[Function]}
     primary={false}
@@ -10,6 +10,6 @@ exports[`ResponsiveDrawer should match the snapshot 1`] = `
     isOpen={false}
     left={0}
   />
-  <styled.main />
-</styled.div>
+  <ResponsiveDrawer__StyledContentWrapper />
+</ResponsiveDrawer__StyledResponsiveDrawerWrapper>
 `;

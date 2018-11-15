@@ -1,12 +1,14 @@
-import React, {PureComponent} from 'react';
-import { findDOMNode } from 'react-dom';
+/* eslint-disable react/destructuring-assignment,no-shadow,prefer-destructuring */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {map, times, evolve, findIndex, contains, o, always, length} from 'ramda';
-import Role from '../Role';
+import {
+    map, times, evolve, findIndex, contains, o, always, length,
+} from 'ramda';
 import styled from 'styled-components';
+import Role from '../Role';
 import HeadingCell from './HeadingCell';
 import Border from '../utils/Border';
-import {basicTheme} from '../../../../constants/theme';
+import { basicTheme } from '../../../../constants/theme';
 
 const StyledDayWrapper = styled.div`
   min-width: 81px;
@@ -18,60 +20,68 @@ const StyledDayWrapper = styled.div`
 `;
 
 const getTimeIndex = (timeString, aryTime) => findIndex(contains(timeString), aryTime);
-const evolveTime = (aryTime) => (time) => evolve({
+const evolveTime = aryTime => time => evolve({
     start: always(getTimeIndex(time.start, aryTime)),
     end: always(getTimeIndex(time.end, aryTime)),
 }, time);
 
-const renderBorder = times((n) => <Border position={n}/>);
+const renderBorder = times(n => <Border position={ n } />);
 
 class DayCell extends PureComponent {
-    handleRoleClick = (id) => (e) => {
+    handleRoleClick = id => (e) => {
         e.stopPropagation();
-        const {handleDialogOpen} = this.props;
+        const { handleDialogOpen } = this.props;
         const offset = e.target.getBoundingClientRect();
-        handleDialogOpen({id, top: offset.top, right: offset.right, left: offset.left, width: offset.width});
+        handleDialogOpen({
+            id, top: offset.top, right: offset.right, left: offset.left, width: offset.width,
+        });
     };
 
-    renderRole = (props) => (
+    renderRole = props => (
         <Role
-            {...props}
-            isActive={props.id === this.props.activeRole}
-            handleClick={this.handleRoleClick(props.id)}
+            { ...props }
+            isActive={ props.id === this.props.activeRole }
+            handleClick={ this.handleRoleClick(props.id) }
         />
     );
-    renderRoles = (times) => o(map(this.renderRole), map(evolveTime(times)));
+
+    renderRoles = times => o(map(this.renderRole), map(evolveTime(times)));
 
     handleClick = (e) => {
         const { handleClick, id } = this.props;
         const clientY = e.clientY;
         const offset = e.target.getBoundingClientRect();
         const clickIndex = Math.floor((clientY - offset.top) / 48);
-        handleClick({roleTop: clickIndex - 1, roleHeight: clickIndex, roleId: id});
+        handleClick({ roleTop: clickIndex - 1, roleHeight: clickIndex, roleId: id });
     };
 
     render() {
-        const {items, label, times, activeDay, roleData, id} = this.props;
+        const {
+            items, label, times, activeDay, roleData, id,
+        } = this.props;
         const roles = this.renderRoles(times)(items);
         const borderCount = length(times);
         return (
-            <StyledDayWrapper onClick={this.handleClick}>
-                <HeadingCell label={label}/>
-                {activeDay &&
-                <Role
-                    start={roleData.roleTop}
-                    end={roleData.roleHeight}
-                    background={basicTheme.grey}
-                    label={roleData.label}
-                    handleClick={this.handleRoleClick(id)}
-                    ref={(el) => this.role = el}
-                />
+            <StyledDayWrapper onClick={ this.handleClick }>
+                <HeadingCell label={ label } />
+                {activeDay
+                && (
+                    <Role
+                        start={ roleData.roleTop }
+                        end={ roleData.roleHeight }
+                        background={ basicTheme.grey }
+                        label={ roleData.label }
+                        handleClick={ this.handleRoleClick(id) }
+                        // eslint-disable-next-line no-return-assign
+                        ref={ el => this.role = el }
+                    />
+                )
                 }
                 {roles}
                 {renderBorder(borderCount)}
             </StyledDayWrapper>
         );
-    };
+    }
 }
 
 DayCell.propTypes = {

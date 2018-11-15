@@ -1,23 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RoundButton should match the snapshot 1`] = `
-<styled.button>
-  <Styled(FaPlus) />
-</styled.button>
+<RoundButton__StyledButton>
+  <RoundButton__StyledFaPlus />
+</RoundButton__StyledButton>
 `;
 
 exports[`RoundButton should match the snapshot with icon 1`] = `
-<styled.button>
+<RoundButton__StyledButton>
   <p>
     Mock
   </p>
-</styled.button>
+</RoundButton__StyledButton>
 `;
 
 exports[`RoundButton should match the snapshot with icon 2`] = `
-<styled.button>
+<RoundButton__StyledButton>
   <p>
     +
   </p>
-</styled.button>
+</RoundButton__StyledButton>
 `;

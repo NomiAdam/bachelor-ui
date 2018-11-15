@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DialogWindow should match the snapshot 1`] = `
-<Styled(Paper)>
-  <styled.div
+<DialogWindow__StyledWindowWrapper>
+  <Grid__StyledGridWrapper
     gridGap="0"
     padding="0"
   >
-    <styled.div
+    <GridCol__StyledGridCol
       colXS={12}
     />
-    <styled.div
+    <GridCol__StyledGridCol
       colXS={12}
     >
       <DialogContent />
-    </styled.div>
-    <styled.div
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       colXS={12}
     >
       <DialogActions>
@@ -22,21 +22,21 @@ exports[`DialogWindow should match the snapshot 1`] = `
           Mock
         </h1>
       </DialogActions>
-    </styled.div>
-  </styled.div>
-</Styled(Paper)>
+    </GridCol__StyledGridCol>
+  </Grid__StyledGridWrapper>
+</DialogWindow__StyledWindowWrapper>
 `;
 
 exports[`DialogWindow should match the snapshot with children 1`] = `
-<Styled(Paper)>
-  <styled.div
+<DialogWindow__StyledWindowWrapper>
+  <Grid__StyledGridWrapper
     gridGap="0"
     padding="0"
   >
-    <styled.div
+    <GridCol__StyledGridCol
       colXS={12}
     />
-    <styled.div
+    <GridCol__StyledGridCol
       colXS={12}
     >
       <DialogContent>
@@ -44,8 +44,8 @@ exports[`DialogWindow should match the snapshot with children 1`] = `
           Mock
         </h1>
       </DialogContent>
-    </styled.div>
-    <styled.div
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       colXS={12}
     >
       <DialogActions>
@@ -53,7 +53,7 @@ exports[`DialogWindow should match the snapshot with children 1`] = `
           Mock
         </h1>
       </DialogActions>
-    </styled.div>
-  </styled.div>
-</Styled(Paper)>
+    </GridCol__StyledGridCol>
+  </Grid__StyledGridWrapper>
+</DialogWindow__StyledWindowWrapper>
 `;

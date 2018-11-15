@@ -3,21 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lightTheme } from '../../constants/theme';
 
-const StyledInput = styled.input`
-    border: none;
-    border-bottom: 1px solid ${lightTheme.lightGrey};
-    box-sizing: border-box;
-    width: 100%;
-	min-height: 30px;
-	padding: 10px 20px;
-	font-size: 16px;
-    &:focus {
-        outline: none;
-    }
-`;
+const StyledInput = styled.input`\n    border: none;\n    border-bottom: 1px solid ${ lightTheme.lightGrey };\n    box-sizing: border-box;\n    width: 100%;\n	min-height: 30px;\n	padding: 10px 20px;\n	font-size: 16px;\n    &:focus {\n        outline: none;\n    }\n`;
 
-const Input = ({value, handleFocus, handleChange, placeholder, handleEnter}) => (
-    <StyledInput onKeyPress={handleEnter} onChange={handleChange} onFocus={handleFocus} value={value} placeholder={placeholder} />
+const Input = ({
+    value, handleFocus, handleChange, placeholder, handleEnter,
+}) => (
+    <StyledInput onKeyPress={ handleEnter } onChange={ handleChange } onFocus={ handleFocus } value={ value } placeholder={ placeholder } />
 );
 
 Input.propTypes = {

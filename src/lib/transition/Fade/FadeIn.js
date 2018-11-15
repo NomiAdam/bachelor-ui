@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import BaseAnimation from '../BaseAnimation';
@@ -12,7 +13,7 @@ const FadeInAnimation = keyframes`
 `;
 
 const FadeIn = styled(BaseAnimation)`
-  animation-name: ${FadeInAnimation};
+  animation-name: ${ FadeInAnimation };
 `;
 
 export default FadeIn;

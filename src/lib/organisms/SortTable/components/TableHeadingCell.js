@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {IoIosArrowDown, IoIosArrowUp} from 'react-icons/lib/io'
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/lib/io';
 
 const Icon = styled.div`
     padding: 0 10px;
-    visibility: ${({shouldDisplay}) => shouldDisplay ? 'visible' : 'hidden'};
+    visibility: ${ ({ shouldDisplay }) => (shouldDisplay ? 'visible' : 'hidden') };
 `;
 
 const StyledArrowDown = Icon.withComponent(IoIosArrowDown);
@@ -15,21 +15,20 @@ const StyledHeadingTableCell = styled.th`
     max-width: 100%;
 	padding: 20px;
 	text-align: left;
-	${({editable}) => editable ? 'max-width: 100px' : ''};
+	${ ({ editable }) => (editable ? 'max-width: 100px' : '') };
 `;
 
-const TableHeadingCell = ({label, onRequestSort, order, beingSorted, editable}) => {
-    return (
-        <StyledHeadingTableCell onClick={onRequestSort} editable={editable}>
-            {label}
-            {order === 'asc' ?
-                <StyledArrowDown shouldDisplay={beingSorted}/>
-                :
-                <StyledArrowUp shouldDisplay={beingSorted}/>
-            }
-        </StyledHeadingTableCell>
-    );
-};
+const TableHeadingCell = ({
+    label, onRequestSort, order, beingSorted, editable,
+}) => (
+    <StyledHeadingTableCell onClick={ onRequestSort } editable={ editable }>
+        {label}
+        {order === 'asc'
+            ? <StyledArrowDown shouldDisplay={ beingSorted } />
+            : <StyledArrowUp shouldDisplay={ beingSorted } />
+        }
+    </StyledHeadingTableCell>
+);
 
 TableHeadingCell.propTypes = {
     /**
@@ -63,5 +62,5 @@ TableHeadingCell.defaultProps = {
     beingSorted: false,
 };
 
-export {StyledHeadingTableCell};
+export { StyledHeadingTableCell };
 export default TableHeadingCell;

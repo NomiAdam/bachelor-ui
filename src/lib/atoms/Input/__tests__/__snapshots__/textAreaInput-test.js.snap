@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TextAreaInput should match the snapshot 1`] = `
-<styled.textarea
+<TextAreaInput__StyledTextArea
   cols={50}
   placeholder=" "
   rows={4}

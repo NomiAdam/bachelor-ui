@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {lightTheme} from '../../constants/theme';
+import { lightTheme } from '../../constants/theme';
 
 const StyledOption = styled.div`
     width: 100%;
     border: none;
 	padding: 10px 20px;
-	background-color: ${({selected}) => selected ? lightTheme.lightGrey : 'initial'};
+	background-color: ${ ({ selected }) => (selected ? lightTheme.lightGrey : 'initial') };
     &:hover {
-        background-color: ${lightTheme.lightGrey};
+        background-color: ${ lightTheme.lightGrey };
         cursor: pointer;
     }
 `;
 
-const Option = ({value, onClick, selected}) => (
-    <StyledOption onMouseDown={onClick(value)} selected={selected}>
+const Option = ({ value, onClick, selected }) => (
+    <StyledOption onMouseDown={ onClick(value) } selected={ selected }>
         {value}
     </StyledOption>
 );
@@ -35,5 +35,5 @@ Option.propTypes = {
     selected: PropTypes.bool,
 };
 
-export {StyledOption};
+export { StyledOption };
 export default Option;

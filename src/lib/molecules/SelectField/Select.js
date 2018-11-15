@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Option from './Option';
 import styled from 'styled-components';
-import {map,length,equals,o} from 'ramda';
+import {
+    map, length, equals, o,
+} from 'ramda';
+import Option from './Option';
 import { darkTheme, lightTheme } from '../../constants/theme';
 
 const StyledSelect = styled.div`
     overflow: hidden;
-    display: ${props => props.visible ? 'flex' : 'none' }
+    display: ${ props => (props.visible ? 'flex' : 'none') }
     top: -50px;
     position: absolute;
     z-index: 999;
-    background-color: ${lightTheme.white};
-    width: ${({width}) => width};
+    background-color: ${ lightTheme.white };
+    width: ${ ({ width }) => width };
     min-height: 0px;
     max-height: 500px;
     justify-content: center;
@@ -20,20 +22,22 @@ const StyledSelect = styled.div`
     flex-direction: column;
     border: 1px solid transparent; 
     border-radius: 3px;
-    ${props => props.isEmpty ? 'border: none;' : ''}
+    ${ props => (props.isEmpty ? 'border: none;' : '') }
     font-size: 16px;
-  	box-shadow: 5px 5px 15px ${darkTheme.darkGrey};
+  	box-shadow: 5px 5px 15px ${ darkTheme.darkGrey };
 `;
 
-const doesItHaveOptions = o(equals(0),length);
-const Select = ({visible, options, onClick, width, selected}) => {
+const doesItHaveOptions = o(equals(0), length);
+const Select = ({
+    visible, options, onClick, width, selected,
+}) => {
     const equalsSelected = equals(selected);
-    const mapSuggestion = ({value, label}) => (
-        <Option value={value} label={label} onClick={onClick} key={value} selected={equalsSelected(value)} />
+    const mapSuggestion = ({ value, label }) => (
+        <Option value={ value } label={ label } onClick={ onClick } key={ value } selected={ equalsSelected(value) } />
     );
     const mappedOptions = map(mapSuggestion);
     return (
-        <StyledSelect visible={visible} isEmpty={doesItHaveOptions(options)} width={width}>
+        <StyledSelect visible={ visible } isEmpty={ doesItHaveOptions(options) } width={ width }>
             {visible && mappedOptions(options)}
         </StyledSelect>
     );

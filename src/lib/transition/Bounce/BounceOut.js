@@ -16,7 +16,7 @@ const bounceOutAnimation = keyframes`
 `;
 
 const BounceOut = styled(BaseAnimation)`
-  animation-name: ${bounceOutAnimation};
+  animation-name: ${ bounceOutAnimation };
 `;
 
 export default BounceOut;

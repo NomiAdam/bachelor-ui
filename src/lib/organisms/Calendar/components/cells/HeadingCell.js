@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {basicTheme} from "../../../../constants/theme";
+import { basicTheme } from '../../../../constants/theme';
 
 const StyledHeadingColumn = styled.div`
-  width: ${({ isTime }) => isTime ? '48px': '100%'};
+  width: ${ ({ isTime }) => (isTime ? '48px' : '100%') };
   height: 50px;
   text-align: center;
-  ${ ({ isTime }) => isTime ? `border-right: 1px solid ${ basicTheme.grey }` : '' };
+  ${ ({ isTime }) => (isTime ? `border-right: 1px solid ${ basicTheme.grey }` : '') };
 `;
 
 const HeadingCell = ({ label, isTime }) => (

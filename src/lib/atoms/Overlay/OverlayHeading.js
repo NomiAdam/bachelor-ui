@@ -1,9 +1,9 @@
-/* eslint-disable no-mixed-spaces-and-tabs */
+/* eslint-disable no-mixed-spaces-and-tabs,react/default-props-match-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { IoIosArrowThinLeft } from 'react-icons/lib/io';
 import Heading from '../Heading/index';
-import {IoIosArrowThinLeft} from 'react-icons/lib/io';
 import { lightTheme, darkTheme } from '../../constants/theme';
 
 const StyledWrapper = styled.div`
@@ -13,8 +13,8 @@ const StyledWrapper = styled.div`
 	width: 100%;
 	min-height: 150px;
 	z-index: 999;
-	border-bottom: 1px solid ${lightTheme.whiteBlue};
-	background-color: ${lightTheme.lightGrey};
+	border-bottom: 1px solid ${ lightTheme.whiteBlue };
+	background-color: ${ lightTheme.lightGrey };
 `;
 
 const InnerWrapper = styled.div`
@@ -32,17 +32,17 @@ const StyledCloseIcon = styled(IoIosArrowThinLeft)`
 	padding: 20px;
 	font-size: 4rem;
 	z-index: 10;
-	color: ${darkTheme.black};
+	color: ${ darkTheme.black };
 `;
 
 const OverlayHeading = ({
-                     heading, handleIconClick,
-                 }) => (
+    heading, handleIconClick,
+}) => (
     <StyledWrapper>
         <InnerWrapper>
-           <Heading label={heading} component={'h2'}/>
+            <Heading label={ heading } component="h2" />
         </InnerWrapper>
-        <StyledCloseIcon onClick={handleIconClick}/>
+        <StyledCloseIcon onClick={ handleIconClick } />
     </StyledWrapper>
 );
 

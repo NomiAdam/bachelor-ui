@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {Select, Border, Option} from '../../atoms/Input/index';
-import {map, equals, addIndex} from 'ramda';
+import { map, equals, addIndex } from 'ramda';
+import { Select, Border, Option } from '../../atoms/Input/index';
 
 const StyledLabel = styled.label`
 	position: relative;
@@ -12,12 +12,14 @@ const StyledLabel = styled.label`
 
 const mapIndexed = addIndex(map);
 
-const NativeSelectField = ({options, onChange, required, disabled, selectedValue, error, onBlur, withBorder}) => {
-    const renderFields = ({value, text}, index) => (
+const NativeSelectField = ({
+    options, onChange, required, disabled, selectedValue, error, onBlur, withBorder,
+}) => {
+    const renderFields = ({ value, text }, index) => (
         <Option
-            selected={equals(value, selectedValue)}
-            key={index}
-            value={value}
+            selected={ equals(value, selectedValue) }
+            key={ index }
+            value={ value }
         >
             {text}
         </Option>
@@ -26,17 +28,17 @@ const NativeSelectField = ({options, onChange, required, disabled, selectedValue
     return (
         <StyledLabel>
             <Select
-                onChange={onChange}
-                defaultValue={'Select a value'}
-                required={required}
-                disabled={disabled}
-                error={error}
-                onBlur={onBlur}
-                withBorder={withBorder}
+                onChange={ onChange }
+                defaultValue="Select a value"
+                required={ required }
+                disabled={ disabled }
+                error={ error }
+                onBlur={ onBlur }
+                withBorder={ withBorder }
             >
                 {optionFields(options)}
             </Select>
-            {withBorder && <Border select/>}
+            {withBorder && <Border select />}
         </StyledLabel>
     );
 };

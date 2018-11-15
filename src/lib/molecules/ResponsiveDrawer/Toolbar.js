@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DrawerToggleButton from './DrawerToggleButton';
 import styled from 'styled-components';
-import {maxTablet, minTablet} from "../../constants/device";
+import DrawerToggleButton from './DrawerToggleButton';
+import { maxTablet, minTablet } from '../../constants/device';
 import { basicTheme, darkTheme, lightTheme } from '../../constants/theme';
 
 const StyledToolbar = styled.header`
@@ -10,7 +10,7 @@ const StyledToolbar = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  background: ${({ primary }) => primary ? lightTheme.white : basicTheme.purple };
+  background: ${ ({ primary }) => (primary ? lightTheme.white : basicTheme.purple) };
   height: 56px;
 `;
 const StyledToolbarNavigation = styled.nav`
@@ -25,7 +25,7 @@ const StyledNavigationItemWrapper = styled.div`
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
-  ${({ hide }) => hide ? 'width: 0;' : ''}
+  ${ ({ hide }) => (hide ? 'width: 0;' : '') }
   ul {
     list-style: none;
     margin: 0;
@@ -36,10 +36,10 @@ const StyledNavigationItemWrapper = styled.div`
     padding: 0 .5rem;
   }
   a {
-    color: ${({ primary }) => primary ? darkTheme.black : lightTheme.white };
+    color: ${ ({ primary }) => (primary ? darkTheme.black : lightTheme.white) };
     text-decoration: none;
   }
-  @media ${maxTablet} {
+  @media ${ maxTablet } {
 	display: none;
   }
 `;
@@ -50,25 +50,27 @@ const StyledLogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  ${({ mobileVersion }) => mobileVersion ? '' : 'justify-content: flex-start;' }
-  color: ${({ primary }) => primary ? darkTheme.black : lightTheme.white };
-  @media ${minTablet} {
-	left: ${({ mobileVersion }) => mobileVersion ? '45%' : '-1%'};
+  ${ ({ mobileVersion }) => (mobileVersion ? '' : 'justify-content: flex-start;') }
+  color: ${ ({ primary }) => (primary ? darkTheme.black : lightTheme.white) };
+  @media ${ minTablet } {
+	left: ${ ({ mobileVersion }) => (mobileVersion ? '45%' : '-1%') };
   }
 `;
 
-const Toolbar = ({handleClick, children, logo, mobileVersion, primary}) => (
-    <StyledToolbar primary={primary}>
+const Toolbar = ({
+    handleClick, children, logo, mobileVersion, primary,
+}) => (
+    <StyledToolbar primary={ primary }>
         <StyledToolbarNavigation>
             <DrawerToggleButton
-                primary={primary}
-                handleClick={handleClick}
-                mobileVersion={!mobileVersion}
+                primary={ primary }
+                handleClick={ handleClick }
+                mobileVersion={ !mobileVersion }
             />
-            <StyledLogoWrapper mobileVersion={mobileVersion} primary={primary}>
+            <StyledLogoWrapper mobileVersion={ mobileVersion } primary={ primary }>
                 {logo}
             </StyledLogoWrapper>
-            <StyledNavigationItemWrapper primary={primary} hide={mobileVersion}>
+            <StyledNavigationItemWrapper primary={ primary } hide={ mobileVersion }>
                 {!mobileVersion && children}
             </StyledNavigationItemWrapper>
         </StyledToolbarNavigation>
@@ -98,5 +100,5 @@ Toolbar.defaultProps = {
     primary: false,
 };
 
-export {StyledToolbar};
+export { StyledToolbar };
 export default Toolbar;

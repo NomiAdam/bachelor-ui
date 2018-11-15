@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ListItemText should match the snapshot 1`] = `
-<styled.div
+<ListItemText__StyledListItemTextDiv
   align="left"
 >
-  <styled.span />
-</styled.div>
+  <ListItemText__StyledListItemText />
+</ListItemText__StyledListItemTextDiv>
 `;

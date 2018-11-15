@@ -1,14 +1,15 @@
-import React, {PureComponent} from 'react';
+/* eslint-disable react/destructuring-assignment */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {TimeCell, DayCell} from './components/cells/index';
-import {Time, Day} from './components/parts/index';
+import { map } from 'ramda';
+import { mapIndexed } from 'ramda-extension';
+import styled from 'styled-components';
+import { TimeCell, DayCell } from './components/cells/index';
+import { Time, Day } from './components/parts/index';
 import Container from '../../atoms/Container/index';
 import dayArray from './constants/day';
-import {map} from 'ramda';
-import {mapIndexed} from 'ramda-extension';
-import {getDate} from './utils/getDays';
-import {getTime} from './utils/getTime';
-import styled from 'styled-components';
+import { getDate } from './utils/getDays';
+import { getTime } from './utils/getTime';
 import Dialog from './components/Dialog';
 
 const StyledWrapper = styled.div`
@@ -42,41 +43,43 @@ class Calendar extends PureComponent {
     };
 
     componentDidMount() {
-        this.setState({timeColumn: getTime(6, 20)})
-    };
+        this.setState({ timeColumn: getTime(6, 20) });
+    }
 
     renderTimeColumn = map(
-        (label) => <TimeCell label={label}/>
+        label => <TimeCell label={ label } />,
     );
 
     renderDayColumns = mapIndexed(
-        ({items}, index) => (
+        ({ items }, index) => (
             <DayCell
-                id={index}
-                activeDay={index === this.state.roleId}
-                items={items}
-                roleData={this.state.role}
-                activeRole={this.state.activeRole}
-                times={this.state.timeColumn}
-                label={getDate(this.props.startDate, index)}
-                handleClick={this.handleColumnClick}
-                handleDialogOpen={this.handleDialogOpen}
+                id={ index }
+                activeDay={ index === this.state.roleId }
+                items={ items }
+                roleData={ this.state.role }
+                activeRole={ this.state.activeRole }
+                times={ this.state.timeColumn }
+                label={ getDate(this.props.startDate, index) }
+                handleClick={ this.handleColumnClick }
+                handleDialogOpen={ this.handleDialogOpen }
             />
-        )
+        ),
     );
 
-    handleColumnClick = ({roleTop, roleHeight, roleId}) => {
-        const {dialogOpen} = this.state;
+    handleColumnClick = ({ roleTop, roleHeight, roleId }) => {
+        const { dialogOpen } = this.state;
         if (dialogOpen) {
-            return this.handleDialogClose();
+            this.handleDialogClose();
         }
-        this.setState({ roleId, role: {roleTop, roleHeight }})
+        this.setState({ roleId, role: { roleTop, roleHeight } });
     };
 
     resetColumnData = () => this.setState({ roleId: undefined });
 
-    handleDialogOpen = ({id, left, top, right, width}) => {
-        const {dialogOpen, activeRole} = this.state;
+    handleDialogOpen = ({
+        id, left, top, right, width,
+    }) => {
+        const { dialogOpen, activeRole } = this.state;
         if (dialogOpen && activeRole === id) {
             this.handleDialogClose();
         } else {
@@ -86,30 +89,32 @@ class Calendar extends PureComponent {
                 dialogRight: right,
                 dialogTop: top,
                 dialogWidth: width,
-                dialogOpen: true
+                dialogOpen: true,
             });
         }
     };
 
-    handleDialogClose = () => this.setState({dialogOpen: false, activeRole: undefined});
+    handleDialogClose = () => this.setState({ dialogOpen: false, activeRole: undefined });
 
     render() {
-        const {timeColumn, dialogLeft, dialogOpen, dialogTop, dialogRight, dialogWidth} = this.state;
+        const {
+            timeColumn, dialogLeft, dialogOpen, dialogTop, dialogRight, dialogWidth,
+        } = this.state;
         return (
             <Container
-                height={'1000px'}
-                flexDirection={'column'}
-                justifyContent={'flex-start'}
-                alignItems={'initial'}
+                height="1000px"
+                flexDirection="column"
+                justifyContent="flex-start"
+                alignItems="initial"
             >
                 <StyledWrapper>
                     <Dialog
-                        isOpen={dialogOpen}
-                        left={dialogLeft}
-                        right={dialogRight}
-                        top={dialogTop}
-                        width={dialogWidth}
-                        elem={mockElem}
+                        isOpen={ dialogOpen }
+                        left={ dialogLeft }
+                        right={ dialogRight }
+                        top={ dialogTop }
+                        width={ dialogWidth }
+                        elem={ mockElem }
                     />
                     <Time>
                         {this.renderTimeColumn(timeColumn)}
@@ -119,7 +124,7 @@ class Calendar extends PureComponent {
                     </Day>
                 </StyledWrapper>
             </Container>
-        )
+        );
     }
 }
 
@@ -128,7 +133,7 @@ Calendar.propTypes = {
 };
 
 Calendar.defaultProps = {
-    startDate: Date.now()
+    startDate: Date.now(),
 };
 
 export default Calendar;

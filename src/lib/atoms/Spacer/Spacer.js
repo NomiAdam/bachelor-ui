@@ -6,12 +6,12 @@ const StyledSpacerWrapper = styled.div`
   display: block;
   content: '';
   background-color: transparent;
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
+  width: ${ ({ width }) => width };
+  height: ${ ({ height }) => height };
 `;
 
 const Spacer = ({ width, height }) => (
-    <StyledSpacerWrapper width={width} height={height} />
+    <StyledSpacerWrapper width={ width } height={ height } />
 );
 
 Spacer.propTypes = {

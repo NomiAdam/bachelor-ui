@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FadeOut should match the snapshot 1`] = `
-<styled.div
-  className="sc-bwzfXH vuGJu"
+<BaseAnimation
+  className="FadeOut-sc-4ij288-0 bstYt"
   delay="0s"
   direction="normal"
   display="block"

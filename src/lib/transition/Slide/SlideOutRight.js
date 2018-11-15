@@ -1,4 +1,3 @@
-
 import styled, { keyframes } from 'styled-components';
 import BaseAnimation from '../BaseAnimation';
 
@@ -13,7 +12,7 @@ const SlideOutRightAnimation = keyframes`
 `;
 
 const SlideOutRight = styled(BaseAnimation)`
-  animation-name: ${SlideOutRightAnimation};
+  animation-name: ${ SlideOutRightAnimation };
 `;
 
 export default SlideOutRight;

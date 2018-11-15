@@ -1,8 +1,8 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Paper from '../../atoms/Paper/index';
 import Table from '../../atoms/Table/index';
-import {TableHeading, TablePagination, TableBody} from './components/index';
+import { TableHeading, TablePagination, TableBody } from './components/index';
 
 class SortTable extends PureComponent {
     state = {
@@ -13,26 +13,26 @@ class SortTable extends PureComponent {
     };
 
     componentDidMount() {
-        const {pagination, orderBy} = this.props;
-        if (!pagination) this.setState({rowsPerPage: 50});
-        this.setState({orderBy});
+        const { pagination, orderBy } = this.props;
+        if (!pagination) this.setState({ rowsPerPage: 50 });
+        this.setState({ orderBy });
     }
 
-    handleRequestSort = (property) => () => {
-        const {orderBy, order} = this.state;
+    handleRequestSort = property => () => {
+        const { orderBy, order } = this.state;
         const orderByProperty = property;
         if (orderBy === orderByProperty && order === 'desc') {
-            return this.setState({orderBy: orderByProperty, order: 'asc'});
+            return this.setState({ orderBy: orderByProperty, order: 'asc' });
         }
-        return this.setState({orderBy: orderByProperty, order: 'desc'});
+        return this.setState({ orderBy: orderByProperty, order: 'desc' });
     };
 
     handleChangePage = (page) => {
-        this.setState({page});
+        this.setState({ page });
     };
 
     handleChangeRowsPerPage = (value) => {
-        this.setState({rowsPerPage: parseInt(value)});
+        this.setState({ rowsPerPage: parseInt(value, 10) });
     };
 
     requestChange = () => {
@@ -41,54 +41,60 @@ class SortTable extends PureComponent {
         requestChange(rowsPerPage, page);
     };
 
-    handleEdit = (value) => () => {
-        const {handleEdit} = this.props;
+    handleEdit = value => () => {
+        const { handleEdit } = this.props;
         handleEdit(value);
     };
 
-    handleDelete = (value) => () => {
-        const {handleDelete} = this.props;
+    handleDelete = value => () => {
+        const { handleDelete } = this.props;
         handleDelete(value);
     };
 
     render() {
-        const {headingData, bodyData, editable, handleRedirect, redirect, pagination} = this.props;
-        const {order, orderBy, rowsPerPage, page} = this.state;
+        const {
+            headingData, bodyData, editable, handleRedirect, redirect, pagination,
+        } = this.props;
+        const {
+            order, orderBy, rowsPerPage, page,
+        } = this.state;
         return (
             <div>
-                <Paper overflow={'auto'}>
+                <Paper overflow="auto">
                     <Table>
                         <TableHeading
-                            headingData={headingData}
-                            orderBy={orderBy}
-                            order={order}
-                            onRequestSort={this.handleRequestSort}
-                            columnData={headingData}
-                            editable={editable}
+                            headingData={ headingData }
+                            orderBy={ orderBy }
+                            order={ order }
+                            onRequestSort={ this.handleRequestSort }
+                            columnData={ headingData }
+                            editable={ editable }
                         />
                         <TableBody
-                            orderBy={orderBy}
-                            order={order}
-                            page={page}
-                            rowsPerPage={rowsPerPage}
-                            columnData={bodyData}
-                            handleDelete={this.handleDelete}
-                            handleEdit={this.handleEdit}
-                            editable={editable}
-                            handleRedirect={handleRedirect}
-                            redirect={redirect}
+                            orderBy={ orderBy }
+                            order={ order }
+                            page={ page }
+                            rowsPerPage={ rowsPerPage }
+                            columnData={ bodyData }
+                            handleDelete={ this.handleDelete }
+                            handleEdit={ this.handleEdit }
+                            editable={ editable }
+                            handleRedirect={ handleRedirect }
+                            redirect={ redirect }
                         />
                     </Table>
                 </Paper>
-                {pagination &&
-                <TablePagination
-                    totalRows={bodyData.length}
-                    rowsPerPage={rowsPerPage}
-                    page={page}
-                    currentPage={page}
-                    handleChangePage={this.handleChangePage}
-                    handleChangeRowsPerPage={this.handleChangeRowsPerPage}
-                />
+                {pagination
+                && (
+                    <TablePagination
+                        totalRows={ bodyData.length }
+                        rowsPerPage={ rowsPerPage }
+                        page={ page }
+                        currentPage={ page }
+                        handleChangePage={ this.handleChangePage }
+                        handleChangeRowsPerPage={ this.handleChangeRowsPerPage }
+                    />
+                )
                 }
             </div>
         );

@@ -1,37 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Option from './Option';
 import styled from 'styled-components';
-import {map,length,equals,o} from 'ramda';
+import {
+    map, length, equals, o,
+} from 'ramda';
+import Option from './Option';
 import { lightTheme } from '../../constants/theme';
 
 const StyledSelect = styled.div`
-    display: ${props => props.visible ? 'block' : 'none' }
+    display: ${ props => (props.visible ? 'block' : 'none') }
     position: absolute;
     z-index: 999;
-    background-color: ${lightTheme.white};
+    background-color: ${ lightTheme.white };
     width: 100%;
     min-height: 0px;
     max-height: 500px;
-    border: 1px solid ${lightTheme.lightGrey}; 
+    border: 1px solid ${ lightTheme.lightGrey }; 
     border-top: none;
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    ${props => props.isEmpty ? 'border: none;' : ''}
+    ${ props => (props.isEmpty ? 'border: none;' : '') }
     font-weight: 300;
     font-size: 16px;
     overflow-y: auto;
 `;
 
-const doesItHaveOptions = o(equals(0),length);
-const Select = ({visible, suggestions, onClick, selected}) => {
+const doesItHaveOptions = o(equals(0), length);
+const Select = ({
+    visible, suggestions, onClick, selected,
+}) => {
     const equalsSelected = equals(selected);
-    const mapSuggestion = ({value}) => (
-        <Option value={value} onClick={onClick} key={value} selected={equalsSelected(value)} />
+    const mapSuggestion = ({ value }) => (
+        <Option value={ value } onClick={ onClick } key={ value } selected={ equalsSelected(value) } />
     );
     const mappedOptions = map(mapSuggestion);
     return (
-        <StyledSelect visible={visible} isEmpty={doesItHaveOptions(suggestions)}>
+        <StyledSelect visible={ visible } isEmpty={ doesItHaveOptions(suggestions) }>
             {visible && mappedOptions(suggestions)}
         </StyledSelect>
     );

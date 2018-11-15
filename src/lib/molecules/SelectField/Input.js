@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { basicTheme, darkTheme, lightTheme } from '../../constants/theme';
+import { lightTheme } from '../../constants/theme';
 
 const StyledInput = styled.input`
     border: none;
-    border-bottom: 1px solid ${lightTheme.whiteBlue};
+    border-bottom: 1px solid ${ lightTheme.whiteBlue };
     box-sizing: border-box;
     width: 100%;
 	min-height: 30px;
@@ -13,17 +13,19 @@ const StyledInput = styled.input`
 	font-size: 16px;
 	display: inline-block;
 	text-align: center;
-	background-color: ${({disabled}) => disabled ? lightTheme.white : 'transparent'};
+	background-color: ${ ({ disabled }) => (disabled ? lightTheme.white : 'transparent') };
 	&:hover {
-	  cursor: ${({disabled}) => disabled ? 'initial' : 'pointer'};
+	  cursor: ${ ({ disabled }) => (disabled ? 'initial' : 'pointer') };
 	}
     &:focus {
         outline: none;
     }
 `;
 
-const Input = ({value, handleFocus, handleChange, placeholder, disabled}) => (
-    <StyledInput disabled={disabled} onChange={handleChange} onFocus={handleFocus} value={value} placeholder={placeholder} />
+const Input = ({
+    value, handleFocus, handleChange, placeholder, disabled,
+}) => (
+    <StyledInput disabled={ disabled } onChange={ handleChange } onFocus={ handleFocus } value={ value } placeholder={ placeholder } />
 );
 
 Input.propTypes = {

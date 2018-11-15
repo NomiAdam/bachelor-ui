@@ -1,27 +1,26 @@
 import React, { PureComponent } from 'react';
-import List from '../../atoms/List/index';
-import ActionListItem from './components/index';
 import { map, prop, propOr } from 'ramda';
 import PropTypes from 'prop-types';
+import List from '../../atoms/List/index';
+import ActionListItem from './components/index';
 
 const getIdFromProp = prop('id');
 const getActiveProp = propOr(false, 'active');
-const renderActionListItem = (handleClick, handleIconClick, isAction) => (props) => (
+const renderActionListItem = (handleClick, handleIconClick, isAction) => props => (
     <ActionListItem
-        {...props}
-        isAction={isAction}
-        key={getIdFromProp(props)}
-        isIconActive={getActiveProp(props)}
-        handleClick={handleClick(getIdFromProp(props))}
-        handleIconClick={handleIconClick(getIdFromProp(props), getActiveProp(props))}
+        { ...props }
+        isAction={ isAction }
+        key={ getIdFromProp(props) }
+        isIconActive={ getActiveProp(props) }
+        handleClick={ handleClick(getIdFromProp(props)) }
+        handleIconClick={ handleIconClick(getIdFromProp(props), getActiveProp(props)) }
     />
 );
 const renderActionList = (handleClick, handleIconClick, isAction) => map(
-    renderActionListItem(handleClick, handleIconClick, isAction)
+    renderActionListItem(handleClick, handleIconClick, isAction),
 );
 class ActionList extends PureComponent {
-
-    handleItemClick = (index) => () => {
+    handleItemClick = index => () => {
         const { handleItemClick } = this.props;
         handleItemClick(index);
     };
@@ -43,7 +42,6 @@ class ActionList extends PureComponent {
             </List>
         );
     }
-
 }
 
 ActionList.propTypes = {

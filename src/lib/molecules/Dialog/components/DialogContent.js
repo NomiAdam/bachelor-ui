@@ -8,7 +8,7 @@ const StyledContainer = styled(Container)`
 `;
 
 const DialogContent = ({ children }) => (
-    <StyledContainer alignItems={'initial'} justifyContent={'initial'} >
+    <StyledContainer alignItems="initial" justifyContent="initial">
         { children }
     </StyledContainer>
 );

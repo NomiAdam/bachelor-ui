@@ -1,7 +1,9 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {TableRow} from '../../../atoms/Table/index';
-import {map, slice, o, dec, multiply, sort, prop, equals, ifElse, descend, ascend, always} from 'ramda';
+import {
+    map, slice, o, dec, multiply, sort, prop, equals, ifElse, descend, ascend, always,
+} from 'ramda';
+import { TableRow } from '../../../atoms/Table/index';
 
 const getSliceStart = o(multiply, dec);
 
@@ -23,16 +25,13 @@ class TableBody extends PureComponent {
         } = this.props;
         if (
             columnData !== prevProps.columnData
-            ||
-            order !== prevProps.order
-            ||
-            page !== prevProps.page
-            ||
-            rowsPerPage !== prevProps.rowsPerPage
+            || order !== prevProps.order
+            || page !== prevProps.page
+            || rowsPerPage !== prevProps.rowsPerPage
         ) {
             this.handleColumnDataMap();
         }
-    };
+    }
 
     handleColumnDataMap = () => {
         const {
@@ -45,18 +44,18 @@ class TableBody extends PureComponent {
             handleDelete,
             handleRedirect,
             redirect,
-            handleEdit
+            handleEdit,
         } = this.props;
 
-        const mapTableRow = (value) => (
+        const mapTableRow = value => (
             <TableRow
-                tableRowData={value}
-                key={getRowIdentification(value)}
-                editable={editable}
-                handleDelete={handleDelete(getRowIdentification(value))}
-                handleEdit={handleEdit(getRowIdentification(value))}
-                handleRedirect={redirect ? handleRedirect(getRowIdentification(value)) : null}
-                redirect={redirect}
+                tableRowData={ value }
+                key={ getRowIdentification(value) }
+                editable={ editable }
+                handleDelete={ handleDelete(getRowIdentification(value)) }
+                handleEdit={ handleEdit(getRowIdentification(value)) }
+                handleRedirect={ redirect ? handleRedirect(getRowIdentification(value)) : null }
+                redirect={ redirect }
             />
         );
 
@@ -74,18 +73,18 @@ class TableBody extends PureComponent {
         const mappedBody = o(mappedTableRows, sortedBody);
 
         this.setState({ columnData: [] }, () => {
-            this.setState({columnData: mappedBody(columnData)})
+            this.setState({ columnData: mappedBody(columnData) });
         });
     };
 
     render() {
-        const {columnData} = this.state;
+        const { columnData } = this.state;
         return (
             <tbody>
-            {columnData}
+                {columnData}
             </tbody>
         );
-    };
+    }
 }
 
 TableBody.propTypes = {

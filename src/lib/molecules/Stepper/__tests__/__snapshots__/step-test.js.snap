@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Step should match the snapshot 1`] = `
+<Step__StyledStep>
+  <Paragraph />
+</Step__StyledStep>
+`;
+
+exports[`Step should match the snapshot when active 1`] = `
+<Step__StyledStep
+  isActive={true}
+>
+  <Paragraph />
+</Step__StyledStep>
+`;

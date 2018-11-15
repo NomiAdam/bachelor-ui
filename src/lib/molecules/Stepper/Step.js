@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Paragraph from '../../atoms/Paragraph/index';
 import styled from 'styled-components';
-import {lightTheme} from '../../constants/theme';
+import Paragraph from '../../atoms/Paragraph/index';
+import { lightTheme } from '../../constants/theme';
 
 const StyledStep = styled.li`
   list-style-type: none; 
   float: left; 
-  width: ${({stepCount}) => `${ 100 / stepCount}%`}; 
+  width: ${ ({ stepCount }) => `${ 100 / stepCount }%` }; 
   position: relative; 
   text-align: center;
   font-weight: 600;
-  color: ${({isActive}) => isActive ? lightTheme.lightGreen : 'initial' };
+  color: ${ ({ isActive }) => (isActive ? lightTheme.lightGreen : 'initial') };
   &:before {
     content:counter(step); 
     counter-increment: step; 
@@ -23,8 +23,8 @@ const StyledStep = styled.li`
     text-align: center;
     margin: 0 auto 10px auto; 
     border-radius: 50%; 
-    background-color: ${lightTheme.white}; 
-    border-color: ${({isActive}) => isActive ? lightTheme.lightGreen : lightTheme.lightGrey };
+    background-color: ${ lightTheme.white }; 
+    border-color: ${ ({ isActive }) => (isActive ? lightTheme.lightGreen : lightTheme.lightGrey) };
   }
   &:after {
     content: '';
@@ -34,15 +34,17 @@ const StyledStep = styled.li`
     top: 15px; 
     left: -50%; 
     z-index: -1; 
-    background-color: ${({isActive}) => isActive ? lightTheme.lightGreen : lightTheme.lightGrey };
+    background-color: ${ ({ isActive }) => (isActive ? lightTheme.lightGreen : lightTheme.lightGrey) };
  }
  &:first-child:after {
     content: none;
   } 
 `;
 
-const Step = ({label, isActive, stepCount, handleClick}) => (
-    <StyledStep isActive={isActive} stepCount={stepCount} onClick={handleClick}>
+const Step = ({
+    label, isActive, stepCount, handleClick,
+}) => (
+    <StyledStep isActive={ isActive } stepCount={ stepCount } onClick={ handleClick }>
         <Paragraph>
             {label}
         </Paragraph>

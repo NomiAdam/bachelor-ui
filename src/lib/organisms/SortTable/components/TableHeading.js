@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { map, equals } from 'ramda';
 import { StyledTableRow } from '../../../atoms/Table/TableRow';
 import TableHeadingCell from './TableHeadingCell';
-import {map,equals} from 'ramda';
 
 class TableHeading extends PureComponent {
     state = {
@@ -11,35 +11,35 @@ class TableHeading extends PureComponent {
 
     componentDidUpdate(prevProps) {
         const { orderBy, headingData, order } = this.props;
-        if(
+        if (
             headingData !== prevProps.headingData
-            ||
-            orderBy !== prevProps.orderBy
-            ||
-            order !== prevProps.order
+            || orderBy !== prevProps.orderBy
+            || order !== prevProps.order
         ) {
             this.handleTableHeadingMap();
         }
-    };
+    }
 
     handleTableHeadingMap = () => {
-        const { headingData, onRequestSort, order, orderBy  } = this.props;
+        const {
+            headingData, onRequestSort, order, orderBy,
+        } = this.props;
 
         const beingSorted = equals(orderBy);
 
-        const mapHeaderCell = ({label, colSpan, id}) => (
+        const mapHeaderCell = ({ label, colSpan, id }) => (
             <TableHeadingCell
-                key={id}
-                colSpan={colSpan}
-                onRequestSort={onRequestSort(id)}
-                label={label}
-                order={order}
-                beingSorted={beingSorted(id)}
+                key={ id }
+                colSpan={ colSpan }
+                onRequestSort={ onRequestSort(id) }
+                label={ label }
+                order={ order }
+                beingSorted={ beingSorted(id) }
             />
         );
 
         const mappedHeading = map(mapHeaderCell);
-        this.setState({ headingData: mappedHeading(headingData) })
+        this.setState({ headingData: mappedHeading(headingData) });
     };
 
     render() {
@@ -47,10 +47,10 @@ class TableHeading extends PureComponent {
         const { headingData } = this.state;
         return (
             <thead>
-            <StyledTableRow effect>
-                {editable && <TableHeadingCell editable/>}
-                {headingData}
-            </StyledTableRow>
+                <StyledTableRow effect>
+                    {editable && <TableHeadingCell editable />}
+                    {headingData}
+                </StyledTableRow>
             </thead>
         );
     }

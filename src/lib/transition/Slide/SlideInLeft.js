@@ -12,7 +12,7 @@ const SlideInLeftAnimation = keyframes`
 `;
 
 const SlideInLeft = styled(BaseAnimation)`
-  animation-name: ${SlideInLeftAnimation};
+  animation-name: ${ SlideInLeftAnimation };
 `;
 
 export default SlideInLeft;

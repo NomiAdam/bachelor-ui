@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Input from '../../atoms/Input/index';
 import { IoClose } from 'react-icons/lib/io';
 import { o, not } from 'ramda';
 import { isNilOrEmptyString } from 'ramda-extension';
+import Input from '../../atoms/Input/index';
 import { lightTheme } from '../../constants/theme';
 
 const SearchFieldWrapper = styled.div`
-    background-color: ${({ background }) => background ? background : lightTheme.lightGrey};
+    background-color: ${ ({ background }) => background || lightTheme.lightGrey };
     border-color: transparent;
     border-radius: 50px;
     padding: 5px 15px;
@@ -19,21 +19,21 @@ const StyledIcon = styled(IoClose)`
     position: absolute;
     right: 10px;
     top: 7.5px;
-    color: ${lightTheme.lightBlue}
+    color: ${ lightTheme.lightBlue }
 `;
 
 const isNotNilOrEmptyString = o(not, isNilOrEmptyString);
 
 const SearchField = ({ handleClear, value, ...others }) => (
-        <SearchFieldWrapper>
-            <Input
-                {...others}
-                value={value}
-                borderBackground={'transparent'}
-            />
-            { isNotNilOrEmptyString(value) && <StyledIcon onClick={handleClear} /> }
-        </SearchFieldWrapper>
-    );
+    <SearchFieldWrapper>
+        <Input
+            { ...others }
+            value={ value }
+            borderBackground="transparent"
+        />
+        { isNotNilOrEmptyString(value) && <StyledIcon onClick={ handleClear } /> }
+    </SearchFieldWrapper>
+);
 
 SearchField.propTypes = {
     /**
@@ -65,7 +65,6 @@ SearchField.propTypes = {
      */
     background: PropTypes.string,
 };
-
 
 export { SearchFieldWrapper };
 export default SearchField;

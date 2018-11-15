@@ -1,9 +1,12 @@
+/* eslint-disable react/destructuring-assignment,react/no-did-update-set-state */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {
+    map, head, propOr, o,
+} from 'ramda';
 import BottomNavigationItem from './BottomNavigationItem';
 import Border from './Border';
-import { map, head, propOr, o } from 'ramda';
 import { lightTheme } from '../../constants/theme';
 
 const StyledBottomNavigation = styled.ul`
@@ -18,18 +21,18 @@ const StyledBottomNavigation = styled.ul`
   width: 100%;
   max-height: 100px;
   min-height: 50px;
-  background-color: ${({background}) => background};
+  background-color: ${ ({ background }) => background };
 `;
 
-const renderItem = (handleClick) => ({icon, label, id}) => (
+const renderItem = handleClick => ({ icon, label, id }) => (
     <BottomNavigationItem
-        key={id}
-        label={label}
-        icon={icon}
-        handleClick={handleClick(id)}
+        key={ id }
+        label={ label }
+        icon={ icon }
+        handleClick={ handleClick(id) }
     />
 );
-const renderNavigationItems = (handleClick) => map(renderItem(handleClick));
+const renderNavigationItems = handleClick => map(renderItem(handleClick));
 const getFirstOrEmpty = o(propOr('', 'id'), head);
 
 class BottomNavigation extends PureComponent {
@@ -39,28 +42,28 @@ class BottomNavigation extends PureComponent {
 
     componentDidUpdate(prevProps) {
         const { active } = this.props;
-        if (active !== prevProps.active) this.setState({activeItem: active})
+        if (active !== prevProps.active) this.setState({ activeItem: active });
     }
 
-    handleClick = (id) => () => {
+    handleClick = id => () => {
         const { handleClick } = this.props;
         handleClick(id);
-        this.setState({ activeItem: id })
+        this.setState({ activeItem: id });
     };
 
     render() {
         const { activeItem } = this.state;
-        const {items, background, borderColor} = this.props;
+        const { items, background, borderColor } = this.props;
         return (
-            <StyledBottomNavigation background={background}>
+            <StyledBottomNavigation background={ background }>
                 <Border
-                    color={borderColor}
-                    items={items}
-                    active={activeItem}
+                    color={ borderColor }
+                    items={ items }
+                    active={ activeItem }
                 />
                 {renderNavigationItems(this.handleClick)(items)}
             </StyledBottomNavigation>
-        )
+        );
     }
 }
 
@@ -92,5 +95,5 @@ BottomNavigation.defaultProps = {
     background: lightTheme.lightBlue,
 };
 
-export {StyledBottomNavigation};
+export { StyledBottomNavigation };
 export default BottomNavigation;

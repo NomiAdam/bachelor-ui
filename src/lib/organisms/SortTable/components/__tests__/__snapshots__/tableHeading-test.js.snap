@@ -2,7 +2,7 @@
 
 exports[`TableHeading should match the snapshot 1`] = `
 <thead>
-  <styled.tr
+  <TableRow__StyledTableRow
     effect={true}
   />
 </thead>
@@ -10,7 +10,7 @@ exports[`TableHeading should match the snapshot 1`] = `
 
 exports[`TableHeading should match the snapshot 2`] = `
 <thead>
-  <styled.tr
+  <TableRow__StyledTableRow
     effect={true}
   />
 </thead>
@@ -18,7 +18,7 @@ exports[`TableHeading should match the snapshot 2`] = `
 
 exports[`TableHeading should match the snapshot when editable 1`] = `
 <thead>
-  <styled.tr
+  <TableRow__StyledTableRow
     effect={true}
   >
     <TableHeadingCell
@@ -26,6 +26,6 @@ exports[`TableHeading should match the snapshot when editable 1`] = `
       editable={true}
       label=""
     />
-  </styled.tr>
+  </TableRow__StyledTableRow>
 </thead>
 `;

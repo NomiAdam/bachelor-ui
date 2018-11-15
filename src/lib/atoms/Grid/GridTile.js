@@ -4,9 +4,11 @@ import Paper from '../Paper/index';
 import GridCol from './GridCol';
 import { lightTheme } from '../../constants/theme';
 
-const GridTile = ({ background, width, height, children, padding, center, ...rest }) => (
-    <GridCol {...rest} center={center}>
-        <Paper background={background} width={width} height={height} padding={padding} center={center} >
+const GridTile = ({
+    background, width, height, children, padding, center, ...rest
+}) => (
+    <GridCol { ...rest } center={ center }>
+        <Paper background={ background } width={ width } height={ height } padding={ padding } center={ center }>
             {children}
         </Paper>
     </GridCol>

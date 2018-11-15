@@ -9,7 +9,7 @@ const StyledLabelWrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     font-size: 1em;
-    cursor: ${({ isAction }) => isAction ? 'pointer' : 'initial' };
+    cursor: ${ ({ isAction }) => (isAction ? 'pointer' : 'initial') };
 `;
 
 const StyledHeading = styled.h4`
@@ -22,8 +22,10 @@ const StyledParagraph = styled.p`
     font-size: .7em;
 `;
 
-const ActionListLabel = ({ header, subHeader, isAction, handleClick }) => (
-    <StyledLabelWrapper isAction={isAction} onClick={handleClick}>
+const ActionListLabel = ({
+    header, subHeader, isAction, handleClick,
+}) => (
+    <StyledLabelWrapper isAction={ isAction } onClick={ handleClick }>
         <StyledHeading>{ header }</StyledHeading>
         <StyledParagraph>{ subHeader }</StyledParagraph>
     </StyledLabelWrapper>

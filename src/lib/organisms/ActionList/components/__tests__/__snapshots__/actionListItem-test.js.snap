@@ -1,29 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionListItem should be match the snapshot 1`] = `
-<styled.li>
-  <styled.div
+<ActionListItem__StyledListItem>
+  <Grid__StyledGridWrapper
     gridGap="10px"
     padding="10px"
   >
-    <styled.div
+    <GridCol__StyledGridCol
       colMD={2}
       colXS={3}
     >
       <ActionDate />
-    </styled.div>
-    <styled.div
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       colMD={9}
       colXS={8}
     >
       <ActionListLabel />
-    </styled.div>
-    <styled.div
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       colMD={1}
       colXS={1}
     >
       <ActionIcon />
-    </styled.div>
-  </styled.div>
-</styled.li>
+    </GridCol__StyledGridCol>
+  </Grid__StyledGridWrapper>
+</ActionListItem__StyledListItem>
 `;

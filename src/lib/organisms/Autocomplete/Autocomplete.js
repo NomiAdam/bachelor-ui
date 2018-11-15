@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+/* eslint-disable react/destructuring-assignment,default-case */
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
@@ -17,14 +18,14 @@ import {
     add,
     nth,
 } from 'ramda';
-import {isNilOrEmptyString, isNotNil} from 'ramda-extension';
+import { isNilOrEmptyString, isNotNil } from 'ramda-extension';
 import Input from './Input';
 import Select from './Select';
 
 const getInputValue = path(['target', 'value']);
 
 const getFirstSuggestionValue = o(propOr('', 'value'), head);
-const getCurrentIndex = (value) => findIndex(propEq('value', value));
+const getCurrentIndex = value => findIndex(propEq('value', value));
 const getNextValue = when(isNotNil, prop('value'));
 
 const StyledAutocomplete = styled.div`
@@ -41,34 +42,34 @@ class Autocomplete extends Component {
     };
 
     componentDidMount() {
-        const {value, suggestions} = this.props;
+        const { value, suggestions } = this.props;
         if (isNilOrEmptyString(value)) {
-            this.setState({selected: getFirstSuggestionValue(suggestions)})
+            this.setState({ selected: getFirstSuggestionValue(suggestions) });
         } else {
             this.handleStateChange(value);
-            this.setState({selected: value})
+            this.setState({ selected: value });
         }
-    };
+    }
 
     handleFocus = () => {
-        this.setState({isFocused: true});
+        this.setState({ isFocused: true });
     };
 
     handleBlur = () => {
-        this.setState({isFocused: false});
+        this.setState({ isFocused: false });
     };
 
-    handleValueChange = (e) => this.handleStateChange(getInputValue(e));
+    handleValueChange = e => this.handleStateChange(getInputValue(e));
 
-    handleSelect = (value) => () => {
+    handleSelect = value => () => {
         this.handleStateChange(value);
-        const {handleChange} = this.props;
+        const { handleChange } = this.props;
         handleChange(value);
         this.handleBlur();
     };
 
     handleStateChange = (value) => {
-        const {suggestions} = this.props;
+        const { suggestions } = this.props;
 
         const matchString = contains(toLower(value));
         const validatedMatchingValue = o(toLower, prop('value'));
@@ -77,53 +78,54 @@ class Autocomplete extends Component {
 
         this.setState({
             value,
-            filteredSuggestions: validatedSuggestions(suggestions)
+            filteredSuggestions: validatedSuggestions(suggestions),
         });
     };
 
     handleKeyPress = (e) => {
-        const {selected} = this.state;
-        const {suggestions} = this.props;
+        const { selected } = this.state;
+        const { suggestions } = this.props;
         const index = getCurrentIndex(selected)(suggestions);
         switch (e.key) {
-            case 'ArrowUp': {
-                const getValueOfNext = nth(dec(index, 1), suggestions);
-                this.setState({selected: getNextValue(getValueOfNext) || selected});
-            }
-                break;
-            case 'ArrowDown': {
-                const getValueOfNext = nth(add(index, 1), suggestions);
-                this.setState({selected: getNextValue(getValueOfNext) || selected});
-            }
-                break;
-            case 'Enter':
-                this.handleSelect(selected)(e);
-                break;
+        case 'ArrowUp': {
+            const getValueOfNext = nth(dec(index, 1), suggestions);
+            this.setState({ selected: getNextValue(getValueOfNext) || selected });
+        }
+            break;
+        case 'ArrowDown': {
+            const getValueOfNext = nth(add(index, 1), suggestions);
+            this.setState({ selected: getNextValue(getValueOfNext) || selected });
+        }
+            break;
+        case 'Enter':
+            this.handleSelect(selected)(e);
+            break;
         }
     };
 
     render() {
-        const {placeholder} = this.props;
-        const {isFocused, value, selected, filteredSuggestions} = this.state;
+        const { placeholder } = this.props;
+        const {
+            isFocused, value, selected, filteredSuggestions,
+        } = this.state;
         return (
-            <StyledAutocomplete onBlur={this.handleBlur} onKeyDown={this.handleKeyPress}>
+            <StyledAutocomplete onBlur={ this.handleBlur } onKeyDown={ this.handleKeyPress }>
                 <Input
-                    value={value}
-                    handleFocus={this.handleFocus}
-                    handleChange={this.handleValueChange}
-                    handleEnter={this.handleEnter}
-                    placeholder={placeholder}
+                    value={ value }
+                    handleFocus={ this.handleFocus }
+                    handleChange={ this.handleValueChange }
+                    handleEnter={ this.handleEnter }
+                    placeholder={ placeholder }
                 />
                 <Select
-                    visible={isFocused}
-                    suggestions={filteredSuggestions}
-                    onClick={this.handleSelect}
-                    selected={selected}
-                    handleKeyPress={this.handleKeyPress}
+                    visible={ isFocused }
+                    suggestions={ filteredSuggestions }
+                    onClick={ this.handleSelect }
+                    selected={ selected }
+                    handleKeyPress={ this.handleKeyPress }
                 />
             </StyledAutocomplete>
         );
-
     }
 }
 
@@ -152,5 +154,5 @@ Autocomplete.defaultProps = {
     placeholder: '',
 };
 
-export {StyledAutocomplete};
+export { StyledAutocomplete };
 export default Autocomplete;

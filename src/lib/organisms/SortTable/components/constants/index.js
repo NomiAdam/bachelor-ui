@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/prefer-default-export
 export const basicRowCount = [
     {
         value: 10,
@@ -10,5 +11,5 @@ export const basicRowCount = [
     {
         value: 50,
         label: 50,
-    }
+    },
 ];

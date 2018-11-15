@@ -1,18 +1,18 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {compose, tail, values} from 'ramda';
+import { compose, tail, values } from 'ramda';
 import { mapIndexed } from 'ramda-extension';
-import TableCell from './TableCell';
 import { IoEdit, IoAndroidDelete } from 'react-icons/lib/io';
+import TableCell from './TableCell';
 import { lightTheme, darkTheme } from '../../constants/theme';
 
 const StyledTableRow = styled.tr`
 	background-color: transparent;
-	border-bottom: 1px solid ${lightTheme.lightGrey};
+	border-bottom: 1px solid ${ lightTheme.lightGrey };
 	transition: .25s all ease;
 	&:hover {
-		background-color: ${({effect}) => effect ? 'transparent' : lightTheme.whiteBlue};
+		background-color: ${ ({ effect }) => (effect ? 'transparent' : lightTheme.whiteBlue) };
 	}
 `;
 
@@ -20,44 +20,43 @@ const Icon = styled.div`
     padding: 10px 15px;
     font-size: 1.5em;
     cursor: pointer; 
-    color: ${darkTheme.darkGrey};
+    color: ${ darkTheme.darkGrey };
 `;
 
 const StyledEdit = Icon.withComponent(IoEdit);
 const StyledTrash = Icon.withComponent(IoAndroidDelete);
 
-
 class TableRow extends PureComponent {
     state = {
-       rowData: [],
+        rowData: [],
     };
 
     componentDidMount() {
         this.handleTableCellsMap();
-    };
+    }
 
     componentDidUpdate(prevProps) {
         const { tableRowData } = this.props;
-        if(tableRowData !== prevProps.tableRowData) {
+        if (tableRowData !== prevProps.tableRowData) {
             this.handleTableCellsMap();
         }
     }
 
     handleTableCellsMap = () => {
-       const  {tableRowData, redirect, handleRedirect} = this.props;
+        const { tableRowData, redirect, handleRedirect } = this.props;
 
         const mapTableCells = (value, index) => (
             <TableCell
-                redirect={redirect}
-                key={`${index}-${value}`}
-                onClick={handleRedirect}
+                redirect={ redirect }
+                key={ `${ index }-${ value }` }
+                onClick={ handleRedirect }
             >
                 {value}
             </TableCell>
         );
         const mappedTableCells = compose(tail, values, mapIndexed(mapTableCells));
 
-        this.setState({ rowData: mappedTableCells(tableRowData) })
+        this.setState({ rowData: mappedTableCells(tableRowData) });
     };
 
     render() {
@@ -67,8 +66,8 @@ class TableRow extends PureComponent {
             <StyledTableRow>
                 {editable && (
                     <TableCell editable>
-                        <StyledTrash onClick={handleDelete}/>
-                        <StyledEdit onClick={handleEdit}/>
+                        <StyledTrash onClick={ handleDelete } />
+                        <StyledEdit onClick={ handleEdit } />
                     </TableCell>
                 )}
                 {rowData}
@@ -114,5 +113,5 @@ TableRow.defaultProps = {
     editable: false,
 };
 
-export {StyledTableRow, StyledEdit, StyledTrash};
+export { StyledTableRow, StyledEdit, StyledTrash };
 export default TableRow;

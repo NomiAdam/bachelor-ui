@@ -4,8 +4,8 @@ import SimpleTableRow from './SimpleTableRow';
 import Table from './Table';
 
 export {
-	TableCell,
-	TableRow,
+    TableCell,
+    TableRow,
     SimpleTableRow,
 };
 

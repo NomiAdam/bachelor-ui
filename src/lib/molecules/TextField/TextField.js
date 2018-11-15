@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Input, {Label, Border, TextAreaInput} from '../../atoms/Input/index';
-import {maxMobileM, maxMobileS} from "../../constants/device";
+import Input, { Label, Border, TextAreaInput } from '../../atoms/Input/index';
+import { maxMobileM, maxMobileS } from '../../constants/device';
 import FieldLabel from '../../atoms/FieldLabel/index';
 import { basicTheme } from '../../constants/theme';
 
@@ -15,50 +15,49 @@ const StyledTextField = styled.label`
 
 const TextFieldWrapper = styled.div`
     padding: 15px;
-    @media ${maxMobileM} {
+    @media ${ maxMobileM } {
 		padding: 5px;
 	}
-	@media ${maxMobileS} {
+	@media ${ maxMobileS } {
 		padding: 5px;
 	}
 `;
 
-const TextField = ({onChange, value, label, multiLine, rows, cols, disabled, error, onBlur, borderBackground, type, errorLabel, displayIcon}) => {
-    return (
-        <TextFieldWrapper>
-            <StyledTextField>
-                {multiLine ?
-                    (
-                        <TextAreaInput
-                            onChange={onChange}
-                            value={value}
-                            rows={rows}
-                            cols={cols}
-                            disabled={disabled}
-                            error={error}
-                            onBlur={onBlur}
-                        />
-                    )
-                    :
-                    (
-                        <Input
-                            onChange={onChange}
-                            value={value}
-                            disabled={disabled}
-                            error={error}
-                            onBlur={onBlur}
-                            type={type}
-                            displayIcon={displayIcon}
-                        />
-                    )
-                }
-                <Label label={label} multiline={multiLine}/>
-                <Border background={borderBackground} textArea={multiLine} error={error}/>
-            </StyledTextField>
-            <FieldLabel error={error} label={errorLabel}/>
-        </TextFieldWrapper>
-    );
-};
+const TextField = ({
+    onChange, value, label, multiLine, rows, cols, disabled, error, onBlur, borderBackground, type, errorLabel, displayIcon,
+}) => (
+    <TextFieldWrapper>
+        <StyledTextField>
+            {multiLine
+                ? (
+                    <TextAreaInput
+                        onChange={ onChange }
+                        value={ value }
+                        rows={ rows }
+                        cols={ cols }
+                        disabled={ disabled }
+                        error={ error }
+                        onBlur={ onBlur }
+                    />
+                )
+                : (
+                    <Input
+                        onChange={ onChange }
+                        value={ value }
+                        disabled={ disabled }
+                        error={ error }
+                        onBlur={ onBlur }
+                        type={ type }
+                        displayIcon={ displayIcon }
+                    />
+                )
+            }
+            <Label label={ label } multiline={ multiLine } />
+            <Border background={ borderBackground } textArea={ multiLine } error={ error } />
+        </StyledTextField>
+        <FieldLabel error={ error } label={ errorLabel } />
+    </TextFieldWrapper>
+);
 
 TextField.propTypes = {
     /**

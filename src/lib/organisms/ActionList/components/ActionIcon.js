@@ -15,18 +15,18 @@ const StyledIconWrapper = styled.div`
 `;
 
 const StyledOutline = styled(IoIosStarOutline)`
-  color: ${darkTheme.black};
+  color: ${ darkTheme.black };
   font-size: 1.7em;
 `;
 
 const StyledStar = styled(IoIosStar)`
-  color: ${lightTheme.lightBlue};
+  color: ${ lightTheme.lightBlue };
   font-size: 1.7em;
 `;
 
 const ActionIcon = ({ isIconActive, handleIconClick }) => (
-    <StyledIconWrapper onClick={handleIconClick}>
-        { isIconActive ? <StyledStar/> : <StyledOutline/> }
+    <StyledIconWrapper onClick={ handleIconClick }>
+        { isIconActive ? <StyledStar /> : <StyledOutline /> }
     </StyledIconWrapper>
 );
 

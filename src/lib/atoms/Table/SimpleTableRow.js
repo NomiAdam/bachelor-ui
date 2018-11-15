@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {map, addIndex} from 'ramda';
+import { map, addIndex } from 'ramda';
 import TableCell from './TableCell';
 
 const mapIndexed = addIndex(map);
@@ -13,7 +13,7 @@ const StyledTableRow = styled.tr`
 	}
 `;
 
-const mapTableCells = (value, index) => <TableCell key={index}>{value}</TableCell>;
+const mapTableCells = (value, index) => <TableCell key={ index }>{value}</TableCell>;
 const mappedTableCells = mapIndexed(mapTableCells);
 class SimpleTableRow extends PureComponent {
     state = {
@@ -22,11 +22,11 @@ class SimpleTableRow extends PureComponent {
 
     componentDidMount() {
         this.handleTableCellsMap();
-    };
+    }
 
     componentDidUpdate(prevProps) {
         const { simpleTableRowData } = this.props;
-        if(JSON.stringify(simpleTableRowData) !== JSON.stringify(prevProps.simpleTableRowData)) {
+        if (JSON.stringify(simpleTableRowData) !== JSON.stringify(prevProps.simpleTableRowData)) {
             this.handleTableCellsMap();
         }
     }
@@ -34,7 +34,7 @@ class SimpleTableRow extends PureComponent {
     handleTableCellsMap() {
         const { simpleTableRowData } = this.props;
         this.setState({ rowData: mappedTableCells(simpleTableRowData) });
-    };
+    }
 
     render() {
         const { labeled, label } = this.props;
@@ -68,5 +68,5 @@ SimpleTableRow.defaultProps = {
     labeled: false,
 };
 
-export {StyledTableRow};
+export { StyledTableRow };
 export default SimpleTableRow;

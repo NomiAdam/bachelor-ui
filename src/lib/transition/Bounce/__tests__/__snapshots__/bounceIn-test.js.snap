@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BounceIn should match the snapshot 1`] = `
-<styled.div
-  className="sc-bwzfXH bAJPOi"
+<BaseAnimation
+  className="BounceIn-yfq2ay-0 eTgtBd"
   delay="0s"
   direction="normal"
   display="block"

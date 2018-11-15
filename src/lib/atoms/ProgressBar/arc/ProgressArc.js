@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { lightTheme, basicTheme, darkTheme } from '../../../constants/theme';
 
-const dash = (value) => keyframes`
+const dash = value => keyframes`
   to {
-    stroke-dashoffset: ${198 - (value * 1.98)};
+    stroke-dashoffset: ${ 198 - (value * 1.98) };
   }
 `;
 
@@ -15,8 +15,8 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  height: ${({ height }) => height};
-  width: ${({ width }) => width};
+  height: ${ ({ height }) => height };
+  width: ${ ({ width }) => width };
 `;
 
 const StyledSvg = styled.svg`
@@ -33,29 +33,31 @@ const StyledPath = styled.path`
 `;
 
 const StyledSecondaryPath = styled(StyledPath)`
-  stroke: ${lightTheme.lightGrey};
+  stroke: ${ lightTheme.lightGrey };
 `;
 
 const StyledPrimaryPath = styled(StyledPath)`
-  stroke: ${({color}) => color};
+  stroke: ${ ({ color }) => color };
   stroke-dasharray: 198;
   stroke-dashoffset: 198;
-  animation: ${({value}) => dash(value)} 1.5s ease-out forwards;
+  animation: ${ ({ value }) => dash(value) } 1.5s ease-out forwards;
 `;
 
 const StyledParagraph = styled.p`
   font-size: 1.8em;
   font-weight: bold;
-  color: ${({ labelColor }) => labelColor}
+  color: ${ ({ labelColor }) => labelColor }
 `;
 
-const ProgressArc = ({value, color, width, height, label, labelColor}) => (
-    <StyledWrapper width={width} height={height}>
+const ProgressArc = ({
+    value, color, width, height, label, labelColor,
+}) => (
+    <StyledWrapper width={ width } height={ height }>
         <StyledSvg viewBox="5 0 100 100">
-            <StyledSecondaryPath d="M30,90 A40,40 0 1,1 80,90"/>
-            <StyledPrimaryPath d="M30,90 A40,40 0 1,1 80,90" value={value} color={color}/>
+            <StyledSecondaryPath d="M30,90 A40,40 0 1,1 80,90" />
+            <StyledPrimaryPath d="M30,90 A40,40 0 1,1 80,90" value={ value } color={ color } />
         </StyledSvg>
-        <StyledParagraph labelColor={labelColor}>{ label }</StyledParagraph>
+        <StyledParagraph labelColor={ labelColor }>{ label }</StyledParagraph>
     </StyledWrapper>
 );
 

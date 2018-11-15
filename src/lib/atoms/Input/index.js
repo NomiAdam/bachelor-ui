@@ -6,11 +6,11 @@ import Select from './Select';
 import Option from './Option';
 
 export {
-	Label,
-	Border,
-	TextAreaInput,
-	Select,
-	Option
+    Label,
+    Border,
+    TextAreaInput,
+    Select,
+    Option,
 };
 
 export default Input;

@@ -1,19 +1,21 @@
-import React, {createElement} from 'react';
+import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledMediaWrapper = styled.div`
   overflow: hidden;
   video, audio, picture, iframe, img {
-    width: ${({ width }) => width};
-    height: ${({ height }) => height};
+    width: ${ ({ width }) => width };
+    height: ${ ({ height }) => height };
   }
 `;
 
-const Media = ({component, label, src, image, width, height, ...others}) => (
-    <StyledMediaWrapper width={width} height={height}>
+const Media = ({
+    component, label, src, image, width, height, ...others
+}) => (
+    <StyledMediaWrapper width={ width } height={ height }>
         {
-            createElement(component, {...others, src: src || image, alt: label})
+            createElement(component, { ...others, src: src || image, alt: label })
         }
     </StyledMediaWrapper>
 );

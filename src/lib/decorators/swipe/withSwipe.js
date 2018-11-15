@@ -1,4 +1,5 @@
-import React, {PureComponent} from 'react';
+/* eslint-disable react/no-did-update-set-state,react/destructuring-assignment,react/no-access-state-in-setstate */
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
@@ -7,7 +8,7 @@ const StyledWrapper = styled.div`
   z-index: 999;
 `;
 
-const withSwipe = (Component) => class extends PureComponent {
+const withSwipe = Component => class extends PureComponent {
     state = {
         left: 0,
         originalOffset: 0,
@@ -21,18 +22,18 @@ const withSwipe = (Component) => class extends PureComponent {
     };
 
     componentDidUpdate(prevProps) {
-        const {swipeOpen} = this.props;
+        const { swipeOpen } = this.props;
         if (swipeOpen !== prevProps.swipeOpen) {
             this.setState({
                 left: swipeOpen ? 100 : 0,
                 isOpen: swipeOpen,
-            })
+            });
         }
-    };
+    }
 
     handleStateChange = () => {
-        const {isOpen} = this.state;
-        const {handleSwipeChange} = this.props;
+        const { isOpen } = this.state;
+        const { handleSwipeChange } = this.props;
         handleSwipeChange(isOpen);
     };
 
@@ -44,12 +45,12 @@ const withSwipe = (Component) => class extends PureComponent {
             touchStartX: clientX,
             touchStartY: clientY,
             beingTouched: true,
-            intervalId: null
+            intervalId: null,
         });
     };
 
     isSwipeX = (clientY) => {
-        const {touchStartY} = this.state;
+        const { touchStartY } = this.state;
         return Math.abs(touchStartY - clientY) < 5;
     };
 
@@ -69,13 +70,13 @@ const withSwipe = (Component) => class extends PureComponent {
                 left: deltaX,
                 velocity,
                 timeOfLastDragEvent: currTime,
-                prevTouchX: touchX
+                prevTouchX: touchX,
             });
         }
     };
 
     handleEnd = () => {
-        const {left} = this.state;
+        const { left } = this.state;
         let finalLeft = left;
         if (finalLeft < 50) {
             finalLeft = 0;
@@ -93,14 +94,14 @@ const withSwipe = (Component) => class extends PureComponent {
 
     handleTouchStart = (touchStartEvent) => {
         this.handleStart(
-            touchStartEvent.targetTouches[0].clientX,
-            touchStartEvent.targetTouches[0].clientY,
+            touchStartEvent.targetTouches[ 0 ].clientX,
+            touchStartEvent.targetTouches[ 0 ].clientY,
         );
     };
 
     handleTouchMove = (touchMoveEvent) => {
-        if (this.isSwipeX(touchMoveEvent.targetTouches[0].clientY)) {
-            this.handleMove(touchMoveEvent.targetTouches[0].clientX);
+        if (this.isSwipeX(touchMoveEvent.targetTouches[ 0 ].clientY)) {
+            this.handleMove(touchMoveEvent.targetTouches[ 0 ].clientX);
         }
     };
 
@@ -108,21 +109,21 @@ const withSwipe = (Component) => class extends PureComponent {
         this.handleEnd();
     };
 
-    handleClick = (left) => this.setState({
+    handleClick = left => this.setState({
         left,
         isOpen: left === 100,
     }, this.handleStateChange);
 
     render() {
-        const {left} = this.state;
-        const {handleSwipeChange, swipeOpen, ...rest} = this.props;
+        const { left } = this.state;
+        const { handleSwipeChange, swipeOpen, ...rest } = this.props;
         return (
             <StyledWrapper
-                onTouchStart={this.handleTouchStart}
-                onTouchMove={this.handleTouchMove}
-                onTouchEnd={this.handleTouchEnd}
+                onTouchStart={ this.handleTouchStart }
+                onTouchMove={ this.handleTouchMove }
+                onTouchEnd={ this.handleTouchEnd }
             >
-                <Component left={left} handleClick={this.handleClick} {...rest} />
+                <Component left={ left } handleClick={ this.handleClick } { ...rest } />
             </StyledWrapper>
         );
     }

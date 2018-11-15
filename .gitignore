@@ -1,8 +1,9 @@
 
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# idea
+# ide
 /.idea/
+/.vscode/
 
 # dependencies
 node_modules

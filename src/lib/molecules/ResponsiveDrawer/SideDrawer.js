@@ -5,12 +5,12 @@ import { basicTheme, darkTheme, lightTheme } from '../../constants/theme';
 
 const StyledSideDrawer = styled.nav.attrs({
     style: ({ left }) => ({
-        left: `${left * 0.7}%`,
+        left: `${ left * 0.7 }%`,
     }),
 })`
     height: 100%;
-    background: ${lightTheme.white};
-    box-shadow: 1px 0px 7px ${darkTheme.darkGrey};
+    background: ${ lightTheme.white };
+    box-shadow: 1px 0px 7px ${ darkTheme.darkGrey };
     position: fixed;
     top: 0;
     width: 70%;
@@ -29,20 +29,20 @@ const StyledSideDrawer = styled.nav.attrs({
       margin: 0.5rem 0;
     }
     a {
-      color: ${({ primary }) => primary ? darkTheme.black : basicTheme.purple };
+      color: ${ ({ primary }) => (primary ? darkTheme.black : basicTheme.purple) };
       text-decoration: none;
       font-size: 1.2rem;
       &:hover {
-        color: ${({ primary }) => primary ? lightTheme.lightBlue : basicTheme.orange };
+        color: ${ ({ primary }) => (primary ? lightTheme.lightBlue : basicTheme.orange) };
       }
       &:active {
-        color: ${({ primary }) => primary ? lightTheme.lightBlue : basicTheme.orange };;
+        color: ${ ({ primary }) => (primary ? lightTheme.lightBlue : basicTheme.orange) };;
       }
     }
 `;
 
 const SideDrawer = ({ children, primary, left }) => (
-    <StyledSideDrawer primary={primary} left={left}>
+    <StyledSideDrawer primary={ primary } left={ left }>
         { children }
     </StyledSideDrawer>
 );

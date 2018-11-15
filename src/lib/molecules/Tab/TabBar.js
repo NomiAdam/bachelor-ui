@@ -1,41 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { equals, map } from 'ramda';
 import TabCell from './TabCell';
-import {equals, map} from 'ramda';
 import Border from './Border';
 import { lightTheme } from '../../constants/theme';
-import {maxTablet} from "../../constants/device";
+import { maxTablet } from '../../constants/device';
 
 const StyledTabBarWrapper = styled.div`
     overflow: hidden;
-    border: 1px solid ${lightTheme.whiteBlue};
-    background-color: ${lightTheme.lightBlue};
-    box-shadow:  0 2px 5px ${lightTheme.lightGrey};
+    border: 1px solid ${ lightTheme.whiteBlue };
+    background-color: ${ lightTheme.lightBlue };
+    box-shadow:  0 2px 5px ${ lightTheme.lightGrey };
     display: flex;
     position: relative;
     align-items: center;
     flex-direction: row;
-    justify-content: ${({align}) => align};
-    @media ${maxTablet} {
+    justify-content: ${ ({ align }) => align };
+    @media ${ maxTablet } {
       flex-direction: column;
     }
 `;
 
-const TabBar = ({handleClick, activeTab, tabOptions, align, borderColor}) => {
-    const mapTabCell = (label) => (
+const TabBar = ({
+    handleClick, activeTab, tabOptions, align, borderColor,
+}) => {
+    const mapTabCell = label => (
         <TabCell
-            key={label}
-            label={label}
-            handleClick={handleClick}
-            active={equals(label, activeTab)}
+            key={ label }
+            label={ label }
+            handleClick={ handleClick }
+            active={ equals(label, activeTab) }
         />
     );
     const mappedTabCells = map(mapTabCell);
     return (
-        <StyledTabBarWrapper align={align}>
+        <StyledTabBarWrapper align={ align }>
             {mappedTabCells(tabOptions)}
-            <Border items={tabOptions} active={activeTab} color={borderColor}/>
+            <Border items={ tabOptions } active={ activeTab } color={ borderColor } />
         </StyledTabBarWrapper>
     );
 };
@@ -69,5 +71,5 @@ TabBar.defaultProps = {
     align: 'flex-start',
 };
 
-export {StyledTabBarWrapper};
+export { StyledTabBarWrapper };
 export default TabBar;

@@ -1,9 +1,9 @@
 import React from 'react';
-import Paper from '../../atoms/Paper/index';
-import {Grid, GridCol} from '../../atoms/Grid/index';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {DialogContent, DialogActions} from './components/index';
+import Paper from '../../atoms/Paper/index';
+import { Grid, GridCol } from '../../atoms/Grid/index';
+import { DialogContent, DialogActions } from './components/index';
 
 const StyledWindowWrapper = styled(Paper)`
     max-height: 800px;
@@ -12,18 +12,18 @@ const StyledWindowWrapper = styled(Paper)`
     max-width: 800px;
 `;
 
-const DialogWindow = ({ renderActionChildren, children, heading}) => (
+const DialogWindow = ({ renderActionChildren, children, heading }) => (
     <StyledWindowWrapper>
-        <Grid gridGap={'0'} padding={'0'}>
-            <GridCol colXS={12}>
+        <Grid gridGap="0" padding="0">
+            <GridCol colXS={ 12 }>
                 {heading}
             </GridCol>
-            <GridCol colXS={12}>
+            <GridCol colXS={ 12 }>
                 <DialogContent>
                     {children}
                 </DialogContent>
             </GridCol>
-            <GridCol colXS={12}>
+            <GridCol colXS={ 12 }>
                 <DialogActions>
                     { renderActionChildren() }
                 </DialogActions>

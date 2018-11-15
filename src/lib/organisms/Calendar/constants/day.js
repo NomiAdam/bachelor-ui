@@ -20,7 +20,7 @@ export default [
     },
     {
         items: [],
-    }
+    },
 ];
 
 // TODO: Compute start and span a dates but calculated it differently

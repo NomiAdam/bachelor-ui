@@ -12,7 +12,7 @@ const SlideOutLeftAnimation = keyframes`
 `;
 
 const SlideOutLeft = styled(BaseAnimation)`
-  animation-name: ${SlideOutLeftAnimation};
+  animation-name: ${ SlideOutLeftAnimation };
 `;
 
 export default SlideOutLeft;

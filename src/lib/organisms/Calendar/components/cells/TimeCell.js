@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {basicTheme, darkTheme} from '../../../../constants/theme';
+import { basicTheme, darkTheme } from '../../../../constants/theme';
 
 const StyledCellWrapper = styled.div`
     min-height: 48px;
@@ -16,7 +16,7 @@ const StyledCellSpan = styled.span`
     top: -6px;
     display: block;
     font-size: 10px;
-    color: ${darkTheme.black};
+    color: ${ darkTheme.black };
 `;
 
 const TimeCell = ({ label }) => (

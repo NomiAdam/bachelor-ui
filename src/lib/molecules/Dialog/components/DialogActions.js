@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Container from '../../../atoms/Container/index';
 
 const DialogActions = ({ children }) => (
-    <Container height={'40px'} alignItems={'flex-end'} >
+    <Container height="40px" alignItems="flex-end">
         { children }
     </Container>
 );

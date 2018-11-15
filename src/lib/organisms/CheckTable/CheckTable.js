@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { evolve, always, length } from 'ramda';
 import Paper from '../../atoms/Paper/index';
 import Table from '../../atoms/Table/index';
-import {TableHeading, TableBody} from './components/index';
-import {evolve, always, length} from 'ramda';
+import { TableHeading, TableBody } from './components/index';
 
-const CheckTable = ({selected, timeSheet, handleChange, isCheckbox}) => {
+const CheckTable = ({
+    selected, timeSheet, handleChange, isCheckbox,
+}) => {
+    const handleRowChange = key => (value) => {
+        const field = selected[ key ];
 
-    const handleRowChange = (key) => (value) => {
-        const field = selected[key];
-
-        const evolvedField = evolve({value: always(value)}, field);
-        const evolvedSelected = evolve({[key]: always(evolvedField)}, selected);
+        const evolvedField = evolve({ value: always(value) }, field);
+        const evolvedSelected = evolve({ [ key ]: always(evolvedField) }, selected);
 
         handleChange(evolvedSelected);
     };
@@ -19,20 +20,19 @@ const CheckTable = ({selected, timeSheet, handleChange, isCheckbox}) => {
     const rowRange = length(timeSheet);
 
     return (
-        <Paper overflow={'auto'}>
+        <Paper overflow="auto">
             <Table rowSpacing>
-                <TableHeading dayHours={timeSheet}/>
+                <TableHeading dayHours={ timeSheet } />
                 <TableBody
-                    rowRange={rowRange}
-                    handleChange={handleRowChange}
-                    selected={selected}
-                    isCheckbox={isCheckbox}
+                    rowRange={ rowRange }
+                    handleChange={ handleRowChange }
+                    selected={ selected }
+                    isCheckbox={ isCheckbox }
                 />
             </Table>
         </Paper>
     );
 };
-
 
 CheckTable.propTypes = {
     /**

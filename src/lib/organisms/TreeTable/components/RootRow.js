@@ -1,29 +1,32 @@
-import React, {PureComponent} from 'react';
+/* eslint-disable react/destructuring-assignment */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {compose, keys, prop, values, mapObjIndexed, o, contains} from 'ramda';
-import {isNotEmpty,defaultToEmptyObject} from 'ramda-extension';
+import {
+    compose, keys, prop, values, mapObjIndexed, o, contains,
+} from 'ramda';
+import { isNotEmpty, defaultToEmptyObject } from 'ramda-extension';
 import TreeLeaf from './TreeLeaf';
-import {lightTheme} from '../../../constants/theme';
+import { lightTheme } from '../../../constants/theme';
 
 const StyledRow = styled.div`
 	background-color: transparent;
-	border-bottom: 1px solid ${lightTheme.lightGrey};
+	border-bottom: 1px solid ${ lightTheme.lightGrey };
     transition: .25s all ease;
 	&:hover {
-	    cursor: ${({redirect}) => redirect ? 'pointer' : 'initial'};
-		background-color: ${({redirect}) => redirect ? lightTheme.whiteBlue : 'transparent'};
+	    cursor: ${ ({ redirect }) => (redirect ? 'pointer' : 'initial') };
+		background-color: ${ ({ redirect }) => (redirect ? lightTheme.whiteBlue : 'transparent') };
 	}
 `;
 
 const StyledChildrenWrapper = styled.div`
     overflow: hidden;
     transition: all .5s ease;
-    max-height: ${({ isOpen }) => isOpen ? '250px' : '0'};
+    max-height: ${ ({ isOpen }) => (isOpen ? '250px' : '0') };
 `;
 
 const notEmptyChildren = compose(isNotEmpty, keys, prop('children'));
-const getTreeDataByProp = (dataProp) => o(defaultToEmptyObject, prop(dataProp));
+const getTreeDataByProp = dataProp => o(defaultToEmptyObject, prop(dataProp));
 
 class RootRow extends PureComponent {
     state = {
@@ -31,49 +34,53 @@ class RootRow extends PureComponent {
     };
 
     renderAnotherRow = (children) => {
-        const {handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag} = this.props;
+        const {
+            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag,
+        } = this.props;
         const renderChildrenRow = (num, key, obj) => (
             <RootRow
-                dataProp={dataProp}
-                initiallyOpen={initiallyOpen}
-                displayProps={displayProps}
-                leafKey={key}
-                treeLeaf={obj[key]}
-                key={key}
-                handleRedirect={handleRedirect}
-                redirect={redirect}
-                flag={flag}
+                dataProp={ dataProp }
+                initiallyOpen={ initiallyOpen }
+                displayProps={ displayProps }
+                leafKey={ key }
+                treeLeaf={ obj[ key ] }
+                key={ key }
+                handleRedirect={ handleRedirect }
+                redirect={ redirect }
+                flag={ flag }
             />
         );
         return o(values, mapObjIndexed(renderChildrenRow))(children);
     };
 
-    toggleOpen = () => this.setState(({isOpen}) => ({isOpen: !isOpen}));
+    toggleOpen = () => this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
 
     render() {
-        const {treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag} = this.props;
-        const {isOpen} = this.state;
+        const {
+            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag,
+        } = this.props;
+        const { isOpen } = this.state;
         const hasChildren = notEmptyChildren(treeLeaf);
         const hasFlag = contains(leafKey, flag);
         return (
             <div>
-                <StyledRow redirect={redirect}>
+                <StyledRow redirect={ redirect }>
                     <TreeLeaf
-                        displayProps={displayProps}
-                        leafKey={leafKey}
-                        hasChildren={hasChildren}
-                        handleRedirect={handleRedirect}
-                        isOpen={isOpen}
-                        toggleOpen={this.toggleOpen}
-                        redirect={redirect}
-                        depth={treeLeaf.depth}
-                        leafData={getTreeDataByProp(dataProp)(treeLeaf)}
-                        hasFlag={hasFlag}
+                        displayProps={ displayProps }
+                        leafKey={ leafKey }
+                        hasChildren={ hasChildren }
+                        handleRedirect={ handleRedirect }
+                        isOpen={ isOpen }
+                        toggleOpen={ this.toggleOpen }
+                        redirect={ redirect }
+                        depth={ treeLeaf.depth }
+                        leafData={ getTreeDataByProp(dataProp)(treeLeaf) }
+                        hasFlag={ hasFlag }
                     />
                 </StyledRow>
                 {
                     hasChildren && (
-                        <StyledChildrenWrapper isOpen={isOpen}>
+                        <StyledChildrenWrapper isOpen={ isOpen }>
                             { this.renderAnotherRow(treeLeaf.children) }
                         </StyledChildrenWrapper>
                     )

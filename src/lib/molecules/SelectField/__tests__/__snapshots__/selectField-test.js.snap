@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SelectField should match the snapshot 1`] = `
-<styled.div
+<SelectField__StyledSelectField
   onBlur={[Function]}
   onKeyDown={[Function]}
   width="100%"
@@ -19,12 +19,12 @@ exports[`SelectField should match the snapshot 1`] = `
     visible={false}
     width="100%"
   />
-  <Styled(FaCaretDown) />
-</styled.div>
+  <SelectField__StyledCaretDown />
+</SelectField__StyledSelectField>
 `;
 
 exports[`SelectField should match the snapshot with options 1`] = `
-<styled.div
+<SelectField__StyledSelectField
   onBlur={[Function]}
   onKeyDown={[Function]}
   width="100%"
@@ -49,6 +49,6 @@ exports[`SelectField should match the snapshot with options 1`] = `
     visible={false}
     width="100%"
   />
-  <Styled(FaCaretDown) />
-</styled.div>
+  <SelectField__StyledCaretDown />
+</SelectField__StyledSelectField>
 `;

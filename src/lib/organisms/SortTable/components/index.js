@@ -3,7 +3,7 @@ import TableBody from './TableBody';
 import TablePagination from './TablePagination';
 
 export {
-	TableHeading,
-	TablePagination,
+    TableHeading,
+    TablePagination,
     TableBody,
 };

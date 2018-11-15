@@ -1,23 +1,23 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 export const StyledTable = styled.table`
 	width: 100%;
-	border-collapse: ${({rowSpacing}) => rowSpacing ? 'separate' : 'collapse'};
-	padding-right: ${({rowSpacing}) => rowSpacing ? '5px' : '0'};
-	border-spacing: ${({rowSpacing}) => rowSpacing ? '0 5px' : '0'};
+	border-collapse: ${ ({ rowSpacing }) => (rowSpacing ? 'separate' : 'collapse') };
+	padding-right: ${ ({ rowSpacing }) => (rowSpacing ? '5px' : '0') };
+	border-spacing: ${ ({ rowSpacing }) => (rowSpacing ? '0 5px' : '0') };
 	font-size: .85em;
 `;
 
 class Table extends PureComponent {
     render() {
-        const {children, rowSpacing} = this.props;
+        const { children, rowSpacing } = this.props;
         return (
-            <StyledTable rowSpacing={rowSpacing}>
+            <StyledTable rowSpacing={ rowSpacing }>
                 {children}
             </StyledTable>
-        )
+        );
     }
 }
 

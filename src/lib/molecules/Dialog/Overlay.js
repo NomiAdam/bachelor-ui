@@ -1,7 +1,7 @@
 import React from 'react';
-import Container from '../../atoms/Container/index';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Container from '../../atoms/Container/index';
 
 const StyledOverlayWrapper = styled(Container)`
   position: fixed;
@@ -17,7 +17,7 @@ const refuseScroll = (e) => {
 };
 
 const Overlay = ({ handleClick, children }) => (
-    <StyledOverlayWrapper height={'100vh'} onClick={handleClick} onScroll={refuseScroll}>
+    <StyledOverlayWrapper height="100vh" onClick={ handleClick } onScroll={ refuseScroll }>
         { children }
     </StyledOverlayWrapper>
 );

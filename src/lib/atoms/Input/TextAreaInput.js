@@ -9,53 +9,54 @@ export const StyledTextArea = styled.textarea`
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
-	border-bottom: 2px solid ${lightTheme.whiteBlue};
+	border-bottom: 2px solid ${ lightTheme.whiteBlue };
 	background: none;
 	border-radius: 0;
-	color: ${basicTheme.blue};
+	color: ${ basicTheme.blue };
 	transition: .15s ease all;
 	resize: none;
-	${ ({error}) => error ? `
-	    border: 1px solid ${basicTheme.red};
+	${ ({ error }) => (error ? `
+	    border: 1px solid ${ basicTheme.red };
 	    border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-	` : '' }
+	` : '') }
 	&:focus {
 		outline: none;
 	}
 `;
 
-const TextAreaInput = ({value, onChange, cols, rows, disabled, error, onBlur}) => (
-	<StyledTextArea
-		onChange={onChange}
-		rows={rows}
-		cols={cols}
-		value={value}
-        disabled={disabled}
-		onBlur={onBlur}
-		error={error}
-		placeholder="&nbsp;"
-	/>
+const TextAreaInput = ({
+    value, onChange, cols, rows, disabled, error, onBlur,
+}) => (
+    <StyledTextArea
+        onChange={ onChange }
+        rows={ rows }
+        cols={ cols }
+        value={ value }
+        disabled={ disabled }
+        onBlur={ onBlur }
+        error={ error }
+        placeholder="&nbsp;"
+    />
 );
 
-
 TextAreaInput.propTypes = {
-	/**
+    /**
 	 * Number representing how many rows will TextArea have by default
 	 */
-	rows: PropTypes.number,
-	/**
+    rows: PropTypes.number,
+    /**
 	 * Value of TextArea
 	 */
-	value: PropTypes.string,
-	/**
+    value: PropTypes.string,
+    /**
 	 * onChange handler for TextArea
 	 */
-	onChange: PropTypes.func,
-	/**
+    onChange: PropTypes.func,
+    /**
 	 * Number representing how many columns will TextArea have
 	 */
-	cols: PropTypes.number,
+    cols: PropTypes.number,
     /**
 	 * Whether we have some kind of validation error on current TextArea
      */

@@ -2,29 +2,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {IoIosArrowThinLeft} from 'react-icons/lib/io';
-import {lightTheme, darkTheme} from '../../constants/theme';
-import {FadeIn} from '../../transition/Fade/index';
+import { IoIosArrowThinLeft } from 'react-icons/lib/io';
+import { lightTheme, darkTheme } from '../../constants/theme';
+import { FadeIn } from '../../transition/Fade/index';
 
 const StyledWrapper = styled.div`
-	display: ${ ({isOpen}) => (isOpen ? 'flex' : 'none') }
+	display: ${ ({ isOpen }) => (isOpen ? 'flex' : 'none') }
 	position: fixed;
 	align-items: center;
 	flex-direction: column;
-	justify-content: ${({verticalPosition}) => verticalPosition }
+	justify-content: ${ ({ verticalPosition }) => verticalPosition }
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	z-index: 999;
-	background-color: ${({background}) => background};
+	background-color: ${ ({ background }) => background };
 `;
 
 const InnerWrapper = styled.div``;
 
 const StyledHeading = styled.h2`
 	font-size: 1.5em;
-	color: ${darkTheme.black};
+	color: ${ darkTheme.black };
 	margin: 0;
 	padding: 60px 10px;
 `;
@@ -37,24 +37,26 @@ const StyledCloseIcon = styled(IoIosArrowThinLeft)`
 	margin: 0;
 	font-size: 3rem;
 	z-index: 999;
-	color: ${({backColor}) => backColor};
+	color: ${ ({ backColor }) => backColor };
 `;
 
 const Overlay = ({
-                     isOpen, heading, handleClose, children, verticalPosition, background, displayHeading, backColor,
-                 }) => (
-    <StyledWrapper background={background} isOpen={isOpen} verticalPosition={verticalPosition}>
+    isOpen, heading, handleClose, children, verticalPosition, background, displayHeading, backColor,
+}) => (
+    <StyledWrapper background={ background } isOpen={ isOpen } verticalPosition={ verticalPosition }>
         <InnerWrapper>
             {
-                displayHeading && <StyledHeading>
-                    {heading}
-                </StyledHeading>
+                displayHeading && (
+                    <StyledHeading>
+                        {heading}
+                    </StyledHeading>
+                )
             }
             <FadeIn>
                 {children}
             </FadeIn>
         </InnerWrapper>
-        <StyledCloseIcon onClick={handleClose} backColor={backColor}/>
+        <StyledCloseIcon onClick={ handleClose } backColor={ backColor } />
     </StyledWrapper>
 );
 
@@ -97,5 +99,5 @@ Overlay.defaultProps = {
     backColor: darkTheme.black,
 };
 
-export {StyledWrapper};
+export { StyledWrapper };
 export default Overlay;

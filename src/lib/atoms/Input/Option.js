@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import styled from 'styled-components';
 import { lightTheme } from '../../constants/theme';
@@ -13,7 +14,7 @@ const StyledOption = styled.option`
     font-size: 16px;
     transition: .5s all ease;
     &:hover {
-    	background-color: ${lightTheme.whiteBlue};
+    	background-color: ${ lightTheme.whiteBlue };
     };
 `;
 

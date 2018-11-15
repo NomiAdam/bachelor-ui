@@ -1,11 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`withSwipe should match the snapshot 1`] = `
-<styled.div
-  onMouseDown={[Function]}
-  onMouseLeave={[Function]}
-  onMouseMove={[Function]}
-  onMouseUp={[Function]}
+<withSwipe__StyledWrapper
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
@@ -14,5 +10,5 @@ exports[`withSwipe should match the snapshot 1`] = `
     handleClick={[Function]}
     left={0}
   />
-</styled.div>
+</withSwipe__StyledWrapper>
 `;

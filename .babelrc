@@ -1,4 +1,4 @@
 {
   "presets": ["@babel/preset-env", "@babel/react"],
-  "plugins": ["babel-plugin-styled-components", "@babel/proposal-class-properties"]
+  "plugins": ["babel-plugin-add-module-exports", "babel-plugin-styled-components", "@babel/proposal-class-properties"]
 }

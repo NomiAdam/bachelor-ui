@@ -1,18 +1,19 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {inc, dec} from 'ramda';
-import {basicRowCount} from './constants/index';
+import {
+    inc, dec, lt, gte, and,
+} from 'ramda';
 import {
     FaAngleDoubleLeft,
     FaAngleDoubleRight,
     FaAngleLeft,
     FaAngleRight,
 } from 'react-icons/lib/fa';
-import {lt, gte, and} from 'ramda';
 import styled from 'styled-components';
+import { basicRowCount } from './constants/index';
 import SelectField from '../../../molecules/SelectField/index';
-import {darkTheme, lightTheme, basicTheme} from '../../../constants/theme';
-import {Grid, GridCol} from '../../../atoms/Grid/index';
+import { darkTheme, basicTheme } from '../../../constants/theme';
+import { Grid, GridCol } from '../../../atoms/Grid/index';
 
 const StyledDiv = styled.div`
     position: relative;
@@ -22,7 +23,7 @@ const StyledDiv = styled.div`
     align-items: center;
     padding: 15px 0;
     font-size: .9em;
-    color: ${darkTheme.black};
+    color: ${ darkTheme.black };
     margin: 0 10px;
 `;
 
@@ -30,8 +31,8 @@ const Icon = styled.div`
     padding: 0 10px;
     font-size: 2.8rem;
     transition: all 1s ease;
-    cursor: ${({disabled}) => disabled ? 'not-allowed' : 'pointer'};
-    color: ${({disabled}) => disabled ? basicTheme.grey : darkTheme.black};
+    cursor: ${ ({ disabled }) => (disabled ? 'not-allowed' : 'pointer') };
+    color: ${ ({ disabled }) => (disabled ? basicTheme.grey : darkTheme.black) };
 `;
 
 const StyledSpan = styled.span`
@@ -46,9 +47,10 @@ const StyledAngleRight = Icon.withComponent(FaAngleRight);
 const greaterThanZero = lt(0);
 
 class TablePagination extends PureComponent {
-
-    componentDidUpdate(prevProps) {
-        const {totalRows, rowsPerPage, currentPage, handleChangePage} = this.props;
+    componentDidUpdate() {
+        const {
+            totalRows, rowsPerPage, currentPage, handleChangePage,
+        } = this.props;
         const totalPages = Math.ceil(totalRows / rowsPerPage);
         if (currentPage > totalPages) {
             handleChangePage(totalPages);
@@ -62,11 +64,13 @@ class TablePagination extends PureComponent {
     }
 
     render() {
-        const {totalRows, currentPage, handleChangeRowsPerPage, handleChangePage, rowsPerPage} = this.props;
+        const {
+            totalRows, currentPage, handleChangeRowsPerPage, handleChangePage, rowsPerPage,
+        } = this.props;
 
         const totalPages = Math.ceil(totalRows / rowsPerPage);
 
-        const handleChange = (value) => () => {
+        const handleChange = value => () => {
             const lessOrEqualToTotal = gte(totalPages);
             const validPageValue = and(greaterThanZero(value), lessOrEqualToTotal(value));
             if (validPageValue) handleChangePage(value);
@@ -75,26 +79,32 @@ class TablePagination extends PureComponent {
         const isLast = currentPage === totalPages;
         return (
             <StyledDiv>
-                <Grid padding={'10px'}>
-                    <GridCol center colXS={6} colMD={4}>
+                <Grid padding="10px">
+                    <GridCol center colXS={ 6 } colMD={ 4 }>
                         <StyledSpan>Rows per page:</StyledSpan>
                     </GridCol>
-                    <GridCol center colXS={6} colMD={2}>
+                    <GridCol center colXS={ 6 } colMD={ 2 }>
                         <SelectField
-                            width={'80px'}
-                            options={basicRowCount}
-                            handleChange={handleChangeRowsPerPage}
-                            value={rowsPerPage}
+                            width="80px"
+                            options={ basicRowCount }
+                            handleChange={ handleChangeRowsPerPage }
+                            value={ rowsPerPage }
                         />
                     </GridCol>
-                    <GridCol center colXS={12} colMD={2}>
-                        <StyledSpan>{currentPage} of {totalPages}</StyledSpan>
+                    <GridCol center colXS={ 12 } colMD={ 2 }>
+                        <StyledSpan>
+                            {currentPage}
+                            {' '}
+of
+                            {' '}
+                            {totalPages}
+                        </StyledSpan>
                     </GridCol>
-                    <GridCol center colXS={12} colMD={4}>
-                        <StyledFaAngleDoubleLeft onClick={handleChange(1)} disabled={isFirst}/>
-                        <StyledAngleLeft onClick={handleChange(dec(currentPage))} disabled={isFirst}/>
-                        <StyledAngleRight onClick={handleChange(inc(currentPage))} disabled={isLast}/>
-                        <StyledFaAngleDoubleRight onClick={handleChange(totalPages)} disabled={isLast}/>
+                    <GridCol center colXS={ 12 } colMD={ 4 }>
+                        <StyledFaAngleDoubleLeft onClick={ handleChange(1) } disabled={ isFirst } />
+                        <StyledAngleLeft onClick={ handleChange(dec(currentPage)) } disabled={ isFirst } />
+                        <StyledAngleRight onClick={ handleChange(inc(currentPage)) } disabled={ isLast } />
+                        <StyledFaAngleDoubleRight onClick={ handleChange(totalPages) } disabled={ isLast } />
                     </GridCol>
                 </Grid>
             </StyledDiv>
@@ -129,5 +139,5 @@ TablePagination.propTypes = {
     rowsPerPage: PropTypes.number,
 };
 
-export {StyledDiv};
+export { StyledDiv };
 export default TablePagination;

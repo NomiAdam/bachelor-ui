@@ -22,5 +22,5 @@ export const darkTheme = {
     darkPurple: '#521751',
     darkGrey: '#1d1f1f',
     black: '#000000',
-    darkOrange: '#ff4000'
+    darkOrange: '#ff4000',
 };

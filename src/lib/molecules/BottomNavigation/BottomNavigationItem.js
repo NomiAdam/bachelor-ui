@@ -10,7 +10,7 @@ const StyledNavigationItem = styled.li`
   align-items: center;
   flex-direction: column;
   padding: 0 .5rem;
-  color: ${lightTheme.white};
+  color: ${ lightTheme.white };
   width: 100%;
   min-height: 50px;
   cursor: pointer;
@@ -19,7 +19,7 @@ const StyledNavigationItem = styled.li`
   transition: .4s all ease;
   &:after {
 	    content: "";
-        background: ${lightTheme.whiteBlue};
+        background: ${ lightTheme.whiteBlue };
         display: block;
         position: absolute;
         padding-top: 300%;
@@ -47,9 +47,9 @@ const StyledParagraph = styled.p`
   user-select: none;
 `;
 
-const BottomNavigationItem = ({icon: Icon, label, handleClick}) => (
-    <StyledNavigationItem onClick={handleClick}>
-        <Icon/>
+const BottomNavigationItem = ({ icon: Icon, label, handleClick }) => (
+    <StyledNavigationItem onClick={ handleClick }>
+        <Icon />
         <StyledParagraph>{label}</StyledParagraph>
     </StyledNavigationItem>
 );

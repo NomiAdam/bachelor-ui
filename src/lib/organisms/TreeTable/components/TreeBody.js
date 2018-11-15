@@ -1,23 +1,25 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { mapObjIndexed, o, values } from 'ramda';
 import RootRow from './RootRow';
 import { GridCol } from '../../../atoms/Grid/index';
-import {mapObjIndexed, o, values} from 'ramda';
 
 class TreeBody extends PureComponent {
     renderTableRow = () => {
-        const {handleRedirect, redirect, treeData, displayProps, dataProp, initiallyOpen, flag} = this.props;
+        const {
+            handleRedirect, redirect, treeData, displayProps, dataProp, initiallyOpen, flag,
+        } = this.props;
         const mapTableRow = (num, key, obj) => (
             <RootRow
-                initiallyOpen={initiallyOpen}
-                dataProp={dataProp}
-                displayProps={displayProps}
-                leafKey={key}
-                treeLeaf={obj[key]}
-                key={key}
-                handleRedirect={handleRedirect}
-                redirect={redirect}
-                flag={flag}
+                initiallyOpen={ initiallyOpen }
+                dataProp={ dataProp }
+                displayProps={ displayProps }
+                leafKey={ key }
+                treeLeaf={ obj[ key ] }
+                key={ key }
+                handleRedirect={ handleRedirect }
+                redirect={ redirect }
+                flag={ flag }
             />
         );
         return o(values, mapObjIndexed(mapTableRow))(treeData);
@@ -25,11 +27,11 @@ class TreeBody extends PureComponent {
 
     render() {
         return (
-            <GridCol colXS={12}>
+            <GridCol colXS={ 12 }>
                 {this.renderTableRow()}
             </GridCol>
         );
-    };
+    }
 }
 
 TreeBody.propTypes = {

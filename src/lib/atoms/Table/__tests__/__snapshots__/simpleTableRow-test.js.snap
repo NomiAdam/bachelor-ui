@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SimpleTableRow should match the snapshot 1`] = `<styled.tr />`;
+exports[`SimpleTableRow should match the snapshot 1`] = `<SimpleTableRow__StyledTableRow />`;
 
 exports[`SimpleTableRow should match the snapshot when labeled 1`] = `
-<styled.tr>
+<SimpleTableRow__StyledTableRow>
   <TableCell
     redirect={false}
   >
     mock
   </TableCell>
-</styled.tr>
+</SimpleTableRow__StyledTableRow>
 `;
 
 exports[`SimpleTableRow should match the snapshot with mock data 1`] = `
-<styled.tr>
+<SimpleTableRow__StyledTableRow>
   <TableCell
     key="0"
     redirect={false}
@@ -26,5 +26,5 @@ exports[`SimpleTableRow should match the snapshot with mock data 1`] = `
   >
     val2
   </TableCell>
-</styled.tr>
+</SimpleTableRow__StyledTableRow>
 `;

@@ -12,7 +12,7 @@ const SlideInRightAnimation = keyframes`
 `;
 
 const SlideInRight = styled(BaseAnimation)`
-  animation-name: ${SlideInRightAnimation};
+  animation-name: ${ SlideInRightAnimation };
 `;
 
 export default SlideInRight;

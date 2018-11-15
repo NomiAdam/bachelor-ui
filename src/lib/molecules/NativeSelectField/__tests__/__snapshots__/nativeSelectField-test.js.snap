@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NativeSelectField should match the snapshot 1`] = `
-<styled.label>
-  <styled.select
+<NativeSelectField__StyledLabel>
+  <Select__StyledSelect
     defaultValue="Select a value"
     withBorder={true}
   />
-  <styled.span
+  <Border__StyledBorder
     select={true}
   />
-</styled.label>
+</NativeSelectField__StyledLabel>
 `;

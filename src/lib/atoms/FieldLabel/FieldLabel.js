@@ -5,13 +5,13 @@ import { basicTheme } from '../../constants/theme';
 
 const StyledSpan = styled.span`
     font-size: .7rem;
-    color: ${({error}) => error ? basicTheme.red : 'inherit'};
+    color: ${ ({ error }) => (error ? basicTheme.red : 'inherit') };
     display: inline-block;
-    ${({hasText}) => hasText ? '' : 'height: 0px;'}
+    ${ ({ hasText }) => (hasText ? '' : 'height: 0px;') }
 `;
 
 const FieldLabel = ({ label, error }) => (
-    <StyledSpan error={error} hasText={label.length > 0}>
+    <StyledSpan error={ error } hasText={ label.length > 0 }>
         {label}
     </StyledSpan>
 );

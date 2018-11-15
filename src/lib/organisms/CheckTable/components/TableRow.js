@@ -1,12 +1,12 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {TableCell} from '../../../atoms/Table/index';
-import {StyledTableRow} from '../../../atoms/Table/SimpleTableRow';
-import Checkbox from '../../../atoms/Checkbox/index';
-import CheckCell from './CheckCell';
 import {
     map, addIndex, indexOf, o, append, equals, ifElse, __, remove, always, reduce, add,
 } from 'ramda';
+import { TableCell } from '../../../atoms/Table/index';
+import { StyledTableRow } from '../../../atoms/Table/SimpleTableRow';
+import Checkbox from '../../../atoms/Checkbox/index';
+import CheckCell from './CheckCell';
 
 const mapIndexed = addIndex(map);
 const isSelected = equals(-1);
@@ -20,19 +20,19 @@ class TableRow extends PureComponent {
 
     componentDidMount() {
         this.handleDayHoursMap();
-    };
+    }
 
     componentDidUpdate(prevProps) {
-        const {selected} = this.props;
+        const { selected } = this.props;
         if (computeSelectedArray(selected) !== computeSelectedArray(prevProps.selected)) {
             this.handleDayHoursMap();
         }
-    };
+    }
 
-    handleClick = (id) => (e) => {
+    handleClick = id => (e) => {
         e.preventDefault();
 
-        const {selected, handleChange} = this.props;
+        const { selected, handleChange } = this.props;
 
         const indexOfSelected = indexOf(__, selected);
 
@@ -47,20 +47,18 @@ class TableRow extends PureComponent {
     };
 
     handleDayHoursMap = () => {
-        const {dayHours, isCheckbox} = this.props;
-        const mapDayHour = (hour, index) => {
-            return isCheckbox ?
-                (
-                    <TableCell key={index} onClick={this.handleClick(index)}>
-                        <Checkbox checked={this.isSelected(index) && !this.isDisabled(index)}/>
-                    </TableCell>
-                ) : (
-                    <CheckCell checked={this.isSelected(index)} disabled={this.isDisabled(index)}/>
-                );
-        };
+        const { dayHours, isCheckbox } = this.props;
+        const mapDayHour = (hour, index) => (isCheckbox
+            ? (
+                <TableCell key={ index } onClick={ this.handleClick(index) }>
+                    <Checkbox checked={ this.isSelected(index) && !this.isDisabled(index) } />
+                </TableCell>
+            ) : (
+                <CheckCell checked={ this.isSelected(index) } disabled={ this.isDisabled(index) } />
+            ));
         const mappedReservationCells = mapIndexed(mapDayHour);
 
-        this.setState({rowData: mappedReservationCells(dayHours)});
+        this.setState({ rowData: mappedReservationCells(dayHours) });
     };
 
     isSelected = id => this.props.selected.indexOf(id) !== -1;
@@ -68,8 +66,8 @@ class TableRow extends PureComponent {
     isDisabled = id => this.props.disabled.indexOf(id) !== -1;
 
     render() {
-        const {label} = this.props;
-        const {rowData} = this.state;
+        const { label } = this.props;
+        const { rowData } = this.state;
         return (
             <StyledTableRow>
                 <TableCell>

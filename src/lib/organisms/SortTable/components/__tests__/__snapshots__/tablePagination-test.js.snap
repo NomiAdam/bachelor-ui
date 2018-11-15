@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TablePagination should match the snapshot 1`] = `
-<styled.div>
-  <styled.div
+<TablePagination__StyledDiv>
+  <Grid__StyledGridWrapper
     gridGap="10px"
     padding="10px"
   >
-    <styled.div
+    <GridCol__StyledGridCol
       center={true}
       colMD={4}
       colXS={6}
     >
-      <styled.span>
+      <TablePagination__StyledSpan>
         Rows per page:
-      </styled.span>
-    </styled.div>
-    <styled.div
+      </TablePagination__StyledSpan>
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       center={true}
       colMD={2}
       colXS={6}
@@ -41,39 +41,41 @@ exports[`TablePagination should match the snapshot 1`] = `
         value=""
         width="80px"
       />
-    </styled.div>
-    <styled.div
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       center={true}
       colMD={2}
       colXS={12}
     >
-      <styled.span>
-         of 
+      <TablePagination__StyledSpan>
+         
+        of
+         
         NaN
-      </styled.span>
-    </styled.div>
-    <styled.div
+      </TablePagination__StyledSpan>
+    </GridCol__StyledGridCol>
+    <GridCol__StyledGridCol
       center={true}
       colMD={4}
       colXS={12}
     >
-      <Styled(FaAngleDoubleLeft)
+      <TablePagination__Icon
         disabled={false}
         onClick={[Function]}
       />
-      <Styled(FaAngleLeft)
+      <TablePagination__Icon
         disabled={false}
         onClick={[Function]}
       />
-      <Styled(FaAngleRight)
+      <TablePagination__Icon
         disabled={false}
         onClick={[Function]}
       />
-      <Styled(FaAngleDoubleRight)
+      <TablePagination__Icon
         disabled={false}
         onClick={[Function]}
       />
-    </styled.div>
-  </styled.div>
-</styled.div>
+    </GridCol__StyledGridCol>
+  </Grid__StyledGridWrapper>
+</TablePagination__StyledDiv>
 `;

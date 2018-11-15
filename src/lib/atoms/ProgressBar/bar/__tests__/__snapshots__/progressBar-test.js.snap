@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProgressBar should match the snapshot 1`] = `
-<styled.div>
-  <styled.h3 />
-  <styled.progress
+<ProgressBar__StyledContainer>
+  <ProgressBar__StyledLabel />
+  <ProgressBar__StyledProgress
     background="#ff9933"
     max="100"
   />
-</styled.div>
+</ProgressBar__StyledContainer>
 `;

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SearchField should match the snapshot 1`] = `
-<styled.div>
+<SearchField__SearchFieldWrapper>
   <Input
     borderBackground="transparent"
     type="text"
   />
-</styled.div>
+</SearchField__SearchFieldWrapper>
 `;

@@ -1,10 +1,10 @@
-import React, {PureComponent} from 'react';
-import Container from '../../atoms/Container/index';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Step from './Step';
 import { gt, length } from 'ramda';
 import { mapIndexed } from 'ramda-extension';
+import Step from './Step';
+import Container from '../../atoms/Container/index';
 
 const StyledStepContainer = styled.ul`
   counter-reset: step; 
@@ -15,20 +15,19 @@ const StyledStepContainer = styled.ul`
 
 const renderStep = (handleClick, stepCount, step) => (label, index) => (
     <Step
-        key={label}
+        key={ label }
         // +1 because we are indexing from zero
-        handleClick={handleClick(index + 1)}
-        stepCount={stepCount}
-        label={label}
-        isActive={gt(step, index)}
+        handleClick={ handleClick(index + 1) }
+        stepCount={ stepCount }
+        label={ label }
+        isActive={ gt(step, index) }
     />
 );
 
 const renderSteppersStep = (handleClick, stepCount, step) => mapIndexed(renderStep(handleClick, stepCount, step));
 
-
 class Stepper extends PureComponent {
-    handleStepClick = (step) => () => {
+    handleStepClick = step => () => {
         const { handleClick } = this.props;
         handleClick(step);
     };

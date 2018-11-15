@@ -11,21 +11,23 @@ class Dialog extends PureComponent {
     };
 
     render() {
-        const { isOpen, children, heading, renderActionChildren } = this.props;
-        return(
+        const {
+            isOpen, children, heading, renderActionChildren,
+        } = this.props;
+        return (
             <Overlay
-                isOpen={isOpen}
-                handleClose={this.handleClose}
-                background={'rgba(0, 0, 0, 0.2)'}
-                displayHeading={false}
-                backColor={lightTheme.white}
+                isOpen={ isOpen }
+                handleClose={ this.handleClose }
+                background="rgba(0, 0, 0, 0.2)"
+                displayHeading={ false }
+                backColor={ lightTheme.white }
             >
-                <DialogWindow heading={heading} renderActionChildren={renderActionChildren}>
+                <DialogWindow heading={ heading } renderActionChildren={ renderActionChildren }>
                     { children }
                 </DialogWindow>
             </Overlay>
         );
-    };
+    }
 }
 
 Dialog.propTypes = {

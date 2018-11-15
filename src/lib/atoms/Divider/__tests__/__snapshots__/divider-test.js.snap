@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should match the snapshot 1`] = `
-<styled.hr
+<Divider__StyledDivider
   color="#bbbbbb"
   type="dashed"
 />

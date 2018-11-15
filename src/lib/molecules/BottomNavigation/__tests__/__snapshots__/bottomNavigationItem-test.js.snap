@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BottomNavigationItem should match the snapshot 1`] = `
-<styled.li>
-  <styled.p />
-</styled.li>
+<BottomNavigationItem__StyledNavigationItem>
+  <Component />
+  <BottomNavigationItem__StyledParagraph />
+</BottomNavigationItem__StyledNavigationItem>
 `;

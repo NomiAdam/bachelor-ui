@@ -29,7 +29,7 @@ const bounceInAnimation = keyframes`
 `;
 
 const BounceIn = styled(BaseAnimation)`
-  animation-name: ${bounceInAnimation};
+  animation-name: ${ bounceInAnimation };
 `;
 
 export default BounceIn;

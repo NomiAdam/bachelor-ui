@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Heading from '../Heading/index';
-import {Grid, GridCol} from '../Grid/index';
-import {basicTheme, lightTheme} from '../../constants/theme';
+import { Grid, GridCol } from '../Grid/index';
+import { basicTheme, lightTheme } from '../../constants/theme';
 import { LABEL_POSITION, equalsLeft, equalsRight } from './constants/position';
 
 const StyledContainer = styled.label`
@@ -31,13 +31,13 @@ const StyledSpan = styled.span`
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: ${lightTheme.lightBlue};
+  background-color: ${ lightTheme.lightBlue };
   transition: .25s all ease;
   &:hover {
-    background-color: ${lightTheme.whiteBlue};
+    background-color: ${ lightTheme.whiteBlue };
   }
-  ${StyledInput}:checked ~ & {
-    background-color: ${basicTheme.blue};
+  ${ StyledInput }:checked ~ & {
+    background-color: ${ basicTheme.blue };
   }
   &:after {
     content: "";
@@ -47,39 +47,39 @@ const StyledSpan = styled.span`
     top: 5px;
     width: 5px;
     height: 10px;
-    border: solid ${lightTheme.white};
+    border: solid ${ lightTheme.white };
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
   }
-  ${StyledInput}:checked ~ & {
+  ${ StyledInput }:checked ~ & {
     &:after {
         display: block;
     }
   }
 `;
 
-const renderLabel = (label) => (
-    <GridCol colXS={6}>
-        <Heading label={label} component={'h4'} />
+const renderLabel = label => (
+    <GridCol colXS={ 6 }>
+        <Heading label={ label } component="h4" />
     </GridCol>
 );
 
-const Checkbox = ({label, checked, onChange, labelPosition}) => {
-    return (
-        <Grid>
-            { equalsLeft(labelPosition) && renderLabel(label) }
-            <GridCol colXS={6} center>
-                <StyledContainer>
-                    <StyledInput type="checkbox" checked={checked} onChange={onChange}/>
-                    <StyledSpan/>
-                </StyledContainer>
-            </GridCol>
-            { equalsRight(labelPosition) && renderLabel(label) }
-        </Grid>
-    );
-};
+const Checkbox = ({
+    label, checked, onChange, labelPosition,
+}) => (
+    <Grid>
+        { equalsLeft(labelPosition) && renderLabel(label) }
+        <GridCol colXS={ 6 } center>
+            <StyledContainer>
+                <StyledInput type="checkbox" checked={ checked } onChange={ onChange } />
+                <StyledSpan />
+            </StyledContainer>
+        </GridCol>
+        { equalsRight(labelPosition) && renderLabel(label) }
+    </Grid>
+);
 
 Checkbox.propTypes = {
     /**
@@ -98,7 +98,7 @@ Checkbox.propTypes = {
      * String representation of labels position
      */
     labelPosition: PropTypes.oneOf([
-        LABEL_POSITION.LEFT, LABEL_POSITION.RIGHT
+        LABEL_POSITION.LEFT, LABEL_POSITION.RIGHT,
     ]),
 };
 

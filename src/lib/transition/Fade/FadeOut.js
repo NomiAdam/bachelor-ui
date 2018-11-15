@@ -11,7 +11,7 @@ const FadeOutAnimation = keyframes`
 `;
 
 const FadeOut = styled(BaseAnimation)`
-  animation-name: ${FadeOutAnimation};
+  animation-name: ${ FadeOutAnimation };
 `;
 
 export default FadeOut;

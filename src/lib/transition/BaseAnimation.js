@@ -1,16 +1,17 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const BaseAnimation = styled.div`
-  animation-duration: ${props => props.duration};
-  animation-timing-function: ${props => props.timingFunction};
-  animation-delay: ${props => props.delay};
-  animation-iteration-count: ${props => props.iterationCount};
-  animation-direction: ${props => props.direction};
-  animation-fill-mode: ${props => props.fillMode};
-  animation-play-state:  ${props => props.playState};
-  display: ${props => props.display};
+  animation-duration: ${ props => props.duration };
+  animation-timing-function: ${ props => props.timingFunction };
+  animation-delay: ${ props => props.delay };
+  animation-iteration-count: ${ props => props.iterationCount };
+  animation-direction: ${ props => props.direction };
+  animation-fill-mode: ${ props => props.fillMode };
+  animation-play-state:  ${ props => props.playState };
+  display: ${ props => props.display };
 `;
 
 BaseAnimation.propTypes = {
@@ -56,7 +57,7 @@ BaseAnimation.defaultProps = {
     direction: 'normal',
     fillMode: 'both',
     playState: 'running',
-    display: 'block'
+    display: 'block',
 };
 
 export default BaseAnimation;

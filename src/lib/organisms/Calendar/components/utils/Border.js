@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -9,8 +10,8 @@ const StyledBorder = styled.div`
   position: absolute;
   z-index: 1;
   left: 0;
-  top: ${({ position }) => position * 48 }px;
-  border-bottom: 1px solid ${basicTheme.grey};
+  top: ${ ({ position }) => position * 48 }px;
+  border-bottom: 1px solid ${ basicTheme.grey };
 `;
 
 StyledBorder.propTypes = {

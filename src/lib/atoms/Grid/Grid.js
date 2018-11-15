@@ -1,30 +1,30 @@
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const StyledGridWrapper = styled.div`
     width: 100%;
-    padding: ${({ padding }) => padding};
+    padding: ${ ({ padding }) => padding };
 	display: grid;
-	grid-gap: ${({ gridGap }) => gridGap};
+	grid-gap: ${ ({ gridGap }) => gridGap };
 	background-color: transparent;
 	grid-template-columns: repeat(12, 1fr);
 	justify-content: space-evenly;
-`
+`;
 
 StyledGridWrapper.propTypes = {
-  /**
+    /**
      * String definition of grid-gap
      */
-  gridGap: PropTypes.string,
-  /**
+    gridGap: PropTypes.string,
+    /**
      * String definition of css padding property
      */
-  padding: PropTypes.string
-}
+    padding: PropTypes.string,
+};
 
 StyledGridWrapper.defaultProps = {
-  gridGap: '10px',
-  padding: '10px'
-}
+    gridGap: '10px',
+    padding: '10px',
+};
 
-export default StyledGridWrapper
+export default StyledGridWrapper;

@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
-import Paper from '../../atoms/Paper/index';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {Grid} from '../../atoms/Grid/index';
-import {TreeHeading, TreeBody} from './components/index';
+import Paper from '../../atoms/Paper/index';
+import { Grid } from '../../atoms/Grid/index';
+import { TreeHeading, TreeBody } from './components/index';
 
 class TreeTable extends Component {
-
     shouldComponentUpdate(prevProps) {
         const { treeData, flag } = this.props;
         return JSON.stringify(treeData) !== JSON.stringify(prevProps.treeData)
@@ -24,19 +23,19 @@ class TreeTable extends Component {
             flag,
         } = this.props;
         return (
-            <Paper padding={'0'} center overflow={'auto'}>
-                <Grid padding={'0'} gridGap={'0'}>
+            <Paper padding="0" center overflow="auto">
+                <Grid padding="0" gridGap="0">
                     <TreeHeading
-                        headingData={headingData}
+                        headingData={ headingData }
                     />
                     <TreeBody
-                        initiallyOpen={initiallyOpen}
-                        dataProp={dataProp}
-                        displayProps={displayProps}
-                        treeData={treeData}
-                        handleRedirect={handleRedirect}
-                        redirect={redirect}
-                        flag={flag}
+                        initiallyOpen={ initiallyOpen }
+                        dataProp={ dataProp }
+                        displayProps={ displayProps }
+                        treeData={ treeData }
+                        handleRedirect={ handleRedirect }
+                        redirect={ redirect }
+                        flag={ flag }
                     />
                 </Grid>
             </Paper>

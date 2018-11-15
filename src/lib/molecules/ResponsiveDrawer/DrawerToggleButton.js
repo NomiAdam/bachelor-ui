@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {minTablet} from "../../constants/device";
+import { minTablet } from '../../constants/device';
 import { darkTheme, lightTheme } from '../../constants/theme';
 
 const StyledToggleButton = styled.button`
@@ -18,22 +18,22 @@ const StyledToggleButton = styled.button`
     &:focus {
       outline: none;
     }
-    @media ${minTablet} {
-        display: ${({hideButton}) => hideButton ? 'none' : 'flex'};
+    @media ${ minTablet } {
+        display: ${ ({ hideButton }) => (hideButton ? 'none' : 'flex') };
     }
 `;
 
 const StyledButtonLine = styled.div`
     width: 30px;
     height: 2px;
-    background: ${({ primary }) => primary ? darkTheme.black : lightTheme.white };
+    background: ${ ({ primary }) => (primary ? darkTheme.black : lightTheme.white) };
 `;
 
-const DrawerToggleButton = ({handleClick, mobileVersion, primary}) => (
-    <StyledToggleButton className="toggle-button" onClick={handleClick} hideButton={mobileVersion}>
-        <StyledButtonLine primary={primary}/>
-        <StyledButtonLine primary={primary}/>
-        <StyledButtonLine primary={primary}/>
+const DrawerToggleButton = ({ handleClick, mobileVersion, primary }) => (
+    <StyledToggleButton className="toggle-button" onClick={ handleClick } hideButton={ mobileVersion }>
+        <StyledButtonLine primary={ primary } />
+        <StyledButtonLine primary={ primary } />
+        <StyledButtonLine primary={ primary } />
     </StyledToggleButton>
 );
 
@@ -52,5 +52,5 @@ DrawerToggleButton.propTypes = {
     primary: PropTypes.bool,
 };
 
-export {StyledToggleButton, StyledButtonLine};
+export { StyledToggleButton, StyledButtonLine };
 export default DrawerToggleButton;

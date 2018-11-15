@@ -1,36 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RadioButton should match the snapshot 1`] = `
-<styled.label>
-  <styled.span />
-  <styled.input
+<RadioButton__StyledContainer>
+  <RadioButton__StyledLabel />
+  <RadioButton__StyledInput
     type="radio"
   />
-  <styled.span />
-</styled.label>
+  <RadioButton__StyledSpan />
+</RadioButton__StyledContainer>
 `;
 
 exports[`RadioButton should match the snapshot when checked 1`] = `
-<styled.label>
-  <styled.span />
-  <styled.input
+<RadioButton__StyledContainer>
+  <RadioButton__StyledLabel />
+  <RadioButton__StyledInput
     checked={true}
     type="radio"
   />
-  <styled.span
+  <RadioButton__StyledSpan
     checked={true}
   />
-</styled.label>
+</RadioButton__StyledContainer>
 `;
 
 exports[`RadioButton should match the snapshot with label 1`] = `
-<styled.label>
-  <styled.span>
+<RadioButton__StyledContainer>
+  <RadioButton__StyledLabel>
     Mock
-  </styled.span>
-  <styled.input
+  </RadioButton__StyledLabel>
+  <RadioButton__StyledInput
     type="radio"
   />
-  <styled.span />
-</styled.label>
+  <RadioButton__StyledSpan />
+</RadioButton__StyledContainer>
 `;

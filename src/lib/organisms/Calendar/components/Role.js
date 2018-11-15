@@ -1,3 +1,4 @@
+/* eslint-disable react/default-props-match-prop-types */
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -10,26 +11,28 @@ const StyledRoleWrapper = styled.div`
   overflow: hidden;
   z-index: 4;
   left: 0;
-  height: ${({ start, end }) => (end - start) * 48 }px;
-  top: ${({ start }) => start * 48 }px;
-  background-color: ${({ background }) => background};
+  height: ${ ({ start, end }) => (end - start) * 48 }px;
+  top: ${ ({ start }) => start * 48 }px;
+  background-color: ${ ({ background }) => background };
   transition: all .5s ease;
-  ${({ isActive }) => isActive ? `
-    box-shadow: 5px 0 5px 3px ${basicTheme.grey};
+  ${ ({ isActive }) => (isActive ? `
+    box-shadow: 5px 0 5px 3px ${ basicTheme.grey };
     outline: 0 solid transparent;
-  ` : ''}
+  ` : '') }
 `;
 
 class Role extends PureComponent {
     render() {
-        const { end, start, label, handleClick, isActive, background } = this.props;
+        const {
+            end, start, label, handleClick, isActive, background,
+        } = this.props;
         return (
             <StyledRoleWrapper
-                isActive={isActive}
-                start={start}
-                end={end}
-                onClick={handleClick}
-                background={background}
+                isActive={ isActive }
+                start={ start }
+                end={ end }
+                onClick={ handleClick }
+                background={ background }
             >
                 { label }
             </StyledRoleWrapper>

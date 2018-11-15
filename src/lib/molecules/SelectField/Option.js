@@ -9,15 +9,17 @@ const StyledOption = styled.div`
     border: none;
 	padding: 10px 20px;
 	text-align: center;
-	background-color: ${({ selected }) => selected ? lightTheme.lightGrey : 'initial'};
+	background-color: ${ ({ selected }) => (selected ? lightTheme.lightGrey : 'initial') };
     &:hover {
-        background-color: ${lightTheme.lightGrey};
+        background-color: ${ lightTheme.lightGrey };
         cursor: pointer;
     }
 `;
 
-const Option = ({value, onClick, label, selected}) => (
-    <StyledOption onMouseDown={onClick(value)} selected={selected}>
+const Option = ({
+    value, onClick, label, selected,
+}) => (
+    <StyledOption onMouseDown={ onClick(value) } selected={ selected }>
         {label}
     </StyledOption>
 );
@@ -41,5 +43,5 @@ Option.propTypes = {
     selected: PropTypes.bool,
 };
 
-export {StyledOption};
+export { StyledOption };
 export default Option;

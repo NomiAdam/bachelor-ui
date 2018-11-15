@@ -10,13 +10,13 @@ export const StyledList = styled.ul`
     margin: 0;
 `;
 
-const List = ({children}) => (<StyledList>{children}</StyledList>);
+const List = ({ children }) => (<StyledList>{children}</StyledList>);
 
 List.propTypes = {
-	/**
+    /**
 	 * Children nodes of List component, ListItem component is expected
 	 */
-	children: PropTypes.any
+    children: PropTypes.any,
 };
 
 export default List;

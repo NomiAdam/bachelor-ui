@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TableRow should match the snapshot 1`] = `<styled.tr />`;
+exports[`TableRow should match the snapshot 1`] = `<TableRow__StyledTableRow />`;
 
 exports[`TableRow should match the snapshot when editable 1`] = `
-<styled.tr>
+<TableRow__StyledTableRow>
   <TableCell
     editable={true}
     redirect={false}
   >
-    <Styled(IoAndroidDelete) />
-    <Styled(IoEdit) />
+    <TableRow__Icon />
+    <TableRow__Icon />
   </TableCell>
-</styled.tr>
+</TableRow__StyledTableRow>
 `;

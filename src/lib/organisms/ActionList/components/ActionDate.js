@@ -13,25 +13,25 @@ const StyledDateWrapper = styled.div`
 `;
 
 const StyledDateHeading = styled.h4`
-    color: ${lightTheme.lightBlue};
+    color: ${ lightTheme.lightBlue };
     padding: 0;
     margin: 0;
     font-size: .8em;
 `;
 
 const StyledDateParagraph = styled.p`
-    color: ${lightTheme.lightBlue};
+    color: ${ lightTheme.lightBlue };
     font-size: .8em;
 `;
 
-const ActionDate = ({dateTime}) => {
+const ActionDate = ({ dateTime }) => {
     const date = new Date(dateTime);
     return (
         <StyledDateWrapper>
-            <StyledDateHeading>{`${date.getDate()}-${date.getMonth() + 1}`}</StyledDateHeading>
+            <StyledDateHeading>{`${ date.getDate() }-${ date.getMonth() + 1 }`}</StyledDateHeading>
             <StyledDateParagraph>{`${ date.getFullYear() }`}</StyledDateParagraph>
         </StyledDateWrapper>
-    )
+    );
 };
 
 ActionDate.propTypes = {

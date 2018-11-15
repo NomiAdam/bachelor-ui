@@ -1,30 +1,58 @@
+const webpack = require('webpack');
 const path = require('path');
+const env = require('yargs').argv.env; // use --env with webpack 2
+const pkg = require('./package.json');
 
-module.exports = {
-    entry: path.resolve(__dirname, 'src/lib/index.js'),
+const libraryName = pkg.name;
+
+let outputFile;
+let
+    mode;
+
+if (env === 'build') {
+    mode = 'production';
+    outputFile = `${ libraryName }.min.js`;
+} else {
+    mode = 'development';
+    outputFile = `${ libraryName }.js`;
+}
+
+const config = {
+    mode,
+    entry: `${ __dirname }/src/lib/index.js`,
+    devtool: 'source-map',
     output: {
-        path: path.resolve(__dirname, './build/lib'),
-        sourceMapFilename: "path.resolve(__dirname, './build/lib/index.js.map')",
-        filename: 'index.js',
-        library: '',
-        libraryTarget: 'commonjs',
+        path: `${ __dirname }/lib`,
+        filename: outputFile,
+        library: libraryName,
+        libraryTarget: 'umd',
+        umdNamedDefine: true,
     },
-    target: 'web',
+    externals: {
+        react: 'react',
+        ramda: 'ramda',
+        styledComponent: 'styled-components',
+        reactIcons: 'react-icons',
+        ramdaExtension: 'ramda-extension',
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+                test: /(\.jsx|\.js)$/,
                 loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-env', '@babel/react'],
-                    plugins: ['babel-plugin-styled-components'],
-                },
+                exclude: /(node_modules|bower_components)/,
             },
             {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                test: /(\.jsx|\.js)$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/,
             },
         ],
     },
+    resolve: {
+        modules: [path.resolve('./node_modules'), path.resolve('./src')],
+        extensions: ['.json', '.js'],
+    },
 };
+
+module.exports = config;

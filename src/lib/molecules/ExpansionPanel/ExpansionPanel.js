@@ -1,9 +1,12 @@
-import React, {PureComponent} from 'react';
+/* eslint-disable react/destructuring-assignment */
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import {
+    contains, without, append, ifElse, __, always,
+} from 'ramda';
+import { mapIndexed } from 'ramda-extension';
 import ExpansionPanelChild from './ExpansionPanelChild';
-import {contains, without, append, ifElse, __, always} from 'ramda';
-import {mapIndexed} from 'ramda-extension';
 
 const StyledExpansionPanelWrapper = styled.div`
     padding: 10px;
@@ -19,7 +22,7 @@ class ExpansionPanel extends PureComponent {
         opened: [],
     };
 
-    handleOpenClick = (index) => () => {
+    handleOpenClick = index => () => {
         const { openSingle } = this.props;
         const { opened } = this.state;
         this.setState({
@@ -27,17 +30,17 @@ class ExpansionPanel extends PureComponent {
         });
     };
 
-    isTabOpen = (index) => contains(index, this.state.opened);
+    isTabOpen = index => contains(index, this.state.opened);
 
     render() {
-        const {items} = this.props;
-        const mapExpansionTableChildren = ({heading, body}, index) => (
+        const { items } = this.props;
+        const mapExpansionTableChildren = ({ heading, body }, index) => (
             <ExpansionPanelChild
-                key={index}
-                handleClick={this.handleOpenClick(index)}
-                open={this.isTabOpen(index)}
-                heading={heading}
-                body={body}
+                key={ index }
+                handleClick={ this.handleOpenClick(index) }
+                open={ this.isTabOpen(index) }
+                heading={ heading }
+                body={ body }
             />
         );
         const mappedExpansionTableChildren = mapIndexed(mapExpansionTableChildren);
@@ -45,9 +48,8 @@ class ExpansionPanel extends PureComponent {
             <StyledExpansionPanelWrapper>
                 {mappedExpansionTableChildren(items)}
             </StyledExpansionPanelWrapper>
-        )
+        );
     }
-
 }
 
 ExpansionPanel.propTypes = {

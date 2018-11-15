@@ -10,9 +10,9 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-  border: 1px solid ${lightTheme.whiteBlue};
+  border: 1px solid ${ lightTheme.whiteBlue };
   border-radius: 5px;
-  background-color: ${lightTheme.white};
+  background-color: ${ lightTheme.white };
   padding: 3px 5px;
   box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
   width: 190px;
@@ -25,14 +25,14 @@ const StyledInput = styled.input`
   background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat;
 `;
 
-const NativeDatePicker = ({onChange, value, label, min, max}) => {
-    return (
-        <StyledWrapper>
-            <StyledLabel>{label}</StyledLabel>
-            <StyledInput type="date" onChange={onChange} value={value} min={min} max={max}/>
-        </StyledWrapper>
-    );
-};
+const NativeDatePicker = ({
+    onChange, value, label, min, max,
+}) => (
+    <StyledWrapper>
+        <StyledLabel>{label}</StyledLabel>
+        <StyledInput type="date" onChange={ onChange } value={ value } min={ min } max={ max } />
+    </StyledWrapper>
+);
 
 NativeDatePicker.propTypes = {
     /**
