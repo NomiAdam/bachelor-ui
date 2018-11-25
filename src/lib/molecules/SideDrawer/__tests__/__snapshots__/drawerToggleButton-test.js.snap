@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BurgerButton should match the snapshot 1`] = `
+<BurgerButton__StyledToggleButton
+  className="toggle-button"
+>
+  <BurgerButton__StyledButtonLine />
+  <BurgerButton__StyledButtonLine />
+  <BurgerButton__StyledButtonLine />
+</BurgerButton__StyledToggleButton>
+`;

@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideDrawer should match the snapshot 1`] = `
+<SideDrawer__StyledResponsiveDrawerWrapper>
+  <Toolbar
+    handleClick={[Function]}
+    isOpen={false}
+    primary={false}
+  />
+  <SideDrawer__StyledContentWrapper
+    isOpen={false}
+  />
+</SideDrawer__StyledResponsiveDrawerWrapper>
+`;

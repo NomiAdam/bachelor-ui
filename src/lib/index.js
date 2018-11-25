@@ -33,6 +33,7 @@ export { default as SelectField } from './molecules/SelectField';
 export { default as Stepper } from './molecules/Stepper';
 export { default as Tab } from './molecules/Tab';
 export { default as TextField } from './molecules/TextField';
+export { default as SideDrawer } from './molecules/SideDrawer';
 
 export { default as ActionList } from './organisms/ActionList';
 export { default as Autocomplete } from './organisms/Autocomplete';

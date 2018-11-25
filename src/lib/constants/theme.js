@@ -2,9 +2,10 @@ export const basicTheme = {
     blue: '#0247fe',
     red: '#ff230f',
     green: '#009933',
-    purple: '#9a0794',
+    purple: '#563d7c',
     orange: '#ff9933',
     grey: '#94989f',
+    indigo: '#6610f2',
 };
 
 export const lightTheme = {
