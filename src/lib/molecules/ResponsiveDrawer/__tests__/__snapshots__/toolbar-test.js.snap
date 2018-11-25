@@ -1,20 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Toolbar should match the snapshot 1`] = `
-<Toolbar__StyledToolbar
+<styled.header
   primary={false}
 >
-  <Toolbar__StyledToolbarNavigation>
+  <styled.nav>
     <DrawerToggleButton
       mobileVersion={true}
       primary={false}
     />
-    <Toolbar__StyledLogoWrapper
+    <styled.div
       primary={false}
     />
-    <Toolbar__StyledNavigationItemWrapper
+    <styled.div
       primary={false}
     />
-  </Toolbar__StyledToolbarNavigation>
-</Toolbar__StyledToolbar>
+  </styled.nav>
+</styled.header>
 `;

@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DialogContent should match the snapshot 1`] = `
-<DialogContent__StyledContainer
+<Styled(styled.div)
   alignItems="initial"
   justifyContent="initial"
 />
 `;
 
 exports[`DialogContent should match the snapshot with children 1`] = `
-<DialogContent__StyledContainer
+<Styled(styled.div)
   alignItems="initial"
   justifyContent="initial"
 >
   <h1>
     Mock
   </h1>
-</DialogContent__StyledContainer>
+</Styled(styled.div)>
 `;

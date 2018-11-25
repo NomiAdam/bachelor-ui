@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BounceOut should match the snapshot 1`] = `
-<BaseAnimation
-  className="BounceOut-uit3tv-0 kGyiHM"
+<styled.div
+  className="sc-bwzfXH gILiLG"
   delay="0s"
   direction="normal"
   display="block"

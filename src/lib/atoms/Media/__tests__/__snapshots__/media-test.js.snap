@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Media should match the snapshot 1`] = `
-<Media__StyledMediaWrapper
+<styled.div
   width="100%"
 >
   <img
     alt="alternative"
   />
-</Media__StyledMediaWrapper>
+</styled.div>
 `;
 
 exports[`Media should match the snapshot with different component 1`] = `
-<Media__StyledMediaWrapper
+<styled.div
   width="100%"
 >
   <video
     alt="alternative"
   />
-</Media__StyledMediaWrapper>
+</styled.div>
 `;

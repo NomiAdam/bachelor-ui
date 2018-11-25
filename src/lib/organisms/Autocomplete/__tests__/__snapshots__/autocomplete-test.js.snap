@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Autocomplete should match the snapshot 1`] = `
-<Autocomplete__StyledAutocomplete
+<styled.div
   onBlur={[Function]}
   onKeyDown={[Function]}
 >
@@ -18,11 +18,11 @@ exports[`Autocomplete should match the snapshot 1`] = `
     suggestions={Array []}
     visible={false}
   />
-</Autocomplete__StyledAutocomplete>
+</styled.div>
 `;
 
 exports[`Autocomplete should match the snapshot with suggestions 1`] = `
-<Autocomplete__StyledAutocomplete
+<styled.div
   onBlur={[Function]}
   onKeyDown={[Function]}
 >
@@ -46,5 +46,5 @@ exports[`Autocomplete should match the snapshot with suggestions 1`] = `
     }
     visible={false}
   />
-</Autocomplete__StyledAutocomplete>
+</styled.div>
 `;

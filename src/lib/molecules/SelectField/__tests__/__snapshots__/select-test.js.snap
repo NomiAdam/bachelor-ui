@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`AutocompleteSelect should match the snapshot 1`] = `
-<Select__StyledSelect
+<styled.div
   isEmpty={true}
 />
 `;
 
 exports[`AutocompleteSelect should match the snapshot with options 1`] = `
-<Select__StyledSelect
+<styled.div
   isEmpty={false}
   visible={true}
 >
@@ -18,5 +18,5 @@ exports[`AutocompleteSelect should match the snapshot with options 1`] = `
     selected={false}
     value="Value"
   />
-</Select__StyledSelect>
+</styled.div>
 `;

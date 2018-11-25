@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AutocompleteOption should match the snapshot 1`] = `<Option__StyledOption />`;
+exports[`AutocompleteOption should match the snapshot 1`] = `<styled.div />`;
 
 exports[`AutocompleteOption should match the snapshot with value 1`] = `
-<Option__StyledOption>
+<styled.div>
   value
-</Option__StyledOption>
+</styled.div>
 `;

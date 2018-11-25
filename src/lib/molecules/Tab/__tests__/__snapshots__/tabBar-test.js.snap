@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabBar should match the snapshot 1`] = `
-<TabBar__StyledTabBarWrapper
+<styled.div
   align="flex-start"
 >
   <Border
-    color="#9a0794"
+    color="#563d7c"
     items={Array []}
     percentage="0"
   />
-</TabBar__StyledTabBarWrapper>
+</styled.div>
 `;
 
 exports[`TabBar should match the snapshot with mockTabCells 1`] = `
-<TabBar__StyledTabBarWrapper
+<styled.div
   align="flex-start"
 >
   <TabCell
@@ -29,7 +29,7 @@ exports[`TabBar should match the snapshot with mockTabCells 1`] = `
     label="two"
   />
   <Border
-    color="#9a0794"
+    color="#563d7c"
     items={
       Array [
         "one",
@@ -38,5 +38,5 @@ exports[`TabBar should match the snapshot with mockTabCells 1`] = `
     }
     percentage="0"
   />
-</TabBar__StyledTabBarWrapper>
+</styled.div>
 `;

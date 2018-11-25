@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckCell should match the snapshot 1`] = `
-<CheckCell__StyledTableCell
+<styled.td
   checked={false}
 />
 `;

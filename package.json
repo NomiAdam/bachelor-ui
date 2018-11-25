@@ -1,6 +1,6 @@
 {
   "name": "bachelor-ui",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "description": "Experimental component library using styled components",
   "author": "NomiAdam",
   "license": "MIT",
@@ -13,14 +13,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 9001 -c .storybook",
     "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^3.4.10",
-    "@storybook/react": "^3.4.10",
     "prop-types": "^15.6.2",
     "ramda": "^0.25.0",
     "ramda-extension": "^0.6.1",
@@ -38,9 +37,22 @@
     "styled-components": "^3.3.3"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.4.10",
+    "@storybook/react": "^3.4.10",
     "babel-cli": "^6.26.0",
     "react-scripts": "1.1.4",
-    "react-test-renderer": "^16.3.2"
+    "react-test-renderer": "^16.3.2",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-to-json": "^3.3.4",
+    "jest": "^23.6.0",
+    "jest-styled-components": "^6.2.2",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.9.1"
   },
   "jest": {
     "setupFiles": [

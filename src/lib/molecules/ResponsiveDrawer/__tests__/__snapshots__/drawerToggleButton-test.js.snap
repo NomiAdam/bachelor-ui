@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DrawerToggleButton should match the snapshot 1`] = `
-<DrawerToggleButton__StyledToggleButton
+<styled.button
   className="toggle-button"
 >
-  <DrawerToggleButton__StyledButtonLine />
-  <DrawerToggleButton__StyledButtonLine />
-  <DrawerToggleButton__StyledButtonLine />
-</DrawerToggleButton__StyledToggleButton>
+  <styled.div />
+  <styled.div />
+  <styled.div />
+</styled.button>
 `;

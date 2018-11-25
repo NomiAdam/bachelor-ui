@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ExpansionPanel should match the snapshot 1`] = `<ExpansionPanel__StyledExpansionPanelWrapper />`;
+exports[`ExpansionPanel should match the snapshot 1`] = `<styled.div />`;
 
 exports[`ExpansionPanel should match the snapshot with items 1`] = `
-<ExpansionPanel__StyledExpansionPanelWrapper>
+<styled.div>
   <ExpansionPanelChild
     body="body"
     handleClick={[Function]}
@@ -18,5 +18,5 @@ exports[`ExpansionPanel should match the snapshot with items 1`] = `
     key="1"
     open={false}
   />
-</ExpansionPanel__StyledExpansionPanelWrapper>
+</styled.div>
 `;

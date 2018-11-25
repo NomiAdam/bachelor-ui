@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OverlayHeading should match the snapshot 1`] = `
-<OverlayHeading__StyledWrapper>
-  <OverlayHeading__InnerWrapper>
+<styled.div>
+  <styled.div>
     <Heading
       component="h2"
     />
-  </OverlayHeading__InnerWrapper>
-  <OverlayHeading__StyledCloseIcon />
-</OverlayHeading__StyledWrapper>
+  </styled.div>
+  <Styled(IoIosArrowThinLeft) />
+</styled.div>
 `;

@@ -1,81 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Checkbox should match the snapshot 1`] = `
-<Grid__StyledGridWrapper
+<styled.div
   gridGap="10px"
   padding="10px"
 >
-  <GridCol__StyledGridCol
+  <styled.div
     colXS={6}
   >
     <Heading
       component="h4"
     />
-  </GridCol__StyledGridCol>
-  <GridCol__StyledGridCol
+  </styled.div>
+  <styled.div
     center={true}
     colXS={6}
   >
-    <Checkbox__StyledContainer>
-      <Checkbox__StyledInput
+    <styled.label>
+      <styled.input
         type="checkbox"
       />
-      <Checkbox__StyledSpan />
-    </Checkbox__StyledContainer>
-  </GridCol__StyledGridCol>
-</Grid__StyledGridWrapper>
+      <styled.span />
+    </styled.label>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`Checkbox should match the snapshot when checked 1`] = `
-<Grid__StyledGridWrapper
+<styled.div
   gridGap="10px"
   padding="10px"
 >
-  <GridCol__StyledGridCol
+  <styled.div
     colXS={6}
   >
     <Heading
       component="h4"
     />
-  </GridCol__StyledGridCol>
-  <GridCol__StyledGridCol
+  </styled.div>
+  <styled.div
     center={true}
     colXS={6}
   >
-    <Checkbox__StyledContainer>
-      <Checkbox__StyledInput
+    <styled.label>
+      <styled.input
         checked={true}
         type="checkbox"
       />
-      <Checkbox__StyledSpan />
-    </Checkbox__StyledContainer>
-  </GridCol__StyledGridCol>
-</Grid__StyledGridWrapper>
+      <styled.span />
+    </styled.label>
+  </styled.div>
+</styled.div>
 `;
 
 exports[`Checkbox should match the snapshot with label 1`] = `
-<Grid__StyledGridWrapper
+<styled.div
   gridGap="10px"
   padding="10px"
 >
-  <GridCol__StyledGridCol
+  <styled.div
     colXS={6}
   >
     <Heading
       component="h4"
       label="Mock"
     />
-  </GridCol__StyledGridCol>
-  <GridCol__StyledGridCol
+  </styled.div>
+  <styled.div
     center={true}
     colXS={6}
   >
-    <Checkbox__StyledContainer>
-      <Checkbox__StyledInput
+    <styled.label>
+      <styled.input
         type="checkbox"
       />
-      <Checkbox__StyledSpan />
-    </Checkbox__StyledContainer>
-  </GridCol__StyledGridCol>
-</Grid__StyledGridWrapper>
+      <styled.span />
+    </styled.label>
+  </styled.div>
+</styled.div>
 `;

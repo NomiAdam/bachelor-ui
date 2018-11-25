@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Input should match the snapshot 1`] = `
-<Input__StyledInput
+<styled.input
   placeholder=" "
   type="text"
 />

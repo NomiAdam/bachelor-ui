@@ -1,30 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Notification should match the snapshot 1`] = `
-<Notification__StyledWrapper
+<styled.div
   variant="info"
 >
-  <Grid__StyledGridWrapper
+  <styled.div
     gridGap="10px"
     padding="10px"
   >
-    <GridCol__StyledGridCol
+    <styled.div
       colXS={1}
     >
-      <Notification__StyledIcon />
-    </GridCol__StyledGridCol>
-    <GridCol__StyledGridCol
+      <Styled(FaInfoCircle) />
+    </styled.div>
+    <styled.div
       colXS={10}
     >
-      <Notification__StyledTextWrapper>
+      <styled.div>
         <span />
-      </Notification__StyledTextWrapper>
-    </GridCol__StyledGridCol>
-    <GridCol__StyledGridCol
+      </styled.div>
+    </styled.div>
+    <styled.div
       colXS={1}
     >
-      <Notification__StyledClose />
-    </GridCol__StyledGridCol>
-  </Grid__StyledGridWrapper>
-</Notification__StyledWrapper>
+      <Styled(Styled(FaClose)) />
+    </styled.div>
+  </styled.div>
+</styled.div>
 `;

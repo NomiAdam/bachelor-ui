@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckTableRow should match the snapshot 1`] = `
-<SimpleTableRow__StyledTableRow>
+<styled.tr>
   <TableCell
     redirect={false}
   >
     label
   </TableCell>
-</SimpleTableRow__StyledTableRow>
+</styled.tr>
 `;
 
 exports[`CheckTableRow should match the snapshot with values 1`] = `
-<SimpleTableRow__StyledTableRow>
+<styled.tr>
   <TableCell
     redirect={false}
   >
@@ -77,5 +77,5 @@ exports[`CheckTableRow should match the snapshot with values 1`] = `
       labelPosition="LEFT"
     />
   </TableCell>
-</SimpleTableRow__StyledTableRow>
+</styled.tr>
 `;

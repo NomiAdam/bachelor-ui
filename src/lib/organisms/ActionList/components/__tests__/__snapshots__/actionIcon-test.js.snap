@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionIcon should be match the snapshot 1`] = `
-<ActionIcon__StyledIconWrapper>
-  <ActionIcon__StyledOutline />
-</ActionIcon__StyledIconWrapper>
+<styled.div>
+  <Styled(IoIosStarOutline) />
+</styled.div>
 `;
 
 exports[`ActionIcon should be match the snapshot when isIconActive 1`] = `
-<ActionIcon__StyledIconWrapper>
-  <ActionIcon__StyledStar />
-</ActionIcon__StyledIconWrapper>
+<styled.div>
+  <Styled(IoIosStar) />
+</styled.div>
 `;

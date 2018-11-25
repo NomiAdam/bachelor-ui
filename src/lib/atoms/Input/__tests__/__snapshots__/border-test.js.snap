@@ -3,7 +3,8 @@
 exports[`Border should match the snapshot 1`] = `
 .c0 {
   position: absolute;
-  bottom: -4px left:0;
+  bottom: -4px;
+  left: 0;
   height: 2px;
   width: 100%;
   background: #0099ff;
@@ -17,19 +18,19 @@ exports[`Border should match the snapshot 1`] = `
   transition: .5s ease all;
 }
 
-.Input__StyledInput-sc-1spn88l-0:focus ~ .c0 {
+.sc-bdVaJa:focus ~ .c0 {
   -webkit-transform: scaleX(1);
   -ms-transform: scaleX(1);
   transform: scaleX(1);
 }
 
-.TextAreaInput__StyledTextArea-ru9gbh-0:focus ~ .c0 {
+.sc-bwzfXH:focus ~ .c0 {
   -webkit-transform: scaleX(1);
   -ms-transform: scaleX(1);
   transform: scaleX(1);
 }
 
-.Select__StyledSelect-sc-5mpa3n-0:focus ~ .c0 {
+.sc-htpNat:focus ~ .c0 {
   -webkit-transform: scaleX(1);
   -ms-transform: scaleX(1);
   transform: scaleX(1);

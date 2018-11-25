@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DialogOverlay should match the snapshot 1`] = `
-<Overlay__StyledOverlayWrapper
+<Styled(styled.div)
   height="100vh"
   onScroll={[Function]}
 />
 `;
 
 exports[`DialogOverlay should match the snapshot with children 1`] = `
-<Overlay__StyledOverlayWrapper
+<Styled(styled.div)
   height="100vh"
   onScroll={[Function]}
 >
   <h1>
     Mock
   </h1>
-</Overlay__StyledOverlayWrapper>
+</Styled(styled.div)>
 `;

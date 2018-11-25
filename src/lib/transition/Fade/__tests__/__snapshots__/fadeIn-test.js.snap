@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FadeIn should match the snapshot 1`] = `
-<BaseAnimation
-  className="FadeIn-l1ttpl-0 GyTbd"
+<styled.div
+  className="sc-bwzfXH VWMEu"
   delay="0s"
   direction="normal"
   display="block"

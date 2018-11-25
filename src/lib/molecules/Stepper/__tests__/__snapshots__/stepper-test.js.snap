@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Stepper should match the snapshot 1`] = `
-<Container__StyledContainer
+<styled.div
   alignItems="center"
   flexDirection="column"
   height="100%"
   justifyContent="center"
   width="100%"
 >
-  <Stepper__StyledStepContainer />
-</Container__StyledContainer>
+  <styled.ul />
+</styled.div>
 `;

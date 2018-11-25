@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`TabCell should match the snapshot 1`] = `
-<TabCell__StyledTabButton
+<styled.button
   onClick={[Function]}
 />
 `;

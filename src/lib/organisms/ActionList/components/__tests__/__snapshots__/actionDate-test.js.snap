@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ActionDate should be match the snapshot 1`] = `
-<ActionDate__StyledDateWrapper>
-  <ActionDate__StyledDateHeading>
+<styled.div>
+  <styled.h4>
     NaN-NaN
-  </ActionDate__StyledDateHeading>
-  <ActionDate__StyledDateParagraph>
+  </styled.h4>
+  <styled.p>
     NaN
-  </ActionDate__StyledDateParagraph>
-</ActionDate__StyledDateWrapper>
+  </styled.p>
+</styled.div>
 `;
