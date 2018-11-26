@@ -1,12 +1,12 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import Button, { RoundButton } from '../../src/lib/atoms/Button';
+import { RoundButton, Button } from '../../src/lib/atoms/Button';
 
 storiesOf('Atoms/Button', module)
     .add('Basic button', () => (
-        <Button onClick={action('clicked')} label={'Button'} />
+        <Button onClick={ action('clicked') } label="Button" />
     ))
     .add('Round button', () => (
-        <RoundButton onClick={action('clicked')} />
+        <RoundButton onClick={ action('clicked') } />
     ));

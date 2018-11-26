@@ -6,7 +6,7 @@ import { lightTheme, darkTheme } from '../../constants/theme';
 const StyledPaperWrapper = styled.div`
 	padding: ${ ({ padding }) => padding };
 	border-color: transparent;
-	border-radius: 3px;
+	border-radius: ${ ({ radius }) => radius };
 	${ props => (props.width ? `min-width: ${ props.width };` : '') }
 	${ props => (props.height ? `min-height: ${ props.height };` : '') } 
 	box-shadow:  0 1px 5px ${ darkTheme.darkGrey };
@@ -22,7 +22,7 @@ const StyledPaperWrapper = styled.div`
 `;
 
 const Paper = ({
-    children, height, width, background, padding, center, overflow,
+    children, height, width, background, padding, center, overflow, radius,
 }) => (
     <StyledPaperWrapper
         height={ height }
@@ -31,6 +31,7 @@ const Paper = ({
         padding={ padding }
         center={ center }
         overflow={ overflow }
+        radius={ radius }
     >
         {children}
     </StyledPaperWrapper>
@@ -65,12 +66,17 @@ Paper.propTypes = {
      * String definition of css property overflow
      */
     overflow: PropTypes.string,
+    /**
+   *
+   */
+    radius: PropTypes.number,
 };
 
 Paper.defaultProps = {
     background: lightTheme.white,
     overflow: 'hidden',
     padding: '10px',
+    radius: '3px',
 };
 
 export { StyledPaperWrapper };

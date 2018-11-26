@@ -17,7 +17,7 @@ const StyledContentWrapper = styled.main`
   height: 100%;
   min-height: 100vh;
   transition: all .5s ease;
-  margin-left: ${ ({ isOpen }) => (isOpen ? '200' : '50') }px;
+  margin-left: ${ ({ isOpen }) => (isOpen ? '300' : '50') }px;
 `;
 
 class SideDrawer extends PureComponent {

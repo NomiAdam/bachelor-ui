@@ -35,7 +35,7 @@ class RootRow extends PureComponent {
 
     renderAnotherRow = (children) => {
         const {
-            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag,
+            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node,
         } = this.props;
         const renderChildrenRow = (num, key, obj) => (
             <RootRow
@@ -48,6 +48,7 @@ class RootRow extends PureComponent {
                 handleRedirect={ handleRedirect }
                 redirect={ redirect }
                 flag={ flag }
+                node={ node }
             />
         );
         return o(values, mapObjIndexed(renderChildrenRow))(children);
@@ -57,7 +58,7 @@ class RootRow extends PureComponent {
 
     render() {
         const {
-            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag,
+            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag, node,
         } = this.props;
         const { isOpen } = this.state;
         const hasChildren = notEmptyChildren(treeLeaf);
@@ -76,6 +77,7 @@ class RootRow extends PureComponent {
                         depth={ treeLeaf.depth }
                         leafData={ getTreeDataByProp(dataProp)(treeLeaf) }
                         hasFlag={ hasFlag }
+                        node={ node }
                     />
                 </StyledRow>
                 {
@@ -122,7 +124,11 @@ RootRow.propTypes = {
     /**
      * Flag, can be anything, note that it compares leafKey with array, and changes color of leaf accordingly
      */
-    flag: PropTypes.bool,
+    flag: PropTypes.array,
+    /**
+   *
+   */
+    node: PropTypes.any,
 };
 
 RootRow.defaultProps = {

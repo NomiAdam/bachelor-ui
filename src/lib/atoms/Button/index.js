@@ -3,6 +3,5 @@ import RoundButton from './RoundButton';
 
 export {
     RoundButton,
+    Button,
 };
-
-export default Button;

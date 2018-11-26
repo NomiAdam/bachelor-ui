@@ -31,13 +31,13 @@ const StyledSpan = styled.span`
   left: 0;
   height: 25px;
   width: 25px;
-  background-color: ${ lightTheme.lightBlue };
+  background-color: ${ basicTheme.indigo };
   transition: .25s all ease;
   &:hover {
     background-color: ${ lightTheme.whiteBlue };
   }
   ${ StyledInput }:checked ~ & {
-    background-color: ${ basicTheme.blue };
+    background-color: ${ basicTheme.indigo };
   }
   &:after {
     content: "";

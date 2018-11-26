@@ -12,7 +12,7 @@ class Dialog extends PureComponent {
 
     render() {
         const {
-            isOpen, children, heading, renderActionChildren,
+            isOpen, children, heading, actionChildren, width, height,
         } = this.props;
         return (
             <Overlay
@@ -22,7 +22,7 @@ class Dialog extends PureComponent {
                 displayHeading={ false }
                 backColor={ lightTheme.white }
             >
-                <DialogWindow heading={ heading } renderActionChildren={ renderActionChildren }>
+                <DialogWindow heading={ heading } actionChildren={ actionChildren } width={ width } height={ height }>
                     { children }
                 </DialogWindow>
             </Overlay>
@@ -46,11 +46,16 @@ Dialog.propTypes = {
     /**
      * Function handler to render action children
      */
-    renderActionChildren: PropTypes.func.isRequired,
+    actionChildren: PropTypes.any.isRequired,
     /**
      * Heading node of dialog window
      */
     heading: PropTypes.any.isRequired,
+    /**
+   *
+   */
+    width: PropTypes.number,
+    height: PropTypes.number,
 };
 
 export default Dialog;

@@ -1,4 +1,10 @@
 /* eslint-disable import/named */
+import * as ColorPalleter from './constants/theme';
+
+export {
+    ColorPalleter,
+};
+
 export { default as Button } from './atoms/Button/Button';
 export { default as RoundButton } from './atoms/Button/RoundButton';
 export { default as Grid } from './atoms/Grid/Grid';
@@ -40,4 +46,4 @@ export { default as Autocomplete } from './organisms/Autocomplete';
 export { default as Calendar } from './organisms/Calendar';
 export { default as GriddedTextField } from './organisms/GriddedTextField';
 export { default as SortTable } from './organisms/SortTable';
-export { default as TreeTable } from './organisms/TreeTable';
+export { default as TreeTable } from './organisms/TreeList';

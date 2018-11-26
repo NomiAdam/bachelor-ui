@@ -5,9 +5,9 @@ import styled from 'styled-components';
 export const StyledList = styled.ul`
 	width: 100%;
 	height: 100%;
-	padding: 15px;
+	padding: 0;
 	list-style-type: none;
-    margin: 0;
+  margin: 0;
 `;
 
 const List = ({ children }) => (<StyledList>{children}</StyledList>);

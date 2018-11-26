@@ -9,9 +9,7 @@ exports[`Dialog should match the snapshot 1`] = `
   isOpen={false}
   verticalPosition="center"
 >
-  <DialogWindow
-    renderActionChildren={[Function]}
-  />
+  <DialogWindow />
 </Overlay>
 `;
 
@@ -24,9 +22,7 @@ exports[`Dialog should match the snapshot when open 1`] = `
   isOpen={true}
   verticalPosition="center"
 >
-  <DialogWindow
-    renderActionChildren={[Function]}
-  />
+  <DialogWindow />
 </Overlay>
 `;
 
@@ -39,9 +35,7 @@ exports[`Dialog should match the snapshot with children 1`] = `
   isOpen={true}
   verticalPosition="center"
 >
-  <DialogWindow
-    renderActionChildren={[Function]}
-  >
+  <DialogWindow>
     <h1>
       Mock
     </h1>

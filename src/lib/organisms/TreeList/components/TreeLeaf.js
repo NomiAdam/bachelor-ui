@@ -1,13 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-    pick, values, compose, length, divide,
-} from 'ramda';
-import { mapIndexed, equalsZero } from 'ramda-extension';
+import { pickAll } from 'ramda';
 import { IoIosArrowDown } from 'react-icons/lib/io';
 import { Grid, GridCol } from '../../../atoms/Grid/index';
-import { basicTheme, darkTheme } from '../../../constants/theme';
 
 const StyledIconGridCol = styled(GridCol)`
   display: flex;
@@ -15,40 +11,23 @@ const StyledIconGridCol = styled(GridCol)`
   cursor: initial;
 `;
 
-const StyledParagraph = styled.p`
-  color: ${ ({ hasFlag }) => (hasFlag ? basicTheme.grey : darkTheme.black) };
-  ${ ({ isFirst, depth }) => (isFirst ? `margin-left: ${ depth * 10 }px` : 'margin-left: 0') };
-`;
-
 const StyledOpenIcon = styled(IoIosArrowDown)`
   transition: all .5s ease;
   font-size: 1.5rem;
-  ${ ({ depth }) => `margin-left: ${ depth * 10 }px` };
+  ${ ({ depth }) => `margin-left: ${ depth * 8 }px` };
   transform: ${ ({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(180deg)') };
   &:hover {
 	    cursor: pointer;
   }
 `;
 
-const getGridSize = compose(Math.floor, divide(10), length);
-
 class TreeLeaf extends PureComponent {
     renderLeafData = () => {
         const {
-            leafData, depth, displayProps, hasFlag,
+            leafData, depth, displayProps, hasFlag, node: Node,
         } = this.props;
-        const renderParagraph = (value, index) => (
-            <GridCol key={ index } colXS={ getGridSize(displayProps) }>
-                <StyledParagraph
-                    isFirst={ equalsZero(index) }
-                    hasFlag={ hasFlag }
-                    depth={ depth }
-                >
-                    {value}
-                </StyledParagraph>
-            </GridCol>
-        );
-        return compose(values, mapIndexed(renderParagraph), pick(displayProps))(leafData);
+        const props = pickAll(displayProps)(leafData);
+        return <Node { ...props } hasFlag={ hasFlag } depth={ depth } />;
     };
 
     handleIconClick = (e) => {
@@ -76,9 +55,9 @@ class TreeLeaf extends PureComponent {
                         hasChildren
                       && <StyledOpenIcon depth={ depth } isOpen={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
-                {
-                    this.renderLeafData()
-                }
+                <GridCol colXS={ 10 }>
+                    { this.renderLeafData() }
+                </GridCol>
             </Grid>
         );
     }
@@ -121,6 +100,10 @@ TreeLeaf.propTypes = {
      * Whether current leaf has flag or not
      */
     hasFlag: PropTypes.bool,
+    /**
+   *
+   */
+    node: PropTypes.any,
 };
 
 export default TreeLeaf;

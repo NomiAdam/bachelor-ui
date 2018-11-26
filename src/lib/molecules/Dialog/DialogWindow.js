@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import Paper from '../../atoms/Paper/index';
 import { Grid, GridCol } from '../../atoms/Grid/index';
 import { DialogContent, DialogActions } from './components/index';
 
-const StyledWindowWrapper = styled(Paper)`
-    max-height: 800px;
-    min-width: 500px;
-    min-height: 500px;
-    max-width: 800px;
-`;
-
-const DialogWindow = ({ renderActionChildren, children, heading }) => (
-    <StyledWindowWrapper>
+const DialogWindow = ({
+    actionChildren, children, heading, width, height,
+}) => (
+    <Paper width={ width } height={ height } radius="0">
         <Grid gridGap="0" padding="0">
             <GridCol colXS={ 12 }>
                 {heading}
@@ -25,11 +19,11 @@ const DialogWindow = ({ renderActionChildren, children, heading }) => (
             </GridCol>
             <GridCol colXS={ 12 }>
                 <DialogActions>
-                    { renderActionChildren() }
+                    { actionChildren }
                 </DialogActions>
             </GridCol>
         </Grid>
-    </StyledWindowWrapper>
+    </Paper>
 );
 
 DialogWindow.propTypes = {
@@ -44,11 +38,13 @@ DialogWindow.propTypes = {
     /**
      * Function handler to render action children
      */
-    renderActionChildren: PropTypes.func.isRequired,
+    actionChildren: PropTypes.any.isRequired,
     /**
      * Node rendered on heading
      */
     heading: PropTypes.any.isRequired,
+    width: PropTypes.number,
+    height: PropTypes.number,
 };
 
 export default DialogWindow;

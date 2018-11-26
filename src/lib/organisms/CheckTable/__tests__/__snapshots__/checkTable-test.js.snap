@@ -5,6 +5,7 @@ exports[`CheckTable should match the snapshot 1`] = `
   background="#ffffff"
   overflow="auto"
   padding="10px"
+  radius="3px"
 >
   <Table
     rowSpacing={true}
@@ -28,6 +29,7 @@ exports[`CheckTable should match the snapshot with data 1`] = `
   background="#ffffff"
   overflow="auto"
   padding="10px"
+  radius="3px"
 >
   <Table
     rowSpacing={true}

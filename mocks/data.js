@@ -1,4 +1,4 @@
-import {IoIosArrowUp, IoEdit, IoHome} from 'react-icons/lib/io';
+import { IoIosArrowUp, IoEdit, IoHome } from 'react-icons/lib/io';
 
 export const mockTableRowData = {
     id: 'id',
@@ -12,28 +12,32 @@ export const mockTreeTableBody = {
         depth: 1,
         data: {
             id: 1,
-            value: 'one'
+            value: 'one',
+            date: '2018-01-01',
         },
         children: {
             fourth: {
                 depth: 2,
                 data: {
                     id: 4,
-                    value: 'fourth'
+                    value: 'fourth',
+                    date: '2018-01-01',
                 },
                 children: {
                     first: {
                         depth: 3,
                         data: {
                             id: 5,
-                            value: 'fifth'
+                            value: 'fifth',
+                            date: '2018-01-01',
                         },
                         children: {
                             fourth: {
                                 depth: 4,
                                 data: {
                                     id: 6,
-                                    value: 'sixth'
+                                    value: 'sixth',
+                                    date: '2018-01-01',
                                 },
                                 children: {},
                             },
@@ -47,7 +51,8 @@ export const mockTreeTableBody = {
         depth: 1,
         data: {
             id: 2,
-            value: 'two'
+            value: 'two',
+            date: '2018-01-01',
         },
         children: {},
     },
@@ -55,10 +60,11 @@ export const mockTreeTableBody = {
         depth: 1,
         data: {
             id: 3,
-            value: 'three'
+            value: 'three',
+            date: '2018-01-01',
         },
         children: {},
-    }
+    },
 };
 
 export const stepperSteps = ['Step 1', 'Step 2', 'Step 3'];
@@ -66,7 +72,7 @@ export const stepperSteps = ['Step 1', 'Step 2', 'Step 3'];
 export const mockSuggestions = [
     {
         value: 'value',
-        label: 'Value'
+        label: 'Value',
     },
     {
         value: 'mock',
@@ -75,7 +81,7 @@ export const mockSuggestions = [
     {
         value: 'test',
         label: 'Test',
-    }
+    },
 ];
 
 export const mockActionList = [
@@ -124,22 +130,22 @@ export const mockBottomNavigation = [
         icon: IoHome,
         label: 'Home',
         id: 'home',
-    }
+    },
 ];
 
 export const mockExpansionPanel = [
     {
         heading: 'One',
-        body: 'One body'
+        body: 'One body',
     },
     {
         heading: 'Two',
-        body: 'Two body'
+        body: 'Two body',
     },
     {
         heading: 'Three',
         body: 'Three body',
-    }
+    },
 ];
 
 export const mockHeading = [
@@ -150,22 +156,22 @@ export const mockHeading = [
     {
         id: 'another',
         label: 'another',
-    }
+    },
 ];
 
 export const mockNativeSelect = [
     {
         value: 'jezevec',
-        label: 'Jezevec'
+        label: 'Jezevec',
     },
     {
         value: 'stika',
-        label: 'Štika'
+        label: 'Štika',
     },
     {
         value: 'jester',
         label: 'Ještěr',
-    }
+    },
 ];
 
 export const mockTabBar = ['TabOne', 'TabTwo', 'TabThree', 'TabFour', 'TabFive'];
@@ -242,6 +248,6 @@ export const mockTimeSheet = [
 ];
 
 export const mockTableChecked = {
-    test: {label: 'Label', value: [1, 2, 4]},
-    anotherTest: {label: 'Test', value: [0, 1, 3]}
+    test: { label: 'Label', value: [1, 2, 4] },
+    anotherTest: { label: 'Test', value: [0, 1, 3] },
 };
