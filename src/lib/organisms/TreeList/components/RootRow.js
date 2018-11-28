@@ -22,7 +22,7 @@ const StyledRow = styled.div`
 const StyledChildrenWrapper = styled.div`
     overflow: hidden;
     transition: all .5s ease;
-    max-height: ${ ({ isOpen }) => (isOpen ? '250px' : '0') };
+    max-height: ${ ({ isOpen }) => (isOpen ? '1000px' : '0') };
 `;
 
 const notEmptyChildren = compose(isNotEmpty, keys, prop('children'));

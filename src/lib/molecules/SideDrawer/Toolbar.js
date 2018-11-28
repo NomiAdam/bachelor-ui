@@ -11,7 +11,7 @@ const StyledToolbar = styled.div`
   background: ${ ({ primary }) => (primary ? basicTheme.purple : basicTheme.indigo) };
   height: 100%;
   min-height: 100vh;
-  width: ${ ({ isOpen }) => (isOpen ? '200' : '50') }px;
+  width: ${ ({ isOpen }) => (isOpen ? '300' : '50') }px;
   overflow: hidden;
   transition: all .5s ease;
   display: flex;
