@@ -6,6 +6,7 @@ export {
 };
 
 export { default as Button } from './atoms/Button/Button';
+export { default as IconButton } from './atoms/Button/IconButton';
 export { default as RoundButton } from './atoms/Button/RoundButton';
 export { default as Grid } from './atoms/Grid/Grid';
 export { default as GridCol } from './atoms/Grid/GridCol';

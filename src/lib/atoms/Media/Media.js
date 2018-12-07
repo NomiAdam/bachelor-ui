@@ -4,16 +4,20 @@ import styled from 'styled-components';
 
 const StyledMediaWrapper = styled.div`
   overflow: hidden;
+  width: 500px;
+  height: 500px;
   video, audio, picture, iframe, img {
     width: ${ ({ width }) => width };
     height: ${ ({ height }) => height };
   }
+  border: 1px solid transparent;
+  border-radius: ${ ({ round }) => (round ? '50%' : '0') };
 `;
 
 const Media = ({
-    component, label, src, image, width, height, ...others
+    component, label, src, image, width, height, round, className, ...others
 }) => (
-    <StyledMediaWrapper width={ width } height={ height }>
+    <StyledMediaWrapper className={ className } width={ width } height={ height } round={ round }>
         {
             createElement(component, { ...others, src: src || image, alt: label })
         }
@@ -45,6 +49,14 @@ Media.propTypes = {
      * String representation of source for media element, note that its the same as src
      */
     image: PropTypes.string,
+    /**
+   * Whether image should be round or not
+   */
+    round: PropTypes.bool,
+    /**
+   * className for wrapping component
+   */
+    className: PropTypes.string,
 };
 
 Media.defaultProps = {

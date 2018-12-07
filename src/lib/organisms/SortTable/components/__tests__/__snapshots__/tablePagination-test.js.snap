@@ -10,6 +10,8 @@ exports[`TablePagination should match the snapshot 1`] = `
       center={true}
       colMD={4}
       colXS={6}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <styled.span>
         Rows per page:
@@ -19,6 +21,8 @@ exports[`TablePagination should match the snapshot 1`] = `
       center={true}
       colMD={2}
       colXS={6}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <SelectField
         options={
@@ -46,6 +50,8 @@ exports[`TablePagination should match the snapshot 1`] = `
       center={true}
       colMD={2}
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <styled.span>
          
@@ -58,6 +64,8 @@ exports[`TablePagination should match the snapshot 1`] = `
       center={true}
       colMD={4}
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <Styled(FaAngleDoubleLeft)
         disabled={false}

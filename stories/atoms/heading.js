@@ -3,9 +3,10 @@ import { storiesOf } from '@storybook/react';
 import Heading from '../../src/lib/atoms/Heading';
 
 storiesOf('Atoms/Heading', module)
-    .add('H2 Heading', () => (
-        <Heading label={'H2 component'} />
-    ))
-    .add('H3 Heading', () => (
-        <Heading label={'H3 component'} component={'h3'} />
+    .add('Heading', () => (
+        <div>
+            <Heading label="H1 component" component="h1" />
+            <Heading label="H2 component" />
+            <Heading label="H3 component with underline" underline width="100px" component="h3" />
+        </div>
     ));

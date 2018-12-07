@@ -13,14 +13,20 @@ exports[`DialogWindow should match the snapshot 1`] = `
   >
     <styled.div
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     />
     <styled.div
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <DialogContent />
     </styled.div>
     <styled.div
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <DialogActions />
     </styled.div>
@@ -41,9 +47,13 @@ exports[`DialogWindow should match the snapshot with children 1`] = `
   >
     <styled.div
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     />
     <styled.div
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <DialogContent>
         <h1>
@@ -53,6 +63,8 @@ exports[`DialogWindow should match the snapshot with children 1`] = `
     </styled.div>
     <styled.div
       colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <DialogActions />
     </styled.div>

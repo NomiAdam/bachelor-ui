@@ -65,6 +65,177 @@ export const mockTreeTableBody = {
         },
         children: {},
     },
+    fourth: {
+        depth: 1,
+        data: {
+            id: 4,
+            value: 'one',
+            date: '2018-01-01',
+        },
+        children: {
+            fourth: {
+                depth: 2,
+                data: {
+                    id: 4,
+                    value: 'fourth',
+                    date: '2018-01-01',
+                },
+                children: {
+                    first: {
+                        depth: 3,
+                        data: {
+                            id: 5,
+                            value: 'fifth',
+                            date: '2018-01-01',
+                        },
+                        children: {
+                            fourth: {
+                                depth: 4,
+                                data: {
+                                    id: 6,
+                                    value: 'sixth',
+                                    date: '2018-01-01',
+                                },
+                                children: {},
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+    fifth: {
+        depth: 1,
+        data: {
+            id: 5,
+            value: 'two',
+            date: '2018-01-01',
+        },
+        children: {},
+    },
+    sixth: {
+        depth: 1,
+        data: {
+            id: 6,
+            value: 'three',
+            date: '2018-01-01',
+        },
+        children: {},
+    },
+    seventh: {
+        depth: 1,
+        data: {
+            id: 7,
+            value: 'one',
+            date: '2018-01-01',
+        },
+        children: {
+            fourth: {
+                depth: 2,
+                data: {
+                    id: 4,
+                    value: 'fourth',
+                    date: '2018-01-01',
+                },
+                children: {
+                    first: {
+                        depth: 3,
+                        data: {
+                            id: 5,
+                            value: 'fifth',
+                            date: '2018-01-01',
+                        },
+                        children: {
+                            fourth: {
+                                depth: 4,
+                                data: {
+                                    id: 6,
+                                    value: 'sixth',
+                                    date: '2018-01-01',
+                                },
+                                children: {},
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+    eighth: {
+        depth: 1,
+        data: {
+            id: 8,
+            value: 'two',
+            date: '2018-01-01',
+        },
+        children: {},
+    },
+    ninth: {
+        depth: 1,
+        data: {
+            id: 9,
+            value: 'three',
+            date: '2018-01-01',
+        },
+        children: {},
+    },
+    tenth: {
+        depth: 1,
+        data: {
+            id: 10,
+            value: 'one',
+            date: '2018-01-01',
+        },
+        children: {
+            fourth: {
+                depth: 2,
+                data: {
+                    id: 4,
+                    value: 'fourth',
+                    date: '2018-01-01',
+                },
+                children: {
+                    first: {
+                        depth: 3,
+                        data: {
+                            id: 5,
+                            value: 'fifth',
+                            date: '2018-01-01',
+                        },
+                        children: {
+                            fourth: {
+                                depth: 4,
+                                data: {
+                                    id: 6,
+                                    value: 'sixth',
+                                    date: '2018-01-01',
+                                },
+                                children: {},
+                            },
+                        },
+                    },
+                },
+            },
+        },
+    },
+    elevnth: {
+        depth: 1,
+        data: {
+            id: 11,
+            value: 'two',
+            date: '2018-01-01',
+        },
+        children: {},
+    },
+    tvelweth: {
+        depth: 1,
+        data: {
+            id: 12,
+            value: 'three',
+            date: '2018-01-01',
+        },
+        children: {},
+    },
 };
 
 export const stepperSteps = ['Step 1', 'Step 2', 'Step 3'];

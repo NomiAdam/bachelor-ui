@@ -54,17 +54,20 @@ class RootRow extends PureComponent {
         return o(values, mapObjIndexed(renderChildrenRow))(children);
     };
 
-    toggleOpen = () => this.setState(({ isOpen }) => ({ isOpen: !isOpen }));
+    toggleOpen = () => {
+        const { handleClick } = this.props;
+        this.setState(({ isOpen }) => ({ isOpen: !isOpen }), handleClick);
+    }
 
     render() {
         const {
-            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag, node,
+            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag, node, style, handleClick,
         } = this.props;
         const { isOpen } = this.state;
         const hasChildren = notEmptyChildren(treeLeaf);
         const hasFlag = contains(leafKey, flag);
         return (
-            <div>
+            <div style={ style }>
                 <StyledRow redirect={ redirect }>
                     <TreeLeaf
                         displayProps={ displayProps }
@@ -129,6 +132,10 @@ RootRow.propTypes = {
    *
    */
     node: PropTypes.any,
+    /**
+   *
+   */
+    handleClick: PropTypes.func,
 };
 
 RootRow.defaultProps = {

@@ -7,6 +7,8 @@ exports[`Checkbox should match the snapshot 1`] = `
 >
   <styled.div
     colXS={6}
+    horizontalAlign="flex-start"
+    verticalAlign="flex-start"
   >
     <Heading
       component="h4"
@@ -15,6 +17,8 @@ exports[`Checkbox should match the snapshot 1`] = `
   <styled.div
     center={true}
     colXS={6}
+    horizontalAlign="flex-start"
+    verticalAlign="flex-start"
   >
     <styled.label>
       <styled.input
@@ -33,6 +37,8 @@ exports[`Checkbox should match the snapshot when checked 1`] = `
 >
   <styled.div
     colXS={6}
+    horizontalAlign="flex-start"
+    verticalAlign="flex-start"
   >
     <Heading
       component="h4"
@@ -41,6 +47,8 @@ exports[`Checkbox should match the snapshot when checked 1`] = `
   <styled.div
     center={true}
     colXS={6}
+    horizontalAlign="flex-start"
+    verticalAlign="flex-start"
   >
     <styled.label>
       <styled.input
@@ -60,6 +68,8 @@ exports[`Checkbox should match the snapshot with label 1`] = `
 >
   <styled.div
     colXS={6}
+    horizontalAlign="flex-start"
+    verticalAlign="flex-start"
   >
     <Heading
       component="h4"
@@ -69,6 +79,8 @@ exports[`Checkbox should match the snapshot with label 1`] = `
   <styled.div
     center={true}
     colXS={6}
+    horizontalAlign="flex-start"
+    verticalAlign="flex-start"
   >
     <styled.label>
       <styled.input

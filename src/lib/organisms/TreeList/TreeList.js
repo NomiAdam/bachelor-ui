@@ -18,7 +18,18 @@ class TreeList extends Component {
       || JSON.stringify(flag) !== JSON.stringify(prevProps.flag);
   }
 
-  rowRenderer = ({ node: value, key }) => {
+  handleArrowClick = index => () => {
+      console.log(index);
+      setTimeout(() => {
+          this.cache.clear(index);
+          this.list.recomputeRowHeights(index); // Clear cached size
+          this.list.forceUpdateGrid();
+      }, 3000);
+  };
+
+  rowRenderer = ({
+      node: value, key, style, index,
+  }) => {
       const {
           handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node,
       } = this.props;
@@ -34,19 +45,21 @@ class TreeList extends Component {
               redirect={ redirect }
               flag={ flag }
               node={ node }
+              style={ style }
+              handleClick={ this.handleArrowClick(index) }
           />
       );
   }
 
   measureRowRenderer = nodes => ({
-      key, index, parent,
+      key, index, parent, style,
   }) => {
       const objectKeys = keys(nodes);
       const node = nodes[ objectKeys[ index ] ];
       return (
           <CellMeasurer cache={ this.cache } columnIndex={ 0 } key={ key } rowIndex={ index } parent={ parent }>
               {m => this.rowRenderer({
-                  ...m, node, key,
+                  ...m, node, key, style, index,
               })}
           </CellMeasurer>
       );
@@ -63,6 +76,7 @@ class TreeList extends Component {
                   rowCount={ getChildrenCount(treeData) }
                   rowHeight={ this.cache.rowHeight }
                   rowRenderer={ this.measureRowRenderer(treeData) }
+                  ref={ list => this.list = list }
               />
           </GridCol>
       );

@@ -2,13 +2,11 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import device from '../../constants/device';
 
-const StyledGridCol = styled.div`
+const GridCol = styled.div`
 	background-color: transparent;
-	${ ({ center }) => (center ? `
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	` : '') }
+	justify-content: ${ ({ horizontalAlign }) => horizontalAlign };
+	align-items: ${ ({ verticalAlign }) => verticalAlign };
 	grid-column-end: span ${ props => props.colXS || props.colMD || props.colLG || 12 };
 	@media ${ device.mobileS } {
 		grid-column-end: span ${ props => props.colXS };
@@ -36,7 +34,7 @@ const StyledGridCol = styled.div`
 	}
 `;
 
-StyledGridCol.propTypes = {
+GridCol.propTypes = {
     /**
 	 * Number representing how many column will GridCol span from 0-12 on small devices
 	 */
@@ -50,9 +48,18 @@ StyledGridCol.propTypes = {
 	 */
     colLG: PropTypes.number,
     /**
-	 * Whether we should center context in GridCol or not
+	 * String representation of horizontal alignment in flex box
      */
-    center: PropTypes.bool,
+    horizontalAlign: PropTypes.string,
+    /**
+   * String representation of horizontal alignment in flex box
+   */
+    verticalAlign: PropTypes.string,
 };
 
-export default StyledGridCol;
+GridCol.defaultProps = {
+    horizontalAlign: 'flex-start',
+    verticalAlign: 'flex-start',
+};
+
+export default GridCol;

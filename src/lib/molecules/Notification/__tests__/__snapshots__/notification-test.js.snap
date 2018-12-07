@@ -10,11 +10,15 @@ exports[`Notification should match the snapshot 1`] = `
   >
     <styled.div
       colXS={1}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <Styled(FaInfoCircle) />
     </styled.div>
     <styled.div
       colXS={10}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <styled.div>
         <span />
@@ -22,6 +26,8 @@ exports[`Notification should match the snapshot 1`] = `
     </styled.div>
     <styled.div
       colXS={1}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
     >
       <Styled(Styled(FaClose)) />
     </styled.div>
