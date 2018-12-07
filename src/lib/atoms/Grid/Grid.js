@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledGridWrapper = styled.div`
-    width: 100%;
-    padding: ${ ({ padding }) => padding };
+  width: 100%;
+  padding: ${ ({ padding }) => padding };
 	display: grid;
 	grid-gap: ${ ({ gridGap }) => gridGap };
 	background-color: transparent;

@@ -12,17 +12,15 @@ import { lightTheme } from '../../../constants/theme';
 const StyledRow = styled.div`
 	background-color: transparent;
 	border-bottom: 1px solid ${ lightTheme.lightGrey };
-    transition: .25s all ease;
 	&:hover {
-	    cursor: ${ ({ redirect }) => (redirect ? 'pointer' : 'initial') };
+	  cursor: ${ ({ redirect }) => (redirect ? 'pointer' : 'initial') };
 		background-color: ${ ({ redirect }) => (redirect ? lightTheme.whiteBlue : 'transparent') };
 	}
 `;
 
 const StyledChildrenWrapper = styled.div`
     overflow: hidden;
-    transition: all .5s ease;
-    max-height: ${ ({ isOpen }) => (isOpen ? '1000px' : '0') };
+    height: ${ ({ isOpen }) => (isOpen ? '100%' : '0') };
 `;
 
 const notEmptyChildren = compose(isNotEmpty, keys, prop('children'));
@@ -35,7 +33,7 @@ class RootRow extends PureComponent {
 
     renderAnotherRow = (children) => {
         const {
-            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node,
+            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node, handleClick,
         } = this.props;
         const renderChildrenRow = (num, key, obj) => (
             <RootRow
@@ -49,6 +47,7 @@ class RootRow extends PureComponent {
                 redirect={ redirect }
                 flag={ flag }
                 node={ node }
+                handleClick={ handleClick }
             />
         );
         return o(values, mapObjIndexed(renderChildrenRow))(children);
@@ -61,7 +60,7 @@ class RootRow extends PureComponent {
 
     render() {
         const {
-            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag, node, style, handleClick,
+            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag, node, style,
         } = this.props;
         const { isOpen } = this.state;
         const hasChildren = notEmptyChildren(treeLeaf);

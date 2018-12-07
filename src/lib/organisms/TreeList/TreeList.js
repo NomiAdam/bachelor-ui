@@ -19,12 +19,9 @@ class TreeList extends Component {
   }
 
   handleArrowClick = index => () => {
-      console.log(index);
-      setTimeout(() => {
-          this.cache.clear(index);
-          this.list.recomputeRowHeights(index); // Clear cached size
-          this.list.forceUpdateGrid();
-      }, 3000);
+      this.cache.clear(index);
+      this.list.recomputeRowHeights(index); // Clear cached size
+      this.list.forceUpdateGrid();
   };
 
   rowRenderer = ({

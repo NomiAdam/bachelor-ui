@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { pickAll } from 'ramda';
 import { IoIosArrowDown } from 'react-icons/lib/io';
 import { Grid, GridCol } from '../../../atoms/Grid/index';
+import { basicTheme } from '../../../constants/theme';
 
 const StyledIconGridCol = styled(GridCol)`
   display: flex;
@@ -14,11 +15,8 @@ const StyledIconGridCol = styled(GridCol)`
 const StyledOpenIcon = styled(IoIosArrowDown)`
   transition: all .5s ease;
   font-size: 1.5rem;
-  ${ ({ depth }) => `margin-left: ${ depth * 8 }px` };
+  color: ${ basicTheme.indigo };
   transform: ${ ({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(180deg)') };
-  &:hover {
-	    cursor: pointer;
-  }
 `;
 
 class TreeLeaf extends PureComponent {
@@ -48,12 +46,12 @@ class TreeLeaf extends PureComponent {
         return (
             <Grid
                 onClick={ this.handleRedirectClick }
-                depth={ depth }
+                padding={ `0 0 0 ${ ( depth - 1 ) * 10 }px` }
             >
                 <StyledIconGridCol colXS={ 2 } onClick={ e => e.stopPropagation() }>
                     {
                         hasChildren
-                      && <StyledOpenIcon depth={ depth } isOpen={ isOpen } onClick={ this.handleIconClick } />}
+                      && <StyledOpenIcon isOpen={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
                 <GridCol colXS={ 10 }>
                     { this.renderLeafData() }
@@ -101,7 +99,7 @@ TreeLeaf.propTypes = {
      */
     hasFlag: PropTypes.bool,
     /**
-   *
+   * Node to render inside leaf
    */
     node: PropTypes.any,
 };
