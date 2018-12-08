@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { o, length, keys } from 'ramda';
-import { List, CellMeasurerCache, CellMeasurer } from 'react-virtualized';
+import {
+    List, CellMeasurerCache, CellMeasurer, AutoSizer,
+} from 'react-virtualized';
 import RootRow from './components/RootRow';
-import { GridCol } from '../../atoms/Grid/index';
 
 const getChildrenCount = o(length, keys);
 class TreeList extends Component {
@@ -63,19 +64,22 @@ class TreeList extends Component {
   }
 
   render() {
-      const { treeData, width, height } = this.props;
+      const { treeData } = this.props;
       return (
-          <GridCol colXS={ 12 }>
-              <List
-                  deferredMeasurementCache={ this.cache }
-                  width={ width }
-                  height={ height }
-                  rowCount={ getChildrenCount(treeData) }
-                  rowHeight={ this.cache.rowHeight }
-                  rowRenderer={ this.measureRowRenderer(treeData) }
-                  ref={ list => this.list = list }
-              />
-          </GridCol>
+          <AutoSizer>
+              { ({ width, height }) => (
+                  <List
+                      deferredMeasurementCache={ this.cache }
+                      width={ width }
+                      height={ height }
+                      rowCount={ getChildrenCount(treeData) }
+                      rowHeight={ this.cache.rowHeight }
+                      rowRenderer={ this.measureRowRenderer(treeData) }
+                      // eslint-disable-next-line no-return-assign
+                      ref={ list => this.list = list }
+                  />
+              ) }
+          </AutoSizer>
       );
   }
 }
@@ -110,17 +114,9 @@ TreeList.propTypes = {
    */
     flag: PropTypes.bool,
     /**
-   *
+   * Node to be rendered inside leaf
    */
     node: PropTypes.any,
-    /**
-   *
-   */
-    width: PropTypes.number.isRequired,
-    /**
-   *
-   */
-    height: PropTypes.number.isRequired,
 };
 
 TreeList.defaultProps = {

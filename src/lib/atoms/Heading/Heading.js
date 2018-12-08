@@ -14,10 +14,10 @@ const HeadingUnderline = styled.div`
 const Heading = ({
     component, label, width, underlineClass, underline, ...others
 }) => (
-    <Fragment>
+    <div>
         { createElement(component, others, label) }
         { underline ? <HeadingUnderline className={ underlineClass } width={ width } /> : null }
-    </Fragment>
+    </div>
 );
 Heading.propTypes = {
     /**

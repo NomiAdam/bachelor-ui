@@ -8,14 +8,14 @@ const Node = ({ id, value, date }) => <p>{`${ id }-${ value }-${ date }`}</p>;
 
 storiesOf('Organisms/TreeList', module)
     .add('TreeList', () => (
-        <TreeList
-            displayProps={ ['id', 'value', 'date'] }
-            handleRedirect={ action('click') }
-            redirect
-            treeData={ mockTreeTableBody }
-            dataProp="data"
-            node={ Node }
-            width={ 300 }
-            height={ 300 }
-        />
+        <div style={ { height: '600px', width: '600px' } }>
+            <TreeList
+                displayProps={ ['id', 'value', 'date'] }
+                handleRedirect={ action('click') }
+                redirect
+                treeData={ mockTreeTableBody }
+                dataProp="data"
+                node={ Node }
+            />
+        </div>
     ));

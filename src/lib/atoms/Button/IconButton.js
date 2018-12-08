@@ -56,6 +56,10 @@ IconButton.propTypes = {
    * Boolean representing whether we should use full width of container
    */
     fullWidth: PropTypes.bool,
+    /**
+   * Icon node is expected
+   */
+    icon: PropTypes.any,
 };
 
 IconButton.defaultProps = {
