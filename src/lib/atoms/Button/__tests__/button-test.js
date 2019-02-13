@@ -25,12 +25,8 @@ describe('Button', () => {
         wrapper.simulate('click');
         expect(mock).toHaveBeenCalled();
     });
-    it('should have white color on default', () => {
-        const wrapper = shallow(<Button />);
-        expect(wrapper.find(StyledButton)).toHaveStyleRule('color', 'white');
-    });
     it('should have defined color', () => {
-        const mockColor = 'white';
+        const mockColor = '#000000';
         const wrapper = shallow(<Button color={ mockColor } />);
         expect(wrapper.find(StyledButton)).toHaveStyleRule('color', mockColor);
     });
@@ -40,6 +36,6 @@ describe('Button', () => {
     });
     it('should have 50px height when large', () => {
         const wrapper = shallow(<Button large />);
-        expect(wrapper.find(StyledButton)).toHaveStyleRule('height', '50px');
+        expect(wrapper.find(StyledButton)).toHaveStyleRule('height', '70px');
     });
 });

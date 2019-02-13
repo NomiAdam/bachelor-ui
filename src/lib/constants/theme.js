@@ -16,6 +16,7 @@ export const lightTheme = {
     lightPurple: '#4424d6',
     lightGreen: '#00ad3e',
     lightOrange: '#ffbf00',
+    transparent: 'transparent',
 };
 
 export const darkTheme = {

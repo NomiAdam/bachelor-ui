@@ -2,10 +2,8 @@
 
 exports[`DialogWindow should match the snapshot 1`] = `
 <Paper
-  background="#ffffff"
   overflow="hidden"
   padding="10px"
-  radius="0"
 >
   <styled.div
     gridGap="0"
@@ -36,10 +34,8 @@ exports[`DialogWindow should match the snapshot 1`] = `
 
 exports[`DialogWindow should match the snapshot with children 1`] = `
 <Paper
-  background="#ffffff"
   overflow="hidden"
   padding="10px"
-  radius="0"
 >
   <styled.div
     gridGap="0"

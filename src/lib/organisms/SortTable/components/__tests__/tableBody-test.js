@@ -2,7 +2,7 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import TableBody from '../TableBody';
-import {TableRow} from '../../../../atoms/Table/index';
+import {TableRow} from '../../../../molecules/Table/index';
 
 const bodyData = [
     {

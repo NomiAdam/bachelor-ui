@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Paper from '../../atoms/Paper/index';
-import { Grid, GridCol } from '../../atoms/Grid/index';
+import Paper from '../../organisms/Paper/index';
+import { Grid, GridCol } from '../../organisms/Grid/index';
 import { DialogContent, DialogActions } from './components/index';
 
 const DialogWindow = ({
     actionChildren, children, heading, width, height,
 }) => (
-    <Paper width={ width } height={ height } radius="0">
+    <Paper width={ width } height={ height }>
         <Grid gridGap="0" padding="0">
             <GridCol colXS={ 12 }>
                 {heading}

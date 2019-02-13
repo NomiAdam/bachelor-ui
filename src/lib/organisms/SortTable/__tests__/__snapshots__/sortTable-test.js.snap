@@ -3,10 +3,8 @@
 exports[`SortTable should match the snapshot 1`] = `
 <div>
   <Paper
-    background="#ffffff"
     overflow="auto"
     padding="10px"
-    radius="3px"
   >
     <Table
       rowSpacing={false}
@@ -44,10 +42,8 @@ exports[`SortTable should match the snapshot 1`] = `
 exports[`SortTable should match the snapshot when editable 1`] = `
 <div>
   <Paper
-    background="#ffffff"
     overflow="auto"
     padding="10px"
-    radius="3px"
   >
     <Table
       rowSpacing={false}

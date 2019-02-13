@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledDivider = styled.hr`
-	border-top: .5px ${ ({ type }) => type } ${ ({ color }) => color };
+	border-top: .5px solid ${ resolveTheme(TYPES.COLOR) };
 `;
 
-const Divider = ({ type, color }) => <StyledDivider type={ type } color={ color } />;
+const Divider = ({ color }) => <StyledDivider color={ color } />;
 
 Divider.propTypes = {
-    type: PropTypes.string,
+    /**
+   * Optional Divider color
+   */
     color: PropTypes.string,
-};
-
-Divider.defaultProps = {
-    type: 'dashed',
-    color: '#bbbbbb',
 };
 
 export { StyledDivider };

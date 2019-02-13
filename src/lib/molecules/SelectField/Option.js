@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { lightTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledOption = styled.div`
     width: 100%;
     display: inline-block;
     border: none;
-	padding: 10px 20px;
-	text-align: center;
-	background-color: ${ ({ selected }) => (selected ? lightTheme.lightGrey : 'initial') };
+	  padding: 10px 20px;
+	  text-align: center;
+	  background-color: ${ ({ selected, ...props }) => (selected ? resolveTheme(TYPES.BACKGROUND_COLOR)(props) : 'initial') };
     &:hover {
-        background-color: ${ lightTheme.lightGrey };
+        background-color: ${ resolveTheme(TYPES.BACKGROUND_COLOR_HOVER) };
         cursor: pointer;
     }
 `;

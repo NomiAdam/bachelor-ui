@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-    findIndex, length, equals, __, divide, multiply, compose,
+    findIndex, length, equals, __, divide, multiply, compose, defaultTo, o,
 } from 'ramda';
-import { basicTheme } from '../../constants/theme';
 import { minTablet, maxTablet } from '../../constants/device';
+import { TYPES, resolveTheme } from '../../utils/resolveTheme';
 
 const StyledBorder = styled.div`
   position: absolute;
-  background-color: ${ ({ color }) => color };
+  background-color: ${ resolveTheme(TYPES.COLOR) };
   transition: 1s all ease;
   @media ${ minTablet } {
     height: 2px;
@@ -29,8 +29,9 @@ const multiplyByHundred = multiply(100);
 const divideHundred = divide(100);
 const findActiveIndex = active => findIndex(equals(active));
 
+const lengthOrDefault = o(defaultTo('0'), length);
 const Border = ({ items, active, color }) => {
-    const lengthOfItems = length(items);
+    const lengthOfItems = lengthOrDefault(items);
     const percentageOfBorder = compose(
         multiplyByHundred,
         divide(__, lengthOfItems),
@@ -40,7 +41,7 @@ const Border = ({ items, active, color }) => {
         <StyledBorder
             leftPosition={ percentageOfBorder(items) }
             percentage={ divideHundred(lengthOfItems) }
-            color={ color }
+            backgroundColor={ color }
         />
     );
 };
@@ -62,9 +63,6 @@ Border.propTypes = {
 
 Border.defaultProps = {
     items: [],
-    // eslint-disable-next-line react/default-props-match-prop-types
-    percentage: '0',
-    color: basicTheme.purple,
 };
 
 export { StyledBorder };

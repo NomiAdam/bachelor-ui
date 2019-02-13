@@ -8,14 +8,17 @@ import {
 import { isNotEmpty, defaultToEmptyObject } from 'ramda-extension';
 import TreeLeaf from './TreeLeaf';
 import { lightTheme } from '../../../constants/theme';
+import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
 
 const StyledRow = styled.div`
-	background-color: transparent;
-	border-bottom: 1px solid ${ lightTheme.lightGrey };
-	&:hover {
-	  cursor: ${ ({ redirect }) => (redirect ? 'pointer' : 'initial') };
-		background-color: ${ ({ redirect }) => (redirect ? lightTheme.whiteBlue : 'transparent') };
-	}
+	  background-color: transparent;
+	  border-bottom: 1px solid ${ lightTheme.lightGrey };
+	  &:hover {
+	    cursor: ${ ({ redirect }) => (redirect ? 'pointer' : 'initial') };
+		  background-color: ${
+    ({ redirect, ...props }) => (redirect ? resolveTheme(TYPES.BACKGROUND_COLOR_HOVER)(props) : 'transparent')
+};
+	  }
 `;
 
 const StyledChildrenWrapper = styled.div`
@@ -128,11 +131,11 @@ RootRow.propTypes = {
      */
     flag: PropTypes.array,
     /**
-   *
+   * Children node
    */
     node: PropTypes.any,
     /**
-   *
+   * onClick function handler
    */
     handleClick: PropTypes.func,
 };

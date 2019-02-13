@@ -4,8 +4,9 @@ import styled, { keyframes } from 'styled-components';
 import {
     FaClose, FaCheckCircle, FaExclamationCircle, FaExclamationTriangle, FaInfoCircle,
 } from 'react-icons/lib/fa';
-import { Grid, GridCol } from '../../atoms/Grid/index';
+import { Grid, GridCol } from '../../organisms/Grid/index';
 import { basicTheme, lightTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const width = 400;
 const height = 60;
@@ -39,7 +40,7 @@ const StyledWrapper = styled.div`
     display: flex;
     justify-content: center;
     border: none;
-    border-radius: 5px;
+    border-radius: ${ resolveTheme(TYPES.BORDER_RADIUS) };
     align-items: center;
     position: fixed;
     overflow: hidden;

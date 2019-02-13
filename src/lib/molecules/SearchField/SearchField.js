@@ -8,7 +8,7 @@ import Input from '../../atoms/Input/index';
 import { lightTheme } from '../../constants/theme';
 
 const SearchFieldWrapper = styled.div`
-    background-color: ${ ({ background }) => background || lightTheme.lightGrey };
+    background-color: ${ ({ backgroundColor }) => backgroundColor || lightTheme.lightGrey };
     border-color: transparent;
     border-radius: 50px;
     padding: 5px 15px;
@@ -63,7 +63,7 @@ SearchField.propTypes = {
     /**
      * String definition of background color
      */
-    background: PropTypes.string,
+    backgroundColor: PropTypes.string,
 };
 
 export { SearchFieldWrapper };

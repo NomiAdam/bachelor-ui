@@ -1,11 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import Dialog from '../../src/lib/molecules/Dialog';
-import Button from '../../src/lib/atoms/Button';
-
-const renderDialogAction = () => (
-    <Button label={'Button'}/>
-);
+import { Button } from '../../src/lib/atoms/Button';
 
 const mockHeading = <h1>Hoola</h1>;
 
@@ -18,7 +15,13 @@ const mockComponents = () => (
 
 storiesOf('Molecules/Dialog', module)
     .add('Dialog', () => (
-        <Dialog isOpen={true} heading={mockHeading} renderActionChildren={renderDialogAction} >
+        <Dialog
+            isOpen
+            heading={ mockHeading }
+            handleClose={ action('OverlayClick') }
+            closeOnOverlayClick
+            actionChildren={ <Button label="Button" /> }
+        >
             { mockComponents() }
         </Dialog>
     ));

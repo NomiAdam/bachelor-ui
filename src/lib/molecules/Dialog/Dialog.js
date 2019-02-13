@@ -1,31 +1,29 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { lightTheme } from '../../constants/theme';
-import Overlay from '../../atoms/Overlay/index';
+import styled from 'styled-components';
 import DialogWindow from './DialogWindow';
 
-class Dialog extends PureComponent {
-    handleClose = () => {
-        const { handleClose } = this.props;
-        handleClose();
-    };
+const StyledWrapper = styled.div`
+  position: fixed;
+  z-index: 9999;
+  display: ${ ({ isOpen }) => (isOpen ? 'flex' : 'none') };
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;  
+`;
 
+class Dialog extends PureComponent {
     render() {
         const {
-            isOpen, children, heading, actionChildren, width, height,
+            isOpen, children, heading, actionChildren, width, height, handleClose, closeOnOverlayClick,
         } = this.props;
         return (
-            <Overlay
-                isOpen={ isOpen }
-                handleClose={ this.handleClose }
-                background="rgba(0, 0, 0, 0.2)"
-                displayHeading={ false }
-                backColor={ lightTheme.white }
-            >
+            <StyledWrapper isOpen={ isOpen } onClick={ closeOnOverlayClick ? handleClose : undefined }>
                 <DialogWindow heading={ heading } actionChildren={ actionChildren } width={ width } height={ height }>
                     { children }
                 </DialogWindow>
-            </Overlay>
+            </StyledWrapper>
         );
     }
 }
@@ -52,10 +50,17 @@ Dialog.propTypes = {
      */
     heading: PropTypes.any.isRequired,
     /**
-   *
+   * Width of Dialog
    */
     width: PropTypes.number,
+    /**
+   * Height of Dialog
+   */
     height: PropTypes.number,
+    /**
+   * Whether to close on overlay click
+   */
+    closeOnOverlayClick: PropTypes.bool,
 };
 
 export default Dialog;

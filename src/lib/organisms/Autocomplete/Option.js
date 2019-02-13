@@ -6,8 +6,8 @@ import { lightTheme } from '../../constants/theme';
 const StyledOption = styled.div`
     width: 100%;
     border: none;
-	padding: 10px 20px;
-	background-color: ${ ({ selected }) => (selected ? lightTheme.lightGrey : 'initial') };
+	  padding: 10px 20px;
+	  background-color: ${ ({ selected }) => (selected ? lightTheme.lightGrey : 'initial') };
     &:hover {
         background-color: ${ lightTheme.lightGrey };
         cursor: pointer;

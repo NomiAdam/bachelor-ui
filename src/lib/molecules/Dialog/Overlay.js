@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Container from '../../atoms/Container/index';
+import Container from '../../organisms/Container/index';
 
 const StyledOverlayWrapper = styled(Container)`
   position: fixed;

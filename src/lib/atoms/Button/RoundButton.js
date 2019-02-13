@@ -5,7 +5,7 @@ import { FaPlus } from 'react-icons/lib/fa';
 import { basicTheme, lightTheme, darkTheme } from '../../constants/theme';
 
 const StyledButton = styled.button`
-	background-color: ${ props => (props.color ? props.color : basicTheme.green) };
+	background-color: ${ ({ backgroundColor }) => (backgroundColor || basicTheme.green) };
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -26,7 +26,7 @@ const StyledButton = styled.button`
 		outline: none;
 	}
 	&:active {
-	    background-color: ${ lightTheme.lightGreen };
+	      background-color: ${ lightTheme.lightGreen };
         box-shadow: 2px 2px ${ darkTheme.darkGrey };
         transform: translateY(4px);
 	}
@@ -38,12 +38,12 @@ const StyledFaPlus = styled(FaPlus)`
 `;
 
 const RoundButton = ({
-    disabled, icon, onClick, color,
+    disabled, icon, onClick, backgroundColor,
 }) => (
     <StyledButton
         onClick={ onClick }
         disabled={ disabled }
-        color={ color }
+        backgroundColor={ backgroundColor }
     >
         {icon || <StyledFaPlus />}
     </StyledButton>
@@ -63,13 +63,9 @@ RoundButton.propTypes = {
      */
     icon: PropTypes.any,
     /**
-     * Choosing color of button
+     * Optional Background color of button, limeGreen as default
      */
-    primary: PropTypes.bool,
-    /**
-     * Background color of button, limeGreen as default
-     */
-    color: PropTypes.string,
+    backgroundColor: PropTypes.string,
 };
 
 export { StyledButton };

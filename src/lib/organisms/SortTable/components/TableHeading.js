@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { map, equals } from 'ramda';
-import { StyledTableRow } from '../../../atoms/Table/TableRow';
+import { StyledTableRow } from '../../../molecules/Table/TableRow';
 import TableHeadingCell from './TableHeadingCell';
 
 class TableHeading extends PureComponent {

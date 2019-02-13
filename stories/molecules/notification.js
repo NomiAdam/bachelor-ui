@@ -5,14 +5,14 @@ import Notification from '../../src/lib/molecules/Notification';
 
 storiesOf('Molecules/Notification', module)
     .add('Success Notification', () => (
-        <Notification open onClose={action('Close')} message={'Message'} variant={'success'} />
+        <Notification open onClose={ action('Close') } message="Message" variant="success" />
     ))
     .add('Error Notification', () => (
-        <Notification open onClose={action('Close')} message={'Message'} variant={'error'} />
+        <Notification open onClose={ action('Close') } message="Message" variant="error" />
     ))
     .add('Warning Notification', () => (
-        <Notification open onClose={action('Close')} message={'Message'} variant={'warning'} />
+        <Notification open onClose={ action('Close') } message="Message" variant="warning" />
     ))
     .add('Info Notification', () => (
-        <Notification open onClose={action('Close')} message={'Message'} variant={'info'} />
+        <Notification open onClose={ action('Close') } message="Message" variant="info" />
     ));

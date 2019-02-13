@@ -3,7 +3,7 @@
 exports[`Border should match the snapshot 1`] = `
 .c0 {
   position: absolute;
-  bottom: -4px;
+  bottom: -3px;
   left: 0;
   height: 2px;
   width: 100%;

@@ -13,9 +13,9 @@ const StyledArrowUp = Icon.withComponent(IoIosArrowUp);
 
 const StyledHeadingTableCell = styled.th`
     max-width: 100%;
-	padding: 20px;
-	text-align: left;
-	${ ({ editable }) => (editable ? 'max-width: 100px' : '') };
+	  padding: 20px;
+	  text-align: left;
+	  ${ ({ editable }) => (editable ? 'max-width: 100px' : '') };
 `;
 
 const TableHeadingCell = ({

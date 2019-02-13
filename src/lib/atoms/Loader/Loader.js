@@ -88,7 +88,7 @@ Loader.defaultProps = {
     width: '11em',
     height: '11em',
     color: lightTheme.white,
-    backgroundColor: basicTheme.blue,
+    backgroundColor: basicTheme.grey,
 };
 
 export { StyledLoader };

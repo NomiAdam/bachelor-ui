@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { basicTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledSpan = styled.span`
     font-size: .7rem;
-    color: ${ ({ error }) => (error ? basicTheme.red : 'inherit') };
+    color: ${ ({ error }) => (error ? basicTheme.red : resolveTheme(TYPES.COLOR)) };
     display: inline-block;
     ${ ({ hasText }) => (hasText ? '' : 'height: 0px;') }
 `;

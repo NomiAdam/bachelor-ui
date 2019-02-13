@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Container from '../../../atoms/Container/index';
+import Container from '../../../organisms/Container/index';
 
 const DialogActions = ({ children }) => (
     <Container height="40px" alignItems="flex-end">

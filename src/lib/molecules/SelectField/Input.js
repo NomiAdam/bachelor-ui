@@ -2,21 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lightTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledInput = styled.input`
     border: none;
-    border-bottom: 1px solid ${ lightTheme.whiteBlue };
+    border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
     box-sizing: border-box;
     width: 100%;
-	min-height: 30px;
-	padding: 10px 20px;
-	font-size: 16px;
-	display: inline-block;
-	text-align: center;
-	background-color: ${ ({ disabled }) => (disabled ? lightTheme.white : 'transparent') };
-	&:hover {
-	  cursor: ${ ({ disabled }) => (disabled ? 'initial' : 'pointer') };
-	}
+	  min-height: 30px;
+	  padding: 10px 20px;
+	  font-size: 16px;
+	  display: inline-block;
+	  text-align: center;
+	  background-color: ${ ({ disabled }) => (disabled ? lightTheme.lightGrey : 'transparent') };
+	  &:hover {
+	    cursor: ${ ({ disabled }) => (disabled ? 'initial' : 'pointer') };
+	  }
     &:focus {
         outline: none;
     }

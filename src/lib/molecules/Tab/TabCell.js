@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { lightTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledTabButton = styled.button`
     background-color: inherit;
     position: relative;
-    border-color: transparent;
+    border-color: ${ resolveTheme(TYPES.COLOR) };
     font-size: .95em;
     text-transform: uppercase;
-    color: ${ ({ active }) => (active ? lightTheme.whiteBlue : lightTheme.white) };
+    color: ${ ({ active, ...props }) => (active ? lightTheme.lightGrey : resolveTheme(TYPES.COLOR)(props)) };
     outline: none;
     cursor: pointer;
     width: 100%;
@@ -18,7 +19,7 @@ const StyledTabButton = styled.button`
     overflow: hidden;
     &:after {
 	    content: "";
-        background: ${ lightTheme.whiteBlue };
+        background: ${ resolveTheme(TYPES.BACKGROUND_COLOR_AFTER) };
         display: block;
         position: absolute;
         padding-top: 350%;

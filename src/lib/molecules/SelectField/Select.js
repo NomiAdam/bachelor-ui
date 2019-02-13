@@ -6,30 +6,29 @@ import {
 } from 'ramda';
 import Option from './Option';
 import { darkTheme, lightTheme } from '../../constants/theme';
+import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const StyledSelect = styled.div`
+    ${ DEFAULT_THEME }
     overflow: hidden;
     display: ${ props => (props.visible ? 'flex' : 'none') }
     top: -50px;
     position: absolute;
     z-index: 999;
-    background-color: ${ lightTheme.white };
     width: ${ ({ width }) => width };
     min-height: 0px;
     max-height: 500px;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    border: 1px solid transparent; 
-    border-radius: 3px;
-    ${ props => (props.isEmpty ? 'border: none;' : '') }
+    ${ ({ isEmpty }) => (isEmpty ? 'border: none;' : '') }
     font-size: 16px;
   	box-shadow: 5px 5px 15px ${ darkTheme.darkGrey };
 `;
 
 const doesItHaveOptions = o(equals(0), length);
 const Select = ({
-    visible, options, onClick, width, selected,
+    visible, options, onClick, width, selected, backgroundColor,
 }) => {
     const equalsSelected = equals(selected);
     const mapSuggestion = ({ value, label }) => (
@@ -37,7 +36,12 @@ const Select = ({
     );
     const mappedOptions = map(mapSuggestion);
     return (
-        <StyledSelect visible={ visible } isEmpty={ doesItHaveOptions(options) } width={ width }>
+        <StyledSelect
+            backgroundColor={ backgroundColor }
+            visible={ visible }
+            isEmpty={ doesItHaveOptions(options) }
+            width={ width }
+        >
             {visible && mappedOptions(options)}
         </StyledSelect>
     );
@@ -64,10 +68,15 @@ Select.propTypes = {
      * String definition of currently selected item
      */
     selected: PropTypes.string,
+    /**
+   * Optional String color definition
+   */
+    backgroundColor: PropTypes.string,
 };
 
 Select.defaultProps = {
     options: [],
+    backgroundColor: lightTheme.white,
 };
 
 export { StyledSelect };

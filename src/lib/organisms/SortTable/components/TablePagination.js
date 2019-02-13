@@ -12,8 +12,9 @@ import {
 import styled from 'styled-components';
 import { basicRowCount } from './constants/index';
 import SelectField from '../../../molecules/SelectField/index';
-import { darkTheme, basicTheme } from '../../../constants/theme';
-import { Grid, GridCol } from '../../../atoms/Grid/index';
+import { basicTheme } from '../../../constants/theme';
+import { Grid, GridCol } from '../../Grid/index';
+import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
 
 const StyledDiv = styled.div`
     position: relative;
@@ -23,7 +24,7 @@ const StyledDiv = styled.div`
     align-items: center;
     padding: 15px 0;
     font-size: .9em;
-    color: ${ darkTheme.black };
+    color: ${ resolveTheme(TYPES.COLOR) };
     margin: 0 10px;
 `;
 
@@ -32,7 +33,7 @@ const Icon = styled.div`
     font-size: 2.8rem;
     transition: all 1s ease;
     cursor: ${ ({ disabled }) => (disabled ? 'not-allowed' : 'pointer') };
-    color: ${ ({ disabled }) => (disabled ? basicTheme.grey : darkTheme.black) };
+    color: ${ ({ disabled, ...props }) => (disabled ? basicTheme.grey : resolveTheme(TYPES.COLOR)(props)) };
 `;
 
 const StyledSpan = styled.span`

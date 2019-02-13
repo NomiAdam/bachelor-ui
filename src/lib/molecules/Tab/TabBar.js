@@ -6,11 +6,12 @@ import TabCell from './TabCell';
 import Border from './Border';
 import { lightTheme } from '../../constants/theme';
 import { maxTablet } from '../../constants/device';
+import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const StyledTabBarWrapper = styled.div`
+    ${ DEFAULT_THEME }
+    border: none;
     overflow: hidden;
-    border: 1px solid ${ lightTheme.whiteBlue };
-    background-color: ${ lightTheme.lightBlue };
     box-shadow:  0 2px 5px ${ lightTheme.lightGrey };
     display: flex;
     position: relative;
@@ -23,7 +24,7 @@ const StyledTabBarWrapper = styled.div`
 `;
 
 const TabBar = ({
-    handleClick, activeTab, tabOptions, align, borderColor,
+    handleClick, activeTab, tabOptions, align, border, backgroundColor, borderBorderColor,
 }) => {
     const mapTabCell = label => (
         <TabCell
@@ -35,9 +36,9 @@ const TabBar = ({
     );
     const mappedTabCells = map(mapTabCell);
     return (
-        <StyledTabBarWrapper align={ align }>
+        <StyledTabBarWrapper align={ align } backgroundColor={ backgroundColor } border={ border }>
             {mappedTabCells(tabOptions)}
-            <Border items={ tabOptions } active={ activeTab } color={ borderColor } />
+            <Border items={ tabOptions } active={ activeTab } color={ borderBorderColor } />
         </StyledTabBarWrapper>
     );
 };
@@ -61,9 +62,17 @@ TabBar.propTypes = {
      */
     align: PropTypes.string,
     /**
-     * String definition of border color
+     * String definition of border setting
      */
-    borderColor: PropTypes.string,
+    border: PropTypes.string,
+    /**
+   * String definition of border Border color
+   */
+    borderBorderColor: PropTypes.string,
+    /**
+   * String definition of custom backgroundColor
+   */
+    backgroundColor: PropTypes.string,
 };
 
 TabBar.defaultProps = {

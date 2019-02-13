@@ -2,30 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toUpper } from 'ramda';
-import { basicTheme, lightTheme } from '../../constants/theme';
+import DEFAULT_THEME, { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledButton = styled.button`
+  ${ DEFAULT_THEME }
   position: relative;
-	background-color: ${ ({ background }) => background };
-	border: none;
+	transition: .4s all ease; 
 	margin: 5px;
 	font-weight: 500;
 	text-align: center;
 	cursor: pointer;
-	${ ({ fullWidth }) => (fullWidth ? 'width: 100%' : 'min-width: 50px') };
-	transition: .4s all ease;
+	min-width: 50px;
+	${ ({ fullWidth }) => (fullWidth ? 'width: 100%' : '') };
 	overflow: hidden;
-	height: ${ ({ large }) => (large ? '50px' : '35px') };	
-	color: ${ ({ color }) => (color || 'white') };
+	height: ${ ({ large }) => (large ? '70px' : '35px') };	
 	&:hover {
-		background-color: ${ lightTheme.lightBlue };
+		background-color: ${ resolveTheme(TYPES.BACKGROUND_COLOR_HOVER) };
 	}
 	&:focus {
 		outline: none;
 	}
 	&:after {
 	    content: "";
-        background: ${ lightTheme.whiteBlue };
+        background: ${ resolveTheme(TYPES.BACKGROUND_COLOR_AFTER) };
         display: block;
         position: absolute;
         padding-top: 300%;
@@ -38,7 +37,7 @@ const StyledButton = styled.button`
 	}
 	&:active {
 	    &:after {
-	        padding: 0;
+	          padding: 0;
             margin: 0;
             opacity: 1;
             transition: 0s
@@ -46,60 +45,54 @@ const StyledButton = styled.button`
 	}
 `;
 
-const StyledSpan = styled.span`
-    padding: 20px;
-`;
-
 const Button = ({
-    disabled, label, onClick, color, background, large, fullWidth,
+    disabled, label, onClick, color, backgroundColor, large, fullWidth,
 }) => (
     <StyledButton
         onClick={ onClick }
         disabled={ disabled }
         color={ color }
-        background={ background }
+        backgroundColor={ backgroundColor }
         large={ large }
         fullWidth={ fullWidth }
     >
-        <StyledSpan>{toUpper(label)}</StyledSpan>
+        <spam>{toUpper(label)}</spam>
     </StyledButton>
 );
 
 Button.propTypes = {
     /**
-	 * Whether button is disabled or not
-	 */
+   * Whether button is disabled or not
+   */
     disabled: PropTypes.bool,
     /**
-	 * onClick event function handler
-	 */
+   * onClick event function handler
+   */
     onClick: PropTypes.func,
     /**
-	 * Value, or label, for given button
-	 */
+   * Value, or label, for given button
+   */
     label: PropTypes.string,
     /**
-     * Button label color, black as default
-     */
+   * Optional Button label color
+   */
     color: PropTypes.string,
     /**
-	 * Whether button will be large or not
-	 */
+   * Whether button will be large or not
+   */
     large: PropTypes.bool,
     /**
-     * Background color of button, #1eb4ff (kind of light blue) as default
-     */
-    background: PropTypes.string,
+   * Optional Background color of button
+   */
+    backgroundColor: PropTypes.string,
     /**
-	 * Boolean representing whether we should use full width of container
-     */
+   * Boolean representing whether we should use full width of container
+   */
     fullWidth: PropTypes.bool,
 };
 
 Button.defaultProps = {
     label: '',
-    fullWidth: false,
-    background: basicTheme.indigo,
 };
 
 export { StyledButton };

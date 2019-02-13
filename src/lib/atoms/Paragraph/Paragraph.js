@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { darkTheme } from '../../constants/theme';
+import { TYPES, resolveTheme } from '../../utils/resolveTheme';
 
 const StyledParagraph = styled.p`
     font-size: ${ ({ size }) => size || 'inherit' };
-    color: ${ ({ color }) => color || darkTheme.black };
+    color: ${ resolveTheme(TYPES.COLOR) };
     ${ ({ bold }) => (bold ? 'font-weight: bold;' : '') }
 `;
 
@@ -19,7 +19,7 @@ const Paragraph = ({
 
 Paragraph.propTypes = {
     /**
-     * String representation of text color
+     * Optional String representation of text color
      */
     color: PropTypes.string,
     /**

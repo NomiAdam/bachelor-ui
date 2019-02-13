@@ -13,6 +13,7 @@ exports[`SelectField should match the snapshot 1`] = `
     value=""
   />
   <Select
+    backgroundColor="#ffffff"
     onClick={[Function]}
     options={Array []}
     selected=""
@@ -36,6 +37,7 @@ exports[`SelectField should match the snapshot with options 1`] = `
     value=""
   />
   <Select
+    backgroundColor="#ffffff"
     onClick={[Function]}
     options={
       Array [

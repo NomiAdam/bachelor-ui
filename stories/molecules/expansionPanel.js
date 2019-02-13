@@ -5,8 +5,8 @@ import ExpansionPanel from '../../src/lib/molecules/ExpansionPanel';
 
 storiesOf('Molecules/ExpansionPanel', module)
     .add('ExpansionPanel', () => (
-        <ExpansionPanel items={mockExpansionPanel} />
+        <ExpansionPanel items={ mockExpansionPanel } />
     ))
     .add('ExpansionPanel with openSingle', () => (
-        <ExpansionPanel items={mockExpansionPanel} openSingle />
+        <ExpansionPanel items={ mockExpansionPanel } openSingle />
     ));

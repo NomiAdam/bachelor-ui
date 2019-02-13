@@ -3,15 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { greenValid, redError } from './constants/icon';
-import { basicTheme, lightTheme } from '../../constants/theme';
+import { basicTheme, darkTheme } from '../../constants/theme';
 
 export const StyledInput = styled.input`
-	width: 100%;
 	border: 0;
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
-	border-bottom: 2px solid ${ lightTheme.whiteBlue };
+	border-bottom: 2px solid ${ darkTheme.black };
 	${ ({ borderBackground }) => (borderBackground ? `border-color: ${ borderBackground };` : '') }
 	border-radius: 0;
 	color: ${ basicTheme.blue };

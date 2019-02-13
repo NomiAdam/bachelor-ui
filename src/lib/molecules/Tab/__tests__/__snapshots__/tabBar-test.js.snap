@@ -5,9 +5,7 @@ exports[`TabBar should match the snapshot 1`] = `
   align="flex-start"
 >
   <Border
-    color="#563d7c"
     items={Array []}
-    percentage="0"
   />
 </styled.div>
 `;
@@ -29,14 +27,12 @@ exports[`TabBar should match the snapshot with mockTabCells 1`] = `
     label="two"
   />
   <Border
-    color="#563d7c"
     items={
       Array [
         "one",
         "two",
       ]
     }
-    percentage="0"
   />
 </styled.div>
 `;

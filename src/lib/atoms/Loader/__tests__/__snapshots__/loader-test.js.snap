@@ -2,7 +2,7 @@
 
 exports[`Loader should match the snapshot 1`] = `
 <styled.div
-  backgroundColor="#0247fe"
+  backgroundColor="#94989f"
   color="#ffffff"
   height="11em"
   width="11em"

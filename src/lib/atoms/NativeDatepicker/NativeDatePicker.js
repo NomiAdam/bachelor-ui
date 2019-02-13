@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { lightTheme } from '../../constants/theme';
-
-const StyledWrapper = styled.div``;
+import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const StyledLabel = styled.label`
     display: block;
 `;
 
 const StyledInput = styled.input`
-  border: 1px solid ${ lightTheme.whiteBlue };
-  border-radius: 5px;
-  background-color: ${ lightTheme.white };
+  ${ DEFAULT_THEME }
   padding: 3px 5px;
   box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
   width: 190px;
@@ -28,10 +24,10 @@ const StyledInput = styled.input`
 const NativeDatePicker = ({
     onChange, value, label, min, max,
 }) => (
-    <StyledWrapper>
+    <div>
         <StyledLabel>{label}</StyledLabel>
         <StyledInput type="date" onChange={ onChange } value={ value } min={ min } max={ max } />
-    </StyledWrapper>
+    </div>
 );
 
 NativeDatePicker.propTypes = {

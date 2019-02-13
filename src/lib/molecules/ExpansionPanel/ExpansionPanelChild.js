@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { IoIosArrowDown } from 'react-icons/lib/io';
-import { StyledPaperWrapper } from '../../atoms/Paper/Paper';
+import { StyledPaperWrapper } from '../../organisms/Paper/Paper';
 import { darkTheme } from '../../constants/theme';
 
 const StyledWrapper = styled(StyledPaperWrapper)`

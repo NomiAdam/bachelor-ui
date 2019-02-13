@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NativeDatePicker should match the snapshot 1`] = `
-<styled.div>
+<div>
   <styled.label />
   <styled.input
     type="date"
   />
-</styled.div>
+</div>
 `;
 
 exports[`NativeDatePicker should match the snapshot when labeled 1`] = `
-<styled.div>
+<div>
   <styled.label>
     Label
   </styled.label>
   <styled.input
     type="date"
   />
-</styled.div>
+</div>
 `;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
     map, slice, o, dec, multiply, sort, prop, equals, ifElse, descend, ascend, always,
 } from 'ramda';
-import { TableRow } from '../../../atoms/Table/index';
+import { TableRow } from '../../../molecules/Table/index';
 
 const getSliceStart = o(multiply, dec);
 

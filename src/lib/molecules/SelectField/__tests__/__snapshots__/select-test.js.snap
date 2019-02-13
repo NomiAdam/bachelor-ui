@@ -2,12 +2,14 @@
 
 exports[`AutocompleteSelect should match the snapshot 1`] = `
 <styled.div
+  backgroundColor="#ffffff"
   isEmpty={true}
 />
 `;
 
 exports[`AutocompleteSelect should match the snapshot with options 1`] = `
 <styled.div
+  backgroundColor="#ffffff"
   isEmpty={false}
   visible={true}
 >

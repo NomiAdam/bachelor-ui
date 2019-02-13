@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { minTablet } from '../../constants/device';
-import { darkTheme, lightTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledToggleButton = styled.button`
     display: flex;
@@ -26,14 +26,14 @@ const StyledToggleButton = styled.button`
 const StyledButtonLine = styled.div`
     width: 35px;
     height: 2px;
-    background: ${ ({ primary }) => (primary ? darkTheme.black : lightTheme.white) };
+    background-color: ${ resolveTheme(TYPES.COLOR) };
 `;
 
-const BurgerButton = ({ handleClick, mobileVersion, primary }) => (
+const BurgerButton = ({ handleClick, mobileVersion }) => (
     <StyledToggleButton className="toggle-button" onClick={ handleClick } hideButton={ mobileVersion }>
-        <StyledButtonLine primary={ primary } />
-        <StyledButtonLine primary={ primary } />
-        <StyledButtonLine primary={ primary } />
+        <StyledButtonLine />
+        <StyledButtonLine />
+        <StyledButtonLine />
     </StyledToggleButton>
 );
 
@@ -46,10 +46,6 @@ BurgerButton.propTypes = {
      * Boolean whether we should display navigation on toolbar or not
      */
     mobileVersion: PropTypes.bool,
-    /**
-     * Whether to use primary theme or secondary
-     */
-    primary: PropTypes.bool,
 };
 
 export { StyledToggleButton, StyledButtonLine };

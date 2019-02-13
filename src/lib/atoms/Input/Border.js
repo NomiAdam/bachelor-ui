@@ -8,7 +8,7 @@ import { basicTheme, lightTheme } from '../../constants/theme';
 
 const StyledBorder = styled.span`
 	position: absolute;
-	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '3px' : '-4px') }
+	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-3px') }
 	left: 0;
 	height: 2px;
 	width: 100%;

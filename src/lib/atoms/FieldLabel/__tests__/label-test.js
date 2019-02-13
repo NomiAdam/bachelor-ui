@@ -19,8 +19,4 @@ describe('FieldLabel', () => {
         const wrapper = shallow(<FieldLabel error />);
         expect(wrapper.find(StyledSpan)).toHaveStyleRule('color', basicTheme.red);
     });
-    it('should have default color', () => {
-        const wrapper = shallow(<FieldLabel />);
-        expect(wrapper.find(StyledSpan)).toHaveStyleRule('color', 'inherit');
-    });
 });

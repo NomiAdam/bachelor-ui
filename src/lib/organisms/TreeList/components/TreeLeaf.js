@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { pickAll } from 'ramda';
 import { IoIosArrowDown } from 'react-icons/lib/io';
-import { Grid, GridCol } from '../../../atoms/Grid/index';
-import { basicTheme } from '../../../constants/theme';
+import { Grid, GridCol } from '../../Grid/index';
+import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
 
 const StyledIconGridCol = styled(GridCol)`
   display: flex;
@@ -15,7 +15,7 @@ const StyledIconGridCol = styled(GridCol)`
 const StyledOpenIcon = styled(IoIosArrowDown)`
   transition: all .5s ease;
   font-size: 1.5rem;
-  color: ${ basicTheme.indigo };
+  color: ${ resolveTheme(TYPES.COLOR) };
   transform: ${ ({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(180deg)') };
 `;
 

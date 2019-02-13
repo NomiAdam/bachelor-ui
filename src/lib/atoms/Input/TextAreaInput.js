@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { basicTheme, lightTheme } from '../../constants/theme';
 
 export const StyledTextArea = styled.textarea`
-	width: 100%;
 	border: 0;
 	font-family: inherit;
 	font-size: 16px;

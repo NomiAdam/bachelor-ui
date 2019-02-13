@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Paper from '../../atoms/Paper/index';
-import Table from '../../atoms/Table/index';
+import Paper from '../Paper/index';
+import Table from '../../molecules/Table/index';
 import { TableHeading, TablePagination, TableBody } from './components/index';
 
 class SortTable extends PureComponent {
