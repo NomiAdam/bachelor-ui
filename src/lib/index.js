@@ -43,6 +43,7 @@ export { default as Autocomplete } from './organisms/Autocomplete';
 export { default as SortTable } from './organisms/SortTable';
 export { default as TreeTable } from './organisms/TreeList';
 export { default as Paper } from './organisms/Paper';
+export { default as Container } from './organisms/Container';
 export { default as ThemeProvider } from './organisms/ThemeProvider';
 
 // TRANSITIONS
