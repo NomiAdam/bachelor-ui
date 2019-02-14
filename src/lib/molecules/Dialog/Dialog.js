@@ -5,7 +5,7 @@ import DialogWindow from './DialogWindow';
 
 const StyledWrapper = styled.div`
   position: fixed;
-  z-index: 9999;
+  z-index: 999;
   display: ${ ({ isOpen }) => (isOpen ? 'flex' : 'none') };
   width: 100%;
   height: 100%;
@@ -16,11 +16,17 @@ const StyledWrapper = styled.div`
 class Dialog extends PureComponent {
     render() {
         const {
-            isOpen, children, heading, actionChildren, width, height, handleClose, closeOnOverlayClick,
+            isOpen, children, heading, actionChildren, width, height, backgroundColor,
         } = this.props;
         return (
-            <StyledWrapper isOpen={ isOpen } onClick={ closeOnOverlayClick ? handleClose : undefined }>
-                <DialogWindow heading={ heading } actionChildren={ actionChildren } width={ width } height={ height }>
+            <StyledWrapper isOpen={ isOpen }>
+                <DialogWindow
+                    backgroundColor={ backgroundColor }
+                    heading={ heading }
+                    actionChildren={ actionChildren }
+                    width={ width }
+                    height={ height }
+                >
                     { children }
                 </DialogWindow>
             </StyledWrapper>
@@ -34,33 +40,29 @@ Dialog.propTypes = {
      */
     isOpen: PropTypes.bool,
     /**
-     * Function handler to handle onClose click
-     */
-    handleClose: PropTypes.func,
-    /**
      * Children nodes
      */
     children: PropTypes.any,
     /**
      * Function handler to render action children
      */
-    actionChildren: PropTypes.any.isRequired,
+    actionChildren: PropTypes.any,
     /**
      * Heading node of dialog window
      */
-    heading: PropTypes.any.isRequired,
+    heading: PropTypes.any,
     /**
    * Width of Dialog
    */
-    width: PropTypes.number,
+    width: PropTypes.string,
     /**
    * Height of Dialog
    */
-    height: PropTypes.number,
+    height: PropTypes.string,
     /**
-   * Whether to close on overlay click
+   * Background color of inner wrapping element
    */
-    closeOnOverlayClick: PropTypes.bool,
+    backgroundColor: PropTypes.string,
 };
 
 export default Dialog;

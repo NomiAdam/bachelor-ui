@@ -3,6 +3,7 @@
 exports[`TextAreaInput should match the snapshot 1`] = `
 <styled.textarea
   cols={50}
+  onChange={[Function]}
   placeholder=" "
   rows={4}
 />

@@ -1,6 +1,5 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 import Dialog from '../../src/lib/molecules/Dialog';
 import { Button } from '../../src/lib/atoms/Button';
 
@@ -18,8 +17,7 @@ storiesOf('Molecules/Dialog', module)
         <Dialog
             isOpen
             heading={ mockHeading }
-            handleClose={ action('OverlayClick') }
-            closeOnOverlayClick
+            backgroundColor="pink"
             actionChildren={ <Button label="Button" /> }
         >
             { mockComponents() }

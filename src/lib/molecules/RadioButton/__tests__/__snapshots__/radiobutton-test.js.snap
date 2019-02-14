@@ -4,6 +4,7 @@ exports[`RadioButton should match the snapshot 1`] = `
 <styled.label>
   <styled.span />
   <styled.input
+    onChange={[Function]}
     type="radio"
   />
   <styled.span />
@@ -15,6 +16,7 @@ exports[`RadioButton should match the snapshot when checked 1`] = `
   <styled.span />
   <styled.input
     checked={true}
+    onChange={[Function]}
     type="radio"
   />
   <styled.span
@@ -29,6 +31,7 @@ exports[`RadioButton should match the snapshot with label 1`] = `
     Mock
   </styled.span>
   <styled.input
+    onChange={[Function]}
     type="radio"
   />
   <styled.span />

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { path } from 'ramda';
 import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const StyledLabel = styled.label`
@@ -21,12 +22,19 @@ const StyledInput = styled.input`
   background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat;
 `;
 
+const getTargetValue = path(['target', 'value']);
 const NativeDatePicker = ({
     onChange, value, label, min, max,
 }) => (
     <div>
         <StyledLabel>{label}</StyledLabel>
-        <StyledInput type="date" onChange={ onChange } value={ value } min={ min } max={ max } />
+        <StyledInput
+            type="date"
+            onChange={ e => onChange(e, getTargetValue(e)) }
+            value={ value }
+            min={ min }
+            max={ max }
+        />
     </div>
 );
 

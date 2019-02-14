@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { path } from 'ramda';
 import { greenValid, redError } from './constants/icon';
 import { basicTheme, darkTheme } from '../../constants/theme';
 
@@ -10,7 +11,7 @@ export const StyledInput = styled.input`
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
-	border-bottom: 2px solid ${ darkTheme.black };
+	border-bottom: 1px solid ${ darkTheme.black };
 	${ ({ borderBackground }) => (borderBackground ? `border-color: ${ borderBackground };` : '') }
 	border-radius: 0;
 	color: ${ basicTheme.blue };
@@ -25,8 +26,17 @@ export const StyledInput = styled.input`
 	}
 `;
 
-const Input = ({ placeholder, ...rest }) => (
-    placeholder ? <StyledInput { ...rest } placeholder={ placeholder } /> : <StyledInput { ...rest } placeholder="&nbsp;" />
+const getTargetValue = path(['target', 'value']);
+const Input = ({ placeholder, onChange, ...rest }) => (
+    placeholder ? (
+        <StyledInput
+            { ...rest }
+            onChange={ e => onChange(e, getTargetValue(e)) }
+            placeholder={ placeholder }
+        />
+    ) : (
+        <StyledInput { ...rest } onChange={ e => onChange(e, getTargetValue(e)) } placeholder="&nbsp;" />
+    )
 );
 
 Input.propTypes = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { path } from 'ramda';
 import Heading from '../../atoms/Heading/index';
 import { Grid, GridCol } from '../Grid/index';
 import { LABEL_POSITION, equalsLeft, equalsRight } from './constants/position';
@@ -64,6 +65,7 @@ const renderLabel = label => (
     </GridCol>
 );
 
+const getTargetValue = path(['target', 'value']);
 const Checkbox = ({
     label, checked, onChange, labelPosition, disabled,
 }) => (
@@ -74,7 +76,7 @@ const Checkbox = ({
                 <StyledInput
                     type="checkbox"
                     checked={ checked }
-                    onChange={ disabled ? undefined : onChange }
+                    onChange={ disabled ? undefined : e => onChange(e, getTargetValue(e)) }
                     disabled={ disabled }
                 />
                 <StyledSpan />

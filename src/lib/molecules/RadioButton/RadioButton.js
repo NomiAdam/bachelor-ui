@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { path } from 'ramda';
 import { basicTheme, lightTheme } from '../../constants/theme';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
@@ -51,6 +52,7 @@ const StyledLabel = styled.span`
   padding: 0; 
 `;
 
+const getTargetValue = path(['target', 'value']);
 const RadioButton = ({
     label, checked, handleChange, handleClick, disabled,
 }) => (
@@ -59,7 +61,7 @@ const RadioButton = ({
         <StyledInput
             type="radio"
             checked={ checked }
-            onChange={ disabled ? undefined : handleChange }
+            onChange={ disabled ? undefined : e => handleChange(e, getTargetValue(e)) }
             onClick={ handleClick }
             disabled={ disabled }
         />

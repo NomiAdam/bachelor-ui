@@ -11,7 +11,7 @@ export const StyledListItemText = styled.span`
 export const StyledListItemTextDiv = styled.div`
 	width: 100%;
 	height: 100%;
-	text-align: ${ props => props.align };
+	text-align: ${ ({ align }) => align };
 `;
 
 const ListItemText = ({ align, primary }) => (

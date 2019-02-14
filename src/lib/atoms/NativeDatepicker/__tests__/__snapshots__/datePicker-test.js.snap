@@ -4,6 +4,7 @@ exports[`NativeDatePicker should match the snapshot 1`] = `
 <div>
   <styled.label />
   <styled.input
+    onChange={[Function]}
     type="date"
   />
 </div>
@@ -15,6 +16,7 @@ exports[`NativeDatePicker should match the snapshot when labeled 1`] = `
     Label
   </styled.label>
   <styled.input
+    onChange={[Function]}
     type="date"
   />
 </div>

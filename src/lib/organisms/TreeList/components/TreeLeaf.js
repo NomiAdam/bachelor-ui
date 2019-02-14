@@ -46,7 +46,7 @@ class TreeLeaf extends PureComponent {
         return (
             <Grid
                 onClick={ this.handleRedirectClick }
-                padding={ `0 0 0 ${ ( depth - 1 ) * 10 }px` }
+                padding={ `0 0 0 ${ ( depth - 1 ) * 25 }px` }
             >
                 <StyledIconGridCol colXS={ 2 } onClick={ e => e.stopPropagation() }>
                     {

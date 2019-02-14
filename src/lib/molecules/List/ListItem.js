@@ -11,7 +11,12 @@ const ListItem = styled(
 	padding: 10px 0;
 	background-color: transparent;
 	transition: .25s all ease;
-	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
+  ${ ({ disableBorder, ...props }) => (disableBorder ? (
+        ''
+    ) : (
+        `border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR)(props) };`
+    ))
+}
 	&:hover {
 	  cursor: ${ ({ pointer }) => (pointer ? 'pointer' : 'initial') };
 		background-color: ${ resolveTheme(TYPES.BACKGROUND_COLOR_HOVER) };
@@ -20,17 +25,21 @@ const ListItem = styled(
 
 ListItem.propTypes = {
     /**
-	 * Children nodes of ListItem component
-	 */
+   * Children nodes of ListItem component
+   */
     children: PropTypes.any,
     /**
-	 * String representation of used ListItem component, "li", "div", ...
-	 */
+   * String representation of used ListItem component, "li", "div", ...
+   */
     component: PropTypes.string,
     /**
    * Whether to show pointer
    */
     pointer: PropTypes.bool,
+    /**
+   * Whether to show border
+   */
+    disableBorder: PropTypes.bool,
 };
 
 ListItem.defaultProps = {

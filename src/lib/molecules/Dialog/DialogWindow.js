@@ -5,9 +5,9 @@ import { Grid, GridCol } from '../../organisms/Grid/index';
 import { DialogContent, DialogActions } from './components/index';
 
 const DialogWindow = ({
-    actionChildren, children, heading, width, height,
+    actionChildren, children, heading, width, height, backgroundColor,
 }) => (
-    <Paper width={ width } height={ height }>
+    <Paper width={ width } height={ height } backgroundColor={ backgroundColor }>
         <Grid gridGap="0" padding="0">
             <GridCol colXS={ 12 }>
                 {heading}
@@ -28,10 +28,6 @@ const DialogWindow = ({
 
 DialogWindow.propTypes = {
     /**
-     * onClick function handler
-     */
-    handleClick: PropTypes.func,
-    /**
      * Children nodes
      */
     children: PropTypes.any,
@@ -43,8 +39,18 @@ DialogWindow.propTypes = {
      * Node rendered on heading
      */
     heading: PropTypes.any.isRequired,
-    width: PropTypes.number,
-    height: PropTypes.number,
+    /**
+   * string definition of dialog width
+   */
+    width: PropTypes.string,
+    /**
+   * string definition of dialog height
+   */
+    height: PropTypes.string,
+    /**
+   * String representation of outer backgroundColor css property
+   */
+    backgroundColor: PropTypes.string,
 };
 
 export default DialogWindow;

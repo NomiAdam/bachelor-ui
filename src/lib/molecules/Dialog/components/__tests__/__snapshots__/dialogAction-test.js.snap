@@ -3,9 +3,10 @@
 exports[`DialogActions should match the snapshot 1`] = `
 <styled.div
   alignItems="flex-end"
-  flexDirection="column"
+  flexDirection="row"
   height="40px"
   justifyContent="center"
+  padding="0"
   width="100%"
 />
 `;
@@ -13,9 +14,10 @@ exports[`DialogActions should match the snapshot 1`] = `
 exports[`DialogActions should match the snapshot with children 1`] = `
 <styled.div
   alignItems="flex-end"
-  flexDirection="column"
+  flexDirection="row"
   height="40px"
   justifyContent="center"
+  padding="0"
   width="100%"
 >
   <h1>

@@ -2,7 +2,7 @@
 
 exports[`Container should match the snapshot 1`] = `
 <div
-  className="sc-bdVaJa dtFjSw"
+  className="sc-bdVaJa gZleOv"
   height="100%"
   width="100%"
 />

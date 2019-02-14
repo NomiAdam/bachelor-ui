@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { darkTheme } from '../../constants/theme';
+import { basicTheme } from '../../constants/theme';
 import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const StyledPaperWrapper = styled.div`
   ${ DEFAULT_THEME }
 	padding: ${ ({ padding }) => padding };
 	border-color: transparent;
-	${ props => (props.width ? `min-width: ${ props.width };` : '') }
-	${ props => (props.height ? `min-height: ${ props.height };` : '') } 
-	box-shadow:  0 1px 5px ${ darkTheme.darkGrey };
+	${ ({ width }) => (width ? `min-width: ${ width };` : '') }
+	${ ({ height }) => (height ? `min-height: ${ height };` : '') } 
+	box-shadow:  1px 1px 5px ${ basicTheme.grey };
 	overflow: ${ ({ overflow }) => overflow };
 	${ ({ center }) => center && `
 	display: flex;
