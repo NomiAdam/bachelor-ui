@@ -3,19 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
 import Heading from '../../atoms/Heading/index';
-import { Grid, GridCol } from '../Grid/index';
+import Container from '../Container';
 import { LABEL_POSITION, equalsLeft, equalsRight } from './constants/position';
 import DEFAULT_THEME, { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledContainer = styled.label`
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 25px;
+  margin: ${ ({ isOnLeft }) => (isOnLeft ? '0 0 27px 15px' : '0 35px 27px 0') };
   font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   cursor: ${ ({ disabled }) => (disabled ? 'not-allowed' : 'pointer') };
 `;
@@ -42,7 +38,7 @@ const StyledSpan = styled.span`
     content: "";
     position: absolute;
     display: none;
-    left: 8px;
+    left: 6px;
     top: 3px;
     width: 5px;
     height: 10px;
@@ -59,31 +55,25 @@ const StyledSpan = styled.span`
   }
 `;
 
-const renderLabel = label => (
-    <GridCol colXS={ 6 }>
-        <Heading label={ label } component="h4" />
-    </GridCol>
-);
+const renderLabel = label => <Heading label={ label } component="h4" />;
 
-const getTargetValue = path(['target', 'value']);
+const getTargetValue = path(['target', 'checked']);
 const Checkbox = ({
     label, checked, onChange, labelPosition, disabled,
 }) => (
-    <Grid>
+    <Container width="100%" height="100%" justifyContent="flex-start">
         { equalsLeft(labelPosition) && renderLabel(label) }
-        <GridCol colXS={ 6 } center>
-            <StyledContainer disabled={ disabled }>
-                <StyledInput
-                    type="checkbox"
-                    checked={ checked }
-                    onChange={ disabled ? undefined : e => onChange(e, getTargetValue(e)) }
-                    disabled={ disabled }
-                />
-                <StyledSpan />
-            </StyledContainer>
-        </GridCol>
+        <StyledContainer disabled={ disabled } isOnLeft={ equalsLeft(labelPosition) }>
+            <StyledInput
+                type="checkbox"
+                checked={ checked }
+                onChange={ disabled ? undefined : e => onChange(e, getTargetValue(e)) }
+                disabled={ disabled }
+            />
+            <StyledSpan />
+        </StyledContainer>
         { equalsRight(labelPosition) && renderLabel(label) }
-    </Grid>
+    </Container>
 );
 
 Checkbox.propTypes = {

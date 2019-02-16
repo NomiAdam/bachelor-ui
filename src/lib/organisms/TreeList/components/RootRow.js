@@ -36,7 +36,7 @@ class RootRow extends PureComponent {
 
     renderAnotherRow = (children) => {
         const {
-            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node, handleClick,
+            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node, handleClick, recomputeOnClick,
         } = this.props;
         const renderChildrenRow = (num, key, obj) => (
             <RootRow
@@ -48,6 +48,7 @@ class RootRow extends PureComponent {
                 key={ key }
                 handleRedirect={ handleRedirect }
                 redirect={ redirect }
+                recomputeOnClick={ recomputeOnClick }
                 flag={ flag }
                 node={ node }
                 handleClick={ handleClick }
@@ -63,7 +64,8 @@ class RootRow extends PureComponent {
 
     render() {
         const {
-            treeLeaf, handleRedirect, redirect, leafKey, displayProps, dataProp, flag, node, style,
+            treeLeaf, handleRedirect, redirect, leafKey, displayProps,
+            dataProp, flag, node, style, recomputeOnClick, handleClick,
         } = this.props;
         const { isOpen } = this.state;
         const hasChildren = notEmptyChildren(treeLeaf);
@@ -83,6 +85,8 @@ class RootRow extends PureComponent {
                         leafData={ getTreeDataByProp(dataProp)(treeLeaf) }
                         hasFlag={ hasFlag }
                         node={ node }
+                        recomputeOnClick={ recomputeOnClick }
+                        handleClick={ handleClick }
                     />
                 </StyledRow>
                 {
@@ -138,6 +142,10 @@ RootRow.propTypes = {
    * onClick function handler
    */
     handleClick: PropTypes.func,
+    /**
+   * Whether to reRender when clicked
+   */
+    recomputeOnClick: PropTypes.bool,
 };
 
 RootRow.defaultProps = {

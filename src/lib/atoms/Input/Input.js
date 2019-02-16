@@ -4,14 +4,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
 import { greenValid, redError } from './constants/icon';
-import { basicTheme, darkTheme } from '../../constants/theme';
+import { basicTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 export const StyledInput = styled.input`
 	border: 0;
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
-	border-bottom: 1px solid ${ darkTheme.black };
+	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
 	${ ({ borderBackground }) => (borderBackground ? `border-color: ${ borderBackground };` : '') }
 	border-radius: 0;
 	color: ${ basicTheme.blue };

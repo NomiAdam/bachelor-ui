@@ -6,10 +6,11 @@ import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const HeadingWrapper = styled.div`
   color: ${ resolveTheme(TYPES.COLOR) };
+  cursor: ${ ({ cursor }) => cursor };
 `;
 
 const Heading = ({
-    component, label, width, ...others
+    component, label, width, cursor, ...others
 }) => (
     <HeadingWrapper>
         {createElement(component, others, label)}
@@ -28,10 +29,15 @@ Heading.propTypes = {
    * String representation of heading underline
    */
     width: PropTypes.string,
+    /**
+   * String representation of desired css cursor property
+   */
+    cursor: PropTypes.string,
 };
 
 Heading.defaultProps = {
     component: 'h2',
+    cursor: 'initial',
 };
 
 export default Heading;

@@ -2,14 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
-import { basicTheme, lightTheme } from '../../constants/theme';
+import { basicTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 export const StyledTextArea = styled.textarea`
 	border: 0;
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
-	border-bottom: 2px solid ${ lightTheme.whiteBlue };
+	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
 	background: none;
 	border-radius: 0;
 	color: ${ basicTheme.blue };
@@ -18,7 +19,7 @@ export const StyledTextArea = styled.textarea`
 	${ ({ error }) => (error ? `
 	    border: 1px solid ${ basicTheme.red };
 	    border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+      border-top-right-radius: 5px;
 	` : '') }
 	&:focus {
 		outline: none;

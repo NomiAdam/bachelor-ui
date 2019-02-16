@@ -35,8 +35,13 @@ class TreeLeaf extends PureComponent {
     };
 
     handleRedirectClick = () => {
-        const { handleRedirect, leafKey, redirect } = this.props;
+        const {
+            handleRedirect, leafKey, redirect, handleClick, recomputeOnClick,
+        } = this.props;
         if (redirect) {
+            if (recomputeOnClick) {
+                handleClick();
+            }
             handleRedirect(leafKey);
         }
     };
@@ -102,6 +107,14 @@ TreeLeaf.propTypes = {
    * Node to render inside leaf
    */
     node: PropTypes.any,
+    /**
+   * Whether to reRender when clicked
+   */
+    recomputeOnClick: PropTypes.bool,
+    /**
+   * onClick function handler
+   */
+    handleClick: PropTypes.func,
 };
 
 export default TreeLeaf;

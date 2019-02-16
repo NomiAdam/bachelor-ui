@@ -26,19 +26,20 @@ class TreeList extends Component {
   };
 
   rowRenderer = ({
-      node: value, key, style, index,
+      node: value, key, style, index, rowKey,
   }) => {
       const {
-          handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node,
+          handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node, recomputeOnClick,
       } = this.props;
       return (
           <RootRow
               initiallyOpen={ initiallyOpen }
               dataProp={ dataProp }
               displayProps={ displayProps }
-              leafKey={ key }
+              leafKey={ rowKey }
               treeLeaf={ value }
               key={ key }
+              recomputeOnClick={ recomputeOnClick }
               handleRedirect={ handleRedirect }
               redirect={ redirect }
               flag={ flag }
@@ -57,7 +58,7 @@ class TreeList extends Component {
       return (
           <CellMeasurer cache={ this.cache } columnIndex={ 0 } key={ key } rowIndex={ index } parent={ parent }>
               {m => this.rowRenderer({
-                  ...m, node, key, style, index,
+                  ...m, node, key, style, index, rowKey: objectKeys[ index ],
               })}
           </CellMeasurer>
       );
@@ -117,11 +118,14 @@ TreeList.propTypes = {
    * Node to be rendered inside leaf
    */
     node: PropTypes.any,
+    /**
+   * Whether to reRender when clicked
+   */
+    recomputeOnClick: PropTypes.bool,
 };
 
 TreeList.defaultProps = {
     treeData: {},
-    redirect: false,
     initiallyOpen: true,
 };
 
