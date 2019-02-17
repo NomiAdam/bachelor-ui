@@ -55,7 +55,7 @@ const TextField = ({
                     />
                 )
             }
-            <Label label={ label } multiline={ multiLine } secondary={ secondary } />
+            <Label label={ label } multiline={ multiLine } rows={ rows } secondary={ secondary } />
             <Border background={ borderBackground } textArea={ multiLine } error={ error } secondary={ secondary } />
         </StyledTextField>
         <FieldLabel secondary={ secondary } error={ error } label={ errorLabel } />

@@ -11,7 +11,7 @@ storiesOf('Molecules/TextField', module)
         <TextField onChange={ action('Change') } type="number" label="Label" />
     ))
     .add('TextField multiline', () => (
-        <TextField onChange={ action('Change') } multiLine label="Label" />
+        <TextField onChange={ action('Change') } multiLine rows={ 20 } label="Label" />
     ))
     .add('TextField with icon', () => (
         <TextField onChange={ action('Change') } label="Label" displayIcon />
