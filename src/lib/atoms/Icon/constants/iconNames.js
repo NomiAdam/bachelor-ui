@@ -12,6 +12,7 @@ import {
     IoCloseCircled,
     IoAndroidSend,
     IoIosDownloadOutline,
+    IoIosTrashOutline,
 } from 'react-icons/lib/io';
 import { keys } from 'ramda';
 
@@ -29,6 +30,7 @@ const IconTypes = {
     add: IoAndroidAdd,
     close: IoCloseCircled,
     send: IoAndroidSend,
+    trash: IoIosTrashOutline,
 };
 
 export const iconStringTypes = keys(IconTypes);
