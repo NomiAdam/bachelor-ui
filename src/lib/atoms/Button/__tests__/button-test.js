@@ -11,7 +11,7 @@ describe('Button', () => {
         jest.resetAllMocks();
     });
     it('should be defined', () => {
-        expect(shallow(<Button />)).toBeDefined();
+        expect(Button).toBeDefined();
     });
     it('should match the snapshot', () => {
         expect(shallow(<Button />)).toMatchSnapshot();

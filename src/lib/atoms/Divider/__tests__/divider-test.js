@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import Divider, { StyledDivider } from '../Divider';
 import { shallow } from 'enzyme';
+import Divider, { StyledDivider } from '../Divider';
 
 describe('Checkbox', () => {
     it('should be defined', () => {

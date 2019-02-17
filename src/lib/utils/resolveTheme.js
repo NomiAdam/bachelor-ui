@@ -11,7 +11,7 @@ export const DEFAULT = {
     borderRadius: '0',
     color: darkTheme.black,
     colorHover: darkTheme.black,
-    border: `1px solid ${ darkTheme.black }`,
+    border: `1px solid ${ lightTheme.transparent }`,
 };
 
 export const TYPES = {
@@ -25,14 +25,15 @@ export const TYPES = {
 };
 
 export const resolveTheme = type => ({
-    theme, primary, secondary, ...other
+    theme, secondary, ...other
 }) => {
-    if (primary && primaryP(theme)[ type ]) {
-        return primaryP(theme)[ type ];
+    if (propOr(false, type, other)) {
+        return other[ type ];
     } if (secondary && secondaryP(theme)[ type ]) {
         return secondaryP(theme)[ type ];
-    } if (propOr(false, type, other)) {
-        return other[ type ];
+    }
+    if (primaryP(theme)[ type ]) {
+        return primaryP(theme)[ type ];
     } return DEFAULT[ type ];
 };
 

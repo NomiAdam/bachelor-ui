@@ -19,8 +19,10 @@ const ListItem = styled(
 }
 	&:hover {
 	  cursor: ${ ({ pointer }) => (pointer ? 'pointer' : 'initial') };
-		background-color: ${ resolveTheme(TYPES.BACKGROUND_COLOR_HOVER) };
-	}
+		background-color: ${
+    ({ disableHover, ...props }) => (disableHover ? 'transparent' : resolveTheme(TYPES.BACKGROUND_COLOR_HOVER)(props))
+};
+}
 `;
 
 ListItem.propTypes = {
@@ -40,6 +42,10 @@ ListItem.propTypes = {
    * Whether to show border
    */
     disableBorder: PropTypes.bool,
+    /**
+   * Whether to disable hover effect
+   */
+    disableHover: PropTypes.bool,
 };
 
 ListItem.defaultProps = {

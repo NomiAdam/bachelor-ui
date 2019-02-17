@@ -2,95 +2,77 @@
 
 exports[`Checkbox should match the snapshot 1`] = `
 <styled.div
-  gridGap="10px"
-  padding="10px"
+  alignItems="center"
+  flexDirection="row"
+  height="100%"
+  justifyContent="flex-start"
+  padding="0"
+  width="100%"
 >
-  <styled.div
-    colXS={6}
-    horizontalAlign="flex-start"
-    verticalAlign="flex-start"
+  <Heading
+    component="h4"
+    cursor="initial"
+  />
+  <styled.label
+    isOnLeft={true}
   >
-    <Heading
-      component="h4"
+    <styled.input
+      onChange={[Function]}
+      type="checkbox"
     />
-  </styled.div>
-  <styled.div
-    center={true}
-    colXS={6}
-    horizontalAlign="flex-start"
-    verticalAlign="flex-start"
-  >
-    <styled.label>
-      <styled.input
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <styled.span />
-    </styled.label>
-  </styled.div>
+    <styled.span />
+  </styled.label>
 </styled.div>
 `;
 
 exports[`Checkbox should match the snapshot when checked 1`] = `
 <styled.div
-  gridGap="10px"
-  padding="10px"
+  alignItems="center"
+  flexDirection="row"
+  height="100%"
+  justifyContent="flex-start"
+  padding="0"
+  width="100%"
 >
-  <styled.div
-    colXS={6}
-    horizontalAlign="flex-start"
-    verticalAlign="flex-start"
+  <Heading
+    component="h4"
+    cursor="initial"
+  />
+  <styled.label
+    isOnLeft={true}
   >
-    <Heading
-      component="h4"
+    <styled.input
+      checked={true}
+      onChange={[Function]}
+      type="checkbox"
     />
-  </styled.div>
-  <styled.div
-    center={true}
-    colXS={6}
-    horizontalAlign="flex-start"
-    verticalAlign="flex-start"
-  >
-    <styled.label>
-      <styled.input
-        checked={true}
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <styled.span />
-    </styled.label>
-  </styled.div>
+    <styled.span />
+  </styled.label>
 </styled.div>
 `;
 
 exports[`Checkbox should match the snapshot with label 1`] = `
 <styled.div
-  gridGap="10px"
-  padding="10px"
+  alignItems="center"
+  flexDirection="row"
+  height="100%"
+  justifyContent="flex-start"
+  padding="0"
+  width="100%"
 >
-  <styled.div
-    colXS={6}
-    horizontalAlign="flex-start"
-    verticalAlign="flex-start"
+  <Heading
+    component="h4"
+    cursor="initial"
+    label="Mock"
+  />
+  <styled.label
+    isOnLeft={true}
   >
-    <Heading
-      component="h4"
-      label="Mock"
+    <styled.input
+      onChange={[Function]}
+      type="checkbox"
     />
-  </styled.div>
-  <styled.div
-    center={true}
-    colXS={6}
-    horizontalAlign="flex-start"
-    verticalAlign="flex-start"
-  >
-    <styled.label>
-      <styled.input
-        onChange={[Function]}
-        type="checkbox"
-      />
-      <styled.span />
-    </styled.label>
-  </styled.div>
+    <styled.span />
+  </styled.label>
 </styled.div>
 `;

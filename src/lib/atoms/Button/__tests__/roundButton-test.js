@@ -12,7 +12,7 @@ describe('RoundButton', () => {
         jest.resetAllMocks();
     });
     it('should be defined', () => {
-        expect(shallow(<RoundButton />)).toBeDefined();
+        expect(RoundButton).toBeDefined();
     });
     it('should match the snapshot', () => {
         expect(shallow(<RoundButton />)).toMatchSnapshot();
