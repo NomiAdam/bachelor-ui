@@ -11,7 +11,7 @@ export const DEFAULT = {
     borderRadius: '0',
     color: darkTheme.black,
     colorHover: darkTheme.black,
-    border: `1px solid ${ lightTheme.transparent }`,
+    border: `1px solid ${ darkTheme.black }`,
 };
 
 export const TYPES = {

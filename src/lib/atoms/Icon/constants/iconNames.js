@@ -13,6 +13,8 @@ import {
     IoAndroidSend,
     IoIosDownloadOutline,
     IoIosTrashOutline,
+    IoEye,
+    IoEyeDisabled,
 } from 'react-icons/lib/io';
 import { keys } from 'ramda';
 
@@ -31,6 +33,8 @@ const IconTypes = {
     close: IoCloseCircled,
     send: IoAndroidSend,
     trash: IoIosTrashOutline,
+    eyeOff: IoEyeDisabled,
+    eye: IoEye,
 };
 
 export const iconStringTypes = keys(IconTypes);
