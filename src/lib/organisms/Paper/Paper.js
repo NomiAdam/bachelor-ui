@@ -22,9 +22,10 @@ const StyledPaperWrapper = styled.div`
 `;
 
 const Paper = ({
-    children, height, width, backgroundColor, padding, center, overflow, borderRadius,
+    children, height, width, backgroundColor, padding, center, overflow, borderRadius, secondary,
 }) => (
     <StyledPaperWrapper
+        secondary={ secondary }
         height={ height }
         width={ width }
         backgroundColor={ backgroundColor }

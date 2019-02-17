@@ -45,10 +45,12 @@ class TableBody extends PureComponent {
             handleRedirect,
             redirect,
             handleEdit,
+            secondary,
         } = this.props;
 
         const mapTableRow = value => (
             <TableRow
+                secondary={ secondary }
                 tableRowData={ value }
                 key={ getRowIdentification(value) }
                 editable={ editable }

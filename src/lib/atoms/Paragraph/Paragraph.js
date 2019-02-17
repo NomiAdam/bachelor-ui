@@ -10,9 +10,9 @@ const StyledParagraph = styled.p`
 `;
 
 const Paragraph = ({
-    color, size, children, bold,
+    color, size, children, bold, secondary,
 }) => (
-    <StyledParagraph color={ color } size={ size } bold={ bold }>
+    <StyledParagraph color={ color } size={ size } bold={ bold } secondary={ secondary }>
         {children}
     </StyledParagraph>
 );

@@ -53,12 +53,12 @@ class TreeLeaf extends PureComponent {
                 onClick={ this.handleRedirectClick }
                 padding={ `0 0 0 ${ ( depth - 1 ) * 25 }px` }
             >
-                <StyledIconGridCol colXS={ 2 } onClick={ e => e.stopPropagation() }>
+                <StyledIconGridCol colXS={ 1 } onClick={ e => e.stopPropagation() }>
                     {
                         hasChildren
                       && <StyledOpenIcon isOpen={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
-                <GridCol colXS={ 10 }>
+                <GridCol colXS={ 11 } horizontalAlign="flex-start">
                     { this.renderLeafData() }
                 </GridCol>
             </Grid>

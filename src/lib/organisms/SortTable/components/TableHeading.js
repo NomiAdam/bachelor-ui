@@ -43,11 +43,11 @@ class TableHeading extends PureComponent {
     };
 
     render() {
-        const { editable } = this.props;
+        const { editable, secondary } = this.props;
         const { headingData } = this.state;
         return (
             <thead>
-                <StyledTableRow effect>
+                <StyledTableRow effect secondary={secondary}>
                     {editable && <TableHeadingCell editable />}
                     {headingData}
                 </StyledTableRow>

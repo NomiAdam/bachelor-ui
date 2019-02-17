@@ -104,20 +104,22 @@ class Autocomplete extends Component {
     };
 
     render() {
-        const { placeholder } = this.props;
+        const { placeholder, secondary } = this.props;
         const {
             isFocused, value, selected, filteredSuggestions,
         } = this.state;
         return (
-            <StyledAutocomplete onBlur={ this.handleBlur } onKeyDown={ this.handleKeyPress }>
+            <StyledAutocomplete secondary={ secondary } onBlur={ this.handleBlur } onKeyDown={ this.handleKeyPress }>
                 <Input
                     value={ value }
+                    secondary={ secondary }
                     handleFocus={ this.handleFocus }
                     handleChange={ this.handleValueChange }
                     handleEnter={ this.handleEnter }
                     placeholder={ placeholder }
                 />
                 <Select
+                    secondary={ secondary }
                     visible={ isFocused }
                     suggestions={ filteredSuggestions }
                     onClick={ this.handleSelect }

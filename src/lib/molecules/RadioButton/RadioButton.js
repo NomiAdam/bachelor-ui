@@ -54,18 +54,19 @@ const StyledLabel = styled.span`
 
 const getTargetValue = path(['target', 'value']);
 const RadioButton = ({
-    label, checked, handleChange, handleClick, disabled,
+    label, checked, handleChange, handleClick, disabled, secondary,
 }) => (
-    <StyledContainer disabled={ disabled }>
-        <StyledLabel>{label}</StyledLabel>
+    <StyledContainer disabled={ disabled } secondary={ secondary }>
+        <StyledLabel secondary={ secondary }>{label}</StyledLabel>
         <StyledInput
+            secondary={ secondary }
             type="radio"
             checked={ checked }
             onChange={ disabled ? undefined : e => handleChange(e, getTargetValue(e)) }
             onClick={ handleClick }
             disabled={ disabled }
         />
-        <StyledSpan checked={ checked } />
+        <StyledSpan checked={ checked } secondary={ secondary } />
     </StyledContainer>
 );
 

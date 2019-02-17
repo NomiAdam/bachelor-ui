@@ -53,16 +53,17 @@ class SortTable extends PureComponent {
 
     render() {
         const {
-            headingData, bodyData, editable, handleRedirect, redirect, pagination,
+            headingData, bodyData, editable, handleRedirect, redirect, pagination, secondary,
         } = this.props;
         const {
             order, orderBy, rowsPerPage, page,
         } = this.state;
         return (
             <div>
-                <Paper overflow="auto">
+                <Paper overflow="auto" secondary={ secondary }>
                     <Table>
                         <TableHeading
+                            secondary={ secondary }
                             headingData={ headingData }
                             orderBy={ orderBy }
                             order={ order }
@@ -71,6 +72,7 @@ class SortTable extends PureComponent {
                             editable={ editable }
                         />
                         <TableBody
+                            secondary={ secondary }
                             orderBy={ orderBy }
                             order={ order }
                             page={ page }
@@ -87,6 +89,7 @@ class SortTable extends PureComponent {
                 {pagination
                 && (
                     <TablePagination
+                        secondary={ secondary }
                         totalRows={ bodyData.length }
                         rowsPerPage={ rowsPerPage }
                         page={ page }

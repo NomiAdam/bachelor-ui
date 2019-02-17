@@ -11,8 +11,8 @@ const StyledSpan = styled.span`
     ${ ({ hasText }) => (hasText ? '' : 'height: 0px;') }
 `;
 
-const FieldLabel = ({ label, error }) => (
-    <StyledSpan error={ error } hasText={ label.length > 0 }>
+const FieldLabel = ({ label, error, secondary }) => (
+    <StyledSpan error={ error } hasText={ label.length > 0 } secondary={ secondary }>
         {label}
     </StyledSpan>
 );

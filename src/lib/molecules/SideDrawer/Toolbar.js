@@ -21,10 +21,11 @@ const StyledToolbar = styled.div`
 `;
 
 const Toolbar = ({
-    handleClick, primary, isOpen, children, backgroundColor,
+    handleClick, primary, isOpen, children, backgroundColor, secondary,
 }) => (
-    <StyledToolbar primary={ primary } isOpen={ isOpen } backgroundColor={ backgroundColor }>
+    <StyledToolbar secondary={ secondary } primary={ primary } isOpen={ isOpen } backgroundColor={ backgroundColor }>
         <DrawerToggleButton
+            secondary={ secondary }
             primary={ primary }
             handleClick={ handleClick }
         />

@@ -24,10 +24,11 @@ const StyledTabBarWrapper = styled.div`
 `;
 
 const TabBar = ({
-    handleClick, activeTab, tabOptions, align, border, backgroundColor, borderBorderColor,
+    handleClick, activeTab, tabOptions, align, border, backgroundColor, borderBorderColor, secondary,
 }) => {
     const mapTabCell = label => (
         <TabCell
+            secondary={ secondary }
             key={ label }
             label={ label }
             handleClick={ handleClick }
@@ -36,9 +37,14 @@ const TabBar = ({
     );
     const mappedTabCells = map(mapTabCell);
     return (
-        <StyledTabBarWrapper align={ align } backgroundColor={ backgroundColor } border={ border }>
+        <StyledTabBarWrapper
+            secondary={ secondary }
+            align={ align }
+            backgroundColor={ backgroundColor }
+            border={ border }
+        >
             {mappedTabCells(tabOptions)}
-            <Border items={ tabOptions } active={ activeTab } color={ borderBorderColor } />
+            <Border secondary={ secondary } items={ tabOptions } active={ activeTab } color={ borderBorderColor } />
         </StyledTabBarWrapper>
     );
 };

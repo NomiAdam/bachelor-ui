@@ -28,9 +28,10 @@ export const StyledTextArea = styled.textarea`
 
 const getTargetValue = path(['target', 'value']);
 const TextAreaInput = ({
-    value, onChange, cols, rows, disabled, error, onBlur,
+    value, onChange, cols, rows, disabled, error, onBlur, secondary,
 }) => (
     <StyledTextArea
+        secondary={ secondary }
         onChange={ e => onChange(e, getTargetValue(e)) }
         rows={ rows }
         cols={ cols }

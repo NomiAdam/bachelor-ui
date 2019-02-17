@@ -103,12 +103,18 @@ class SelectField extends Component {
 
     render() {
         const {
-            value, placeholder, options, width, disabled,
+            value, placeholder, options, width, disabled, secondary,
         } = this.props;
         const { isFocused, selected } = this.state;
         return (
-            <StyledSelectField onBlur={ this.handleBlur } width={ width } onKeyDown={ this.handleKeyPress }>
+            <StyledSelectField
+                secondary={ secondary }
+                onBlur={ this.handleBlur }
+                width={ width }
+                onKeyDown={ this.handleKeyPress }
+            >
                 <Input
+                    secondary={ secondary }
                     value={ value }
                     handleFocus={ this.handleFocus }
                     handleChange={ this.handleChange }
@@ -116,13 +122,14 @@ class SelectField extends Component {
                     disabled={ disabled }
                 />
                 <Select
+                    secondary={ secondary }
                     width={ width }
                     visible={ !disabled && isFocused }
                     options={ options }
                     selected={ selected }
                     onClick={ this.handleClick }
                 />
-                <StyledCaretDown />
+                <StyledCaretDown secondary={ secondary } />
             </StyledSelectField>
         );
     }

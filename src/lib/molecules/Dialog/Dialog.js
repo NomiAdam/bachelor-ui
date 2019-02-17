@@ -16,7 +16,7 @@ const StyledWrapper = styled.div`
 class Dialog extends PureComponent {
     render() {
         const {
-            isOpen, children, heading, actionChildren, width, height, backgroundColor,
+            isOpen, children, heading, actionChildren, width, height, backgroundColor, secondary,
         } = this.props;
         return (
             <StyledWrapper isOpen={ isOpen }>
@@ -26,6 +26,7 @@ class Dialog extends PureComponent {
                     actionChildren={ actionChildren }
                     width={ width }
                     height={ height }
+                    secondary={ secondary }
                 >
                     { children }
                 </DialogWindow>

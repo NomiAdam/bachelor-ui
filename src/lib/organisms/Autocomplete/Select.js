@@ -28,7 +28,7 @@ const StyledSelect = styled.div`
 
 const doesItHaveOptions = o(equals(0), length);
 const Select = ({
-    visible, suggestions, onClick, selected,
+    visible, suggestions, onClick, selected, secondary,
 }) => {
     const equalsSelected = equals(selected);
     const mapSuggestion = ({ value }) => (
@@ -36,7 +36,7 @@ const Select = ({
     );
     const mappedOptions = map(mapSuggestion);
     return (
-        <StyledSelect visible={ visible } isEmpty={ doesItHaveOptions(suggestions) }>
+        <StyledSelect secondary={ secondary } visible={ visible } isEmpty={ doesItHaveOptions(suggestions) }>
             {visible && mappedOptions(suggestions)}
         </StyledSelect>
     );

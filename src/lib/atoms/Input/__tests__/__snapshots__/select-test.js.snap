@@ -2,6 +2,6 @@
 
 exports[`Select should match the snapshot 1`] = `
 <select
-  className="sc-bdVaJa jxhoIt"
+  className="sc-bdVaJa hgeZwg"
 />
 `;

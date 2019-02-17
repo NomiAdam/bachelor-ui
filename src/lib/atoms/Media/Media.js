@@ -15,9 +15,15 @@ const StyledMediaWrapper = styled.div`
 `;
 
 const Media = ({
-    component, label, src, image, width, height, round, className, ...others
+    component, label, src, image, width, height, round, className, secondary, ...others
 }) => (
-    <StyledMediaWrapper className={ className } width={ width } height={ height } round={ round }>
+    <StyledMediaWrapper
+        className={ className }
+        width={ width }
+        height={ height }
+        round={ round }
+        secondary={ secondary }
+    >
         {
             createElement(component, { ...others, src: src || image, alt: label })
         }

@@ -7,7 +7,7 @@ const StyledDivider = styled.hr`
 	border-top: .5px solid ${ resolveTheme(TYPES.COLOR) };
 `;
 
-const Divider = ({ color }) => <StyledDivider color={ color } />;
+const Divider = ({ color, secondary }) => <StyledDivider color={ color } secondary={ secondary } />;
 
 Divider.propTypes = {
     /**

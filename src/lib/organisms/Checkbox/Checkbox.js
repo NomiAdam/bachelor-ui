@@ -59,12 +59,13 @@ const renderLabel = label => <Heading label={ label } component="h4" />;
 
 const getTargetValue = path(['target', 'checked']);
 const Checkbox = ({
-    label, checked, onChange, labelPosition, disabled,
+    label, checked, onChange, labelPosition, disabled, secondary,
 }) => (
-    <Container width="100%" height="100%" justifyContent="flex-start">
+    <Container width="100%" height="100%" justifyContent="flex-start" secondary={ secondary }>
         { equalsLeft(labelPosition) && renderLabel(label) }
-        <StyledContainer disabled={ disabled } isOnLeft={ equalsLeft(labelPosition) }>
+        <StyledContainer disabled={ disabled } isOnLeft={ equalsLeft(labelPosition) } secondary={ secondary }>
             <StyledInput
+                secondary={ secondary }
                 type="checkbox"
                 checked={ checked }
                 onChange={ disabled ? undefined : e => onChange(e, getTargetValue(e)) }

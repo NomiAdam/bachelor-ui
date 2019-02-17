@@ -14,9 +14,9 @@ export const StyledListItemTextDiv = styled.div`
 	text-align: ${ ({ align }) => align };
 `;
 
-const ListItemText = ({ align, primary }) => (
-    <StyledListItemTextDiv align={ align }>
-        <StyledListItemText>
+const ListItemText = ({ align, primary, secondary }) => (
+    <StyledListItemTextDiv align={ align } secondary={ secondary }>
+        <StyledListItemText secondary={ secondary }>
             {primary}
         </StyledListItemText>
     </StyledListItemTextDiv>

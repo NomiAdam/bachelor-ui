@@ -28,7 +28,7 @@ const StyledSelect = styled.div`
 
 const doesItHaveOptions = o(equals(0), length);
 const Select = ({
-    visible, options, onClick, width, selected, backgroundColor,
+    visible, options, onClick, width, selected, backgroundColor, secondary,
 }) => {
     const equalsSelected = equals(selected);
     const mapSuggestion = ({ value, label }) => (
@@ -37,6 +37,7 @@ const Select = ({
     const mappedOptions = map(mapSuggestion);
     return (
         <StyledSelect
+            secondary={ secondary }
             backgroundColor={ backgroundColor }
             visible={ visible }
             isEmpty={ doesItHaveOptions(options) }

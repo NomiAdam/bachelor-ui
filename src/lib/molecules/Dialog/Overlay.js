@@ -16,8 +16,8 @@ const refuseScroll = (e) => {
     return false;
 };
 
-const Overlay = ({ handleClick, children }) => (
-    <StyledOverlayWrapper height="100vh" onClick={ handleClick } onScroll={ refuseScroll }>
+const Overlay = ({ handleClick, children, secondary }) => (
+    <StyledOverlayWrapper secondary={ secondary } height="100vh" onClick={ handleClick } onScroll={ refuseScroll }>
         { children }
     </StyledOverlayWrapper>
 );

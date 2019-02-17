@@ -66,7 +66,7 @@ class TablePagination extends PureComponent {
 
     render() {
         const {
-            totalRows, currentPage, handleChangeRowsPerPage, handleChangePage, rowsPerPage,
+            totalRows, currentPage, handleChangeRowsPerPage, handleChangePage, rowsPerPage, secondary,
         } = this.props;
 
         const totalPages = Math.ceil(totalRows / rowsPerPage);
@@ -79,10 +79,10 @@ class TablePagination extends PureComponent {
         const isFirst = currentPage === 1;
         const isLast = currentPage === totalPages;
         return (
-            <StyledDiv>
+            <StyledDiv secondary={ secondary }>
                 <Grid padding="10px">
                     <GridCol center colXS={ 6 } colMD={ 4 }>
-                        <StyledSpan>Rows per page:</StyledSpan>
+                        <StyledSpan secondary={ secondary }>Rows per page:</StyledSpan>
                     </GridCol>
                     <GridCol center colXS={ 6 } colMD={ 2 }>
                         <SelectField
@@ -93,7 +93,7 @@ class TablePagination extends PureComponent {
                         />
                     </GridCol>
                     <GridCol center colXS={ 12 } colMD={ 2 }>
-                        <StyledSpan>
+                        <StyledSpan secondary={ secondary }>
                             {currentPage}
                             {' '}
 of
@@ -102,10 +102,26 @@ of
                         </StyledSpan>
                     </GridCol>
                     <GridCol center colXS={ 12 } colMD={ 4 }>
-                        <StyledFaAngleDoubleLeft onClick={ handleChange(1) } disabled={ isFirst } />
-                        <StyledAngleLeft onClick={ handleChange(dec(currentPage)) } disabled={ isFirst } />
-                        <StyledAngleRight onClick={ handleChange(inc(currentPage)) } disabled={ isLast } />
-                        <StyledFaAngleDoubleRight onClick={ handleChange(totalPages) } disabled={ isLast } />
+                        <StyledFaAngleDoubleLeft
+                            secondary={ secondary }
+                            onClick={ handleChange(1) }
+                            disabled={ isFirst }
+                        />
+                        <StyledAngleLeft
+                            secondary={ secondary }
+                            onClick={ handleChange(dec(currentPage)) }
+                            disabled={ isFirst }
+                        />
+                        <StyledAngleRight
+                            secondary={ secondary }
+                            onClick={ handleChange(inc(currentPage)) }
+                            disabled={ isLast }
+                        />
+                        <StyledFaAngleDoubleRight
+                            secondary={ secondary }
+                            onClick={ handleChange(totalPages) }
+                            disabled={ isLast }
+                        />
                     </GridCol>
                 </Grid>
             </StyledDiv>

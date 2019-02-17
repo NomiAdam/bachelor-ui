@@ -13,7 +13,7 @@ const StyledLabel = styled.label`
 const mapIndexed = addIndex(map);
 
 const NativeSelectField = ({
-    options, onChange, required, disabled, selectedValue, error, onBlur, withBorder,
+    options, onChange, required, disabled, selectedValue, error, onBlur, withBorder, secondary,
 }) => {
     const renderFields = ({ value, text }, index) => (
         <Option
@@ -26,8 +26,9 @@ const NativeSelectField = ({
     );
     const optionFields = mapIndexed(renderFields);
     return (
-        <StyledLabel>
+        <StyledLabel secondary={ secondary }>
             <Select
+                secondary={ secondary }
                 onChange={ onChange }
                 defaultValue="Select a value"
                 required={ required }

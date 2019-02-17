@@ -24,9 +24,16 @@ const StyledInput = styled.input`
 `;
 
 const Input = ({
-    value, handleFocus, handleChange, placeholder, disabled,
+    value, handleFocus, handleChange, placeholder, disabled, secondary,
 }) => (
-    <StyledInput disabled={ disabled } onChange={ handleChange } onFocus={ handleFocus } value={ value } placeholder={ placeholder } />
+    <StyledInput
+        secondary={ secondary }
+        disabled={ disabled }
+        onChange={ handleChange }
+        onFocus={ handleFocus }
+        value={ value }
+        placeholder={ placeholder }
+    />
 );
 
 Input.propTypes = {

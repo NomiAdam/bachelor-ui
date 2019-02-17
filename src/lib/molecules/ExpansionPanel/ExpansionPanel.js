@@ -33,7 +33,7 @@ class ExpansionPanel extends PureComponent {
     isTabOpen = index => contains(index, this.state.opened);
 
     render() {
-        const { items } = this.props;
+        const { items, secondary } = this.props;
         const mapExpansionTableChildren = ({ heading, body }, index) => (
             <ExpansionPanelChild
                 key={ index }
@@ -41,11 +41,12 @@ class ExpansionPanel extends PureComponent {
                 open={ this.isTabOpen(index) }
                 heading={ heading }
                 body={ body }
+                secondary={ secondary }
             />
         );
         const mappedExpansionTableChildren = mapIndexed(mapExpansionTableChildren);
         return (
-            <StyledExpansionPanelWrapper>
+            <StyledExpansionPanelWrapper secondary={ secondary }>
                 {mappedExpansionTableChildren(items)}
             </StyledExpansionPanelWrapper>
         );

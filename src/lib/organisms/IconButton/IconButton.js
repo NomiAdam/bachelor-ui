@@ -5,9 +5,10 @@ import { StyledButton } from '../../atoms/Button/Button';
 import { Grid, GridCol } from '../Grid/index';
 
 const IconButton = ({
-    disabled, label, onClick, color, backgroundColor, large, fullWidth, icon,
+    disabled, label, onClick, color, backgroundColor, large, fullWidth, icon, secondary,
 }) => (
     <StyledButton
+        secondary={ secondary }
         onClick={ onClick }
         disabled={ disabled }
         color={ color }

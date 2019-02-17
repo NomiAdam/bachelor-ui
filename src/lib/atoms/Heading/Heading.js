@@ -10,9 +10,9 @@ const HeadingWrapper = styled.div`
 `;
 
 const Heading = ({
-    component, label, width, cursor, ...others
+    component, label, width, cursor, secondary, ...others
 }) => (
-    <HeadingWrapper>
+    <HeadingWrapper secondary={ secondary }>
         {createElement(component, others, label)}
     </HeadingWrapper>
 );

@@ -30,7 +30,9 @@ const divideHundred = divide(100);
 const findActiveIndex = active => findIndex(equals(active));
 
 const lengthOrDefault = o(defaultTo('0'), length);
-const Border = ({ items, active, color }) => {
+const Border = ({
+    items, active, color, secondary,
+}) => {
     const lengthOfItems = lengthOrDefault(items);
     const percentageOfBorder = compose(
         multiplyByHundred,
@@ -39,6 +41,7 @@ const Border = ({ items, active, color }) => {
     );
     return (
         <StyledBorder
+            secondary={ secondary }
             leftPosition={ percentageOfBorder(items) }
             percentage={ divideHundred(lengthOfItems) }
             backgroundColor={ color }

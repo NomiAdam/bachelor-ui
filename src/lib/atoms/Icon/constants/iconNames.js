@@ -9,18 +9,19 @@ import {
     IoIosPhotosOutline,
     IoIosArrowBack,
     IoAperture,
-    IoCloseCircled,
+    IoIosCloseOutline,
     IoAndroidSend,
     IoIosDownloadOutline,
     IoIosTrashOutline,
     IoEye,
     IoEyeDisabled,
+    IoIosSearch,
 } from 'react-icons/lib/io';
 import { keys } from 'ramda';
 
 const IconTypes = {
     cog: IoIosCogOutline,
-    statFill: IoIosStar,
+    starFill: IoIosStar,
     star: IoIosStarOutline,
     documents: IoIosAlbumsOutline,
     attach: IoAndroidAttach,
@@ -30,11 +31,12 @@ const IconTypes = {
     aperture: IoAperture,
     arrowBack: IoIosArrowBack,
     add: IoAndroidAdd,
-    close: IoCloseCircled,
+    close: IoIosCloseOutline,
     send: IoAndroidSend,
     trash: IoIosTrashOutline,
     eyeOff: IoEyeDisabled,
     eye: IoEye,
+    search: IoIosSearch,
 };
 
 export const iconStringTypes = keys(IconTypes);

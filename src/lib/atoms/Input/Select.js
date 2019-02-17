@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import styled from 'styled-components';
-import { basicTheme, darkTheme } from '../../constants/theme';
+import { basicTheme } from '../../constants/theme';
 
 export const StyledSelect = styled.select`
 	height: 30px;
@@ -21,7 +21,7 @@ export const StyledSelect = styled.select`
   	&:focus {
   		outline: none;
   	}
-  	box-shadow: 1px 2px 10px -2px ${ darkTheme.darkGrey };
+  	box-shadow: 1px 2px 10px -2px ${ basicTheme.grey };
 `;
 
 export default StyledSelect;

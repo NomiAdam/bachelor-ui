@@ -17,9 +17,10 @@ const StyledInput = styled.input`
 `;
 
 const Input = ({
-    value, handleFocus, handleChange, placeholder, handleEnter,
+    value, handleFocus, handleChange, placeholder, handleEnter, secondary,
 }) => (
     <StyledInput
+      secondary={secondary}
         onKeyPress={ handleEnter }
         onChange={ handleChange }
         onFocus={ handleFocus }

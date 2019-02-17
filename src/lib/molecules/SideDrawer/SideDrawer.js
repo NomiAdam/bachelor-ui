@@ -29,19 +29,20 @@ class SideDrawer extends PureComponent {
 
     render() {
         const {
-            children, navigation, primary,
+            children, navigation, primary, secondary,
         } = this.props;
         const { isOpen } = this.state;
         return (
-            <StyledResponsiveDrawerWrapper>
+            <StyledResponsiveDrawerWrapper secondary={ secondary }>
                 <Toolbar
+                    secondary={ secondary }
                     isOpen={ isOpen }
                     primary={ primary }
                     handleClick={ this.handleClick }
                 >
                     { navigation }
                 </Toolbar>
-                <StyledContentWrapper isOpen={ isOpen }>
+                <StyledContentWrapper secondary={ secondary } isOpen={ isOpen }>
                     { children }
                 </StyledContentWrapper>
             </StyledResponsiveDrawerWrapper>

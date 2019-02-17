@@ -7,7 +7,7 @@ import { lightTheme } from '../../constants/theme';
 import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const Icon = ({
-    name, backgroundColor, fontSize, color, clickable, onClick, padding,
+    name, backgroundColor, fontSize, color, clickable, onClick, padding, secondary,
 }) => {
     const ValidIcon = IconTypes[ name ];
     const StyledIcon = styled(ValidIcon)`
@@ -18,6 +18,7 @@ const Icon = ({
 `;
     return (
         <StyledIcon
+            secondary={ secondary }
             onClick={ onClick }
             clickable={ clickable }
             backgroundColor={ backgroundColor }

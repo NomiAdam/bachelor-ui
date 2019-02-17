@@ -40,8 +40,10 @@ const StyledTabButton = styled.button`
 	}
 `;
 
-const TabCell = ({ handleClick, label, active }) => (
-    <StyledTabButton onClick={ handleClick(label) } active={ active }>{label}</StyledTabButton>
+const TabCell = ({
+    handleClick, label, active, secondary,
+}) => (
+    <StyledTabButton secondary={ secondary } onClick={ handleClick(label) } active={ active }>{label}</StyledTabButton>
 );
 
 TabCell.propTypes = {

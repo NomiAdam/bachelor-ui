@@ -19,13 +19,13 @@ const StyledHeadingTableCell = styled.th`
 `;
 
 const TableHeadingCell = ({
-    label, onRequestSort, order, beingSorted, editable,
+    label, onRequestSort, order, beingSorted, editable, secondary,
 }) => (
-    <StyledHeadingTableCell onClick={ onRequestSort } editable={ editable }>
+    <StyledHeadingTableCell secondary={ secondary } onClick={ onRequestSort } editable={ editable }>
         {label}
         {order === 'asc'
-            ? <StyledArrowDown shouldDisplay={ beingSorted } />
-            : <StyledArrowUp shouldDisplay={ beingSorted } />
+            ? <StyledArrowDown secondary={ secondary } shouldDisplay={ beingSorted } />
+            : <StyledArrowUp secondary={ secondary } shouldDisplay={ beingSorted } />
         }
     </StyledHeadingTableCell>
 );

@@ -93,24 +93,24 @@ class Notification extends Component {
 
     render() {
         const {
-            open, onClose, variant, message,
+            open, onClose, variant, message, secondary,
         } = this.props;
         const Icon = variantIcon[ variant ];
         return (
-            <StyledWrapper isOpen={ open } variant={ variant }>
+            <StyledWrapper secondary={ secondary } isOpen={ open } variant={ variant }>
                 <Grid>
                     <GridCol colXS={ 1 }>
                         <Icon />
                     </GridCol>
                     <GridCol colXS={ 10 }>
-                        <StyledTextWrapper>
+                        <StyledTextWrapper secondary={ secondary }>
                             <span>
                                 {message}
                             </span>
                         </StyledTextWrapper>
                     </GridCol>
                     <GridCol colXS={ 1 }>
-                        <StyledClose onClick={ onClose } />
+                        <StyledClose onClick={ onClose } secondary={ secondary } />
                     </GridCol>
                 </Grid>
             </StyledWrapper>

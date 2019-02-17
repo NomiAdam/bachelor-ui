@@ -29,11 +29,17 @@ const StyledButtonLine = styled.div`
     background-color: ${ resolveTheme(TYPES.COLOR) };
 `;
 
-const BurgerButton = ({ handleClick, mobileVersion }) => (
-    <StyledToggleButton className="toggle-button" onClick={ handleClick } hideButton={ mobileVersion }>
-        <StyledButtonLine />
-        <StyledButtonLine />
-        <StyledButtonLine />
+const BurgerButton = ({ handleClick, mobileVersion, secondary }) => (
+    <StyledToggleButton
+        secondary={ secondary }
+        className="toggle-button"
+        onClick={ handleClick }
+        hideButton={ mobileVersion
+        }
+    >
+        <StyledButtonLine secondary={ secondary } />
+        <StyledButtonLine secondary={ secondary } />
+        <StyledButtonLine secondary={ secondary } />
     </StyledToggleButton>
 );
 

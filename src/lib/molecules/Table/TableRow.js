@@ -61,14 +61,16 @@ class TableRow extends PureComponent {
     };
 
     render() {
-        const { editable, handleDelete, handleEdit } = this.props;
+        const {
+            editable, handleDelete, handleEdit, secondary,
+        } = this.props;
         const { rowData } = this.state;
         return (
-            <StyledTableRow>
+            <StyledTableRow secondary={ secondary }>
                 {editable && (
                     <TableCell editable>
-                        <StyledTrash onClick={ handleDelete } />
-                        <StyledEdit onClick={ handleEdit } />
+                        <StyledTrash secondary={ secondary } onClick={ handleDelete } />
+                        <StyledEdit secondary={ secondary } onClick={ handleEdit } />
                     </TableCell>
                 )}
                 {rowData}

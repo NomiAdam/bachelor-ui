@@ -24,11 +24,12 @@ const StyledInput = styled.input`
 
 const getTargetValue = path(['target', 'value']);
 const NativeDatePicker = ({
-    onChange, value, label, min, max,
+    onChange, value, label, min, max, secondary,
 }) => (
     <div>
-        <StyledLabel>{label}</StyledLabel>
+        <StyledLabel secondary={ secondary }>{label}</StyledLabel>
         <StyledInput
+            secondary={ secondary }
             type="date"
             onChange={ e => onChange(e, getTargetValue(e)) }
             value={ value }

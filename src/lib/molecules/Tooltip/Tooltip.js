@@ -36,10 +36,10 @@ const StyledTooltip = styled.div`
   }
 `;
 
-const Tooltip = ({ label, children }) => (
-    <StyledTooltip>
+const Tooltip = ({ label, children, secondary }) => (
+    <StyledTooltip secondary={ secondary }>
         {children}
-        <StyledTooltipText>{ label }</StyledTooltipText>
+        <StyledTooltipText secondary={ secondary }>{ label }</StyledTooltipText>
     </StyledTooltip>
 );
 

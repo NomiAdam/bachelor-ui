@@ -55,13 +55,14 @@ const StyledLoader = styled.div`
 `;
 
 const Loader = ({
-    color, backgroundColor, width, height,
+    color, backgroundColor, width, height, secondary,
 }) => (
     <StyledLoader
         color={ color }
         backgroundColor={ backgroundColor }
         width={ width }
         height={ height }
+        secondary={ secondary }
     />
 );
 

@@ -14,7 +14,7 @@ const StyledTextField = styled.label`
 `;
 
 const TextFieldWrapper = styled.div`
-    padding: 15px;
+    padding: 15px 0;
     @media ${ maxMobileM } {
 		padding: 5px;
 	}
@@ -24,13 +24,15 @@ const TextFieldWrapper = styled.div`
 `;
 
 const TextField = ({
-    onChange, value, label, multiLine, rows, cols, disabled, error, onBlur, borderBackground, type, errorLabel, displayIcon,
+    onChange, value, label, secondary, multiLine, rows, cols,
+    disabled, error, onBlur, borderBackground, type, errorLabel, displayIcon,
 }) => (
-    <TextFieldWrapper>
-        <StyledTextField>
+    <TextFieldWrapper secondary={ secondary }>
+        <StyledTextField secondary={ secondary }>
             {multiLine
                 ? (
                     <TextAreaInput
+                        secondary={ secondary }
                         onChange={ onChange }
                         value={ value }
                         rows={ rows }
@@ -42,6 +44,7 @@ const TextField = ({
                 )
                 : (
                     <Input
+                        secondary={ secondary }
                         onChange={ onChange }
                         value={ value }
                         disabled={ disabled }
@@ -52,10 +55,10 @@ const TextField = ({
                     />
                 )
             }
-            <Label label={ label } multiline={ multiLine } />
-            <Border background={ borderBackground } textArea={ multiLine } error={ error } />
+            <Label label={ label } multiline={ multiLine } secondary={ secondary } />
+            <Border background={ borderBackground } textArea={ multiLine } error={ error } secondary={ secondary } />
         </StyledTextField>
-        <FieldLabel error={ error } label={ errorLabel } />
+        <FieldLabel secondary={ secondary } error={ error } label={ errorLabel } />
     </TextFieldWrapper>
 );
 

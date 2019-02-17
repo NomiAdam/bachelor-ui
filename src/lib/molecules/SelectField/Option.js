@@ -17,9 +17,9 @@ const StyledOption = styled.div`
 `;
 
 const Option = ({
-    value, onClick, label, selected,
+    value, onClick, label, selected, secondary,
 }) => (
-    <StyledOption onMouseDown={ onClick(value) } selected={ selected }>
+    <StyledOption secondary={ secondary } onMouseDown={ onClick(value) } selected={ selected }>
         {label}
     </StyledOption>
 );

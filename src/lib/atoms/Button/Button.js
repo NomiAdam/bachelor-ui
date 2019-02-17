@@ -46,7 +46,7 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({
-    disabled, label, onClick, color, backgroundColor, large, fullWidth,
+    disabled, label, onClick, color, backgroundColor, large, fullWidth, secondary,
 }) => (
     <StyledButton
         onClick={ onClick }
@@ -55,6 +55,7 @@ const Button = ({
         backgroundColor={ backgroundColor }
         large={ large }
         fullWidth={ fullWidth }
+        secondary={ secondary }
     >
         <spam>{toUpper(label)}</spam>
     </StyledButton>
