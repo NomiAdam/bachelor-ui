@@ -13,6 +13,7 @@ export { default as Heading } from './atoms/Heading';
 export { default as Media } from './atoms/Media';
 export { default as Paragraph } from './atoms/Paragraph';
 export { default as Spacer } from './atoms/Spacer';
+export { default as Icon } from './atoms/Icon';
 
 // MOLECULES
 export { default as List } from './molecules/List/List';

@@ -11,6 +11,8 @@ const StyledContainer = styled.div`
   align-items: ${ ({ alignItems }) => alignItems };
   flex-direction: ${ ({ flexDirection }) => flexDirection };
   padding: ${ ({ padding }) => padding };
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 StyledContainer.propTypes = {
