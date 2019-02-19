@@ -1,34 +1,36 @@
 /* eslint-disable react/destructuring-assignment */
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {
-    compose, keys, prop, values, mapObjIndexed, o, contains,
-} from 'ramda';
-import { isNotEmpty, defaultToEmptyObject } from 'ramda-extension';
+import { keys, values, mapObjIndexed, o } from 'ramda';
+import { isNotEmpty } from 'ramda-extension';
 import TreeLeaf from './TreeLeaf';
 import { lightTheme } from '../../../constants/theme';
 import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
+import { ListItem } from '../../../molecules/List';
 
-const StyledRow = styled.div`
+const StyledListItem = styled(ListItem)`
 	  background-color: transparent;
 	  border-bottom: 1px solid ${ lightTheme.lightGrey };
 	  &:hover {
-	    cursor: ${ ({ redirect }) => (redirect ? 'pointer' : 'initial') };
+	    cursor: ${ ({ clickable }) => (clickable ? 'pointer' : 'initial') };
 		  background-color: ${
-    ({ redirect, ...props }) => (redirect ? resolveTheme(TYPES.BACKGROUND_COLOR_HOVER)(props) : 'transparent')
+    ({ clickable, ...props }) => (clickable ? resolveTheme(TYPES.BACKGROUND_COLOR_HOVER)(props) : 'transparent')
 };
 	  }
 `;
 
-const StyledChildrenWrapper = styled.div`
+const StyledChildrenWrapper = styled.ul`
+    width: 100%;
+	  padding: 0;
+	  list-style-type: none;
+    margin: 0;
+    transition: .5s all ease;
     overflow: hidden;
-    height: ${ ({ isOpen }) => (isOpen ? '100%' : '0') };
+    max-height: ${ ({ isOpen }) => (isOpen ? '800px' : '0') };
 `;
 
-const notEmptyChildren = compose(isNotEmpty, keys, prop('children'));
-const getTreeDataByProp = dataProp => o(defaultToEmptyObject, prop(dataProp));
-
+const notEmptyChildren = o(isNotEmpty, keys);
 class RootRow extends PureComponent {
     state = {
         isOpen: this.props.initiallyOpen,
@@ -36,23 +38,21 @@ class RootRow extends PureComponent {
 
     renderAnotherRow = (children) => {
         const {
-            handleRedirect, redirect, displayProps, dataProp, initiallyOpen, flag, node, handleClick, recomputeOnClick,
+            clickable, initiallyOpen, node, handleClick, depth,
         } = this.props;
         const renderChildrenRow = (num, key, obj) => (
             <RootRow
-                dataProp={ dataProp }
-                initiallyOpen={ initiallyOpen }
-                displayProps={ displayProps }
-                leafKey={ key }
-                treeLeaf={ obj[ key ] }
+                depth={ depth + 1 }
                 key={ key }
-                handleRedirect={ handleRedirect }
-                redirect={ redirect }
-                recomputeOnClick={ recomputeOnClick }
-                flag={ flag }
-                node={ node }
+                initiallyOpen={ initiallyOpen }
+                leafKey={ key }
+                leafData={ obj[ key ].data }
                 handleClick={ handleClick }
-            />
+                clickable={ clickable }
+                node={ node }
+            >
+                { obj[ key ].children }
+            </RootRow>
         );
         return o(values, mapObjIndexed(renderChildrenRow))(children);
     };
@@ -64,94 +64,66 @@ class RootRow extends PureComponent {
 
     render() {
         const {
-            treeLeaf, handleRedirect, redirect, leafKey, displayProps,
-            dataProp, flag, node, style, recomputeOnClick, handleClick,
+            leafData, handleClick, clickable, node, children, depth, leafKey,
         } = this.props;
         const { isOpen } = this.state;
-        const hasChildren = notEmptyChildren(treeLeaf);
-        const hasFlag = contains(leafKey, flag);
+        const hasChildren = notEmptyChildren(children);
         return (
-            <div style={ style }>
-                <StyledRow redirect={ redirect }>
+            <Fragment>
+                <StyledListItem clickable={ clickable }>
                     <TreeLeaf
-                        displayProps={ displayProps }
-                        leafKey={ leafKey }
+                        depth={ depth }
                         hasChildren={ hasChildren }
-                        handleRedirect={ handleRedirect }
                         isOpen={ isOpen }
+                        leafKey={ leafKey }
                         toggleOpen={ this.toggleOpen }
-                        redirect={ redirect }
-                        depth={ treeLeaf.depth }
-                        leafData={ getTreeDataByProp(dataProp)(treeLeaf) }
-                        hasFlag={ hasFlag }
+                        clickable={ clickable }
+                        leafData={ leafData }
                         node={ node }
-                        recomputeOnClick={ recomputeOnClick }
                         handleClick={ handleClick }
                     />
-                </StyledRow>
+                </StyledListItem>
                 {
-                    hasChildren && (
+                    hasChildren ? (
                         <StyledChildrenWrapper isOpen={ isOpen }>
-                            { this.renderAnotherRow(treeLeaf.children) }
+                            { this.renderAnotherRow(children) }
                         </StyledChildrenWrapper>
-                    )
+                    ) : null
                 }
-            </div>
+            </Fragment>
         );
     }
 }
 
 RootRow.propTypes = {
     /**
-     * Whether we redirect on click or not
+     * Whether we can handle onClick event or not
      */
-    redirect: PropTypes.bool,
-    /**
-     * Function to handle redirect on click, if redirect is set to false, handleRedirect is null
-     */
-    handleRedirect: PropTypes.any,
+    clickable: PropTypes.bool,
     /**
      * Object that has all data about current leaf
      */
-    treeLeaf: PropTypes.object,
-    /**
-     * Unique string key for each leaf
-     */
-    leafKey: PropTypes.string,
-    /**
-     * Array of properties that we wish to display in each row
-     */
-    displayProps: PropTypes.array,
-    /**
-     * String representation of property that contains leaf data
-     */
-    dataProp: PropTypes.string,
+    leafData: PropTypes.object,
     /**
      * Whether we want to have leaf opened during render
      */
     initiallyOpen: PropTypes.bool,
     /**
-     * Flag, can be anything, note that it compares leafKey with array, and changes color of leaf accordingly
+     * Children object
      */
-    flag: PropTypes.array,
+    children: PropTypes.object,
     /**
-   * Children node
+   * Function to render children node
    */
-    node: PropTypes.any,
+    node: PropTypes.func,
     /**
    * onClick function handler
    */
     handleClick: PropTypes.func,
-    /**
-   * Whether to reRender when clicked
-   */
-    recomputeOnClick: PropTypes.bool,
 };
 
 RootRow.defaultProps = {
-    treeLeaf: {},
-    flag: [],
-    displayProps: [],
+    leafData: {},
 };
 
 export default RootRow;

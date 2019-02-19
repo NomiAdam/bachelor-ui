@@ -10,11 +10,10 @@ storiesOf('Organisms/TreeList', module)
     .add('TreeList', () => (
         <div style={ { height: '600px', width: '600px' } }>
             <TreeList
-                displayProps={ ['id', 'value', 'date'] }
-                handleRedirect={ action('click') }
-                redirect
+                rowCount={ 5 }
+                handleClick={ action('click') }
+                clickable
                 treeData={ mockTreeTableBody }
-                dataProp="data"
                 node={ Node }
             />
         </div>

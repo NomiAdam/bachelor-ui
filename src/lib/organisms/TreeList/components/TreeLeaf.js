@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { pickAll } from 'ramda';
 import { IoIosArrowDown } from 'react-icons/lib/io';
 import { Grid, GridCol } from '../../Grid/index';
 import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
@@ -20,37 +19,26 @@ const StyledOpenIcon = styled(IoIosArrowDown)`
 `;
 
 class TreeLeaf extends PureComponent {
-    renderLeafData = () => {
-        const {
-            leafData, depth, displayProps, hasFlag, node: Node,
-        } = this.props;
-        const props = pickAll(displayProps)(leafData);
-        return <Node { ...props } hasFlag={ hasFlag } depth={ depth } />;
-    };
-
     handleIconClick = (e) => {
         e.stopPropagation();
         const { toggleOpen } = this.props;
         toggleOpen();
     };
 
-    handleRedirectClick = () => {
-        const {
-            handleRedirect, leafKey, redirect, handleClick, recomputeOnClick,
-        } = this.props;
-        if (redirect) {
-            if (recomputeOnClick) {
-                handleClick();
-            }
-            handleRedirect(leafKey);
+    handleClick = (/* EVENT */) => {
+        const { handleClick, leafKey, clickable } = this.props;
+        if (clickable) {
+            handleClick(leafKey);
         }
     };
 
     render() {
-        const { depth, hasChildren, isOpen } = this.props;
+        const {
+            depth, hasChildren, isOpen, leafData, node,
+        } = this.props;
         return (
             <Grid
-                onClick={ this.handleRedirectClick }
+                onClick={ this.handleClick }
                 padding={ `0 0 0 ${ ( depth - 1 ) * 25 }px` }
             >
                 <StyledIconGridCol colXS={ 1 } onClick={ e => e.stopPropagation() }>
@@ -59,7 +47,7 @@ class TreeLeaf extends PureComponent {
                       && <StyledOpenIcon isOpen={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
                 <GridCol colXS={ 11 } horizontalAlign="flex-start">
-                    { this.renderLeafData() }
+                    { node({ ...leafData }) }
                 </GridCol>
             </Grid>
         );
@@ -84,37 +72,21 @@ TreeLeaf.propTypes = {
      */
     depth: PropTypes.number,
     /**
-     * Whether we redirect on click or not
+     * Whether we handle some action on click or not
      */
-    redirect: PropTypes.bool,
+    clickable: PropTypes.bool,
     /**
-     * Function to be called upon TableCell Click
+     * Function to be called upon List item Click
      */
-    handleRedirect: PropTypes.func,
+    handleClick: PropTypes.func,
     /**
      * Unique string key of current key
      */
     leafKey: PropTypes.string,
     /**
-     * Array of props we want to display in this row
-     */
-    displayProps: PropTypes.array,
-    /**
-     * Whether current leaf has flag or not
-     */
-    hasFlag: PropTypes.bool,
-    /**
    * Node to render inside leaf
    */
-    node: PropTypes.any,
-    /**
-   * Whether to reRender when clicked
-   */
-    recomputeOnClick: PropTypes.bool,
-    /**
-   * onClick function handler
-   */
-    handleClick: PropTypes.func,
+    node: PropTypes.func,
 };
 
 export default TreeLeaf;

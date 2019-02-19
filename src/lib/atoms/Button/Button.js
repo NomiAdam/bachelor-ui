@@ -57,7 +57,7 @@ const Button = ({
         fullWidth={ fullWidth }
         secondary={ secondary }
     >
-        <spam>{toUpper(label)}</spam>
+        <span>{toUpper(label)}</span>
     </StyledButton>
 );
 

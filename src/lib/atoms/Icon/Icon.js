@@ -53,7 +53,7 @@ Icon.propTypes = {
     /**
    * Optional definition of whether Icon will be clickable
    */
-    clickable: PropTypes.string,
+    clickable: PropTypes.bool,
     /**
    * onClick handler
    */

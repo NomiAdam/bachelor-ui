@@ -59,7 +59,7 @@ IconButton.propTypes = {
     /**
    * Icon node is expected
    */
-    icon: PropTypes.any,
+    icon: PropTypes.node,
 };
 
 IconButton.defaultProps = {
