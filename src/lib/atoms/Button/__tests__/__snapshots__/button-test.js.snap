@@ -2,6 +2,6 @@
 
 exports[`Button should match the snapshot 1`] = `
 <styled.button>
-  <spam />
+  <span />
 </styled.button>
 `;

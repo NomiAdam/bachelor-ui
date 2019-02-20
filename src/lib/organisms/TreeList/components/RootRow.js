@@ -2,7 +2,9 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { keys, values, mapObjIndexed, o } from 'ramda';
+import {
+    keys, values, mapObjIndexed, o, propOr,
+} from 'ramda';
 import { isNotEmpty } from 'ramda-extension';
 import TreeLeaf from './TreeLeaf';
 import { lightTheme } from '../../../constants/theme';
@@ -38,15 +40,17 @@ class RootRow extends PureComponent {
 
     renderAnotherRow = (children) => {
         const {
-            clickable, initiallyOpen, node, handleClick, depth,
+            clickable, initiallyOpen, node, handleClick, depth, dataProp,
         } = this.props;
+        const dataP = propOr({}, dataProp);
         const renderChildrenRow = (num, key, obj) => (
             <RootRow
                 depth={ depth + 1 }
                 key={ key }
                 initiallyOpen={ initiallyOpen }
                 leafKey={ key }
-                leafData={ obj[ key ].data }
+                dataProp={ dataProp }
+                leafData={ dataP(obj[ key ]) }
                 handleClick={ handleClick }
                 clickable={ clickable }
                 node={ node }
@@ -120,6 +124,10 @@ RootRow.propTypes = {
    * onClick function handler
    */
     handleClick: PropTypes.func,
+    /**
+   * Prop which desired data resides
+   */
+    dataProp: PropTypes.string,
 };
 
 RootRow.defaultProps = {

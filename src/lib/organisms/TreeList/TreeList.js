@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { mapObjIndexed, o, values } from 'ramda';
+import {
+    mapObjIndexed, o, values, propOr,
+} from 'ramda';
 import List from '../../molecules/List';
 import RootRow from './components/RootRow';
 
@@ -10,17 +12,19 @@ class TreeList extends Component {
         return JSON.stringify(treeData) !== JSON.stringify(prevProps.treeData);
     }
 
-  rowRenderer = ({ data, children }, key) => {
+  rowRenderer = ({ children, ...other }, key) => {
       const {
-          handleClick, clickable, initiallyOpen, node,
+          handleClick, clickable, initiallyOpen, node, dataProp,
       } = this.props;
+      const dataP = propOr({}, dataProp);
       return (
           <RootRow
               depth={ 1 }
               key={ key }
               initiallyOpen={ initiallyOpen }
               leafKey={ key }
-              leafData={ data }
+              dataProp={ dataProp }
+              leafData={ dataP(other) }
               handleClick={ handleClick }
               clickable={ clickable }
               node={ node }
@@ -69,6 +73,10 @@ TreeList.propTypes = {
    * Function to be called with single node data
    */
     node: PropTypes.func,
+    /**
+   * In which prop are desired data
+   */
+    dataProp: PropTypes.string,
 };
 
 TreeList.defaultProps = {

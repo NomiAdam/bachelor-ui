@@ -13,6 +13,7 @@ storiesOf('Organisms/TreeList', module)
                 rowCount={ 5 }
                 handleClick={ action('click') }
                 clickable
+                dataProp="data"
                 treeData={ mockTreeTableBody }
                 node={ Node }
             />
