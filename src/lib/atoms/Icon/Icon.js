@@ -61,7 +61,7 @@ Icon.propTypes = {
 };
 
 Icon.defaultProps = {
-    fontSize: '1.5em',
+    fontSize: '2em',
 };
 
 export default Icon;

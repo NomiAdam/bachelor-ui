@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledContainer = styled.div`
   display: flex;
@@ -11,6 +12,8 @@ const StyledContainer = styled.div`
   align-items: ${ ({ alignItems }) => alignItems };
   flex-direction: ${ ({ flexDirection }) => flexDirection };
   padding: ${ ({ padding }) => padding };
+  background-color: ${ resolveTheme(TYPES.BACKGROUND_COLOR) };
+  color: ${ resolveTheme(TYPES.COLOR) };
   overflow-x: hidden;
   overflow-y: auto;
 `;
@@ -40,12 +43,20 @@ StyledContainer.propTypes = {
    * String definition of padding css property
    */
     padding: PropTypes.string,
+    /**
+   *  String definition of background color
+   */
+    backgroundColor: PropTypes.string,
+    /**
+   * Optional secondary theme property
+   */
+    secondary: PropTypes.bool,
 };
 
 StyledContainer.defaultProps = {
     width: '100%',
     height: '100%',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
     padding: '0',

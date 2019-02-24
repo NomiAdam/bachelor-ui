@@ -10,12 +10,14 @@ export const StyledTextArea = styled.textarea`
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
+  width: 100%;
 	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
 	background: none;
 	border-radius: 0;
 	color: ${ basicTheme.blue };
 	transition: .15s ease all;
 	resize: none;
+	box-sizing: border-box;
 	${ ({ error }) => (error ? `
 	    border: 1px solid ${ basicTheme.red };
 	    border-top-left-radius: 5px;

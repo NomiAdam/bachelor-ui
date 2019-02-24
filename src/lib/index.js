@@ -1,9 +1,14 @@
 // THEMES
 // eslint-disable-next-line import/newline-after-import
-import { basicTheme, lightTheme, darkTheme } from './constants/theme';
+import {
+    basicTheme, lightTheme, darkTheme, osxTheme,
+} from './constants/theme';
+import flexConstants from './constants/flex';
 
-// THEMES
-export { basicTheme, lightTheme, darkTheme };
+// CONSTANTS
+export {
+    basicTheme, lightTheme, darkTheme, flexConstants, osxTheme,
+};
 
 // ATOMS
 export { default as Button } from './atoms/Button/Button';

@@ -89,6 +89,7 @@ Label.propTypes = {
 
 Label.defaultProps = {
     label: '',
+    rows: 10,
 };
 
 export default Label;

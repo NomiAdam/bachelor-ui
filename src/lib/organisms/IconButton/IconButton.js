@@ -17,11 +17,11 @@ const IconButton = ({
         fullWidth={ fullWidth }
     >
         <Grid>
-            <GridCol colXS={ 9 } horizontalAlign="center" verticalAlign="center">
-                <span>{toUpper(label)}</span>
-            </GridCol>
             <GridCol colXS={ 3 } verticalAlign="center">
                 { icon }
+            </GridCol>
+            <GridCol colXS={ 9 } horizontalAlign="center" verticalAlign="center">
+                <span>{toUpper(label)}</span>
             </GridCol>
         </Grid>
     </StyledButton>

@@ -98,7 +98,7 @@ class Notification extends Component {
         const Icon = variantIcon[ variant ];
         return (
             <StyledWrapper secondary={ secondary } isOpen={ open } variant={ variant }>
-                <Grid>
+                <Grid gridGap="10px" padding="10px">
                     <GridCol colXS={ 1 }>
                         <Icon />
                     </GridCol>

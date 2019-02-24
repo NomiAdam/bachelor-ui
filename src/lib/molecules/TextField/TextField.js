@@ -8,19 +8,19 @@ import { basicTheme } from '../../constants/theme';
 
 const StyledTextField = styled.label`
 	position: relative;
-	margin: auto;
 	width: 100%;
-	max-width: 280px;
 `;
 
 const TextFieldWrapper = styled.div`
     padding: 15px 0;
+    width: 100%;
+    box-sizing: border-box;
     @media ${ maxMobileM } {
-		padding: 5px;
-	}
-	@media ${ maxMobileS } {
-		padding: 5px;
-	}
+		  padding: 5px;
+	  }
+	  @media ${ maxMobileS } {
+		  padding: 5px;
+	  }
 `;
 
 const TextField = ({

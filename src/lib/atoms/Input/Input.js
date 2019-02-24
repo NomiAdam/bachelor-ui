@@ -12,6 +12,7 @@ export const StyledInput = styled.input`
 	font-family: inherit;
 	font-size: 16px;
 	font-weight: 500;
+	width: 100%;
 	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
 	${ ({ borderBackground }) => (borderBackground ? `border-color: ${ borderBackground };` : '') }
 	border-radius: 0;
@@ -22,6 +23,7 @@ export const StyledInput = styled.input`
 	background-repeat: no-repeat;
 	background-origin: content-box;
 	background-color: inherit;
+	box-sizing: border-box;
 	&:focus {
 		outline: none;
 	}

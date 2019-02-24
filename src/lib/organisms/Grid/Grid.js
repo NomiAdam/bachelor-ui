@@ -23,8 +23,8 @@ StyledGridWrapper.propTypes = {
 };
 
 StyledGridWrapper.defaultProps = {
-    gridGap: '10px',
-    padding: '10px',
+    gridGap: '0',
+    padding: '0',
 };
 
 export default StyledGridWrapper;

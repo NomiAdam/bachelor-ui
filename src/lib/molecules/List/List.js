@@ -8,6 +8,8 @@ export const StyledList = styled.ul`
 	padding: 0;
 	list-style-type: none;
   margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
 `;
 
 const List = ({ children }) => (<StyledList>{children}</StyledList>);

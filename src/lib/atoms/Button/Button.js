@@ -9,7 +9,7 @@ const StyledButton = styled.button`
   position: relative;
 	transition: .4s all ease; 
 	margin: 5px;
-	font-weight: 500;
+	font-weight: 300;
 	text-align: center;
 	cursor: pointer;
 	min-width: 50px;
@@ -29,7 +29,7 @@ const StyledButton = styled.button`
         position: absolute;
         padding-top: 300%;
         padding-left: 350%;
-        margin-left: -20px!important;
+        margin-left: -20px !important;
         border-radius: 50%;
         margin-top: -120%;
         opacity: 0;

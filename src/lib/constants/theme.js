@@ -26,3 +26,9 @@ export const darkTheme = {
     black: '#000000',
     darkOrange: '#ff4000',
 };
+
+export const osxTheme = {
+    lightColor: '#333;',
+    darkColor: '#ddd',
+    darkBackground: '#222',
+};
