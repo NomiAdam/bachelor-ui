@@ -5,6 +5,7 @@ import { StyledInput } from './Input';
 import { StyledTextArea } from './TextAreaInput';
 import { StyledSelect } from './Select';
 import { basicTheme, lightTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledBorder = styled.span`
 	position: absolute;

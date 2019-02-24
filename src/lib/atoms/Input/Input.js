@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
 import { greenValid, redError } from './constants/icon';
-import { basicTheme } from '../../constants/theme';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 export const StyledInput = styled.input`
@@ -14,9 +13,9 @@ export const StyledInput = styled.input`
 	font-weight: 500;
 	width: 100%;
 	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
-	${ ({ borderBackground }) => (borderBackground ? `border-color: ${ borderBackground };` : '') }
+	${ ({ borderBackground, ...props }) => (borderBackground ? `border-color: ${ borderBackground };` : resolveTheme(TYPES.COLOR)(props)) }
 	border-radius: 0;
-	color: ${ basicTheme.blue };
+	color: ${ resolveTheme(TYPES.COLOR) };
 	transition: .15s ease all;
 	background-image: ${ ({ displayIcon, error }) => (displayIcon ? error ? redError : greenValid : 'none') };
 	background-position: right;

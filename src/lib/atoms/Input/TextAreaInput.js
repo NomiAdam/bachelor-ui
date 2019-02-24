@@ -14,7 +14,7 @@ export const StyledTextArea = styled.textarea`
 	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
 	background: none;
 	border-radius: 0;
-	color: ${ basicTheme.blue };
+  color: ${ resolveTheme(TYPES.COLOR) };
 	transition: .15s ease all;
 	resize: none;
 	box-sizing: border-box;

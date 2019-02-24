@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Input, { Label, Border, TextAreaInput } from '../../atoms/Input/index';
 import { maxMobileM, maxMobileS } from '../../constants/device';
 import FieldLabel from '../../atoms/FieldLabel/index';
-import { basicTheme } from '../../constants/theme';
+import { lightTheme } from '../../constants/theme';
 
 const StyledTextField = styled.label`
 	position: relative;
@@ -118,7 +118,7 @@ TextField.propTypes = {
 };
 
 TextField.defaultProps = {
-    borderBackground: basicTheme.blue,
+    borderBackground: lightTheme.lightBlue,
     type: 'text',
 };
 

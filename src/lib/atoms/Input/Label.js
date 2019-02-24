@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import { StyledInput } from './Input';
 import { StyledTextArea } from './TextAreaInput';
 import { maxMobileM, maxMobileS } from '../../constants/device';
-import { darkTheme } from '../../constants/theme';
+import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 export const StyledLabel = styled.span`
 	position: absolute;
 	top: ${ ({ multiline }) => (multiline ? '-7px' : '0px') };
 	left: 0px;
 	font-size: 16px;
-	color: ${ darkTheme.black };
+	color: ${ resolveTheme(TYPES.COLOR) };
 	font-weight: 500;
 	transform-origin: 0 0;
 	transition: 0.3s ease all;
