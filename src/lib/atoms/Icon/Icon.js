@@ -2,30 +2,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Ink from 'react-ink';
 import IconTypes, { iconStringTypes } from './constants/iconNames';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
+import RippleEffect from '../../transition/RippleEffect';
 
 const Icon = ({
-    name, fontSize, color, clickable, onClick, padding, secondary,
+    name, fontSize, color, clickable, onClick, padding, secondary, open,
 }) => {
     const ValidIcon = IconTypes[ name ];
     const StyledIcon = styled(ValidIcon)`
      font-size: ${ ({ fontSize }) => fontSize };
      cursor: ${ ({ clickable }) => (clickable ? 'pointer' : 'initial') };
      border: 1px solid transparent;
-     background-color: transparent;
+     transition: .25s all ease;
+     transform: ${ ({ open }) => (open ? 'rotate(180deg)' : 'rotate(0deg)') };
      color: ${ resolveTheme(TYPES.COLOR) }
      ${ ({ padding }) => (padding ? `padding: ${ padding };` : '') }
 `;
     return (
-        <StyledIcon
-            secondary={ secondary }
-            onClick={ onClick }
-            clickable={ clickable }
-            fontSize={ fontSize }
-            color={ color }
-            padding={ padding }
-        />
+        <RippleEffect onClick={ onClick }>
+            <StyledIcon
+                secondary={ secondary }
+                clickable={ clickable }
+                fontSize={ fontSize }
+                color={ color }
+                padding={ padding }
+                open={ open }
+            />
+            <Ink />
+        </RippleEffect>
     );
 };
 
@@ -58,6 +64,10 @@ Icon.propTypes = {
    * onClick handler
    */
     onClick: PropTypes.func,
+    /**
+   * Open bool property
+   */
+    open: PropTypes.bool,
 };
 
 Icon.defaultProps = {

@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { IoIosArrowDown } from 'react-icons/lib/io';
 import { StyledPaperWrapper } from '../../organisms/Paper/Paper';
 import { basicTheme } from '../../constants/theme';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
+import Icon from '../../atoms/Icon';
 
 const StyledWrapper = styled(StyledPaperWrapper)`
   border-radius: 0;
@@ -39,16 +39,6 @@ const StyledBody = styled.div`
   max-height: ${ ({ open }) => (open ? '500px' : '0') };
 `;
 
-const StyledIcon = styled(IoIosArrowDown)`
-    transition: .25s all ease;
-    border: 0 solid transparent;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transform: ${ ({ open }) => (open ? 'rotate(180deg)' : 'rotate(0deg)') };
-`;
-
 const ExpansionPanelChild = ({
     open, handleClick, heading, body, secondary,
 }) => (
@@ -57,7 +47,7 @@ const ExpansionPanelChild = ({
             <StyledHeadingLabel secondary={ secondary }>
                 {heading}
             </StyledHeadingLabel>
-            <StyledIcon open={ open } onClick={ handleClick } />
+            <Icon name="arrowDown" clickable open={ open } onClick={ handleClick } />
         </StyledHeading>
         <StyledBody open={ open } secondary={ secondary }>
             {body}
@@ -84,5 +74,5 @@ ExpansionPanelChild.propTypes = {
     body: PropTypes.any,
 };
 
-export { StyledWrapper, StyledIcon, StyledBody };
+export { StyledWrapper, StyledBody };
 export default ExpansionPanelChild;

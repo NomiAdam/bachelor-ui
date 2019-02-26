@@ -20,7 +20,7 @@ const Input = ({
     value, handleFocus, handleChange, placeholder, handleEnter, secondary,
 }) => (
     <StyledInput
-      secondary={secondary}
+        secondary={ secondary }
         onKeyPress={ handleEnter }
         onChange={ handleChange }
         onFocus={ handleFocus }

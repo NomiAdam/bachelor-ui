@@ -61,3 +61,4 @@ export { default as SlideOutLeft } from './transition/Slide/SlideOutLeft';
 export { default as SlideOutRight } from './transition/Slide/SlideOutRight';
 export { default as FadeIn } from './transition/Fade/FadeIn';
 export { default as FadeOut } from './transition/Fade/FadeOut';
+export { default as RippleEffect } from './transition/RippleEffect';

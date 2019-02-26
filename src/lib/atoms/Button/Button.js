@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { toUpper } from 'ramda';
+import Ink from 'react-ink';
 import DEFAULT_THEME, { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
 const StyledButton = styled.button`
@@ -22,27 +23,6 @@ const StyledButton = styled.button`
 	&:focus {
 		outline: none;
 	}
-	&:after {
-	    content: "";
-        background: ${ resolveTheme(TYPES.BACKGROUND_COLOR_AFTER) };
-        display: block;
-        position: absolute;
-        padding-top: 300%;
-        padding-left: 350%;
-        margin-left: -20px !important;
-        border-radius: 50%;
-        margin-top: -120%;
-        opacity: 0;
-        transition: all 0.8s
-	}
-	&:active {
-	    &:after {
-	          padding: 0;
-            margin: 0;
-            opacity: 1;
-            transition: 0s
-	    }
-	}
 `;
 
 const Button = ({
@@ -58,6 +38,7 @@ const Button = ({
         secondary={ secondary }
     >
         <span>{toUpper(label)}</span>
+        <Ink />
     </StyledButton>
 );
 

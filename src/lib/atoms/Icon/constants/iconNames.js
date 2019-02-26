@@ -16,6 +16,7 @@ import {
     IoEye,
     IoEyeDisabled,
     IoIosSearch,
+    IoIosArrowDown,
 } from 'react-icons/lib/io';
 import { keys } from 'ramda';
 
@@ -30,6 +31,7 @@ const IconTypes = {
     compose: IoIosPhotosOutline,
     aperture: IoAperture,
     arrowBack: IoIosArrowBack,
+    arrowDown: IoIosArrowDown,
     add: IoAndroidAdd,
     close: IoIosCloseOutline,
     send: IoAndroidSend,

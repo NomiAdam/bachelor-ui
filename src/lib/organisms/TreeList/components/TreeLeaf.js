@@ -1,21 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { IoIosArrowDown } from 'react-icons/lib/io';
 import { Grid, GridCol } from '../../Grid/index';
-import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
+import Icon from '../../../atoms/Icon';
 
 const StyledIconGridCol = styled(GridCol)`
   display: flex;
   align-items: center;
   cursor: initial;
-`;
-
-const StyledOpenIcon = styled(IoIosArrowDown)`
-  transition: all .5s ease;
-  font-size: 1.5rem;
-  color: ${ resolveTheme(TYPES.COLOR) };
-  transform: ${ ({ isOpen }) => (isOpen ? 'rotate(0deg)' : 'rotate(180deg)') };
 `;
 
 class TreeLeaf extends PureComponent {
@@ -44,7 +36,7 @@ class TreeLeaf extends PureComponent {
                 <StyledIconGridCol colXS={ 1 } onClick={ e => e.stopPropagation() }>
                     {
                         hasChildren
-                      && <StyledOpenIcon isOpen={ isOpen } onClick={ this.handleIconClick } />}
+                      && <Icon name="arrowDown" open={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
                 <GridCol colXS={ 11 } horizontalAlign="flex-start">
                     { node({ ...leafData }) }
