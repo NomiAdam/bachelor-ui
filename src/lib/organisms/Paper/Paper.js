@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { basicTheme } from '../../constants/theme';
 import DEFAULT_THEME from '../../utils/resolveTheme';
 
 const StyledPaperWrapper = styled.div`
@@ -10,8 +9,12 @@ const StyledPaperWrapper = styled.div`
 	border-color: transparent;
 	${ ({ width }) => (width ? `min-width: ${ width };` : '') }
 	${ ({ height }) => (height ? `min-height: ${ height };` : '') } 
-	box-shadow:  1px 1px 5px ${ basicTheme.grey };
+	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  transition: box-shadow 0.3s ease-in-out;
 	overflow: ${ ({ overflow }) => overflow };
+	&:hover {
+	  ${ ({ handleHover }) => handleHover && 'box-shadow: 0 5px 15px rgba(0,0,0,0.3);' } 
+	}
 	${ ({ center }) => center && `
 	display: flex;
 	justify-content: center;
@@ -22,7 +25,7 @@ const StyledPaperWrapper = styled.div`
 `;
 
 const Paper = ({
-    children, height, width, backgroundColor, padding, center, overflow, borderRadius, secondary,
+    children, height, width, backgroundColor, padding, center, overflow, borderRadius, secondary, handleHover,
 }) => (
     <StyledPaperWrapper
         secondary={ secondary }
@@ -33,6 +36,7 @@ const Paper = ({
         center={ center }
         overflow={ overflow }
         borderRadius={ borderRadius }
+        handleHover={ handleHover }
     >
         {children}
     </StyledPaperWrapper>
@@ -71,6 +75,10 @@ Paper.propTypes = {
    * Optional borderRadius
    */
     borderRadius: PropTypes.number,
+    /**
+   * Whether to allow animation on hover
+   */
+    handleHover: PropTypes.bool,
 };
 
 Paper.defaultProps = {
