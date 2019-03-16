@@ -2,12 +2,12 @@
 
 exports[`Icon should match the snapshot 1`] = `
 <Styled(IoAndroidAdd)
-  fontSize="1.5em"
+  fontSize="2em"
 />
 `;
 
 exports[`Icon should match the snapshot when name is different 1`] = `
 <Styled(IoIosCogOutline)
-  fontSize="1.5em"
+  fontSize="2em"
 />
 `;

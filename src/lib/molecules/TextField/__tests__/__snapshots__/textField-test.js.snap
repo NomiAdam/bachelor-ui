@@ -8,9 +8,10 @@ exports[`TextField should match the snapshot 1`] = `
     />
     <Label
       label=""
+      rows={10}
     />
     <styled.span
-      background="#0247fe"
+      background="#0099ff"
     />
   </styled.label>
   <FieldLabel
