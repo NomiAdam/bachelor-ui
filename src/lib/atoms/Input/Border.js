@@ -5,11 +5,11 @@ import { StyledInput } from './Input';
 import { StyledTextArea } from './TextAreaInput';
 import { StyledSelect } from './Select';
 import { basicTheme, lightTheme } from '../../constants/theme';
-import { resolveTheme, TYPES } from '../../utils/resolveTheme';
+import { maxMobileM } from '../../constants/device';
 
 const StyledBorder = styled.span`
 	position: absolute;
-	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-3px') }
+	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-6px') }
 	left: 0;
 	height: 2px;
 	width: 100%;
@@ -25,6 +25,9 @@ const StyledBorder = styled.span`
 	}
 	${ StyledSelect }:focus ~ & {
 		transform: scaleX(1);
+	}
+	@media ${ maxMobileM } {
+	  	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-4px') }
 	}
 `;
 

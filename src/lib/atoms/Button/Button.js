@@ -26,9 +26,10 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({
-    disabled, label, onClick, color, backgroundColor, large, fullWidth, secondary,
+    disabled, label, onClick, color, backgroundColor, large, fullWidth, secondary, type,
 }) => (
     <StyledButton
+        type={ type }
         onClick={ onClick }
         disabled={ disabled }
         color={ color }
@@ -71,6 +72,10 @@ Button.propTypes = {
    * Boolean representing whether we should use full width of container
    */
     fullWidth: PropTypes.bool,
+    /**
+   * String representation of button type
+   */
+    type: PropTypes.string,
 };
 
 Button.defaultProps = {
