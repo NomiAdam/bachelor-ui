@@ -6,6 +6,7 @@ import Heading from '../../atoms/Heading/index';
 import Container from '../Container';
 import { LABEL_POSITION, equalsLeft, equalsRight } from './constants/position';
 import DEFAULT_THEME, { resolveTheme, TYPES } from '../../utils/resolveTheme';
+import flexConstants from '../../constants/flex';
 
 const StyledContainer = styled.label`
   display: block;
@@ -61,7 +62,12 @@ const getTargetValue = path(['target', 'checked']);
 const Checkbox = ({
     label, checked, onChange, labelPosition, disabled, secondary,
 }) => (
-    <Container width="100%" height="100%" justifyContent="flex-start" secondary={ secondary }>
+    <Container
+        width="100%"
+        height="100%"
+        justifyContent={ flexConstants.POSITION_LEFT }
+        secondary={ secondary }
+    >
         { equalsLeft(labelPosition) && renderLabel(label) }
         <StyledContainer disabled={ disabled } isOnLeft={ equalsLeft(labelPosition) } secondary={ secondary }>
             <StyledInput

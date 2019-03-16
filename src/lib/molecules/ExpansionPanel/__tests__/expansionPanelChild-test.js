@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import React from 'react';
-import ExpansionPanelChild, { StyledWrapper, StyledIcon, StyledBody } from '../ExpansionPanelChild';
 import { shallow } from 'enzyme';
+import ExpansionPanelChild, { StyledWrapper, StyledBody } from '../ExpansionPanelChild';
 import 'jest-styled-components';
 
 const mock = jest.fn();
@@ -17,16 +17,11 @@ describe('ExpansionPanelChild', () => {
         expect(shallow(<ExpansionPanelChild />)).toMatchSnapshot();
     });
     it('should be of type StyledWrapper', () => {
-        expect(shallow(<ExpansionPanelChild/>).type()).toBe(StyledWrapper);
+        expect(shallow(<ExpansionPanelChild />).type()).toBe(StyledWrapper);
     });
     it('should not fire action without click', () => {
-        shallow(<ExpansionPanelChild handleClick={mock}/>);
+        shallow(<ExpansionPanelChild handleClick={ mock } />);
         expect(mock).not.toHaveBeenCalled();
-    });
-    it('should fire the action on click', () => {
-        const wrapper = shallow(<ExpansionPanelChild handleClick={mock}/>);
-        wrapper.find(StyledIcon).simulate('click');
-        expect(mock).toHaveBeenCalled();
     });
     describe('StyledBody', () => {
         it('should have 0 padding on StyledBody by default', () => {

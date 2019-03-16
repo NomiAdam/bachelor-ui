@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { FaPlus } from 'react-icons/lib/fa';
+import Ink from 'react-ink';
 import { basicTheme, lightTheme, darkTheme } from '../../constants/theme';
 
 const StyledButton = styled.button`
@@ -46,6 +47,7 @@ const RoundButton = ({
         backgroundColor={ backgroundColor }
     >
         {icon || <StyledFaPlus />}
+        <Ink />
     </StyledButton>
 );
 

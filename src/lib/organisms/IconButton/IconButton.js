@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { toUpper } from 'ramda';
+import Ink from 'react-ink';
 import { StyledButton } from '../../atoms/Button/Button';
 import { Grid, GridCol } from '../Grid/index';
 
@@ -24,6 +25,7 @@ const IconButton = ({
                 <span>{toUpper(label)}</span>
             </GridCol>
         </Grid>
+        <Ink />
     </StyledButton>
 );
 
