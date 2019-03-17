@@ -6,6 +6,7 @@ import { path } from 'ramda';
 import { noop } from 'ramda-extension';
 import { greenValid, redError } from './constants/icon';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
+import { lightTheme } from '../../constants/theme';
 
 export const StyledInput = styled.input`
 	border: 0;
@@ -16,6 +17,7 @@ export const StyledInput = styled.input`
 	border-bottom: 1px solid ${ resolveTheme(TYPES.COLOR) };
 	${ ({ borderBackground, ...props }) => (borderBackground ? `border-color: ${ borderBackground };` : resolveTheme(TYPES.COLOR)(props)) }
 	border-radius: 0;
+	background-color: ${ lightTheme.transparent };
 	color: ${ resolveTheme(TYPES.COLOR) };
 	transition: .15s ease all;
 	background-image: ${ ({ displayIcon, error }) => (displayIcon ? error ? redError : greenValid : 'none') };
@@ -83,6 +85,10 @@ Input.propTypes = {
    * String representation of name prop
    */
     name: PropTypes.string,
+    /**
+   * When field is on focus
+   */
+    onFocus: PropTypes.string,
 };
 
 Input.defaultProps = {

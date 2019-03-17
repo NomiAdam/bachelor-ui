@@ -1,39 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { IoClose } from 'react-icons/lib/io';
 import { o, not } from 'ramda';
 import { isNilOrEmptyString } from 'ramda-extension';
 import Input from '../../atoms/Input/index';
 import { lightTheme } from '../../constants/theme';
+import Icon from '../../atoms/Icon';
+import flexConstants from '../../constants/flex';
 
 const SearchFieldWrapper = styled.div`
-    background-color: ${ ({ backgroundColor }) => backgroundColor || lightTheme.lightGrey };
+    background-color: ${ ({ isFocused }) => (isFocused ? lightTheme.lightGrey : lightTheme.transparent) };
     border-color: transparent;
-    border-radius: 50px;
-    padding: 5px 15px;
+    padding: 5px;
     position: relative;
-`;
-
-const StyledIcon = styled(IoClose)`
-    position: absolute;
-    right: 10px;
-    top: 7.5px;
-    color: ${ lightTheme.lightBlue }
+    width: ${ ({ isFocused }) => (isFocused ? '250px' : '125px') };
+    transition: all .5s ease;
+    display: ${ flexConstants.FLEX };
+    justify-content: ${ flexConstants.POSITION_LEFT };
+    align-items: ${ flexConstants.POSITION_CENTER };
 `;
 
 const isNotNilOrEmptyString = o(not, isNilOrEmptyString);
 
-const SearchField = ({ handleClear, value, ...others }) => (
-    <SearchFieldWrapper>
-        <Input
-            { ...others }
-            value={ value }
-            borderBackground="transparent"
-        />
-        { isNotNilOrEmptyString(value) && <StyledIcon onClick={ handleClear } /> }
-    </SearchFieldWrapper>
-);
+const SearchField = ({
+    handleClear, value, searchColor, ...others
+}) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const setFocus = () => setIsFocused(true);
+    const setBlur = () => setIsFocused(false);
+    return (
+        <SearchFieldWrapper isFocused={ isFocused } onFocus={ setFocus } onBlur={ setBlur }>
+            <Icon name="search" color={ searchColor } />
+            <Input
+                { ...others }
+                value={ value }
+                onFocus={ setFocus }
+                onBlur={ setBlur }
+                borderBackground={ lightTheme.transparent }
+            />
+            { isNotNilOrEmptyString(value) && (
+                <Icon
+                    name="cross"
+                    fontSize="1em"
+                    onClick={ handleClear }
+                    color={ searchColor }
+                />
+            )
+            }
+        </SearchFieldWrapper>
+    );
+};
 
 SearchField.propTypes = {
     /**
@@ -64,6 +80,14 @@ SearchField.propTypes = {
      * String definition of background color
      */
     backgroundColor: PropTypes.string,
+    /**
+   * String representation of Icon colors
+   */
+    searchColor: PropTypes.string,
+};
+
+SearchField.defaultProps = {
+    searchColor: lightTheme.lightBlue,
 };
 
 export { SearchFieldWrapper };

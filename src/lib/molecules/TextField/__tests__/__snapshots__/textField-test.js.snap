@@ -4,6 +4,7 @@ exports[`TextField should match the snapshot 1`] = `
 <styled.div>
   <styled.label>
     <Input
+      onChange={[Function]}
       type="text"
     />
     <Label

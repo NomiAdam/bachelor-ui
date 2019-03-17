@@ -5,5 +5,5 @@ import SearchField from '../../src/lib/molecules/SearchField';
 
 storiesOf('Molecules/SearchField', module)
     .add('SearchField', () => (
-        <SearchField handleClear={ action('Clear') } onChange={ action('Change') } placeholder="Placeholder" />
+        <SearchField handleClear={ action('Clear') } value="asdasdasdasdasdas" onChange={ action('Change') } placeholder="Placeholder" />
     ));

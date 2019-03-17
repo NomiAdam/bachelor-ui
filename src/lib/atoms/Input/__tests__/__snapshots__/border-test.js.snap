@@ -3,7 +3,7 @@
 exports[`Border should match the snapshot 1`] = `
 .c0 {
   position: absolute;
-  bottom: -3px;
+  bottom: -6px;
   left: 0;
   height: 2px;
   width: 100%;
@@ -34,6 +34,12 @@ exports[`Border should match the snapshot 1`] = `
   -webkit-transform: scaleX(1);
   -ms-transform: scaleX(1);
   transform: scaleX(1);
+}
+
+@media (max-width:375px) {
+  .c0 {
+    bottom: -4px;
+  }
 }
 
 <span

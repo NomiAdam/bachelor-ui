@@ -19,10 +19,12 @@ import {
     IoIosArrowDown,
     IoIosSunny,
     IoIosMoon,
+    IoClose,
 } from 'react-icons/lib/io';
 import { keys } from 'ramda';
 
 const IconTypes = {
+    cross: IoClose,
     sun: IoIosSunny,
     moon: IoIosMoon,
     cog: IoIosCogOutline,
