@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
   width: ${ ({ width }) => width };
   height: ${ ({ height }) => height };
   background-color: transparent;
-  position: ${ flexConstants.FLEX };
+  display: ${ flexConstants.FLEX };
   justify-content: ${ flexConstants.POSITION_CENTER };
   align-items: ${ flexConstants.POSITION_CENTER };
 `;
