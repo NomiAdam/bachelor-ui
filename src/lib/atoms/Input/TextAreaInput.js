@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
+import { noop } from 'ramda-extension';
 import { basicTheme } from '../../constants/theme';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
@@ -30,9 +31,10 @@ export const StyledTextArea = styled.textarea`
 
 const getTargetValue = path(['target', 'value']);
 const TextAreaInput = ({
-    value, onChange, cols, rows, disabled, error, onBlur, secondary,
+    value, onChange, cols, rows, disabled, error, onBlur, secondary, name,
 }) => (
     <StyledTextArea
+        name={ name }
         secondary={ secondary }
         onChange={ e => onChange(e, getTargetValue(e)) }
         rows={ rows }
@@ -70,11 +72,16 @@ TextAreaInput.propTypes = {
      * Function to be called upon onBlur event on input field
      */
     onBlur: PropTypes.func,
+    /**
+   * String representation of html name property
+   */
+    name: PropTypes.string,
 };
 
 TextAreaInput.defaultProps = {
     cols: 50,
     rows: 4,
+    onChange: noop,
 };
 
 export default TextAreaInput;

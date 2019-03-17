@@ -17,10 +17,14 @@ import {
     IoEyeDisabled,
     IoIosSearch,
     IoIosArrowDown,
+    IoIosSunny,
+    IoIosMoon,
 } from 'react-icons/lib/io';
 import { keys } from 'ramda';
 
 const IconTypes = {
+    sun: IoIosSunny,
+    moon: IoIosMoon,
     cog: IoIosCogOutline,
     starFill: IoIosStar,
     star: IoIosStarOutline,

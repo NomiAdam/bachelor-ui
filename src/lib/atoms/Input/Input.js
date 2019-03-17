@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
+import { noop } from 'ramda-extension';
 import { greenValid, redError } from './constants/icon';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 
@@ -78,10 +79,15 @@ Input.propTypes = {
      * String definition of placeholder text
      */
     placeholder: PropTypes.string,
+    /**
+   * String representation of name prop
+   */
+    name: PropTypes.string,
 };
 
 Input.defaultProps = {
     type: 'text',
+    onChange: noop,
 };
 
 export default Input;

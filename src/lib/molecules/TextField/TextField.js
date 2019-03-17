@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { noop } from 'ramda-extension';
 import Input, { Label, Border, TextAreaInput } from '../../atoms/Input/index';
 import { maxMobileM, maxMobileS } from '../../constants/device';
 import FieldLabel from '../../atoms/FieldLabel/index';
@@ -24,7 +25,7 @@ const TextFieldWrapper = styled.div`
 `;
 
 const TextField = ({
-    onChange, value, label, secondary, multiLine, rows, cols,
+    onChange, value, label, secondary, multiLine, rows, cols, name,
     disabled, error, onBlur, borderBackground, type, errorLabel, displayIcon,
 }) => (
     <TextFieldWrapper secondary={ secondary }>
@@ -32,6 +33,7 @@ const TextField = ({
             {multiLine
                 ? (
                     <TextAreaInput
+                        name={ name }
                         secondary={ secondary }
                         onChange={ onChange }
                         value={ value }
@@ -44,6 +46,7 @@ const TextField = ({
                 )
                 : (
                     <Input
+                        name={ name }
                         secondary={ secondary }
                         onChange={ onChange }
                         value={ value }
@@ -115,10 +118,15 @@ TextField.propTypes = {
      * Whether we should display icon on Input or not
      */
     displayIcon: PropTypes.bool,
+    /**
+   * String representation of fields name
+   */
+    name: PropTypes.string,
 };
 
 TextField.defaultProps = {
     borderBackground: lightTheme.lightBlue,
+    onChange: noop,
     type: 'text',
 };
 
