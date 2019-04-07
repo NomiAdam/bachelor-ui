@@ -9,7 +9,7 @@ import flexConstants from '../../constants/flex';
 import { darkTheme } from '../../constants/theme';
 
 const StyledContainer = styled.label`
-  padding: 0 5px;
+  padding: 0 15px;
   cursor: ${ ({ disabled }) => (disabled ? 'not-allowed' : 'pointer') };
 `;
 
@@ -26,9 +26,8 @@ const Checkbox = ({
     label, checked, onChange, labelPosition, disabled, secondary, hideLabel,
 }) => (
     <Container
-        width="100%"
+        width="initial"
         height="100%"
-        padding="5px 0"
         justifyContent={ hideLabel ? flexConstants.POSITION_CENTER : flexConstants.POSITION_SPACER }
         secondary={ secondary }
     >
