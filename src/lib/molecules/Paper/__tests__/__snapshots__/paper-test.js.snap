@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Paper should match the snapshot 1`] = `
+<styled.div
+  cursor="initial"
+  margin="0"
+  overflow="hidden"
+  padding="10px"
+/>
+`;

@@ -9,7 +9,7 @@ import { maxMobileM } from '../../constants/device';
 
 const StyledBorder = styled.span`
 	position: absolute;
-	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-6px') }
+	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-2px') }
 	left: 0;
 	height: 2px;
 	width: 100%;

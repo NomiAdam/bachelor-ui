@@ -1,6 +1,6 @@
 {
   "name": "bachelor-ui",
-  "version": "4.1.9",
+  "version": "4.2.0",
   "description": "Experimental component library using styled components",
   "author": "NomiAdam",
   "license": "MIT",
@@ -22,6 +22,7 @@
   "dependencies": {
     "@storybook/addon-actions": "^3.4.10",
     "@storybook/react": "^3.4.10",
+    "babel-preset-es2015": "^6.24.1",
     "prop-types": "^15.6.2",
     "ramda": "^0.25.0",
     "ramda-extension": "^0.6.1",

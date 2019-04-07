@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { toUpper } from 'ramda';
 import Ink from 'react-ink';
 import { StyledButton } from '../../atoms/Button/Button';
-import { Grid, GridCol } from '../Grid/index';
+import { Grid, GridCol } from '../../molecules/Grid/index';
 
 const IconButton = ({
     disabled, label, onClick, color, backgroundColor, large, fullWidth, icon, secondary,

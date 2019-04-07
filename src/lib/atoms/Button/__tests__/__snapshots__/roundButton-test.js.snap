@@ -3,6 +3,15 @@
 exports[`RoundButton should match the snapshot 1`] = `
 <styled.button>
   <Styled(FaPlus) />
+  <e
+    background={true}
+    className="ink"
+    duration={1000}
+    hasTouch={false}
+    opacity={0.25}
+    radius={150}
+    recenter={true}
+  />
 </styled.button>
 `;
 
@@ -11,6 +20,15 @@ exports[`RoundButton should match the snapshot with icon 1`] = `
   <p>
     Mock
   </p>
+  <e
+    background={true}
+    className="ink"
+    duration={1000}
+    hasTouch={false}
+    opacity={0.25}
+    radius={150}
+    recenter={true}
+  />
 </styled.button>
 `;
 
@@ -19,5 +37,14 @@ exports[`RoundButton should match the snapshot with icon 2`] = `
   <p>
     +
   </p>
+  <e
+    background={true}
+    className="ink"
+    duration={1000}
+    hasTouch={false}
+    opacity={0.25}
+    radius={150}
+    recenter={true}
+  />
 </styled.button>
 `;

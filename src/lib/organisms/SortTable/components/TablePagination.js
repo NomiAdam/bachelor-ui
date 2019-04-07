@@ -11,9 +11,9 @@ import {
 } from 'react-icons/lib/fa';
 import styled from 'styled-components';
 import { basicRowCount } from './constants/index';
-import SelectField from '../../../molecules/SelectField/index';
+import SelectField from '../../../atoms/SelectField/index';
 import { basicTheme } from '../../../constants/theme';
-import { Grid, GridCol } from '../../Grid/index';
+import { Grid, GridCol } from '../../../molecules/Grid/index';
 import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
 
 const StyledDiv = styled.div`

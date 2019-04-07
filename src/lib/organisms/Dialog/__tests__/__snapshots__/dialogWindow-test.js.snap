@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DialogWindow should match the snapshot 1`] = `
+<Paper
+  cursor="initial"
+  handleClick={[Function]}
+  margin="0"
+  overflow="hidden"
+  padding="10px"
+>
+  <styled.div
+    gridGap="0"
+    padding="0"
+  >
+    <styled.div
+      colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
+    />
+    <styled.div
+      colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
+    >
+      <DialogContent />
+    </styled.div>
+    <styled.div
+      colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
+    >
+      <DialogActions />
+    </styled.div>
+  </styled.div>
+</Paper>
+`;
+
+exports[`DialogWindow should match the snapshot with children 1`] = `
+<Paper
+  cursor="initial"
+  handleClick={[Function]}
+  margin="0"
+  overflow="hidden"
+  padding="10px"
+>
+  <styled.div
+    gridGap="0"
+    padding="0"
+  >
+    <styled.div
+      colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
+    />
+    <styled.div
+      colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
+    >
+      <DialogContent>
+        <h1>
+          Mock
+        </h1>
+      </DialogContent>
+    </styled.div>
+    <styled.div
+      colXS={12}
+      horizontalAlign="flex-start"
+      verticalAlign="flex-start"
+    >
+      <DialogActions />
+    </styled.div>
+  </styled.div>
+</Paper>
+`;

@@ -19,5 +19,14 @@ exports[`IconButton should match the snapshot 1`] = `
       <span />
     </styled.div>
   </styled.div>
+  <e
+    background={true}
+    className="ink"
+    duration={1000}
+    hasTouch={false}
+    opacity={0.25}
+    radius={150}
+    recenter={true}
+  />
 </styled.button>
 `;

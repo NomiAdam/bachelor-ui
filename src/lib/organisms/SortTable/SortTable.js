@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Paper from '../Paper/index';
+import Paper from '../../molecules/Paper/index';
 import Table from '../../molecules/Table/index';
 import { TableHeading, TablePagination, TableBody } from './components/index';
 

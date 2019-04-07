@@ -2,15 +2,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import Ink from 'react-ink';
 import IconTypes, { iconStringTypes } from './constants/iconNames';
 import { resolveTheme, TYPES } from '../../utils/resolveTheme';
-import RippleEffect from '../../transition/RippleEffect';
 
 const Icon = ({
     name, fontSize, color, clickable, onClick, padding, secondary, open,
 }) => {
     const ValidIcon = IconTypes[ name ];
+    if (!ValidIcon) {
+        return null;
+    }
     const StyledIcon = styled(ValidIcon)`
      font-size: ${ ({ fontSize }) => fontSize };
      cursor: ${ ({ clickable }) => (clickable ? 'pointer' : 'initial') };
@@ -21,17 +22,15 @@ const Icon = ({
      ${ ({ padding }) => (padding ? `padding: ${ padding };` : '') }
 `;
     return (
-        <RippleEffect onClick={ onClick }>
-            <StyledIcon
-                secondary={ secondary }
-                clickable={ clickable }
-                fontSize={ fontSize }
-                color={ color }
-                padding={ padding }
-                open={ open }
-            />
-            <Ink />
-        </RippleEffect>
+        <StyledIcon
+            onClick={ onClick }
+            secondary={ secondary }
+            clickable={ clickable }
+            fontSize={ fontSize }
+            color={ color }
+            padding={ padding }
+            open={ open }
+        />
     );
 };
 
@@ -68,6 +67,10 @@ Icon.propTypes = {
    * Open bool property
    */
     open: PropTypes.bool,
+    /**
+   * Whether Icon should use secondary color or not
+   */
+    secondary: PropTypes.bool,
 };
 
 Icon.defaultProps = {

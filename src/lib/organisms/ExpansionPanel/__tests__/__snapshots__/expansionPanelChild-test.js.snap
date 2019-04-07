@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpansionPanelChild should match the snapshot 1`] = `
+<Styled(styled.div)>
+  <styled.div>
+    <styled.h3 />
+    <Icon
+      clickable={true}
+      fontSize="2em"
+      name="arrowDown"
+    />
+  </styled.div>
+  <styled.div />
+</Styled(styled.div)>
+`;

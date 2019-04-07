@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Grid, GridCol } from '../../Grid/index';
+import { Grid, GridCol } from '../../../molecules/Grid/index';
 import Icon from '../../../atoms/Icon';
 
 const StyledIconGridCol = styled(GridCol)`
