@@ -27,7 +27,7 @@ const StyledBorder = styled.span`
 		transform: scaleX(1);
 	}
 	@media ${ maxMobileM } {
-	  	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-4px') }
+	  	bottom: ${ ({ select, textArea }) => (select ? '-8px' : textArea ? '4px' : '-3px') }
 	}
 `;
 

@@ -88,7 +88,7 @@ Input.propTypes = {
     /**
    * When field is on focus
    */
-    onFocus: PropTypes.string,
+    onFocus: PropTypes.func,
 };
 
 Input.defaultProps = {

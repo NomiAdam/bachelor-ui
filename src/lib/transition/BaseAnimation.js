@@ -2,16 +2,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { prop } from 'ramda';
 
 const BaseAnimation = styled.div`
-  animation-duration: ${ props => props.duration };
-  animation-timing-function: ${ props => props.timingFunction };
-  animation-delay: ${ props => props.delay };
-  animation-iteration-count: ${ props => props.iterationCount };
-  animation-direction: ${ props => props.direction };
-  animation-fill-mode: ${ props => props.fillMode };
-  animation-play-state:  ${ props => props.playState };
-  display: ${ props => props.display };
+  width: 100%;
+  height: 100%;
+  animation-duration: ${ prop('duration') };
+  animation-timing-function: ${ prop('timingFunction') };
+  animation-delay: ${ prop('delay') };
+  animation-iteration-count: ${ prop('iterationCount') };
+  animation-direction: ${ prop('direction') };
+  animation-fill-mode: ${ prop('fillMode') };
+  animation-play-state:  ${ prop('playState') };
+  display: ${ prop('display') };
 `;
 
 BaseAnimation.propTypes = {

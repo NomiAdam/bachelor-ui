@@ -71,6 +71,10 @@ Icon.propTypes = {
    * Whether Icon should use secondary color or not
    */
     secondary: PropTypes.bool,
+    /**
+   * Whether Icon should use primary color or not
+   */
+    primary: PropTypes.bool,
 };
 
 Icon.defaultProps = {

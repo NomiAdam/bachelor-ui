@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { path } from 'ramda';
+import { noop } from 'ramda-extension';
 import Heading from '../Heading/index';
 import Container from '../../molecules/Container/index';
 import { LABEL_POSITION, equalsLeft, equalsRight } from './constants/position';
@@ -30,14 +31,18 @@ const Checkbox = ({
         height="100%"
         justifyContent={ hideLabel ? flexConstants.POSITION_CENTER : flexConstants.POSITION_SPACER }
         secondary={ secondary }
+        overflow="hidden"
     >
         {!hideLabel && equalsLeft(labelPosition) && renderLabel(label)}
-        <StyledContainer disabled={ disabled } isOnLeft={ equalsLeft(labelPosition) } secondary={ secondary }>
+        <StyledContainer
+            disabled={ disabled }
+            secondary={ secondary }
+        >
             <StyledInput
                 secondary={ secondary }
                 type="checkbox"
                 checked={ checked }
-                onChange={ disabled ? undefined : e => onChange(e, getTargetValue(e)) }
+                onChange={ disabled ? noop : event => onChange(event, getTargetValue(event)) }
                 disabled={ disabled }
             />
         </StyledContainer>

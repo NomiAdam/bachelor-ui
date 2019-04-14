@@ -33,6 +33,10 @@ Heading.propTypes = {
    * String representation of desired css cursor property
    */
     cursor: PropTypes.string,
+    /**
+   * Whether to use secondary theme
+   */
+    secondary: PropTypes.bool,
 };
 
 Heading.defaultProps = {

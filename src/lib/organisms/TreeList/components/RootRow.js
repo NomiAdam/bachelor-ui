@@ -7,20 +7,7 @@ import {
 } from 'ramda';
 import { isNotEmpty } from 'ramda-extension';
 import TreeLeaf from './TreeLeaf';
-import { lightTheme } from '../../../constants/theme';
-import { resolveTheme, TYPES } from '../../../utils/resolveTheme';
-import { ListItem } from '../../../molecules/List';
-
-const StyledListItem = styled(ListItem)`
-	  background-color: transparent;
-	  border-bottom: 1px solid ${ lightTheme.lightGrey };
-	  &:hover {
-	    cursor: ${ ({ clickable }) => (clickable ? 'pointer' : 'initial') };
-		  background-color: ${
-    ({ clickable, ...props }) => (clickable ? resolveTheme(TYPES.BACKGROUND_COLOR_HOVER)(props) : 'transparent')
-};
-	  }
-`;
+import Paper from '../../../molecules/Paper';
 
 const StyledChildrenWrapper = styled.ul`
     width: 100%;
@@ -28,7 +15,8 @@ const StyledChildrenWrapper = styled.ul`
 	  list-style-type: none;
     margin: 0;
     transition: .5s all ease;
-    max-height: ${ ({ isOpen }) => (isOpen ? '800px' : '0') };
+    opacity: ${ ({ isOpen }) => (isOpen ? 1 : 0) };
+    max-height: ${ ({ isOpen }) => (isOpen ? '800px' : 0) };
 `;
 
 const notEmptyChildren = o(isNotEmpty, keys);
@@ -73,7 +61,10 @@ class RootRow extends PureComponent {
         const hasChildren = notEmptyChildren(children);
         return (
             <Fragment>
-                <StyledListItem clickable={ clickable }>
+                <Paper
+                    margin="10px"
+                    borderRadius={ 20 }
+                >
                     <TreeLeaf
                         depth={ depth }
                         hasChildren={ hasChildren }
@@ -85,7 +76,7 @@ class RootRow extends PureComponent {
                         node={ node }
                         handleClick={ handleClick }
                     />
-                </StyledListItem>
+                </Paper>
                 {
                     hasChildren ? (
                         <StyledChildrenWrapper isOpen={ isOpen }>

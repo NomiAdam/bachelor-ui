@@ -3,12 +3,15 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Grid, GridCol } from '../../../molecules/Grid/index';
 import Icon from '../../../atoms/Icon';
+import flexConstants from '../../../constants/flex';
 
 const StyledIconGridCol = styled(GridCol)`
   display: flex;
   align-items: center;
   cursor: initial;
 `;
+
+const stopPropagation = e => e.stopPropagation();
 
 class TreeLeaf extends PureComponent {
     handleIconClick = (e) => {
@@ -26,19 +29,18 @@ class TreeLeaf extends PureComponent {
 
     render() {
         const {
-            depth, hasChildren, isOpen, leafData, node,
+            hasChildren, isOpen, leafData, node,
         } = this.props;
         return (
             <Grid
                 onClick={ this.handleClick }
-                padding={ `0 0 0 ${ ( depth - 1 ) * 25 }px` }
             >
-                <StyledIconGridCol colXS={ 1 } onClick={ e => e.stopPropagation() }>
+                <StyledIconGridCol colXS={ 1 } onClick={ stopPropagation }>
                     {
                         hasChildren
                       && <Icon name="arrowDown" open={ isOpen } onClick={ this.handleIconClick } />}
                 </StyledIconGridCol>
-                <GridCol colXS={ 11 } horizontalAlign="flex-start">
+                <GridCol colXS={ 11 } horizontalAlign={ flexConstants.POSITION_LEFT }>
                     { node({ ...leafData }) }
                 </GridCol>
             </Grid>
