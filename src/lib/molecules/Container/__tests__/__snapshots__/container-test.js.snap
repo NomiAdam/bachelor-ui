@@ -2,9 +2,9 @@
 
 exports[`Container should match the snapshot 1`] = `
 <div
-  className="sc-bdVaJa eTiPIB"
+  className="sc-bdVaJa gISWsE"
   height="100%"
-  overflow="auto"
+  overflow="hidden"
   width="100%"
 />
 `;
