@@ -63,7 +63,7 @@ StyledContainer.defaultProps = {
     justifyContent: 'flex-start',
     alignItems: 'center',
     flexDirection: 'row',
-    overflow: 'auto',
+    overflow: 'hidden',
     padding: '0',
 };
 

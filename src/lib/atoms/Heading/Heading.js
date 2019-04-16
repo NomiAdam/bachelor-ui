@@ -7,12 +7,15 @@ import { resolveTheme, TYPES } from '../../utils/resolveTheme';
 const HeadingWrapper = styled.div`
   color: ${ resolveTheme(TYPES.COLOR) };
   cursor: ${ ({ cursor }) => cursor };
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Heading = ({
-    component, label, width, cursor, secondary, ...others
+    component, label, width, cursor, secondary, style, ...others
 }) => (
-    <HeadingWrapper secondary={ secondary }>
+    <HeadingWrapper secondary={ secondary } style={ style }>
         {createElement(component, others, label)}
     </HeadingWrapper>
 );

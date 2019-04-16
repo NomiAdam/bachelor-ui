@@ -11,9 +11,16 @@ const StyledParagraph = styled.p`
 `;
 
 const Paragraph = ({
-    color, size, children, bold, secondary, margin,
+    color, size, children, bold, secondary, margin, handleClick,
 }) => (
-    <StyledParagraph margin={ margin } color={ color } size={ size } bold={ bold } secondary={ secondary }>
+    <StyledParagraph
+        onClick={ handleClick }
+        margin={ margin }
+        color={ color }
+        size={ size }
+        bold={ bold }
+        secondary={ secondary }
+    >
         {children}
     </StyledParagraph>
 );
@@ -43,6 +50,10 @@ Paragraph.propTypes = {
    * Whether to use secondary theme
    */
     secondary: PropTypes.bool,
+    /**
+   * Function handler bound to onClick
+   */
+    handleClick: PropTypes.func,
 };
 
 Paragraph.defaultProps = {
