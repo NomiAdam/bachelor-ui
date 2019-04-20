@@ -25,7 +25,7 @@ const TextFieldWrapper = styled.div`
 `;
 
 const TextField = ({
-    onChange, value, label, secondary, multiLine, rows, cols, name,
+    onChange, value, label, secondary, multiLine, rows, cols, name, placeholder,
     disabled, error, onBlur, borderBackground, type, errorLabel, displayIcon,
 }) => (
     <TextFieldWrapper secondary={ secondary }>
@@ -33,6 +33,7 @@ const TextField = ({
             {multiLine
                 ? (
                     <TextAreaInput
+                        placeholder={ placeholder }
                         name={ name }
                         secondary={ secondary }
                         onChange={ onChange }
@@ -46,6 +47,7 @@ const TextField = ({
                 )
                 : (
                     <Input
+                        placeholder={ placeholder }
                         name={ name }
                         secondary={ secondary }
                         onChange={ onChange }
@@ -122,6 +124,10 @@ TextField.propTypes = {
    * String representation of fields name
    */
     name: PropTypes.string,
+    /**
+   * Placeholder string
+   */
+    placeholder: PropTypes.string,
 };
 
 TextField.defaultProps = {

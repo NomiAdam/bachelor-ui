@@ -1,10 +1,14 @@
 import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import flexConstant from '../../constants/flex';
 
 const StyledMediaWrapper = styled.div`
   overflow: hidden;
   width: 100%;
+  display: ${ flexConstant.FLEX };
+  justify-content: ${ flexConstant.POSITION_CENTER };
+  align-items: ${ flexConstant.POSITION_CENTER };
   video, audio, picture, iframe, img {
     width: ${ ({ width }) => width };
     height: ${ ({ height }) => height };
