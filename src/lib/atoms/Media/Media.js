@@ -5,7 +5,6 @@ import styled from 'styled-components';
 const StyledMediaWrapper = styled.div`
   overflow: hidden;
   width: 100%;
-  height: 100%;
   video, audio, picture, iframe, img {
     width: ${ ({ width }) => width };
     height: ${ ({ height }) => height };

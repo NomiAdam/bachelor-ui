@@ -26,7 +26,7 @@ const StyledButton = styled.button`
 `;
 
 const Button = ({
-    disabled, label, onClick, color, backgroundColor, large, fullWidth, secondary, type,
+    disabled, label, onClick, color, backgroundColor, large, fullWidth, secondary, type, border, borderRadius,
 }) => (
     <StyledButton
         type={ type }
@@ -36,7 +36,9 @@ const Button = ({
         backgroundColor={ backgroundColor }
         large={ large }
         fullWidth={ fullWidth }
+        border={ border }
         secondary={ secondary }
+        borderRadius={ borderRadius }
     >
         <span>{toUpper(label)}</span>
         <Ink />
@@ -76,6 +78,18 @@ Button.propTypes = {
    * String representation of button type
    */
     type: PropTypes.string,
+    /**
+   * String definition of border
+   */
+    border: PropTypes.string,
+    /**
+   * String definition of border radius
+   */
+    borderRadius: PropTypes.string,
+    /**
+   * Whether to use second theme
+   */
+    secondary: PropTypes.bool,
 };
 
 Button.defaultProps = {
